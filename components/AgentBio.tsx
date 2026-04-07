@@ -2,9 +2,9 @@
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer, viewport } from '@/lib/animations'
 
-interface Props { name: string; title: string; creds: string; bio: string }
+interface Props { name: string; title: string; creds: string; bio: string; bioImage?: string }
 
-export default function AgentBio({ name, title, creds, bio }: Props) {
+export default function AgentBio({ name, title, creds, bio, bioImage }: Props) {
   return (
     <section id="bio" className="bg-brand-bg py-20 px-4">
       <div className="max-w-5xl mx-auto">
@@ -12,11 +12,19 @@ export default function AgentBio({ name, title, creds, bio }: Props) {
           className="flex flex-col md:flex-row items-center gap-10 bg-brand-surface rounded-card p-8 md:p-12 shadow-card"
           variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          {/* Avatar placeholder */}
+          {/* Avatar */}
           <motion.div variants={fadeInUp} className="shrink-0">
-            <div className="w-40 h-40 rounded-full bg-apex-blue-light border-4 border-apex-blue flex items-center justify-center text-6xl shadow-card">
-              <i className="fa-solid fa-user"></i>
-            </div>
+            {bioImage ? (
+              <img
+                src={bioImage}
+                alt={name}
+                className="w-40 h-40 rounded-full border-4 border-apex-blue object-cover shadow-card"
+              />
+            ) : (
+              <div className="w-40 h-40 rounded-full bg-apex-blue-light border-4 border-apex-blue flex items-center justify-center text-6xl shadow-card">
+                <i className="fa-solid fa-user"></i>
+              </div>
+            )}
           </motion.div>
 
           {/* Text */}

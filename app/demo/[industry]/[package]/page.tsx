@@ -118,6 +118,7 @@ export default async function DemoPage({ params }: PageProps) {
             title={industry.bioTitle}
             creds={industry.bioCreds}
             bio={industry.bioText}
+            bioImage={industry.bioImage}
           />
         )}
 
