@@ -26,6 +26,7 @@ export interface IndustryConfig {
   accentColor: string
   themeColors?: ThemeColors
   heroOverlay?: boolean  // default true — set false to remove tint over hero video
+  heroIntroText?: string // optional intro text that scale+fades before the headline
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
   services: ServiceItem[]
@@ -82,7 +83,20 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Law Firm',
     faIcon: 'fa-solid fa-scale-balanced',
     heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80',
-    accentColor: '#1a2d70',
+    heroVideo: '/law-firm-hero.mp4',
+    accentColor: '#722F37',
+    themeColors: {
+      accent: '114 47 55',
+      accentDark: '92 37 47',
+      accentLight: '#1a0c0e',
+      brandBg: '#0a0a0a',
+      brandSurface: '#111111',
+      brandCard: '#1a1a1a',
+      brandText: '#F5F5F5',
+      brandMuted: '#9CA3AF',
+      brandBorder: '#2a2a2a',
+    },
+    heroIntroText: 'APEX Attorneys at Law',
     heroHeadline: {
       pulsemarket:   'Experienced Legal Representation When It Matters Most',
       pulseflow:     'More Clients. More Cases. More Authority.',
