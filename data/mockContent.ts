@@ -1,6 +1,6 @@
 import { IndustrySlug } from './industries'
 
-export interface BlogPost       { title: string; preview: string; readTime: string }
+export interface BlogPost       { title: string; preview: string; readTime: string; image: string }
 export interface EmailCampaign  { subject: string; bodyPreview: string }
 export interface PodcastEpisode { title: string; duration: string; description: string }
 export interface AnalyticsStat  { label: string; value: string; change: string; positive: boolean }
@@ -17,8 +17,8 @@ export interface MockContent {
 export const mockContent: Record<IndustrySlug, MockContent> = {
   insurance: {
     blogPosts: [
-      { title: '5 Insurance Mistakes Houston Homeowners Make (And How to Fix Them)', preview: "When did you last review your homeowners policy? Most people set it and forget it — but that could be costing you thousands. Here are the 5 most common mistakes we see...", readTime: '4 min read' },
-      { title: "What Does 'Full Coverage' Auto Insurance Actually Mean?", preview: "Most drivers think they have full coverage until they file a claim and find out otherwise. Here's exactly what you're getting — and what you're not...", readTime: '3 min read' },
+      { title: '5 Insurance Mistakes Houston Homeowners Make (And How to Fix Them)', preview: "When did you last review your homeowners policy? Most people set it and forget it — but that could be costing you thousands. Here are the 5 most common mistakes we see...", readTime: '4 min read', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop' },
+      { title: "What Does 'Full Coverage' Auto Insurance Actually Mean?", preview: "Most drivers think they have full coverage until they file a claim and find out otherwise. Here's exactly what you're getting — and what you're not...", readTime: '3 min read', image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=400&fit=crop' },
     ],
     emailCampaigns: [
       { subject: 'Your policy renews in 30 days — here\'s what to check', bodyPreview: "Hi [First Name], your annual renewal is coming up fast. Before you auto-renew, take 5 minutes to review these 3 things that could save you money or leave you exposed..." },
@@ -51,8 +51,8 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
 
   lawfirm: {
     blogPosts: [
-      { title: 'What to Do in the First 24 Hours After a Car Accident in Texas', preview: "Most people make costly mistakes in the first 24 hours after an accident. Here's the step-by-step guide every Texas driver needs to read before they ever need it...", readTime: '5 min read' },
-      { title: 'Texas Fault vs. No-Fault: What It Means for Your Insurance Claim', preview: "Most Texans don't know how fault is determined after an accident. Here's exactly how it works — and why it matters for your settlement...", readTime: '4 min read' },
+      { title: 'What to Do in the First 24 Hours After a Car Accident in Texas', preview: "Most people make costly mistakes in the first 24 hours after an accident. Here's the step-by-step guide every Texas driver needs to read before they ever need it...", readTime: '5 min read', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=400&fit=crop' },
+      { title: 'Texas Fault vs. No-Fault: What It Means for Your Insurance Claim', preview: "Most Texans don't know how fault is determined after an accident. Here's exactly how it works — and why it matters for your settlement...", readTime: '4 min read', image: 'https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800&h=400&fit=crop' },
     ],
     emailCampaigns: [
       { subject: 'Have you been in an accident? Time matters more than you think', bodyPreview: "Under Texas law, you have 2 years to file a personal injury claim — but the evidence disappears much faster. Here's what to preserve immediately..." },
@@ -85,8 +85,8 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
 
   realestate: {
     blogPosts: [
-      { title: 'Houston Neighborhoods Guide 2025: Where to Buy Based on Your Lifestyle', preview: "Comparing Katy, The Woodlands, Heights, Midtown and more — here's the honest breakdown of what each neighborhood actually offers buyers in every price range...", readTime: '6 min read' },
-      { title: 'How to Win a Bidding War in a Hot Market: 7 Strategies That Actually Work', preview: "In today's market, the highest offer doesn't always win. Here are the 7 strategies our buyers use to beat competing offers — even at lower prices...", readTime: '5 min read' },
+      { title: 'Houston Neighborhoods Guide 2025: Where to Buy Based on Your Lifestyle', preview: "Comparing Katy, The Woodlands, Heights, Midtown and more — here's the honest breakdown of what each neighborhood actually offers buyers in every price range...", readTime: '6 min read', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=400&fit=crop' },
+      { title: 'How to Win a Bidding War in a Hot Market: 7 Strategies That Actually Work', preview: "In today's market, the highest offer doesn't always win. Here are the 7 strategies our buyers use to beat competing offers — even at lower prices...", readTime: '5 min read', image: 'https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?w=800&h=400&fit=crop' },
     ],
     emailCampaigns: [
       { subject: 'Just Listed: 3 homes that hit the market this week in your price range', bodyPreview: "I've been keeping an eye out for you. Here are this week's best new listings that match what you told me you're looking for..." },
@@ -119,8 +119,8 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
 
   financial: {
     blogPosts: [
-      { title: 'The 3 Biggest Retirement Planning Mistakes People in Their 40s Make', preview: "Most people don't realize they're behind until it's almost too late. Here's how to course-correct — and what's actually still possible even if you're starting late...", readTime: '5 min read' },
-      { title: 'Roth vs. Traditional IRA: Which One Is Right for You in 2025?', preview: "The answer depends on 3 factors most people never consider. Here's the honest breakdown — including the one scenario where the traditional IRA wins every time...", readTime: '4 min read' },
+      { title: 'The 3 Biggest Retirement Planning Mistakes People in Their 40s Make', preview: "Most people don't realize they're behind until it's almost too late. Here's how to course-correct — and what's actually still possible even if you're starting late...", readTime: '5 min read', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop' },
+      { title: 'Roth vs. Traditional IRA: Which One Is Right for You in 2025?', preview: "The answer depends on 3 factors most people never consider. Here's the honest breakdown — including the one scenario where the traditional IRA wins every time...", readTime: '4 min read', image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop' },
     ],
     emailCampaigns: [
       { subject: 'Are you on track to retire at the age you want?', bodyPreview: "I built a quick framework that shows exactly where you stand. Based on your age and current savings, here's what the numbers typically say — and what to do about it..." },

@@ -15,6 +15,12 @@ import SocialPostCarousel    from '@/components/SocialPostCarousel'
 import PodcastPlayer         from '@/components/PodcastPlayer'
 import VideoGallery          from '@/components/VideoGallery'
 import AnalyticsDashboard    from '@/components/AnalyticsDashboard'
+import LandingPageBadge      from '@/components/LandingPageBadge'
+import ClickToCall           from '@/components/ClickToCall'
+import ConversionTracking    from '@/components/ConversionTracking'
+import AIAvatarVideo         from '@/components/AIAvatarVideo'
+import BrandedPresence       from '@/components/BrandedPresence'
+import WhiteGloveSupport     from '@/components/WhiteGloveSupport'
 import DemoFooter            from '@/components/DemoFooter'
 
 // ── Pregenerate all 16 routes ──────────────────────────────────────────
@@ -67,6 +73,12 @@ export default async function DemoPage({ params }: PageProps) {
           formCTA={industry.formCTA}
         />
 
+        {/* Landing Page Count Badge — always shown */}
+        <LandingPageBadge
+          count={pkg.landingPageCount}
+          packageName={pkg.name}
+        />
+
         {/* Services */}
         {sections.includes('services') && (
           <ServicesGrid services={industry.services} />
@@ -106,9 +118,14 @@ export default async function DemoPage({ params }: PageProps) {
           <EmailPreview campaigns={content.emailCampaigns} industryName={industry.name} />
         )}
 
-        {/* Social Posts — PulseFlow+ */}
+        {/* Social Posts — all tiers */}
         {sections.includes('social') && (
-          <SocialPostCarousel posts={content.socialPosts} industryName={industry.name} />
+          <SocialPostCarousel
+            posts={content.socialPosts}
+            industryName={industry.name}
+            postsPerMonth={pkg.socialPostCount}
+            showAllPlatforms={pkg.slug === 'pulsecommand'}
+          />
         )}
 
         {/* Podcast — PulseDrive+ */}
@@ -121,9 +138,38 @@ export default async function DemoPage({ params }: PageProps) {
           <VideoGallery hooks={content.videoHooks} industryName={industry.name} />
         )}
 
-        {/* Analytics Dashboard — PulseCommand only */}
+        {/* Conversion Tracking — PulseFlow */}
+        {sections.includes('conversion') && (
+          <ConversionTracking packageName={pkg.name} />
+        )}
+
+        {/* AI Avatar Video — PulseCommand */}
+        {sections.includes('avatar') && (
+          <AIAvatarVideo />
+        )}
+
+        {/* Analytics Dashboard — PulseMarket (basic) & PulseCommand (full) */}
         {sections.includes('analytics') && (
-          <AnalyticsDashboard stats={content.analyticsStats} packageName={pkg.name} />
+          <AnalyticsDashboard
+            stats={content.analyticsStats}
+            packageName={pkg.name}
+            basic={pkg.slug === 'pulsemarket'}
+          />
+        )}
+
+        {/* Branded Presence — PulseCommand */}
+        {sections.includes('brandpresence') && (
+          <BrandedPresence />
+        )}
+
+        {/* White-Glove Support — PulseCommand */}
+        {sections.includes('whiteglove') && (
+          <WhiteGloveSupport />
+        )}
+
+        {/* Click-to-Call floating button — all tiers */}
+        {sections.includes('clicktocall') && (
+          <ClickToCall />
         )}
       </main>
 

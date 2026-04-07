@@ -35,9 +35,15 @@ export function BlogPreview({ posts, industryName }: BlogProps) {
               variants={fadeInUp}
               className="bg-white rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 overflow-hidden"
             >
-              {/* Image placeholder */}
-              <div className="h-44 bg-apex-blue-light flex items-center justify-center text-5xl">
-                <i className="fa-solid fa-pen-to-square text-apex-blue"></i>
+              {/* Blog image */}
+              <div className="h-44 bg-apex-blue-light overflow-hidden">
+                {post.image ? (
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-5xl">
+                    <i className="fa-solid fa-pen-to-square text-apex-blue"></i>
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <span className="text-xs font-semibold text-apex-blue bg-apex-blue-light px-2 py-0.5 rounded-pill">

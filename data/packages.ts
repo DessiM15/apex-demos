@@ -17,6 +17,10 @@ export interface PackageConfig {
   idealFor: string
   solves: string
   sectionsEnabled: string[]
+  landingPageCount: string
+  socialPostCount: string
+  emailCampaignCount: number
+  blogArticleCount: number
 }
 
 export const packages: Record<PackageSlug, PackageConfig> = {
@@ -29,7 +33,11 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     bgColor: '#EBF0FC',
     idealFor: 'New agents, part-time reps, and anyone starting their online presence',
     solves: 'Agents with zero web presence and no time to build one',
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','footer'],
+    landingPageCount: '3',
+    socialPostCount: '30',
+    emailCampaignCount: 0,
+    blogArticleCount: 0,
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','social','clicktocall','analytics','footer'],
     features: [
       { icon: 'fa-solid fa-file-lines', title: '3 AI Landing Pages',     desc: 'Build credibility from day one' },
       { icon: 'fa-solid fa-share-nodes', title: '30 Social Posts/mo',      desc: 'Automate content distribution' },
@@ -46,8 +54,12 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     color: '#243a8f',
     bgColor: '#EBF0FC',
     idealFor: 'Growing agents seeking systemized lead generation',
-    solves: 'Spending $300–800/month on tools that don\'t talk to each other',
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','footer'],
+    solves: 'Spending $300\u2013800/month on tools that don\'t talk to each other',
+    landingPageCount: '5',
+    socialPostCount: '60',
+    emailCampaignCount: 4,
+    blogArticleCount: 2,
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','conversion','footer'],
     features: [
       { icon: 'fa-solid fa-file-lines', title: '5 AI Landing Pages',      desc: 'Optimized conversion-ready pages' },
       { icon: 'fa-solid fa-share-nodes', title: '60 Social Posts/mo',       desc: 'Consistent brand presence' },
@@ -64,8 +76,12 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     color: '#243a8f',
     bgColor: '#EBF0FC',
     idealFor: 'Full-time agents who want to dominate their market',
-    solves: 'Top agents dominate with podcasts and video — now you can too',
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','podcast','video','footer'],
+    solves: 'Top agents dominate with podcasts and video \u2014 now you can too',
+    landingPageCount: '10',
+    socialPostCount: '100+',
+    emailCampaignCount: 8,
+    blogArticleCount: 4,
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','podcast','video','footer'],
     features: [
       { icon: 'fa-solid fa-file-lines', title: '10 Landing Pages',        desc: 'Full conversion funnel' },
       { icon: 'fa-solid fa-share-nodes', title: '100+ Social Posts/mo',    desc: 'Dominate every platform' },
@@ -83,7 +99,11 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     bgColor: '#FDF0F0',
     idealFor: 'Agency builders, team leaders, and top producers scaling a brand',
     solves: 'Fortune 500-level marketing for elite professionals',
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','podcast','video','analytics','footer'],
+    landingPageCount: 'Unlimited',
+    socialPostCount: '150',
+    emailCampaignCount: 12,
+    blogArticleCount: 4,
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','podcast','video','avatar','analytics','brandpresence','whiteglove','footer'],
     features: [
       { icon: 'fa-solid fa-infinity', title: 'Unlimited AI Landing Pages', desc: 'No limits on your growth' },
       { icon: 'fa-solid fa-share-nodes', title: '150 Social Posts/mo',        desc: 'Full omnichannel domination' },
