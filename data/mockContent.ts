@@ -21,13 +21,13 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       { title: "What Does 'Full Coverage' Auto Insurance Actually Mean?", preview: "Most drivers think they have full coverage until they file a claim and find out otherwise. Here's exactly what you're getting — and what you're not...", readTime: '3 min read' },
     ],
     emailCampaigns: [
-      { subject: '⚠️ Your policy renews in 30 days — here\'s what to check', bodyPreview: "Hi [First Name], your annual renewal is coming up fast. Before you auto-renew, take 5 minutes to review these 3 things that could save you money or leave you exposed..." },
+      { subject: 'Your policy renews in 30 days — here\'s what to check', bodyPreview: "Hi [First Name], your annual renewal is coming up fast. Before you auto-renew, take 5 minutes to review these 3 things that could save you money or leave you exposed..." },
       { subject: 'Did you know bundling saves the average family $647/year?', bodyPreview: "Most people don't realize how much they're leaving on the table by keeping their home and auto policies separate. Here's the math — and how to get started..." },
     ],
     socialPosts: [
-      "🏠 HOMEOWNERS: Is your home insured for what it would cost to REBUILD — not just what you paid for it? These are two very different numbers. DM me to find out if you're covered correctly. #Insurance #Houston #HomeownersInsurance",
-      "Quick tip 💰: Review your auto deductible every year. If you haven't filed a claim in 3+ years, raising your deductible could lower your premium significantly. #AutoInsurance #MoneySavingTips",
-      "Life insurance isn't just for people with dependents. It's for anyone who wants to leave something behind, cover final expenses, or protect a business partner. Let's talk. 📞 #LifeInsurance",
+      "HOMEOWNERS: Is your home insured for what it would cost to REBUILD — not just what you paid for it? These are two very different numbers. DM me to find out if you're covered correctly. #Insurance #Houston #HomeownersInsurance",
+      "Quick tip: Review your auto deductible every year. If you haven't filed a claim in 3+ years, raising your deductible could lower your premium significantly. #AutoInsurance #MoneySavingTips",
+      "Life insurance isn't just for people with dependents. It's for anyone who wants to leave something behind, cover final expenses, or protect a business partner. Let's talk. #LifeInsurance",
     ],
     podcastEpisodes: [
       { title: 'The Truth About Bundling: Are You Actually Saving Money?',               duration: '22 min', description: 'Breaking down exactly when bundling works and when it costs you more.' },
@@ -59,9 +59,9 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       { subject: '3 things insurance adjusters hope you don\'t know', bodyPreview: "Insurance companies are businesses. Their goal is to pay out as little as possible. Here are the tactics they use — and how we protect our clients against them..." },
     ],
     socialPosts: [
-      "🚨 TEXAS DRIVERS: If you're in an accident, do NOT admit fault at the scene — even if you think it was your fault. Fault is determined legally, not on the side of the road. Call us first. #PersonalInjury #Texas #LegalTips",
-      "Did you know: The average personal injury settlement WITHOUT an attorney is 3.5x LOWER than with one? Our fee only comes from your settlement. You pay nothing upfront. ⚖️ #NoFeeUnlessWeWin",
-      "Most people wait too long to call an attorney after an accident. Every day that passes, evidence disappears. Call us immediately — free consultation, no obligation. 📞 #HoustonLawyer",
+      "TEXAS DRIVERS: If you're in an accident, do NOT admit fault at the scene — even if you think it was your fault. Fault is determined legally, not on the side of the road. Call us first. #PersonalInjury #Texas #LegalTips",
+      "Did you know: The average personal injury settlement WITHOUT an attorney is 3.5x LOWER than with one? Our fee only comes from your settlement. You pay nothing upfront. #NoFeeUnlessWeWin",
+      "Most people wait too long to call an attorney after an accident. Every day that passes, evidence disappears. Call us immediately — free consultation, no obligation. #HoustonLawyer",
     ],
     podcastEpisodes: [
       { title: 'Know Your Rights: What Texas Law Says About Rideshare Accidents',          duration: '24 min', description: 'Uber, Lyft, and autonomous vehicles — who pays when things go wrong.' },
@@ -93,9 +93,9 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       { subject: 'Is now a good time to sell? Here\'s what Houston data says', bodyPreview: "Inventory in your zip code is down 23% from last year. What that means for your home's value right now — and whether the timing works in your favor..." },
     ],
     socialPosts: [
-      "🏠 JUST SOLD — 4 bed / 3 bath in Katy TX. Listed Friday. Under contract Monday. $18K over asking. This market rewards preparation. If you're thinking about selling, let's talk strategy NOW. #Houston #RealEstate #JustSold",
-      "First-time buyer tip 🏡: Get pre-approved BEFORE you start touring homes. Not pre-qualified — PRE-APPROVED. It makes your offer 40% more competitive. DM me to connect you with a great lender. #FirstTimeHomeBuyer",
-      "📊 Houston Market Update: Median home price up 6.2% YoY. Inventory down 23%. Average days on market: 18. If you've been waiting to sell — the window is NOW. #HoustonRealEstate #MarketUpdate",
+      "JUST SOLD — 4 bed / 3 bath in Katy TX. Listed Friday. Under contract Monday. $18K over asking. This market rewards preparation. If you're thinking about selling, let's talk strategy NOW. #Houston #RealEstate #JustSold",
+      "First-time buyer tip: Get pre-approved BEFORE you start touring homes. Not pre-qualified — PRE-APPROVED. It makes your offer 40% more competitive. DM me to connect you with a great lender. #FirstTimeHomeBuyer",
+      "Houston Market Update: Median home price up 6.2% YoY. Inventory down 23%. Average days on market: 18. If you've been waiting to sell — the window is NOW. #HoustonRealEstate #MarketUpdate",
     ],
     podcastEpisodes: [
       { title: 'Houston Market Update: What Buyers and Sellers Need to Know Right Now', duration: '22 min', description: 'Monthly deep dive into Houston real estate data and what it means for you.' },
@@ -127,9 +127,9 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       { subject: 'Market volatility is scary — here\'s what we\'re doing for clients', bodyPreview: "When markets drop, emotions run high. Here's the data-driven approach we use to protect client portfolios without panic-selling — and why it works long-term..." },
     ],
     socialPosts: [
-      "📊 REALITY CHECK: If you're 45 and have less than $250,000 saved for retirement — you're not alone. 64% of Americans are in the same boat. But there's still time to close the gap. Here's the math on what it takes. #RetirementPlanning #FinancialFreedom",
-      "The AI wave is replacing jobs. The gig economy is unpredictable. Social security is uncertain. The most powerful thing you can do RIGHT NOW is build income that doesn't depend on a boss or an algorithm. Let's build your plan. 💰 #FinancialAdvisor",
-      "Compound interest is the 8th wonder of the world — Einstein said it. $500/month starting at 25 = $1.7M at 65. The same $500/month starting at 45 = $340K. Time is the asset. Start now. 📈 #WealthBuilding #Investing",
+      "REALITY CHECK: If you're 45 and have less than $250,000 saved for retirement — you're not alone. 64% of Americans are in the same boat. But there's still time to close the gap. Here's the math on what it takes. #RetirementPlanning #FinancialFreedom",
+      "The AI wave is replacing jobs. The gig economy is unpredictable. Social security is uncertain. The most powerful thing you can do RIGHT NOW is build income that doesn't depend on a boss or an algorithm. Let's build your plan. #FinancialAdvisor",
+      "Compound interest is the 8th wonder of the world — Einstein said it. $500/month starting at 25 = $1.7M at 65. The same $500/month starting at 45 = $340K. Time is the asset. Start now. #WealthBuilding #Investing",
     ],
     podcastEpisodes: [
       { title: 'How to Turn $500/Month Into $1 Million: The Math Behind Compound Interest', duration: '24 min', description: 'The simple math that changes how you think about saving starting today.' },

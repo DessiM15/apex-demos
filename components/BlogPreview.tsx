@@ -37,7 +37,7 @@ export function BlogPreview({ posts, industryName }: BlogProps) {
             >
               {/* Image placeholder */}
               <div className="h-44 bg-apex-blue-light flex items-center justify-center text-5xl">
-                📝
+                <i className="fa-solid fa-pen-to-square text-apex-blue"></i>
               </div>
               <div className="p-6">
                 <span className="text-xs font-semibold text-apex-blue bg-apex-blue-light px-2 py-0.5 rounded-pill">
@@ -59,7 +59,7 @@ export function BlogPreview({ posts, industryName }: BlogProps) {
           className="text-center text-brand-muted text-sm mt-8"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          ✍️ 2 new articles published automatically every month — written in your voice, optimized for Google.
+          2 new articles published automatically every month — written in your voice, optimized for Google.
         </motion.p>
       </div>
     </section>

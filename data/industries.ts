@@ -8,8 +8,9 @@ export interface Testimonial  { quote: string; name: string; location: string; r
 export interface IndustryConfig {
   slug: IndustrySlug
   name: string
-  emoji: string
+  faIcon: string
   heroImage: string
+  heroVideo?: string
   accentColor: string
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
@@ -27,8 +28,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
   insurance: {
     slug: 'insurance',
     name: 'Insurance Agent',
-    emoji: '🏥',
+    faIcon: 'fa-solid fa-shield-halved',
     heroImage: 'https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&q=80',
+    heroVideo: '/insurace-hero.mp4',
     accentColor: '#243a8f',
     heroHeadline: {
       pulsemarket:   'Protect What Matters Most — Get Your Free Quote Today',
@@ -43,10 +45,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       pulsecommand:  'Unlimited landing pages, AI avatar videos, multichannel podcasting, and white-glove support. Built to scale.',
     },
     services: [
-      { icon: '🚗', title: 'Auto Insurance',      desc: 'Comprehensive coverage, competitive rates' },
-      { icon: '🏠', title: 'Homeowners Insurance',desc: 'Protect your biggest investment' },
-      { icon: '❤️', title: 'Life Insurance',       desc: "Secure your family's future" },
-      { icon: '💼', title: 'Business Insurance',   desc: 'Keep your business fully covered' },
+      { icon: 'fa-solid fa-car', title: 'Auto Insurance',      desc: 'Comprehensive coverage, competitive rates' },
+      { icon: 'fa-solid fa-house-chimney', title: 'Homeowners Insurance',desc: 'Protect your biggest investment' },
+      { icon: 'fa-solid fa-heart-pulse', title: 'Life Insurance',       desc: "Secure your family's future" },
+      { icon: 'fa-solid fa-briefcase', title: 'Business Insurance',   desc: 'Keep your business fully covered' },
     ],
     formFields: ['First Name', 'Last Name', 'Phone', 'Email', 'Coverage Type'],
     formCTA: 'Get My Free Quote →',
@@ -64,7 +66,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
   lawfirm: {
     slug: 'lawfirm',
     name: 'Law Firm',
-    emoji: '⚖️',
+    faIcon: 'fa-solid fa-scale-balanced',
     heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80',
     accentColor: '#1a2d70',
     heroHeadline: {
@@ -80,10 +82,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       pulsecommand:  'Unlimited landing pages, AI avatar videos, multichannel podcast distribution, and white-glove setup. Built to dominate.',
     },
     services: [
-      { icon: '⚖️', title: 'Personal Injury',    desc: 'Car accidents, slip & fall, workplace injuries' },
-      { icon: '👨‍👩‍👧', title: 'Family Law',        desc: 'Divorce, custody, adoption' },
-      { icon: '🔒', title: 'Criminal Defense',   desc: 'Misdemeanor & felony representation' },
-      { icon: '💼', title: 'Business Law',        desc: 'Contracts, disputes, formation' },
+      { icon: 'fa-solid fa-scale-balanced', title: 'Personal Injury',    desc: 'Car accidents, slip & fall, workplace injuries' },
+      { icon: 'fa-solid fa-people-roof', title: 'Family Law',        desc: 'Divorce, custody, adoption' },
+      { icon: 'fa-solid fa-lock', title: 'Criminal Defense',   desc: 'Misdemeanor & felony representation' },
+      { icon: 'fa-solid fa-briefcase', title: 'Business Law',        desc: 'Contracts, disputes, formation' },
     ],
     formFields: ['Full Name', 'Phone', 'Email', 'Type of Case', 'Brief Description'],
     formCTA: 'Request Free Consultation →',
@@ -101,7 +103,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
   realestate: {
     slug: 'realestate',
     name: 'Real Estate Agent',
-    emoji: '🏠',
+    faIcon: 'fa-solid fa-house',
     heroImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80',
     accentColor: '#243a8f',
     heroHeadline: {
@@ -117,10 +119,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       pulsecommand:  'Unlimited landing pages, AI avatar videos, weekly market update series, and white-glove support. Built to scale.',
     },
     services: [
-      { icon: '🏡', title: 'Buyer Representation', desc: 'From search to closing, expert guidance' },
-      { icon: '💰', title: 'Home Selling',          desc: 'Strategic pricing, maximum exposure' },
-      { icon: '📊', title: 'Market Analysis',       desc: "Know what your home is worth today" },
-      { icon: '🏢', title: 'Investment Properties', desc: 'Build wealth through real estate' },
+      { icon: 'fa-solid fa-key', title: 'Buyer Representation', desc: 'From search to closing, expert guidance' },
+      { icon: 'fa-solid fa-dollar-sign', title: 'Home Selling',          desc: 'Strategic pricing, maximum exposure' },
+      { icon: 'fa-solid fa-chart-bar', title: 'Market Analysis',       desc: "Know what your home is worth today" },
+      { icon: 'fa-solid fa-building', title: 'Investment Properties', desc: 'Build wealth through real estate' },
     ],
     formFields: ['Name', 'Phone', 'Email', 'Buy / Sell / Invest', 'Budget Range', 'Timeline'],
     formCTA: "Let's Connect →",
@@ -138,7 +140,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
   financial: {
     slug: 'financial',
     name: 'Financial Advisor',
-    emoji: '💰',
+    faIcon: 'fa-solid fa-chart-line',
     heroImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80',
     accentColor: '#243a8f',
     heroHeadline: {
@@ -154,10 +156,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       pulsecommand:  'Unlimited landing pages, AI avatar videos, weekly market commentary series, and white-glove setup. Built to scale.',
     },
     services: [
-      { icon: '📈', title: 'Retirement Planning',    desc: '401k, IRA, pension optimization' },
-      { icon: '🛡️', title: 'Wealth Protection',      desc: 'Life insurance, annuities, asset protection' },
-      { icon: '💹', title: 'Investment Management', desc: 'Portfolio strategy and management' },
-      { icon: '🏢', title: 'Business Owner Planning',desc: 'Exit strategies, key person insurance' },
+      { icon: 'fa-solid fa-piggy-bank', title: 'Retirement Planning',    desc: '401k, IRA, pension optimization' },
+      { icon: 'fa-solid fa-shield-halved', title: 'Wealth Protection',      desc: 'Life insurance, annuities, asset protection' },
+      { icon: 'fa-solid fa-chart-line', title: 'Investment Management', desc: 'Portfolio strategy and management' },
+      { icon: 'fa-solid fa-building', title: 'Business Owner Planning',desc: 'Exit strategies, key person insurance' },
     ],
     formFields: ['Name', 'Phone', 'Email', 'Age Range', 'Primary Goal', 'Assets to Manage'],
     formCTA: 'Schedule Free Review →',

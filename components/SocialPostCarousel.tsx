@@ -67,9 +67,9 @@ export default function SocialPostCarousel({ posts, industryName }: Props) {
               </div>
               {/* Actions */}
               <div className="px-4 py-3 flex gap-4">
-                <span className="text-xl">❤️</span>
-                <span className="text-xl">💬</span>
-                <span className="text-xl">📤</span>
+                <span className="text-xl text-brand-muted"><i className="fa-regular fa-heart"></i></span>
+                <span className="text-xl text-brand-muted"><i className="fa-regular fa-comment"></i></span>
+                <span className="text-xl text-brand-muted"><i className="fa-regular fa-paper-plane"></i></span>
               </div>
               {/* Caption */}
               <div className="px-4 pb-4">

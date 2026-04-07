@@ -26,7 +26,7 @@ export default function DemoBanner({ packageName, tier, industry, ctaLink }: Dem
           <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
             {/* Left */}
             <div className="flex items-center gap-3 min-w-0">
-              <span className="text-xl">👁️</span>
+              <span className="text-base"><i className="fa-solid fa-eye"></i></span>
               <p className="text-white text-sm font-medium truncate">
                 <span className="font-bold">DEMO PREVIEW</span>
                 {' — '}

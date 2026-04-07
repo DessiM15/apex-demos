@@ -93,7 +93,7 @@ export default function AnalyticsDashboard({ stats, packageName }: Props) {
         >
           <p className="text-white/50 text-sm mb-4 uppercase tracking-widest font-semibold">Tracking all your channels</p>
           <div className="flex items-center justify-center gap-6 flex-wrap">
-            {['🌐 Landing Pages', '📧 Email', '📱 Social', '🎙️ Podcast', '🎬 Video', '📞 Calls'].map(ch => (
+            {['Landing Pages', 'Email', 'Social', 'Podcast', 'Video', 'Calls'].map(ch => (
               <span key={ch} className="text-white/60 text-sm font-medium bg-white/10 px-4 py-2 rounded-pill">
                 {ch}
               </span>

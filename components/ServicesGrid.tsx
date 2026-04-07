@@ -33,7 +33,7 @@ export default function ServicesGrid({ services }: Props) {
               variants={fadeInUp}
               className="bg-white rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 p-6 border border-brand-border border-t-4 border-t-apex-blue group"
             >
-              <span className="text-4xl mb-4 block">{svc.icon}</span>
+              <span className="text-4xl mb-4 block text-apex-blue"><i className={svc.icon}></i></span>
               <h3 className="font-bold text-brand-text text-lg mb-2 group-hover:text-apex-blue transition-colors">
                 {svc.title}
               </h3>

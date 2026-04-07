@@ -46,7 +46,7 @@ export default function LeadCaptureForm({ fields, cta, industryName }: Props) {
             {cta}
           </button>
           <p className="text-center text-brand-muted text-xs mt-4">
-            🔒 Your information is 100% secure and never shared.
+            <i className="fa-solid fa-lock"></i> Your information is 100% secure and never shared.
           </p>
         </motion.div>
       </div>

@@ -9,10 +9,10 @@ export default function VideoGallery({ hooks, industryName }: Props) {
   const [playing, setPlaying] = useState<number | null>(null)
 
   const videos = [
-    { hook: hooks[0], label: 'Educational Reel', duration: '0:30', emoji: '🎓' },
-    { hook: hooks[1] ?? hooks[0], label: 'Tips & Tricks', duration: '0:60', emoji: '💡' },
-    { hook: `"Here's a behind-the-scenes look at how we serve ${industryName} clients every day." [15 sec reel]`, label: 'Behind the Scenes', duration: '0:15', emoji: '🎬' },
-    { hook: `"3 questions every ${industryName} prospect asks — and how to answer them." [45 sec reel]`, label: 'FAQ Reel', duration: '0:45', emoji: '❓' },
+    { hook: hooks[0], label: 'Educational Reel', duration: '0:30', faIcon: 'fa-solid fa-graduation-cap' },
+    { hook: hooks[1] ?? hooks[0], label: 'Tips & Tricks', duration: '0:60', faIcon: 'fa-solid fa-lightbulb' },
+    { hook: `"Here's a behind-the-scenes look at how we serve ${industryName} clients every day." [15 sec reel]`, label: 'Behind the Scenes', duration: '0:15', faIcon: 'fa-solid fa-clapperboard' },
+    { hook: `"3 questions every ${industryName} prospect asks — and how to answer them." [45 sec reel]`, label: 'FAQ Reel', duration: '0:45', faIcon: 'fa-solid fa-circle-question' },
   ]
 
   return (
@@ -49,7 +49,7 @@ export default function VideoGallery({ hooks, industryName }: Props) {
               <div className="relative bg-gradient-to-br from-apex-blue to-apex-navy rounded-card overflow-hidden aspect-[9/16] mb-3 shadow-card hover:shadow-card-hover transition-all">
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center">
-                  <span className="text-4xl mb-3">{v.emoji}</span>
+                  <span className="text-4xl mb-3"><i className={v.faIcon}></i></span>
                   <p className="text-white text-xs font-semibold leading-snug line-clamp-4">
                     {v.hook.replace(/\[.*?\]/g, '').replace(/"/g, '').trim()}
                   </p>
@@ -59,7 +59,7 @@ export default function VideoGallery({ hooks, industryName }: Props) {
                   ${playing === i ? 'bg-black/50' : 'bg-black/20 group-hover:bg-black/40'}`}>
                   <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
                     <span className="text-apex-blue text-xl ml-0.5">
-                      {playing === i ? '⏸' : '▶'}
+                      {playing === i ? <i className="fa-solid fa-pause"></i> : <i className="fa-solid fa-play"></i>}
                     </span>
                   </div>
                 </div>
@@ -80,7 +80,7 @@ export default function VideoGallery({ hooks, industryName }: Props) {
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
         >
           <p className="text-brand-muted text-sm font-semibold uppercase tracking-wide">Published to:</p>
-          {['📱 Instagram Reels', '🎵 TikTok', '▶️ YouTube Shorts', '👔 LinkedIn', '📘 Facebook'].map(p => (
+          {['Instagram Reels', 'TikTok', 'YouTube Shorts', 'LinkedIn', 'Facebook'].map(p => (
             <span key={p} className="text-sm text-apex-blue bg-apex-blue-light font-semibold px-4 py-2 rounded-pill">
               {p}
             </span>

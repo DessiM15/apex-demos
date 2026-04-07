@@ -62,6 +62,7 @@ export default async function DemoPage({ params }: PageProps) {
           headline={industry.heroHeadline[pkg.slug]}
           subheadline={industry.heroSubheadline[pkg.slug]}
           heroImage={industry.heroImage}
+          heroVideo={industry.heroVideo}
           ctaLink={CTA_LINK}
           formCTA={industry.formCTA}
         />

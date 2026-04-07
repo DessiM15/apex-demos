@@ -72,13 +72,13 @@ export default function DemoSelectorPage() {
                       : 'border-brand-border bg-white hover:border-apex-blue hover:shadow-card'}
                   `}
                 >
-                  <span className="text-4xl">{ind.emoji}</span>
+                  <span className="text-3xl text-apex-blue"><i className={ind.faIcon}></i></span>
                   <span className={`font-semibold text-sm text-center leading-snug ${active ? 'text-apex-blue' : 'text-brand-text'}`}>
                     {ind.name}
                   </span>
                   {active && (
                     <span className="text-xs bg-apex-blue text-white px-2 py-0.5 rounded-pill font-semibold">
-                      Selected ✓
+                      Selected <i className="fa-solid fa-check"></i>
                     </span>
                   )}
                 </motion.button>
@@ -131,7 +131,7 @@ export default function DemoSelectorPage() {
                     <p className="text-brand-muted text-sm">{pkg.tagline}</p>
                     <p className="text-brand-muted text-xs mt-1">{pkg.idealFor}</p>
                   </div>
-                  {active && <span className="text-xl mt-0.5">✓</span>}
+                  {active && <span className="text-xl mt-0.5 text-apex-blue"><i className="fa-solid fa-check"></i></span>}
                 </motion.button>
               )
             })}

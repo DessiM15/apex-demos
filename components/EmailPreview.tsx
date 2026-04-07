@@ -47,7 +47,7 @@ export default function EmailPreview({ campaigns, industryName }: Props) {
                     ? 'border-apex-blue bg-apex-blue-light text-apex-blue'
                     : 'border-brand-border bg-brand-surface text-brand-text hover:border-apex-blue'}`}
               >
-                📧 {c.subject}
+                <i className="fa-solid fa-envelope"></i> {c.subject}
               </button>
             ))}
             <p className="text-xs text-brand-muted pt-2">

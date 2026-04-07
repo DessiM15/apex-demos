@@ -15,7 +15,7 @@ export default function AgentBio({ name, title, creds, bio }: Props) {
           {/* Avatar placeholder */}
           <motion.div variants={fadeInUp} className="shrink-0">
             <div className="w-40 h-40 rounded-full bg-apex-blue-light border-4 border-apex-blue flex items-center justify-center text-6xl shadow-card">
-              👤
+              <i className="fa-solid fa-user"></i>
             </div>
           </motion.div>
 

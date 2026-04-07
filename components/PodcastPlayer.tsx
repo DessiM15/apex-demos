@@ -36,7 +36,7 @@ export default function PodcastPlayer({ episodes, industryName }: Props) {
         >
           <div className="flex items-center gap-4 mb-5">
             <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-apex-blue to-apex-red flex items-center justify-center text-white text-2xl flex-shrink-0">
-              🎙️
+              <i className="fa-solid fa-microphone"></i>
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white font-bold text-base truncate">
@@ -50,7 +50,7 @@ export default function PodcastPlayer({ episodes, industryName }: Props) {
               onClick={() => setPlaying(p => p === null ? 0 : null)}
               className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-apex-blue hover:bg-apex-blue-light transition-colors flex-shrink-0 text-xl"
             >
-              {playing !== null ? '⏸' : '▶'}
+              {playing !== null ? <i className="fa-solid fa-pause"></i> : <i className="fa-solid fa-play"></i>}
             </button>
           </div>
           {/* Progress bar */}
@@ -66,7 +66,7 @@ export default function PodcastPlayer({ episodes, industryName }: Props) {
           {/* Platform icons */}
           <div className="flex items-center gap-3 mt-5 pt-5 border-t border-white/10">
             <span className="text-white/50 text-xs font-semibold uppercase tracking-wide">Available on:</span>
-            {['🟢 Spotify', '🎵 Apple', '📺 YouTube', '🎶 Amazon'].map(p => (
+            {['Spotify', 'Apple', 'YouTube', 'Amazon'].map(p => (
               <span key={p} className="text-xs text-white/60 bg-white/10 px-2.5 py-1 rounded-pill">{p}</span>
             ))}
           </div>
@@ -89,7 +89,7 @@ export default function PodcastPlayer({ episodes, industryName }: Props) {
             >
               <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm flex-shrink-0
                 ${playing === i ? 'bg-white text-apex-blue' : 'bg-white/20 text-white'}`}>
-                {playing === i ? '⏸' : `${i + 1}`}
+                {playing === i ? <i className="fa-solid fa-pause"></i> : `${i + 1}`}
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white font-medium text-sm truncate">{ep.title}</p>

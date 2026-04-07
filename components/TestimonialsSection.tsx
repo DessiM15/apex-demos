@@ -38,7 +38,7 @@ export default function TestimonialsSection({ testimonials }: Props) {
               {/* Stars */}
               <div className="flex gap-0.5 mb-4">
                 {Array.from({ length: t.rating }).map((_, s) => (
-                  <span key={s} className="text-yellow-400 text-lg">★</span>
+                  <span key={s} className="text-yellow-400 text-base"><i className="fa-solid fa-star"></i></span>
                 ))}
               </div>
               {/* Quote */}
