@@ -26,7 +26,7 @@ export default function DemoSelectorPage() {
       {/* Header */}
       <header className="bg-apex-blue py-6 px-4">
         <div className="max-w-4xl mx-auto flex items-center justify-center">
-          <Image src="/apex-logo.webp" alt="Apex Affinity Group" width={180} height={54} priority />
+          <Image src="/apex-logo.png" alt="Apex Affinity Group" width={180} height={54} priority />
         </div>
       </header>
 

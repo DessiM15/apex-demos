@@ -55,7 +55,7 @@ export default function DemoFooter({ industryName, ctaLink }: Props) {
       <div className="px-4 py-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <Image
-            src="/apex-logo.webp"
+            src="/apex-logo.png"
             alt="Apex Affinity Group"
             width={140}
             height={42}
