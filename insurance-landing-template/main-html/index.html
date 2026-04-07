@@ -192,8 +192,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('image/slider-a1.jpg') center/cover no-repeat;
             z-index: 1;
+        }
+
+        .hero-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hero-overlay {
@@ -825,7 +830,11 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="hero" id="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg">
+            <video autoplay muted loop playsinline>
+                <source src="../../insurace-hero.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Protect What Matters Most — Get Your Free Quote Today</h1>
