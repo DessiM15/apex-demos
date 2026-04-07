@@ -105,6 +105,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Real Estate Agent',
     faIcon: 'fa-solid fa-house',
     heroImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80',
+    heroVideo: '/real-estate-hero.mp4',
     accentColor: '#243a8f',
     heroHeadline: {
       pulsemarket:   'Find Your Dream Home in Houston — Expert Guidance Every Step',
