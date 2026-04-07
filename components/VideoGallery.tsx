@@ -26,7 +26,7 @@ export default function VideoGallery({ hooks, industryName }: Props) {
           <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-apex-blue-light px-3 py-1 rounded-pill">
             Video Production
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-apex-blue mt-4 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-heading mt-4 mb-3">
             Short-Form Video Content
           </h2>
           <p className="text-brand-muted max-w-xl mx-auto">

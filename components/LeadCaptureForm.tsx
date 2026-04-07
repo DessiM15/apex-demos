@@ -15,7 +15,7 @@ export default function LeadCaptureForm({ fields, cta, industryName }: Props) {
           <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-brand-card px-3 py-1 rounded-pill">
             Free — No Obligation
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-apex-blue mt-4 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-heading mt-4 mb-3">
             Get Started Today
           </h2>
           <p className="text-brand-muted">

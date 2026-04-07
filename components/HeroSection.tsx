@@ -10,11 +10,12 @@ interface Props {
   heroVideo?:     string
   heroOverlay?:   boolean
   heroIntroText?: string
+  heroFont?:      string
   ctaLink:        string
   formCTA:        string
 }
 
-export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, ctaLink, formCTA }: Props) {
+export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, ctaLink, formCTA }: Props) {
   const [showIntro, setShowIntro] = useState(!!heroIntroText)
 
   useEffect(() => {
@@ -68,7 +69,10 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                 exit: { duration: 0.6 },
               }}
             >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white text-center tracking-wide leading-tight">
+              <h1
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white text-center tracking-wide leading-tight"
+                style={heroFont ? { fontFamily: heroFont } : undefined}
+              >
                 {heroIntroText}
               </h1>
             </motion.div>

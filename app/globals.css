@@ -12,6 +12,7 @@
   --brand-text: #1F2937;
   --brand-muted: #6B7280;
   --brand-border: #E5E7EB;
+  --brand-heading: rgb(var(--accent));
 }
 
 body {

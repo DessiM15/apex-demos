@@ -27,6 +27,7 @@ const config: Config = {
           text:    'var(--brand-text)',
           muted:   'var(--brand-muted)',
           border:  'var(--brand-border)',
+          heading: 'var(--brand-heading)',
         },
       },
       fontFamily: {

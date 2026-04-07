@@ -13,7 +13,7 @@ export default function AIAvatarVideo() {
           <span className="text-xs font-bold uppercase tracking-widest text-apex-red bg-apex-red-light px-3 py-1 rounded-pill">
             PulseCommand Exclusive
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-apex-blue mt-4 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-heading mt-4 mb-3">
             AI Avatar Videos via HeyGen
           </h2>
           <p className="text-brand-muted max-w-xl mx-auto">
@@ -57,7 +57,7 @@ export default function AIAvatarVideo() {
 
           {/* Feature Description */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-xl font-bold text-apex-blue mb-4">Your Digital Twin — On Autopilot</h3>
+            <h3 className="text-xl font-bold text-brand-heading mb-4">Your Digital Twin — On Autopilot</h3>
             <p className="text-brand-muted text-sm leading-relaxed mb-6">
               HeyGen creates a photorealistic AI avatar that looks and sounds like you. We produce professional video content monthly — educational tips, promotional clips, and client-facing messages — all without you stepping in front of a camera.
             </p>

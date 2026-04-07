@@ -21,7 +21,7 @@ export default function EmailPreview({ campaigns, industryName }: Props) {
           <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-apex-blue-light px-3 py-1 rounded-pill">
             Email Marketing
           </span>
-          <h2 className="text-3xl font-bold text-apex-blue mt-4 mb-3">
+          <h2 className="text-3xl font-bold text-brand-heading mt-4 mb-3">
             Automated Email Campaigns
           </h2>
           <p className="text-brand-muted max-w-xl mx-auto">

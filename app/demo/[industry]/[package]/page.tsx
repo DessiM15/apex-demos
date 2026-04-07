@@ -61,6 +61,7 @@ export default async function DemoPage({ params }: PageProps) {
     ...(tc.brandText    && { '--brand-text': tc.brandText }),
     ...(tc.brandMuted   && { '--brand-muted': tc.brandMuted }),
     ...(tc.brandBorder  && { '--brand-border': tc.brandBorder }),
+    ...(tc.brandHeading && { '--brand-heading': tc.brandHeading }),
   } as React.CSSProperties : undefined
 
   return (
@@ -85,6 +86,7 @@ export default async function DemoPage({ params }: PageProps) {
           heroVideo={industry.heroVideo}
           heroOverlay={industry.heroOverlay}
           heroIntroText={industry.heroIntroText}
+          heroFont={industry.heroFont}
           ctaLink={CTA_LINK}
           formCTA={industry.formCTA}
         />

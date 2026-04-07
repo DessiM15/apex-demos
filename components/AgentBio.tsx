@@ -21,7 +21,7 @@ export default function AgentBio({ name, title, creds, bio }: Props) {
 
           {/* Text */}
           <motion.div variants={fadeInUp} className="flex-1">
-            <h2 className="text-3xl font-bold text-apex-blue mb-1">{name}</h2>
+            <h2 className="text-3xl font-bold text-brand-heading mb-1">{name}</h2>
             <p className="text-apex-red font-semibold text-base mb-1">{title}</p>
             <p className="text-brand-muted text-sm mb-5 pb-5 border-b border-brand-border">{creds}</p>
             <p className="text-brand-text leading-relaxed text-base mb-6">{bio}</p>

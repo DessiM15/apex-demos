@@ -20,7 +20,7 @@ export default function BrandedPresence() {
           <span className="text-xs font-bold uppercase tracking-widest text-apex-red bg-apex-red-light px-3 py-1 rounded-pill">
             PulseCommand Exclusive
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-apex-blue mt-4 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-heading mt-4 mb-3">
             Your Branded Online Presence
           </h2>
           <p className="text-brand-muted max-w-xl mx-auto">

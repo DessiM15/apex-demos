@@ -17,7 +17,7 @@ export function BlogPreview({ posts, industryName }: BlogProps) {
           <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-apex-blue-light px-3 py-1 rounded-pill">
             Content Marketing
           </span>
-          <h2 className="text-3xl font-bold text-apex-blue mt-4 mb-3">
+          <h2 className="text-3xl font-bold text-brand-heading mt-4 mb-3">
             AI-Generated Blog Articles
           </h2>
           <p className="text-brand-muted max-w-xl mx-auto">

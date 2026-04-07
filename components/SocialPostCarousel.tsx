@@ -43,7 +43,7 @@ export default function SocialPostCarousel({ posts, industryName, postsPerMonth 
           <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-brand-card px-3 py-1 rounded-pill">
             Social Media
           </span>
-          <h2 className="text-3xl font-bold text-apex-blue mt-4 mb-3">
+          <h2 className="text-3xl font-bold text-brand-heading mt-4 mb-3">
             {postsPerMonth} Social Posts Per Month
           </h2>
           <p className="text-brand-muted max-w-xl mx-auto">
