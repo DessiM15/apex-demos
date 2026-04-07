@@ -7,11 +7,12 @@ interface Props {
   subheadline: string
   heroImage:   string
   heroVideo?:  string
+  heroOverlay?: boolean
   ctaLink:     string
   formCTA:     string
 }
 
-export default function HeroSection({ headline, subheadline, heroImage, heroVideo, ctaLink, formCTA }: Props) {
+export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, ctaLink, formCTA }: Props) {
   return (
     <section className="relative min-h-[520px] flex items-center overflow-hidden">
       {/* Background image or video */}
@@ -33,8 +34,10 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
           style={{ backgroundImage: `url(${heroImage})` }}
         />
       )}
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-apex-blue/90 via-apex-blue/75 to-apex-blue/40" />
+      {/* Gradient overlay — can be disabled per industry */}
+      {heroOverlay !== false && (
+        <div className="absolute inset-0 bg-gradient-to-r from-apex-blue/90 via-apex-blue/75 to-apex-blue/40" />
+      )}
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 w-full">

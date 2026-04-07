@@ -49,8 +49,15 @@ export default async function DemoPage({ params }: PageProps) {
 
   const sections = pkg.sectionsEnabled
 
+  // Industry-level theme colors (overrides CSS variables from globals.css)
+  const themeStyle = industry.themeColors ? {
+    '--accent': industry.themeColors.accent,
+    '--accent-dark': industry.themeColors.accentDark,
+    '--accent-light': industry.themeColors.accentLight,
+  } as React.CSSProperties : undefined
+
   return (
-    <>
+    <div style={themeStyle}>
       {/* Sticky demo banner */}
       <DemoBanner
         packageName={pkg.name}
@@ -69,6 +76,7 @@ export default async function DemoPage({ params }: PageProps) {
           subheadline={industry.heroSubheadline[pkg.slug]}
           heroImage={industry.heroImage}
           heroVideo={industry.heroVideo}
+          heroOverlay={industry.heroOverlay}
           ctaLink={CTA_LINK}
           formCTA={industry.formCTA}
         />
@@ -174,6 +182,6 @@ export default async function DemoPage({ params }: PageProps) {
       </main>
 
       <DemoFooter industryName={industry.name} ctaLink={CTA_LINK} />
-    </>
+    </div>
   )
 }

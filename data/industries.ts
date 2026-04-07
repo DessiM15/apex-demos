@@ -5,6 +5,12 @@ export type IndustrySlug = 'insurance' | 'lawfirm' | 'realestate' | 'financial'
 export interface ServiceItem  { icon: string; title: string; desc: string }
 export interface Testimonial  { quote: string; name: string; location: string; rating: number }
 
+export interface ThemeColors {
+  accent: string       // space-separated RGB, e.g. "36 58 143"
+  accentDark: string
+  accentLight: string  // hex, e.g. "#EBF0FC"
+}
+
 export interface IndustryConfig {
   slug: IndustrySlug
   name: string
@@ -12,6 +18,8 @@ export interface IndustryConfig {
   heroImage: string
   heroVideo?: string
   accentColor: string
+  themeColors?: ThemeColors
+  heroOverlay?: boolean  // default true — set false to remove tint over hero video
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
   services: ServiceItem[]
@@ -106,7 +114,13 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     faIcon: 'fa-solid fa-house',
     heroImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80',
     heroVideo: '/real-estate-hero.mp4',
-    accentColor: '#243a8f',
+    accentColor: '#b8860b',
+    themeColors: {
+      accent: '184 134 11',
+      accentDark: '150 112 10',
+      accentLight: '#FBF5E6',
+    },
+    heroOverlay: false,
     heroHeadline: {
       pulsemarket:   'Find Your Dream Home in Houston — Expert Guidance Every Step',
       pulseflow:     'More Listings. More Buyers. More Closings.',

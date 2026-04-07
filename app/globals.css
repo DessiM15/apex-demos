@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --accent: 36 58 143;
+  --accent-dark: 26 45 112;
+  --accent-light: #EBF0FC;
+}
+
 body {
   font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;

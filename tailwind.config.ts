@@ -10,16 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         apex: {
-          blue:        '#243a8f',
-          'blue-dark': '#1a2d70',
-          'blue-light':'#EBF0FC',
+          blue:        'rgb(var(--accent) / <alpha-value>)',
+          'blue-dark': 'rgb(var(--accent-dark) / <alpha-value>)',
+          'blue-light':'var(--accent-light)',
           red:         '#cf181d',
           'red-dark':  '#a51216',
           'red-light': '#FDF0F0',
           navy:        '#1a1a2e',
         },
         brand: {
-          primary: '#243a8f',
+          primary: 'rgb(var(--accent) / <alpha-value>)',
           accent:  '#cf181d',
           bg:      '#FFFFFF',
           surface: '#F8F9FA',
