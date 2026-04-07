@@ -187,7 +187,15 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Financial Advisor',
     faIcon: 'fa-solid fa-chart-line',
     heroImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80',
-    accentColor: '#243a8f',
+    heroVideo: '/financial-advisor-hero.mp4',
+    accentColor: '#0F766E',
+    themeColors: {
+      accent: '15 118 110',
+      accentDark: '13 94 87',
+      accentLight: '#ECFDF5',
+      brandHeading: '#b49132',
+    },
+    heroIntroText: 'APEX Wealth Advisors',
     heroHeadline: {
       pulsemarket:   'Build Wealth. Retire With Confidence. Protect Your Family.',
       pulseflow:     'More Clients. More Assets. More Impact.',
