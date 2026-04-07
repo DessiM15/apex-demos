@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Mitchell Insurance — Auto, Home, Life &amp; Business Insurance | PulseFlow Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; background: #fff; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        :root {
+            --apex-blue: #243a8f;
+            --apex-red: #cf181d;
+            --white: #FFFFFF;
+            --light-blue-bg: #EBF0FC;
+            --dark-navy: #1a1a2e;
+        }
+
+        /* ===== DEMO BANNER ===== */
+        .demo-banner {
+            background-color: var(--apex-blue);
+            color: var(--white);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            position: sticky;
+            top: 0;
+            z-index: 10000;
+        }
+        .demo-banner-left { font-weight: 500; letter-spacing: 0.5px; }
+        .demo-banner-right { display: flex; align-items: center; gap: 12px; }
+        .demo-banner-btn {
+            background-color: var(--apex-red);
+            color: var(--white);
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .demo-banner-btn:hover { opacity: 0.9; }
+        .demo-banner-close {
+            background: none; border: none; color: var(--white);
+            font-size: 18px; cursor: pointer; padding: 4px 8px;
+            opacity: 0.7; transition: opacity 0.3s; line-height: 1;
+        }
+        .demo-banner-close:hover { opacity: 1; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: var(--white);
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 20px;
+            position: sticky;
+            top: 50px;
+            z-index: 9999;
+            transition: top 0.3s;
+        }
+        .navbar.banner-dismissed { top: 0; }
+        .navbar-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; height: 70px;
+        }
+        .navbar-logo img { height: 45px; width: auto; }
+        .navbar-links {
+            display: flex; align-items: center; gap: 32px; list-style: none;
+        }
+        .navbar-links a { font-size: 15px; font-weight: 500; color: #333; transition: color 0.3s; }
+        .navbar-links a:hover { color: var(--apex-blue); }
+        .navbar-cta {
+            background-color: var(--apex-red); color: var(--white);
+            padding: 10px 22px; border-radius: 5px; font-size: 14px; font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .navbar-cta:hover { opacity: 0.9; }
+        .mobile-toggle {
+            display: none; background: none; border: none;
+            font-size: 24px; color: var(--apex-blue); cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative; min-height: 550px;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white); overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1560472355-536de3962603?w=1400&q=80') center/cover no-repeat;
+            z-index: 1;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(36, 58, 143, 0.88); z-index: 2;
+        }
+        .hero-content {
+            position: relative; z-index: 3; max-width: 800px; padding: 60px 20px;
+        }
+        .hero h1 { font-size: 42px; font-weight: 800; line-height: 1.2; margin-bottom: 18px; }
+        .hero p { font-size: 18px; font-weight: 300; line-height: 1.7; margin-bottom: 35px; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            background-color: var(--apex-red); color: var(--white);
+            padding: 14px 32px; border-radius: 5px; font-size: 16px; font-weight: 600;
+            border: none; cursor: pointer; transition: opacity 0.3s; display: inline-block;
+        }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-outline-white {
+            background: transparent; color: var(--white);
+            padding: 14px 32px; border-radius: 5px; font-size: 16px; font-weight: 600;
+            border: 2px solid var(--white); cursor: pointer;
+            transition: background 0.3s, color 0.3s; display: inline-block;
+        }
+        .btn-outline-white:hover { background: var(--white); color: var(--apex-blue); }
+
+        /* ===== SECTION COMMON ===== */
+        .section-pad { padding: 80px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 32px; font-weight: 700; color: var(--apex-blue); margin-bottom: 12px; }
+        .section-title p { font-size: 16px; color: #666; max-width: 600px; margin: 0 auto; }
+
+        /* ===== SERVICES ===== */
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .service-card {
+            background: var(--white); border-radius: 8px; padding: 35px 24px; text-align: center;
+            border: 1px solid #e8e8e8; border-top: 4px solid var(--apex-blue);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+        .service-card .icon { font-size: 40px; color: var(--apex-blue); margin-bottom: 20px; }
+        .service-card h3 { font-size: 18px; font-weight: 700; color: #222; margin-bottom: 10px; }
+        .service-card p { font-size: 14px; color: #666; line-height: 1.6; }
+
+        /* ===== LEAD CAPTURE FORM ===== */
+        .lead-capture { background-color: var(--light-blue-bg); }
+        .form-wrapper {
+            max-width: 650px; margin: 0 auto; background: var(--white);
+            border-radius: 10px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { font-size: 13px; font-weight: 600; color: #444; margin-bottom: 6px; }
+        .form-group input, .form-group select {
+            padding: 12px 14px; border: 1px solid #d0d0d0; border-radius: 5px;
+            font-family: 'Inter', sans-serif; font-size: 14px; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--apex-blue); }
+        .form-submit { margin-top: 20px; }
+        .form-submit .btn-primary { width: 100%; padding: 15px; font-size: 16px; }
+        .form-disclaimer { text-align: center; margin-top: 12px; font-size: 12px; color: #888; }
+        .form-disclaimer i { margin-right: 4px; }
+
+        /* ===== CLICK TO CALL ===== */
+        .click-to-call {
+            position: fixed; bottom: 28px; right: 28px; z-index: 9998;
+            width: 60px; height: 60px; border-radius: 50%;
+            background-color: var(--apex-red); color: var(--white);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; box-shadow: 0 4px 16px rgba(207,24,29,0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer; border: none;
+        }
+        .click-to-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(207,24,29,0.5);
+        }
+        .click-to-call-label {
+            position: fixed; bottom: 36px; right: 98px; z-index: 9998;
+            background: #333; color: var(--white); padding: 8px 14px;
+            border-radius: 6px; font-size: 13px; font-weight: 500;
+            white-space: nowrap; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .click-to-call:hover + .click-to-call-label { opacity: 1; }
+
+        /* ===== AGENT BIO ===== */
+        .agent-bio { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: center; }
+        .agent-photo {
+            width: 100%; max-width: 350px; aspect-ratio: 1/1;
+            border-radius: 10px; overflow: hidden;
+        }
+        .agent-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .agent-info h3 { font-size: 28px; font-weight: 700; color: var(--apex-blue); margin-bottom: 4px; }
+        .agent-info .agent-title { font-size: 16px; font-weight: 500; color: var(--apex-red); margin-bottom: 10px; }
+        .agent-info .agent-credentials {
+            font-size: 14px; font-weight: 600; color: #555; margin-bottom: 16px;
+            display: flex; gap: 16px; flex-wrap: wrap;
+        }
+        .agent-info .agent-credentials span { display: flex; align-items: center; gap: 6px; }
+        .agent-info .agent-bio-text { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 24px; }
+        .agent-social { display: flex; gap: 10px; }
+        .agent-social a {
+            display: inline-flex; align-items: center; gap: 6px;
+            background-color: var(--apex-blue); color: var(--white);
+            padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        .agent-social a:hover { opacity: 0.85; }
+
+        /* ===== SOCIAL MEDIA POSTS ===== */
+        .social-section { background: #f7f8fc; }
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .social-post {
+            background: var(--white); border-radius: 10px; overflow: hidden;
+            border: 1px solid #e4e8f0; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .social-post:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .social-post-header {
+            display: flex; align-items: center; gap: 10px; padding: 14px 16px;
+        }
+        .social-post-avatar {
+            width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+        }
+        .social-post-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .social-post-meta .post-name { font-size: 13px; font-weight: 700; color: #222; }
+        .social-post-meta .post-handle { font-size: 11px; color: #888; }
+        .social-post-image { width: 100%; aspect-ratio: 1/1; overflow: hidden; }
+        .social-post-image img { width: 100%; height: 100%; object-fit: cover; }
+        .social-post-image.text-post {
+            display: flex; align-items: center; justify-content: center;
+            padding: 30px; text-align: center;
+        }
+        .social-post-image.text-post.bg-blue { background: var(--apex-blue); color: var(--white); }
+        .social-post-image.text-post.bg-light { background: var(--light-blue-bg); color: var(--apex-blue); }
+        .social-post-image.text-post p { font-size: 16px; font-weight: 600; line-height: 1.5; }
+        .social-post-image.text-post .post-credit { font-size: 11px; font-weight: 400; margin-top: 12px; opacity: 0.7; }
+        .social-post-body { padding: 14px 16px; }
+        .social-post-body p { font-size: 13px; color: #444; line-height: 1.6; }
+        .social-post-body .hashtags { color: var(--apex-blue); font-weight: 500; font-size: 12px; margin-top: 6px; }
+        .social-post-actions {
+            display: flex; gap: 18px; padding: 10px 16px 14px;
+            border-top: 1px solid #f0f0f0; font-size: 14px; color: #888;
+        }
+        .social-post-actions i { cursor: pointer; transition: color 0.2s; }
+        .social-post-actions i:hover { color: var(--apex-red); }
+        .social-post-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: var(--light-blue-bg); color: var(--apex-blue);
+            font-size: 10px; font-weight: 600; padding: 3px 8px;
+            border-radius: 10px; margin-top: 4px;
+        }
+
+        /* ===== BLOG PREVIEW ===== */
+        .blog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .blog-card {
+            background: var(--white); border-radius: 10px; overflow: hidden;
+            border: 1px solid #e4e8f0; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .blog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .blog-card-image { height: 220px; overflow: hidden; }
+        .blog-card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .blog-card-body { padding: 24px; }
+        .blog-card-body .blog-tag {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            color: var(--apex-blue); letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .blog-card-body h3 { font-size: 20px; font-weight: 700; color: #222; margin-bottom: 10px; line-height: 1.4; }
+        .blog-card-body p { font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 14px; }
+        .blog-card-body .read-more {
+            font-size: 14px; font-weight: 600; color: var(--apex-blue);
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .blog-card-body .read-more:hover { color: var(--apex-red); }
+
+        /* ===== EMAIL PREVIEW ===== */
+        .email-section { background: var(--light-blue-bg); }
+        .email-preview-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .email-info h3 { font-size: 24px; font-weight: 700; color: var(--apex-blue); margin-bottom: 12px; }
+        .email-info p { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 16px; }
+        .email-info ul { list-style: none; margin-bottom: 20px; }
+        .email-info ul li {
+            font-size: 14px; color: #444; padding: 6px 0;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .email-info ul li i { color: var(--apex-blue); font-size: 14px; }
+        .email-mockup {
+            background: var(--white); border-radius: 10px; overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;
+        }
+        .email-mockup-header {
+            background: #f5f5f5; padding: 12px 16px;
+            display: flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .email-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .email-dot.red { background: #ff5f57; }
+        .email-dot.yellow { background: #ffbd2e; }
+        .email-dot.green { background: #28c840; }
+        .email-mockup-bar {
+            flex: 1; margin-left: 8px; background: #e8e8e8;
+            height: 20px; border-radius: 4px; display: flex; align-items: center;
+            padding: 0 10px; font-size: 11px; color: #999;
+        }
+        .email-mockup-body { padding: 24px; }
+        .email-mockup-body .email-from {
+            font-size: 12px; color: #888; margin-bottom: 4px;
+        }
+        .email-mockup-body .email-subject {
+            font-size: 18px; font-weight: 700; color: #222; margin-bottom: 16px;
+        }
+        .email-mockup-body .email-hero-img {
+            width: 100%; height: 160px; border-radius: 8px; overflow: hidden; margin-bottom: 16px;
+        }
+        .email-mockup-body .email-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+        .email-mockup-body .email-text { font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 16px; }
+        .email-mockup-body .email-cta {
+            display: inline-block; background: var(--apex-red); color: var(--white);
+            padding: 10px 24px; border-radius: 5px; font-size: 14px; font-weight: 600;
+        }
+
+        /* ===== ANALYTICS DASHBOARD ===== */
+        .analytics-section { background: var(--white); }
+        .dashboard-wrapper {
+            background: #f9fafc; border-radius: 12px; padding: 30px;
+            border: 1px solid #e4e8f0;
+        }
+        .dashboard-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #e4e8f0;
+        }
+        .dashboard-header h3 { font-size: 18px; font-weight: 700; color: var(--apex-blue); }
+        .dashboard-header .dash-period {
+            font-size: 13px; color: #888; background: var(--white);
+            padding: 6px 14px; border-radius: 6px; border: 1px solid #e0e0e0;
+        }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+        .stat-card {
+            background: var(--white); border-radius: 8px; padding: 20px;
+            border: 1px solid #e4e8f0; text-align: center;
+        }
+        .stat-card .stat-icon { font-size: 22px; color: var(--apex-blue); margin-bottom: 8px; }
+        .stat-card .stat-value { font-size: 28px; font-weight: 800; color: #222; margin-bottom: 2px; }
+        .stat-card .stat-label { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-card .stat-change { font-size: 12px; font-weight: 600; margin-top: 6px; }
+        .stat-card .stat-change.up { color: #22c55e; }
+        .stat-card .stat-change.down { color: var(--apex-red); }
+
+        .chart-row { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+        .chart-card {
+            background: var(--white); border-radius: 8px; padding: 20px;
+            border: 1px solid #e4e8f0;
+        }
+        .chart-card h4 { font-size: 14px; font-weight: 700; color: #444; margin-bottom: 16px; }
+        .bar-chart { display: flex; align-items: flex-end; gap: 8px; height: 140px; padding-top: 10px; }
+        .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .bar {
+            width: 100%; border-radius: 4px 4px 0 0;
+            background: var(--apex-blue); transition: height 0.5s;
+            min-height: 4px;
+        }
+        .bar.accent { background: var(--apex-red); }
+        .bar-label { font-size: 10px; color: #999; font-weight: 500; }
+
+        .conversion-list { list-style: none; }
+        .conversion-list li {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid #f0f0f0;
+            font-size: 13px; color: #555;
+        }
+        .conversion-list li:last-child { border-bottom: none; }
+        .conversion-list .conv-source { font-weight: 500; }
+        .conversion-list .conv-bar-wrap { flex: 1; margin: 0 12px; height: 6px; background: #f0f0f0; border-radius: 3px; }
+        .conversion-list .conv-bar { height: 100%; background: var(--apex-blue); border-radius: 3px; }
+        .conversion-list .conv-pct { font-weight: 700; color: var(--apex-blue); min-width: 40px; text-align: right; }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section { background-color: var(--apex-blue); color: var(--white); }
+        .testimonials-section .section-title h2 { color: var(--white); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .testimonial-card { background: var(--white); color: #333; border-radius: 10px; padding: 30px; }
+        .testimonial-stars { color: #f5a623; font-size: 16px; margin-bottom: 14px; display: flex; gap: 3px; }
+        .testimonial-card .quote-text { font-size: 14px; line-height: 1.7; color: #555; margin-bottom: 18px; font-style: italic; }
+        .testimonial-card .client-name { font-size: 14px; font-weight: 700; color: var(--apex-blue); }
+        .testimonial-card .client-location { font-size: 13px; color: #888; }
+
+        /* ===== PACKAGE BREAKDOWN ===== */
+        .package-section { background: #f7f8fc; }
+        .package-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 50px; }
+        .package-card {
+            background: var(--white); border-radius: 10px; padding: 30px;
+            border: 1px solid #e4e8f0; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .package-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .package-card .pkg-icon { font-size: 36px; color: var(--apex-blue); margin-bottom: 16px; }
+        .package-card h3 { font-size: 18px; font-weight: 700; color: #222; margin-bottom: 10px; }
+        .package-card p { font-size: 14px; color: #666; line-height: 1.7; }
+        .upgrade-banner {
+            background-color: var(--apex-blue); border-radius: 10px;
+            padding: 40px; text-align: center; color: var(--white);
+        }
+        .upgrade-banner p { font-size: 16px; line-height: 1.7; max-width: 800px; margin: 0 auto 24px; }
+
+        /* ===== FOOTER ===== */
+        .site-footer { background-color: var(--dark-navy); color: var(--white); padding: 50px 20px 20px; text-align: center; }
+        .footer-logo { margin-bottom: 10px; }
+        .footer-logo img { height: 50px; width: auto; filter: brightness(0) invert(1); margin: 0 auto; }
+        .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+        .footer-links { list-style: none; display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
+        .footer-links a { font-size: 14px; color: rgba(255,255,255,0.75); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px; font-size: 13px; color: rgba(255,255,255,0.5);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+            .package-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .chart-row { grid-template-columns: 1fr; }
+            .agent-bio { grid-template-columns: 1fr; text-align: center; }
+            .agent-photo { margin: 0 auto; max-width: 280px; }
+            .agent-info .agent-credentials { justify-content: center; }
+            .agent-social { justify-content: center; }
+            .email-preview-wrapper { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 34px; }
+        }
+        @media (max-width: 768px) {
+            .demo-banner { flex-direction: column; gap: 8px; text-align: center; padding: 10px 16px; }
+            .demo-banner-left { font-size: 12px; }
+            .navbar-links {
+                display: none; position: absolute; top: 70px; left: 0; right: 0;
+                background: var(--white); flex-direction: column; padding: 20px;
+                border-bottom: 1px solid #e0e0e0; gap: 16px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            .navbar-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 15px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .package-grid { grid-template-columns: 1fr; }
+            .social-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr; }
+            .section-title h2 { font-size: 26px; }
+            .section-pad { padding: 50px 20px; }
+            .form-wrapper { padding: 24px; }
+            .upgrade-banner { padding: 30px 20px; }
+            .dashboard-wrapper { padding: 16px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 24px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .agent-social { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== STICKY DEMO BANNER ===== -->
+    <div class="demo-banner" id="demoBanner">
+        <div class="demo-banner-left">
+            DEMO PREVIEW — PulseFlow Growth Tier — Insurance Agent Package
+        </div>
+        <div class="demo-banner-right">
+            <a href="https://reachtheapex.net" class="demo-banner-btn" target="_blank">Get This Built For Me</a>
+            <button class="demo-banner-close" id="closeBanner" aria-label="Close banner">&times;</button>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="mainNavbar">
+        <div class="navbar-inner">
+            <a href="#" class="navbar-logo">
+                <img src="../../public/apex-logo.png" alt="Apex Affinity Group">
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="navbar-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#agent">About</a></li>
+                <li><a href="#contact-form">Contact</a></li>
+                <li><a href="#contact-form" class="navbar-cta">Get a Free Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>More Clients. More Coverage. More Growth.</h1>
+            <p>Automated content, email campaigns, and blog articles that keep you top-of-mind every single month. Auto, Home, Life and Business Insurance — Tailored to You.</p>
+            <div class="hero-buttons">
+                <a href="#contact-form" class="btn-primary">Get My Free Quote</a>
+                <a href="#agent" class="btn-outline-white">Meet Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="section-pad" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon"><i class="fa-solid fa-car"></i></div>
+                    <h3>Auto Insurance</h3>
+                    <p>Comprehensive coverage, competitive rates. Protect your vehicle and everyone in it with a plan built for you.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <h3>Homeowners Insurance</h3>
+                    <p>Protect your biggest investment. Coverage for your home, belongings, and liability — all in one policy.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Life Insurance</h3>
+                    <p>Secure your family's future. Term and whole life options tailored to your goals and budget.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>Business Insurance</h3>
+                    <p>Keep your business fully covered. From general liability to property protection, we have you covered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LEAD CAPTURE FORM ===== -->
+    <section class="section-pad lead-capture" id="contact-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Your Free Quote Today</h2>
+                <p>Fill out the form below and a specialist will contact you within 24 hours.</p>
+            </div>
+            <div class="form-wrapper">
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="coverage">Type of Coverage Needed</label>
+                            <select id="coverage" required>
+                                <option value="" disabled selected>Select coverage type</option>
+                                <option value="auto">Auto Insurance</option>
+                                <option value="home">Homeowners Insurance</option>
+                                <option value="life">Life Insurance</option>
+                                <option value="business">Business Insurance</option>
+                                <option value="bundle">Bundle / Multiple Policies</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn-primary">Get My Free Quote</button>
+                    </div>
+                    <p class="form-disclaimer"><i class="fa-solid fa-lock"></i> Your information is 100% secure and never shared.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== AGENT BIO ===== -->
+    <section class="section-pad" id="agent">
+        <div class="container">
+            <div class="agent-bio">
+                <div class="agent-photo">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Sarah Mitchell - Licensed Insurance Agent">
+                </div>
+                <div class="agent-info">
+                    <h3>Sarah Mitchell</h3>
+                    <p class="agent-title">Licensed Insurance Agent</p>
+                    <div class="agent-credentials">
+                        <span><i class="fa-solid fa-award"></i> 12 Years Experience</span>
+                        <span><i class="fa-solid fa-trophy"></i> Top Producer</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Houston, TX</span>
+                    </div>
+                    <p class="agent-bio-text">Hi, I am Sarah — your local insurance agent helping Houston families find the right coverage at the right price. I work with top-rated carriers to get you the best rates. Let's talk.</p>
+                    <div class="agent-social">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOCIAL MEDIA POSTS PREVIEW ===== -->
+    <section class="section-pad social-section" id="social">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Social Media — Automated</h2>
+                <p>60 branded posts published across your platforms every month. Here is a preview of what your feed looks like.</p>
+            </div>
+            <div class="social-grid">
+                <!-- Post 1 — Quote Card -->
+                <div class="social-post">
+                    <div class="social-post-header">
+                        <div class="social-post-avatar">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&q=80" alt="Sarah Mitchell">
+                        </div>
+                        <div class="social-post-meta">
+                            <div class="post-name">Sarah Mitchell Insurance</div>
+                            <div class="post-handle">@sarahmitchell_ins</div>
+                        </div>
+                    </div>
+                    <div class="social-post-image text-post bg-blue">
+                        <div>
+                            <p>"The best time to review your insurance was last year. The second best time is today."</p>
+                            <div class="post-credit">— Sarah Mitchell Insurance</div>
+                        </div>
+                    </div>
+                    <div class="social-post-body">
+                        <p>Are you overpaying? Are you underinsured? A 15-minute call can save you hundreds. Link in bio for a free quote.</p>
+                        <div class="hashtags">#InsuranceTips #HoustonInsurance #ProtectWhatMatters</div>
+                    </div>
+                    <div class="social-post-actions">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <i class="fa-regular fa-bookmark" style="margin-left: auto;"></i>
+                    </div>
+                </div>
+
+                <!-- Post 2 — Image Post Family -->
+                <div class="social-post">
+                    <div class="social-post-header">
+                        <div class="social-post-avatar">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&q=80" alt="Sarah Mitchell">
+                        </div>
+                        <div class="social-post-meta">
+                            <div class="post-name">Sarah Mitchell Insurance</div>
+                            <div class="post-handle">@sarahmitchell_ins</div>
+                        </div>
+                    </div>
+                    <div class="social-post-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Beautiful suburban home">
+                    </div>
+                    <div class="social-post-body">
+                        <p>Your home is your biggest investment. Are you sure it is fully protected? Most homeowners are underinsured by 20% or more. Let me take a look at your policy — no cost, no pressure.</p>
+                        <div class="hashtags">#HomeInsurance #HoustonRealEstate #CoverageMatters</div>
+                    </div>
+                    <div class="social-post-actions">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <i class="fa-regular fa-bookmark" style="margin-left: auto;"></i>
+                    </div>
+                </div>
+
+                <!-- Post 3 — Tip Card -->
+                <div class="social-post">
+                    <div class="social-post-header">
+                        <div class="social-post-avatar">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&q=80" alt="Sarah Mitchell">
+                        </div>
+                        <div class="social-post-meta">
+                            <div class="post-name">Sarah Mitchell Insurance</div>
+                            <div class="post-handle">@sarahmitchell_ins</div>
+                        </div>
+                    </div>
+                    <div class="social-post-image text-post bg-light">
+                        <div>
+                            <p style="font-size: 14px; text-align: left;">
+                                <strong style="font-size: 16px;">3 Things to Do After a Car Accident:</strong><br><br>
+                                1. Check for injuries and call 911<br>
+                                2. Document the scene with photos<br>
+                                3. Call your insurance agent — not the other driver's
+                            </p>
+                        </div>
+                    </div>
+                    <div class="social-post-body">
+                        <p>Save this post. You never know when you will need it. And if you do — I am one call away.</p>
+                        <div class="hashtags">#AutoInsurance #SafetyFirst #InsuranceAgent</div>
+                    </div>
+                    <div class="social-post-actions">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <i class="fa-regular fa-bookmark" style="margin-left: auto;"></i>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <span class="social-post-badge" style="font-size: 13px; padding: 8px 18px;">
+                    <i class="fa-solid fa-robot"></i> All 60 posts are AI-generated and auto-published monthly
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG PREVIEW ===== -->
+    <section class="section-pad" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest From Our Blog</h2>
+                <p>2 AI-written blog articles published monthly — keeping your site fresh and your SEO growing.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80" alt="Beautiful suburban home">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-tag">Homeowners Insurance</div>
+                        <h3>5 Coverage Gaps Most Homeowners Do Not Know They Have</h3>
+                        <p>Your standard homeowners policy might leave you exposed. From flood damage to home office equipment, here are the gaps that could cost you thousands.</p>
+                        <a href="#" class="read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=700&q=80" alt="City driving scene">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-tag">Auto Insurance</div>
+                        <h3>How to Save Up to 30% on Your Auto Insurance in Texas</h3>
+                        <p>Most drivers in Houston are overpaying for auto coverage. Learn the bundling strategies, discounts, and policy adjustments that can put money back in your pocket.</p>
+                        <a href="#" class="read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EMAIL CAMPAIGN PREVIEW ===== -->
+    <section class="section-pad email-section" id="email">
+        <div class="container">
+            <div class="section-title">
+                <h2>Email Campaigns That Convert</h2>
+                <p>4 branded email campaigns sent monthly — nurturing leads and re-engaging your client list automatically.</p>
+            </div>
+            <div class="email-preview-wrapper">
+                <div class="email-info">
+                    <h3>Stay Top-of-Mind Without Lifting a Finger</h3>
+                    <p>Every month, your prospects and existing clients receive professionally designed email campaigns that educate, engage, and drive action.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check-circle"></i> 4 campaigns per month — fully automated</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Branded to your agency and voice</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Seasonal tips, policy reminders, and promotions</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Open rate and click tracking built in</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Designed to re-engage cold leads</li>
+                    </ul>
+                </div>
+                <div class="email-mockup">
+                    <div class="email-mockup-header">
+                        <span class="email-dot red"></span>
+                        <span class="email-dot yellow"></span>
+                        <span class="email-dot green"></span>
+                        <div class="email-mockup-bar">sarah@mitchellinsurance.com</div>
+                    </div>
+                    <div class="email-mockup-body">
+                        <div class="email-from">From: Sarah Mitchell Insurance &lt;sarah@mitchellinsurance.com&gt;</div>
+                        <div class="email-subject">Spring Home Safety Checklist — Are You Covered?</div>
+                        <div class="email-hero-img">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Spring home">
+                        </div>
+                        <div class="email-text">
+                            Hi there,<br><br>
+                            Spring storms are coming to Houston. Is your home ready? Here are 5 things every homeowner should check before storm season — and one coverage gap that could cost you everything...
+                        </div>
+                        <a href="#" class="email-cta">Read More + Check My Coverage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ANALYTICS DASHBOARD ===== -->
+    <section class="section-pad analytics-section" id="analytics">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Analytics Dashboard</h2>
+                <p>Track every page visit, form submission, and conversion — all in one place, updated in real time.</p>
+            </div>
+            <div class="dashboard-wrapper">
+                <div class="dashboard-header">
+                    <h3><i class="fa-solid fa-chart-pie" style="margin-right: 8px;"></i> Performance Overview</h3>
+                    <span class="dash-period"><i class="fa-regular fa-calendar"></i> Last 30 Days</span>
+                </div>
+                <!-- Stats Row -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-eye"></i></div>
+                        <div class="stat-value">2,847</div>
+                        <div class="stat-label">Page Views</div>
+                        <div class="stat-change up"><i class="fa-solid fa-arrow-up"></i> 18.3% vs last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-file-lines"></i></div>
+                        <div class="stat-value">64</div>
+                        <div class="stat-label">Form Submissions</div>
+                        <div class="stat-change up"><i class="fa-solid fa-arrow-up"></i> 24.1% vs last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="stat-value">31</div>
+                        <div class="stat-label">Click-to-Call</div>
+                        <div class="stat-change up"><i class="fa-solid fa-arrow-up"></i> 12.7% vs last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-percent"></i></div>
+                        <div class="stat-value">3.3%</div>
+                        <div class="stat-label">Conversion Rate</div>
+                        <div class="stat-change up"><i class="fa-solid fa-arrow-up"></i> 0.6% vs last month</div>
+                    </div>
+                </div>
+                <!-- Charts Row -->
+                <div class="chart-row">
+                    <div class="chart-card">
+                        <h4><i class="fa-solid fa-chart-bar" style="margin-right: 6px;"></i> Weekly Traffic</h4>
+                        <div class="bar-chart">
+                            <div class="bar-group">
+                                <div class="bar" style="height: 55%;"></div>
+                                <span class="bar-label">Wk 1</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 72%;"></div>
+                                <span class="bar-label">Wk 2</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 48%;"></div>
+                                <span class="bar-label">Wk 3</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 90%;"></div>
+                                <span class="bar-label">Wk 4</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar accent" style="height: 40%;"></div>
+                                <span class="bar-label">Wk 1</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar accent" style="height: 60%;"></div>
+                                <span class="bar-label">Wk 2</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar accent" style="height: 35%;"></div>
+                                <span class="bar-label">Wk 3</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar accent" style="height: 78%;"></div>
+                                <span class="bar-label">Wk 4</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: #888;">
+                            <span><span style="display:inline-block;width:10px;height:10px;background:var(--apex-blue);border-radius:2px;margin-right:4px;"></span> Page Views</span>
+                            <span><span style="display:inline-block;width:10px;height:10px;background:var(--apex-red);border-radius:2px;margin-right:4px;"></span> Form Submissions</span>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h4><i class="fa-solid fa-arrow-right-arrow-left" style="margin-right: 6px;"></i> Traffic Sources</h4>
+                        <ul class="conversion-list">
+                            <li>
+                                <span class="conv-source">Social Media</span>
+                                <div class="conv-bar-wrap"><div class="conv-bar" style="width: 42%;"></div></div>
+                                <span class="conv-pct">42%</span>
+                            </li>
+                            <li>
+                                <span class="conv-source">Google Search</span>
+                                <div class="conv-bar-wrap"><div class="conv-bar" style="width: 28%;"></div></div>
+                                <span class="conv-pct">28%</span>
+                            </li>
+                            <li>
+                                <span class="conv-source">Email Clicks</span>
+                                <div class="conv-bar-wrap"><div class="conv-bar" style="width: 18%;"></div></div>
+                                <span class="conv-pct">18%</span>
+                            </li>
+                            <li>
+                                <span class="conv-source">Direct</span>
+                                <div class="conv-bar-wrap"><div class="conv-bar" style="width: 12%;"></div></div>
+                                <span class="conv-pct">12%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section-pad testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote-text">"Sarah saved our family over $400 a year on our home and auto bundle. She walked us through everything and made it so easy."</p>
+                    <p class="client-name">Marcus T.</p>
+                    <p class="client-location">Houston, TX</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote-text">"I had no idea how underinsured I was until I spoke with Sarah. She found gaps in my coverage I did not even know existed."</p>
+                    <p class="client-name">Jennifer R.</p>
+                    <p class="client-location">Katy, TX</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote-text">"Fast, professional, and genuinely cares. She answered every question and got me covered in one day."</p>
+                    <p class="client-name">David K.</p>
+                    <p class="client-location">Sugar Land, TX</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PULSEFLOW PACKAGE BREAKDOWN ===== -->
+    <section class="section-pad package-section" id="package">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Is Included in Your PulseFlow Package</h2>
+                <p>Everything you see on this page is built and managed for you automatically.</p>
+            </div>
+            <div class="package-grid">
+                <div class="package-card">
+                    <div class="pkg-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <h3>5 AI-Generated Landing Pages</h3>
+                    <p>Five professionally built landing pages — designed to capture leads across different services and campaigns. More pages, more reach.</p>
+                </div>
+                <div class="package-card">
+                    <div class="pkg-icon"><i class="fa-solid fa-share-nodes"></i></div>
+                    <h3>60 Social Media Posts Per Month</h3>
+                    <p>60 branded social posts published monthly — double the content, double the visibility, keeping you in front of every prospect.</p>
+                </div>
+                <div class="package-card">
+                    <div class="pkg-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                    <h3>4 Email Campaigns Per Month</h3>
+                    <p>Four targeted email campaigns that nurture leads, re-engage past clients, and drive conversions — all fully automated.</p>
+                </div>
+                <div class="package-card">
+                    <div class="pkg-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3>2 AI Blog Articles Per Month</h3>
+                    <p>Two SEO-optimized blog articles published monthly — building your authority and driving organic traffic to your site.</p>
+                </div>
+                <div class="package-card">
+                    <div class="pkg-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <h3>Lead Capture Forms</h3>
+                    <p>Every page includes a fully functional lead capture form that automatically collects prospect details and delivers them directly to you.</p>
+                </div>
+                <div class="package-card">
+                    <div class="pkg-icon"><i class="fa-solid fa-chart-column"></i></div>
+                    <h3>Conversion Tracking</h3>
+                    <p>Go beyond basic analytics. Track exactly which pages, posts, and campaigns are generating your leads — and optimize for more.</p>
+                </div>
+            </div>
+
+            <!-- Upgrade Banner -->
+            <div class="upgrade-banner">
+                <p>PulseFlow is the Growth Tier. Upgrade to PulseDrive or PulseCommand to unlock podcast episodes, AI avatar videos, 100+ social posts, and full white-glove support.</p>
+                <a href="https://reachtheapex.net" class="btn-primary" target="_blank">See All Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="../../public/apex-logo.png" alt="Apex Affinity Group">
+            </div>
+            <p class="footer-tagline">Powered by BotMakers.ai</p>
+            <ul class="footer-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#agent">About</a></li>
+                <li><a href="#contact-form">Contact</a></li>
+            </ul>
+            <div class="footer-bottom">
+                <p>reachtheapex.net — Apex Affinity Group</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== CLICK TO CALL BUTTON ===== -->
+    <a href="tel:8001235689" class="click-to-call" aria-label="Call Sarah Mitchell">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    <span class="click-to-call-label">Call Sarah — (800) 123-5689</span>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        document.getElementById('closeBanner').addEventListener('click', function() {
+            document.getElementById('demoBanner').style.display = 'none';
+            document.getElementById('mainNavbar').classList.add('banner-dismissed');
+        });
+
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.navbar-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
