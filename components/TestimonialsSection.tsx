@@ -33,7 +33,7 @@ export default function TestimonialsSection({ testimonials }: Props) {
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="bg-white rounded-card p-7 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200"
+              className="bg-brand-card rounded-card p-7 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-4">

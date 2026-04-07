@@ -4,7 +4,7 @@ import { staggerContainer, fadeInUp, viewport } from '@/lib/animations'
 
 export default function AIAvatarVideo() {
   return (
-    <section className="bg-white py-20 px-4">
+    <section className="bg-brand-bg py-20 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="text-center mb-12"

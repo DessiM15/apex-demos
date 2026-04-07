@@ -12,7 +12,7 @@ export default function LeadCaptureForm({ fields, cta, industryName }: Props) {
           className="text-center mb-10"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-white px-3 py-1 rounded-pill">
+          <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-brand-card px-3 py-1 rounded-pill">
             Free — No Obligation
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-apex-blue mt-4 mb-3">
@@ -24,7 +24,7 @@ export default function LeadCaptureForm({ fields, cta, industryName }: Props) {
         </motion.div>
 
         <motion.div
-          className="bg-white rounded-card shadow-card-hover p-8"
+          className="bg-brand-card rounded-card shadow-card-hover p-8"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
         >
           <motion.div

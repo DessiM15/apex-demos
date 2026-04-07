@@ -50,10 +50,17 @@ export default async function DemoPage({ params }: PageProps) {
   const sections = pkg.sectionsEnabled
 
   // Industry-level theme colors (overrides CSS variables from globals.css)
-  const themeStyle = industry.themeColors ? {
-    '--accent': industry.themeColors.accent,
-    '--accent-dark': industry.themeColors.accentDark,
-    '--accent-light': industry.themeColors.accentLight,
+  const tc = industry.themeColors
+  const themeStyle = tc ? {
+    '--accent': tc.accent,
+    '--accent-dark': tc.accentDark,
+    '--accent-light': tc.accentLight,
+    ...(tc.brandBg      && { '--brand-bg': tc.brandBg }),
+    ...(tc.brandSurface && { '--brand-surface': tc.brandSurface }),
+    ...(tc.brandCard    && { '--brand-card': tc.brandCard }),
+    ...(tc.brandText    && { '--brand-text': tc.brandText }),
+    ...(tc.brandMuted   && { '--brand-muted': tc.brandMuted }),
+    ...(tc.brandBorder  && { '--brand-border': tc.brandBorder }),
   } as React.CSSProperties : undefined
 
   return (

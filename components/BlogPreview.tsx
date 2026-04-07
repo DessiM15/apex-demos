@@ -33,7 +33,7 @@ export function BlogPreview({ posts, industryName }: BlogProps) {
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="bg-white rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 overflow-hidden"
+              className="bg-brand-card rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 overflow-hidden"
             >
               {/* Blog image */}
               <div className="h-44 bg-apex-blue-light overflow-hidden">

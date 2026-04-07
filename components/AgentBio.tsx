@@ -6,7 +6,7 @@ interface Props { name: string; title: string; creds: string; bio: string }
 
 export default function AgentBio({ name, title, creds, bio }: Props) {
   return (
-    <section id="bio" className="bg-white py-20 px-4">
+    <section id="bio" className="bg-brand-bg py-20 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="flex flex-col md:flex-row items-center gap-10 bg-brand-surface rounded-card p-8 md:p-12 shadow-card"

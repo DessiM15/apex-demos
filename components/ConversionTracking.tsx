@@ -35,7 +35,7 @@ export default function ConversionTracking({ packageName }: Props) {
           variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}
         >
           {/* Funnel Card */}
-          <motion.div variants={fadeInUp} className="bg-white rounded-card shadow-card p-6">
+          <motion.div variants={fadeInUp} className="bg-brand-card rounded-card shadow-card p-6">
             <h3 className="font-bold text-brand-text mb-6 flex items-center gap-2">
               <i className="fa-solid fa-filter text-apex-blue"></i> Lead Source Breakdown
             </h3>
@@ -55,7 +55,7 @@ export default function ConversionTracking({ packageName }: Props) {
           </motion.div>
 
           {/* Stats Card */}
-          <motion.div variants={fadeInUp} className="bg-white rounded-card shadow-card p-6">
+          <motion.div variants={fadeInUp} className="bg-brand-card rounded-card shadow-card p-6">
             <h3 className="font-bold text-brand-text mb-6 flex items-center gap-2">
               <i className="fa-solid fa-chart-line text-apex-blue"></i> Conversion Metrics
             </h3>

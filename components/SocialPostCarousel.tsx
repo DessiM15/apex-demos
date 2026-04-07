@@ -40,7 +40,7 @@ export default function SocialPostCarousel({ posts, industryName, postsPerMonth 
           className="text-center mb-12"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-white px-3 py-1 rounded-pill">
+          <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-brand-card px-3 py-1 rounded-pill">
             Social Media
           </span>
           <h2 className="text-3xl font-bold text-apex-blue mt-4 mb-3">
@@ -61,7 +61,7 @@ export default function SocialPostCarousel({ posts, industryName, postsPerMonth 
                 className={`flex items-center gap-2 px-4 py-2 rounded-pill text-sm font-semibold transition-all ${
                   activePlatform === p.key
                     ? 'bg-apex-blue text-white shadow-card'
-                    : 'bg-white text-brand-muted hover:bg-gray-100'
+                    : 'bg-brand-card text-brand-muted hover:bg-brand-surface'
                 }`}
               >
                 <i className={p.icon}></i> {p.label}

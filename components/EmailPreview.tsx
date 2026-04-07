@@ -11,7 +11,7 @@ export default function EmailPreview({ campaigns, industryName }: Props) {
   const campaign = campaigns[active]
 
   return (
-    <section className="bg-white py-20 px-4">
+    <section className="bg-brand-bg py-20 px-4">
       <div className="max-w-5xl mx-auto">
 
         <motion.div
@@ -57,7 +57,7 @@ export default function EmailPreview({ campaigns, industryName }: Props) {
 
           {/* Email preview */}
           <motion.div variants={fadeInUp} className="md:col-span-2">
-            <div className="bg-white rounded-card shadow-card border border-brand-border overflow-hidden">
+            <div className="bg-brand-card rounded-card shadow-card border border-brand-border overflow-hidden">
               {/* Email header bar */}
               <div className="bg-brand-surface px-5 py-3 border-b border-brand-border flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-400" />

@@ -16,7 +16,7 @@ export default function VideoGallery({ hooks, industryName }: Props) {
   ]
 
   return (
-    <section className="bg-white py-20 px-4">
+    <section className="bg-brand-bg py-20 px-4">
       <div className="max-w-6xl mx-auto">
 
         <motion.div

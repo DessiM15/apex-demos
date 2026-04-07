@@ -21,11 +21,12 @@ const config: Config = {
         brand: {
           primary: 'rgb(var(--accent) / <alpha-value>)',
           accent:  '#cf181d',
-          bg:      '#FFFFFF',
-          surface: '#F8F9FA',
-          text:    '#1F2937',
-          muted:   '#6B7280',
-          border:  '#E5E7EB',
+          bg:      'var(--brand-bg)',
+          surface: 'var(--brand-surface)',
+          card:    'var(--brand-card)',
+          text:    'var(--brand-text)',
+          muted:   'var(--brand-muted)',
+          border:  'var(--brand-border)',
         },
       },
       fontFamily: {

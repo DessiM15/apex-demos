@@ -6,6 +6,12 @@
   --accent: 36 58 143;
   --accent-dark: 26 45 112;
   --accent-light: #EBF0FC;
+  --brand-bg: #FFFFFF;
+  --brand-surface: #F8F9FA;
+  --brand-card: #FFFFFF;
+  --brand-text: #1F2937;
+  --brand-muted: #6B7280;
+  --brand-border: #E5E7EB;
 }
 
 body {

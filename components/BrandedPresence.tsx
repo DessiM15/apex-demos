@@ -36,7 +36,7 @@ export default function BrandedPresence() {
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="bg-white rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 p-6 border border-brand-border"
+              className="bg-brand-card rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 p-6 border border-brand-border"
             >
               <span className="text-3xl text-apex-blue mb-4 block"><i className={f.icon}></i></span>
               <h3 className="font-bold text-brand-text text-lg mb-2">{f.title}</h3>

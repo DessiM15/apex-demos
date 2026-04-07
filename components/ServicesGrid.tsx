@@ -7,7 +7,7 @@ interface Props { services: ServiceItem[] }
 
 export default function ServicesGrid({ services }: Props) {
   return (
-    <section className="bg-white py-20 px-4">
+    <section className="bg-brand-bg py-20 px-4">
       <div className="max-w-6xl mx-auto">
 
         <motion.div
@@ -31,7 +31,7 @@ export default function ServicesGrid({ services }: Props) {
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="bg-white rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 p-6 border border-brand-border border-t-4 border-t-apex-blue group"
+              className="bg-brand-card rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 p-6 border border-brand-border border-t-4 border-t-apex-blue group"
             >
               <span className="text-4xl mb-4 block text-apex-blue"><i className={svc.icon}></i></span>
               <h3 className="font-bold text-brand-text text-lg mb-2 group-hover:text-apex-blue transition-colors">

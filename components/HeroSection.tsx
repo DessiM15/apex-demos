@@ -47,29 +47,48 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
         >
           <motion.h1
             variants={fadeInUp}
-            className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
+            className={`text-4xl md:text-5xl font-bold leading-tight mb-6 ${heroOverlay === false ? 'text-gray-900 drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]' : 'text-white'}`}
           >
             {headline}
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="text-white/85 text-lg md:text-xl leading-relaxed mb-10"
+            className={`text-lg md:text-xl leading-relaxed mb-10 ${heroOverlay === false ? 'text-gray-800 drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]' : 'text-white/85'}`}
           >
             {subheadline}
           </motion.p>
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-            <a
-              href={ctaLink}
-              className="bg-white text-apex-blue font-bold px-8 py-4 rounded-btn hover:bg-apex-blue-light transition-colors shadow-card-hover text-base"
-            >
-              {formCTA}
-            </a>
-            <a
-              href="#bio"
-              className="border-2 border-white text-white font-bold px-8 py-4 rounded-btn hover:bg-white hover:text-apex-blue transition-colors text-base"
-            >
-              Meet Our Team
-            </a>
+            {heroOverlay === false ? (
+              <>
+                <a
+                  href={ctaLink}
+                  className="bg-apex-blue text-white font-bold px-8 py-4 rounded-btn hover:bg-apex-blue-dark transition-colors shadow-card-hover text-base"
+                >
+                  {formCTA}
+                </a>
+                <a
+                  href="#bio"
+                  className="border-2 border-gray-900 text-gray-900 font-bold px-8 py-4 rounded-btn hover:bg-gray-900 hover:text-white transition-colors text-base"
+                >
+                  Meet Our Team
+                </a>
+              </>
+            ) : (
+              <>
+                <a
+                  href={ctaLink}
+                  className="bg-white text-apex-blue font-bold px-8 py-4 rounded-btn hover:bg-apex-blue-light transition-colors shadow-card-hover text-base"
+                >
+                  {formCTA}
+                </a>
+                <a
+                  href="#bio"
+                  className="border-2 border-white text-white font-bold px-8 py-4 rounded-btn hover:bg-white hover:text-apex-blue transition-colors text-base"
+                >
+                  Meet Our Team
+                </a>
+              </>
+            )}
           </motion.div>
         </motion.div>
       </div>

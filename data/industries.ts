@@ -9,6 +9,12 @@ export interface ThemeColors {
   accent: string       // space-separated RGB, e.g. "36 58 143"
   accentDark: string
   accentLight: string  // hex, e.g. "#EBF0FC"
+  brandBg?: string
+  brandSurface?: string
+  brandCard?: string
+  brandText?: string
+  brandMuted?: string
+  brandBorder?: string
 }
 
 export interface IndustryConfig {
@@ -118,7 +124,13 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     themeColors: {
       accent: '184 134 11',
       accentDark: '150 112 10',
-      accentLight: '#FBF5E6',
+      accentLight: '#1c1608',
+      brandBg: '#0a0a0a',
+      brandSurface: '#111111',
+      brandCard: '#1a1a1a',
+      brandText: '#F5F5F5',
+      brandMuted: '#9CA3AF',
+      brandBorder: '#2a2a2a',
     },
     heroOverlay: false,
     heroHeadline: {
