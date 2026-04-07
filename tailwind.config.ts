@@ -1,0 +1,64 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        apex: {
+          blue:        '#243a8f',
+          'blue-dark': '#1a2d70',
+          'blue-light':'#EBF0FC',
+          red:         '#cf181d',
+          'red-dark':  '#a51216',
+          'red-light': '#FDF0F0',
+          navy:        '#1a1a2e',
+        },
+        brand: {
+          primary: '#243a8f',
+          accent:  '#cf181d',
+          bg:      '#FFFFFF',
+          surface: '#F8F9FA',
+          text:    '#1F2937',
+          muted:   '#6B7280',
+          border:  '#E5E7EB',
+        },
+      },
+      fontFamily: {
+        sans:    ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        card:       '0 2px 12px rgba(36,58,143,0.08)',
+        'card-hover':'0 8px 24px rgba(36,58,143,0.18)',
+        banner:     '0 2px 8px rgba(0,0,0,0.15)',
+      },
+      borderRadius: {
+        card: '12px',
+        btn:  '8px',
+        pill: '9999px',
+      },
+      keyframes: {
+        fadeUp: {
+          '0%':   { opacity: '0', transform: 'translateY(24px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideDown: {
+          '0%':   { opacity: '0', transform: 'translateY(-12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'fade-up':    'fadeUp 0.5s ease forwards',
+        'slide-down': 'slideDown 0.3s ease forwards',
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config
