@@ -196,7 +196,7 @@ export default async function DemoPage({ params }: PageProps) {
         )}
       </main>
 
-      <DemoFooter industryName={industry.name} ctaLink={CTA_LINK} />
+      <DemoFooter industryName={industry.name} industrySlug={industrySlug as IndustrySlug} ctaLink={CTA_LINK} />
     </div>
   )
 }

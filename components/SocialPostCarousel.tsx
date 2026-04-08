@@ -189,7 +189,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 p-[2px]">
                         <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
-                          <MockLogo industry={industrySlug} size={24} />
+                          <MockLogo industry={industrySlug} size={24} iconOnly />
                         </div>
                       </div>
                       <div>
@@ -235,7 +235,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
                   {/* Header */}
                   <div className="px-4 py-3 flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                      <MockLogo industry={industrySlug} size={32} />
+                      <MockLogo industry={industrySlug} size={32} iconOnly />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-bold text-gray-900">{businessName}</p>
@@ -276,7 +276,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
                   {/* Header */}
                   <div className="px-4 py-3 flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                      <MockLogo industry={industrySlug} size={36} />
+                      <MockLogo industry={industrySlug} size={36} iconOnly />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-bold text-gray-900">{businessName}</p>
@@ -319,7 +319,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
                   {/* Header */}
                   <div className="px-4 py-3 flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                      <MockLogo industry={industrySlug} size={36} />
+                      <MockLogo industry={industrySlug} size={36} iconOnly />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-bold text-gray-900">{businessName}</p>
@@ -374,7 +374,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
                     <div className="absolute right-3 bottom-24 flex flex-col items-center gap-5 z-10">
                       <div className="relative">
                         <div className="w-10 h-10 rounded-full bg-gray-600 border-2 border-white flex items-center justify-center overflow-hidden">
-                          <MockLogo industry={industrySlug} size={28} />
+                          <MockLogo industry={industrySlug} size={28} iconOnly color="#ffffff" />
                         </div>
                         <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-[#fe2c55] rounded-full flex items-center justify-center">
                           <i className="fa-solid fa-plus text-white text-[8px]" />
@@ -432,7 +432,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
                       <p className="text-xs text-gray-500 line-clamp-2 mb-3">{postContent}</p>
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                          <MockLogo industry={industrySlug} size={24} />
+                          <MockLogo industry={industrySlug} size={24} iconOnly />
                         </div>
                         <span className="text-xs font-semibold text-gray-700">{handle}</span>
                         <button className="ml-auto text-xs font-semibold text-gray-900 bg-gray-100 px-3 py-1 rounded-full">Follow</button>
@@ -448,7 +448,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
                   <div className="px-4 py-3">
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                        <MockLogo industry={industrySlug} size={30} />
+                        <MockLogo industry={industrySlug} size={30} iconOnly />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1 flex-wrap">
@@ -506,7 +506,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
                   {/* Video info */}
                   <div className="flex gap-3 mt-3">
                     <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                      <MockLogo industry={industrySlug} size={28} />
+                      <MockLogo industry={industrySlug} size={28} iconOnly />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-bold text-gray-900 line-clamp-2">

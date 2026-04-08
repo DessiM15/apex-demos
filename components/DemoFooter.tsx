@@ -1,12 +1,13 @@
 'use client'
-import Image from 'next/image'
 import Link  from 'next/link'
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer, viewport } from '@/lib/animations'
+import MockLogo from '@/components/MockLogo'
+import { IndustrySlug } from '@/data/industries'
 
-interface Props { industryName: string; ctaLink: string }
+interface Props { industryName: string; industrySlug: IndustrySlug; ctaLink: string }
 
-export default function DemoFooter({ industryName, ctaLink }: Props) {
+export default function DemoFooter({ industryName, industrySlug, ctaLink }: Props) {
   return (
     <footer className="bg-apex-navy">
 
@@ -48,13 +49,7 @@ export default function DemoFooter({ industryName, ctaLink }: Props) {
       {/* Footer bottom */}
       <div className="px-4 py-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <Image
-            src="/apex-logo.png"
-            alt="Apex Affinity Group"
-            width={140}
-            height={42}
-            className="opacity-80"
-          />
+          <MockLogo industry={industrySlug} size={56} color="#ffffff" />
           <div className="flex gap-6 text-white/40 text-sm">
             <Link href="/demo/select" className="hover:text-white/70 transition-colors">All Demos</Link>
             <a href={ctaLink} className="hover:text-white/70 transition-colors">Contact</a>

@@ -10,7 +10,7 @@ export default function DemoNavbar({ industry }: Props) {
     <nav className="bg-white border-b border-brand-border px-4 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/demo">
-          <MockLogo industry={industry} size={48} />
+          <MockLogo industry={industry} size={64} />
         </Link>
         <div className="flex items-center gap-3">
           <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-apex-blue-light px-3 py-1 rounded-pill">
