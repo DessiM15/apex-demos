@@ -61,6 +61,56 @@ function PhoneFrame({ children, dark = false }: { children: React.ReactNode; dar
   )
 }
 
+/* ── Laptop (MacBook) Frame wrapper ──────────────────────────────── */
+function LaptopFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mx-auto" style={{ maxWidth: 640 }}>
+      {/* Screen portion */}
+      <div className="bg-[#1d1d1f] rounded-t-xl pt-3 px-3 pb-2">
+        {/* Camera notch */}
+        <div className="flex justify-center mb-2">
+          <div className="w-16 h-4 bg-[#0d0d0d] rounded-b-lg flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-[#2a2a2c] border border-[#3a3a3c]" />
+          </div>
+        </div>
+        {/* Screen bezel */}
+        <div className="bg-[#0d0d0d] rounded-lg p-[3px]">
+          <div className="rounded-md overflow-hidden bg-white">
+            {children}
+          </div>
+        </div>
+      </div>
+      {/* Hinge / lip */}
+      <div className="bg-gradient-to-b from-[#c4c4c6] to-[#a8a8aa] h-[6px] rounded-b-sm mx-[2px]" />
+      {/* Keyboard deck */}
+      <div className="bg-gradient-to-b from-[#c9c9cb] to-[#b8b8ba] rounded-b-xl pt-3 pb-2 px-5 mx-[-4px] shadow-lg">
+        {/* Keyboard rows */}
+        <div className="space-y-[3px] mb-3">
+          {[14, 14, 13, 12, 8].map((keys, row) => (
+            <div key={row} className="flex gap-[2px] justify-center">
+              {Array.from({ length: keys }).map((_, k) => (
+                <div
+                  key={k}
+                  className="bg-[#2d2d2f] rounded-[2px]"
+                  style={{
+                    height: 10,
+                    flex: row === 4 && k === Math.floor(keys / 2) ? '3 1 0%' : '1 1 0%',
+                    maxWidth: row === 4 && k === Math.floor(keys / 2) ? 100 : 44,
+                  }}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+        {/* Trackpad */}
+        <div className="flex justify-center">
+          <div className="w-[40%] h-[50px] rounded-md bg-[#b0b0b2] border border-[#a0a0a2]" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ── Post visual area based on postType ──────────────────────────── */
 function PostVisual({ postType, text, aspect = 'aspect-square' }: { postType: PostType; text: string; aspect?: string }) {
   if (postType === 'image') {
@@ -231,130 +281,211 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
 
               {/* ── FACEBOOK ── */}
               {activePlatform === 'facebook' && (
-                <div className="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-                  {/* Header */}
-                  <div className="px-4 py-3 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                      <MockLogo industry={industrySlug} size={32} iconOnly />
+                <PhoneFrame>
+                  {/* Facebook status bar */}
+                  <div className="bg-[#1877F2] px-4 py-1.5 flex items-center justify-between">
+                    <span className="text-white text-[10px] font-semibold">9:41</span>
+                    <span className="text-white text-xs font-bold tracking-wide">facebook</span>
+                    <div className="flex items-center gap-1.5">
+                      <i className="fa-solid fa-signal text-white text-[8px]" />
+                      <i className="fa-solid fa-wifi text-white text-[8px]" />
+                      <i className="fa-solid fa-battery-full text-white text-[8px]" />
                     </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-bold text-gray-900">{businessName}</p>
-                      <p className="text-xs text-gray-500">Just now <i className="fa-solid fa-globe text-[10px] ml-1" /></p>
+                  </div>
+                  {/* Nav bar */}
+                  <div className="bg-white border-b border-gray-200 px-3 py-2 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <i className="fa-solid fa-house text-[#1877F2] text-sm" />
+                      <i className="fa-solid fa-tv text-gray-400 text-sm" />
+                      <i className="fa-solid fa-store text-gray-400 text-sm" />
+                      <i className="fa-solid fa-users text-gray-400 text-sm" />
+                      <i className="fa-solid fa-bell text-gray-400 text-sm" />
                     </div>
-                    <i className="fa-solid fa-ellipsis text-gray-400" />
+                    <i className="fa-solid fa-bars text-gray-400 text-sm" />
                   </div>
-                  {/* Post text */}
-                  <div className="px-4 pb-3">
-                    <p className="text-sm text-gray-900 leading-relaxed">{postContent}</p>
+                  {/* Post */}
+                  <div className="bg-white">
+                    {/* Header */}
+                    <div className="px-3 py-2 flex items-center gap-2.5">
+                      <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+                        <MockLogo industry={industrySlug} size={28} iconOnly />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-gray-900">{businessName}</p>
+                        <p className="text-[10px] text-gray-500">Just now <i className="fa-solid fa-globe text-[8px] ml-0.5" /></p>
+                      </div>
+                      <i className="fa-solid fa-ellipsis text-gray-400 text-xs" />
+                    </div>
+                    {/* Post text */}
+                    <div className="px-3 pb-2">
+                      <p className="text-xs text-gray-900 leading-relaxed line-clamp-2">{postContent}</p>
+                    </div>
+                    {/* Image */}
+                    <PostVisual postType={postType} text={postContent} aspect="aspect-[4/3]" />
+                    {/* Reactions */}
+                    <div className="px-3 py-1.5 flex items-center justify-between border-b border-gray-100">
+                      <div className="flex items-center gap-1">
+                        <div className="flex -space-x-1">
+                          <span className="w-4 h-4 rounded-full bg-[#1877F2] flex items-center justify-center text-[7px] text-white"><i className="fa-solid fa-thumbs-up" /></span>
+                          <span className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center text-[7px] text-white"><i className="fa-solid fa-heart" /></span>
+                        </div>
+                        <span className="text-[10px] text-gray-500 ml-1">47</span>
+                      </div>
+                      <span className="text-[10px] text-gray-500">12 comments</span>
+                    </div>
+                    {/* Actions */}
+                    <div className="px-3 py-2 flex justify-around">
+                      <button className="flex items-center gap-1 text-[11px] text-gray-500 font-medium">
+                        <i className="fa-regular fa-thumbs-up text-sm" /> Like
+                      </button>
+                      <button className="flex items-center gap-1 text-[11px] text-gray-500 font-medium">
+                        <i className="fa-regular fa-comment text-sm" /> Comment
+                      </button>
+                      <button className="flex items-center gap-1 text-[11px] text-gray-500 font-medium">
+                        <i className="fa-solid fa-share text-sm" /> Share
+                      </button>
+                    </div>
                   </div>
-                  {/* Image area */}
-                  <PostVisual postType={postType} text={postContent} aspect="aspect-video" />
-                  {/* Reactions */}
-                  <div className="px-4 py-2">
-                    <p className="text-xs text-gray-500">47 reactions</p>
-                  </div>
-                  {/* Divider */}
-                  <div className="border-t border-gray-200" />
-                  {/* Actions */}
-                  <div className="px-4 py-2.5 flex justify-around">
-                    <button className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                      <i className="fa-regular fa-thumbs-up" /> Like
-                    </button>
-                    <button className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                      <i className="fa-regular fa-comment" /> Comment
-                    </button>
-                    <button className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                      <i className="fa-solid fa-share" /> Share
-                    </button>
-                  </div>
-                </div>
+                </PhoneFrame>
               )}
 
               {/* ── LINKEDIN ── */}
               {activePlatform === 'linkedin' && (
-                <div className="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-                  {/* Header */}
-                  <div className="px-4 py-3 flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-lg bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                      <MockLogo industry={industrySlug} size={36} iconOnly />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-bold text-gray-900">{businessName}</p>
-                      <p className="text-xs text-gray-500">Professional Services</p>
-                      <p className="text-xs text-gray-400">2h <i className="fa-solid fa-globe text-[10px] ml-1" /></p>
+                <PhoneFrame>
+                  {/* LinkedIn status bar */}
+                  <div className="bg-white px-4 py-1.5 flex items-center justify-between border-b border-gray-100">
+                    <span className="text-gray-900 text-[10px] font-semibold">9:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <i className="fa-solid fa-signal text-gray-900 text-[8px]" />
+                      <i className="fa-solid fa-wifi text-gray-900 text-[8px]" />
+                      <i className="fa-solid fa-battery-full text-gray-900 text-[8px]" />
                     </div>
                   </div>
-                  {/* Post text */}
-                  <div className="px-4 pb-3">
-                    <p className="text-sm text-gray-900 leading-relaxed">{postContent}</p>
+                  {/* LinkedIn nav */}
+                  <div className="bg-white px-3 py-2 flex items-center gap-3 border-b border-gray-200">
+                    <div className="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                      <i className="fa-solid fa-user text-gray-400 text-xs" />
+                    </div>
+                    <div className="flex-1 bg-gray-100 rounded-md px-2.5 py-1.5 flex items-center gap-1.5">
+                      <i className="fa-solid fa-magnifying-glass text-gray-400 text-[10px]" />
+                      <span className="text-[10px] text-gray-400">Search</span>
+                    </div>
+                    <i className="fa-regular fa-message text-gray-500 text-sm" />
                   </div>
-                  {/* Image area */}
-                  <PostVisual postType={postType} text={postContent} aspect="aspect-video" />
-                  {/* Reactions */}
-                  <div className="px-4 py-2 flex items-center gap-1">
-                    <span className="text-sm">&#128077;&#128079;&#128161;</span>
-                    <p className="text-xs text-gray-500 ml-1">38</p>
+                  {/* Post */}
+                  <div className="bg-white">
+                    {/* Post header */}
+                    <div className="px-3 py-2 flex items-center gap-2.5">
+                      <div className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+                        <MockLogo industry={industrySlug} size={30} iconOnly />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-gray-900">{businessName}</p>
+                        <p className="text-[10px] text-gray-500 line-clamp-1">Professional Services</p>
+                        <p className="text-[10px] text-gray-400">2h <i className="fa-solid fa-globe text-[8px] ml-0.5" /></p>
+                      </div>
+                      <i className="fa-solid fa-ellipsis text-gray-400 text-xs" />
+                    </div>
+                    {/* Post text */}
+                    <div className="px-3 pb-2">
+                      <p className="text-xs text-gray-900 leading-relaxed line-clamp-3">{postContent}</p>
+                    </div>
+                    {/* Image */}
+                    <PostVisual postType={postType} text={postContent} aspect="aspect-[4/3]" />
+                    {/* Reactions */}
+                    <div className="px-3 py-1.5 flex items-center gap-1 border-b border-gray-100">
+                      <div className="flex -space-x-0.5">
+                        <span className="text-xs">&#128077;</span>
+                        <span className="text-xs">&#128079;</span>
+                        <span className="text-xs">&#128161;</span>
+                      </div>
+                      <span className="text-[10px] text-gray-500 ml-1">38</span>
+                    </div>
+                    {/* Actions */}
+                    <div className="px-2 py-2 flex justify-around">
+                      <button className="flex items-center gap-1 text-[10px] text-gray-500 font-medium">
+                        <i className="fa-regular fa-thumbs-up text-xs text-[#0A66C2]" /> Like
+                      </button>
+                      <button className="flex items-center gap-1 text-[10px] text-gray-500 font-medium">
+                        <i className="fa-regular fa-comment text-xs" /> Comment
+                      </button>
+                      <button className="flex items-center gap-1 text-[10px] text-gray-500 font-medium">
+                        <i className="fa-solid fa-retweet text-xs" /> Repost
+                      </button>
+                      <button className="flex items-center gap-1 text-[10px] text-gray-500 font-medium">
+                        <i className="fa-regular fa-paper-plane text-xs" /> Send
+                      </button>
+                    </div>
                   </div>
-                  {/* Actions */}
-                  <div className="border-t border-gray-200 px-4 py-2.5 flex justify-around">
-                    <button className="flex items-center gap-1.5 text-sm text-gray-500 font-medium">
-                      <i className="fa-regular fa-thumbs-up text-[#0A66C2]" /> Like
-                    </button>
-                    <button className="flex items-center gap-1.5 text-sm text-gray-500 font-medium">
-                      <i className="fa-regular fa-comment" /> Comment
-                    </button>
-                    <button className="flex items-center gap-1.5 text-sm text-gray-500 font-medium">
-                      <i className="fa-solid fa-retweet" /> Repost
-                    </button>
-                    <button className="flex items-center gap-1.5 text-sm text-gray-500 font-medium">
-                      <i className="fa-regular fa-paper-plane" /> Send
-                    </button>
-                  </div>
-                </div>
+                </PhoneFrame>
               )}
 
               {/* ── GOOGLE BUSINESS ── */}
               {activePlatform === 'google' && (
-                <div className="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-                  {/* Header */}
-                  <div className="px-4 py-3 flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-lg bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                      <MockLogo industry={industrySlug} size={36} iconOnly />
+                <PhoneFrame>
+                  {/* Status bar */}
+                  <div className="bg-white px-4 py-1.5 flex items-center justify-between">
+                    <span className="text-gray-900 text-[10px] font-semibold">9:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <i className="fa-solid fa-signal text-gray-900 text-[8px]" />
+                      <i className="fa-solid fa-wifi text-gray-900 text-[8px]" />
+                      <i className="fa-solid fa-battery-full text-gray-900 text-[8px]" />
                     </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-bold text-gray-900">{businessName}</p>
-                      <div className="flex items-center gap-1">
-                        <span className="text-sm font-bold text-gray-900">4.8</span>
-                        <div className="flex">
-                          {[1,2,3,4,5].map(s => (
-                            <i key={s} className={`fa-solid fa-star text-xs ${s <= 4 ? 'text-yellow-400' : 'text-yellow-300'}`} />
-                          ))}
+                  </div>
+                  {/* Google search bar */}
+                  <div className="bg-white px-3 py-2 border-b border-gray-100">
+                    <div className="flex items-center gap-2 bg-gray-50 rounded-full px-3 py-2 border border-gray-200">
+                      <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                      <span className="text-xs text-gray-500">{businessName}</span>
+                    </div>
+                  </div>
+                  {/* Business card */}
+                  <div className="bg-white">
+                    {/* Header */}
+                    <div className="px-3 py-2 flex items-center gap-2.5">
+                      <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+                        <MockLogo industry={industrySlug} size={30} iconOnly />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-xs font-bold text-gray-900">{businessName}</p>
+                        <div className="flex items-center gap-1">
+                          <span className="text-xs font-bold text-gray-900">4.8</span>
+                          <div className="flex">
+                            {[1,2,3,4,5].map(s => (
+                              <i key={s} className={`fa-solid fa-star text-[9px] ${s <= 4 ? 'text-yellow-400' : 'text-yellow-300'}`} />
+                            ))}
+                          </div>
+                          <span className="text-[10px] text-gray-400">(127)</span>
                         </div>
-                        <span className="text-xs text-gray-400 ml-1">(127 reviews)</span>
                       </div>
                     </div>
-                  </div>
-                  {/* Post text */}
-                  <div className="px-4 pb-3">
-                    <p className="text-sm text-gray-900 leading-relaxed">{postContent}</p>
-                  </div>
-                  {/* Image area */}
-                  <div className="px-4 pb-3">
-                    <div className="rounded-xl overflow-hidden">
-                      <PostVisual postType={postType} text={postContent} aspect="aspect-[4/3]" />
+                    {/* Post text */}
+                    <div className="px-3 pb-2">
+                      <p className="text-xs text-gray-900 leading-relaxed line-clamp-2">{postContent}</p>
+                    </div>
+                    {/* Image */}
+                    <div className="px-3 pb-2">
+                      <div className="rounded-lg overflow-hidden">
+                        <PostVisual postType={postType} text={postContent} aspect="aspect-[4/3]" />
+                      </div>
+                    </div>
+                    {/* Date */}
+                    <div className="px-3 pb-1.5">
+                      <p className="text-[10px] text-gray-400">Posted 2 days ago</p>
+                    </div>
+                    {/* CTA */}
+                    <div className="px-3 pb-3">
+                      <button className="px-4 py-1.5 rounded-full border border-[#4285F4] text-[#4285F4] text-[11px] font-semibold">
+                        Learn More
+                      </button>
                     </div>
                   </div>
-                  {/* Date */}
-                  <div className="px-4 pb-2">
-                    <p className="text-xs text-gray-400">Posted 2 days ago</p>
-                  </div>
-                  {/* CTA */}
-                  <div className="px-4 pb-4">
-                    <button className="px-6 py-2 rounded-full border-2 border-[#4285F4] text-[#4285F4] text-sm font-semibold hover:bg-[#4285F4]/5 transition-colors">
-                      Learn More
-                    </button>
-                  </div>
-                </div>
+                </PhoneFrame>
               )}
 
               {/* ── TIKTOK ── */}
@@ -416,110 +547,172 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug }
 
               {/* ── PINTEREST ── */}
               {activePlatform === 'pinterest' && (
-                <div className="max-w-xs mx-auto">
-                  <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                    {/* Pin image - tall */}
-                    <div className="relative">
-                      <PostVisual postType={postType} text={postContent} aspect="aspect-[2/3]" />
-                      {/* Save button */}
-                      <button className="absolute top-3 right-3 bg-[#E60023] text-white text-sm font-bold px-5 py-2 rounded-full shadow-lg">
-                        Save
-                      </button>
+                <PhoneFrame>
+                  {/* Pinterest status bar */}
+                  <div className="bg-white px-4 py-1.5 flex items-center justify-between">
+                    <span className="text-gray-900 text-[10px] font-semibold">9:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <i className="fa-solid fa-signal text-gray-900 text-[8px]" />
+                      <i className="fa-solid fa-wifi text-gray-900 text-[8px]" />
+                      <i className="fa-solid fa-battery-full text-gray-900 text-[8px]" />
                     </div>
-                    {/* Bottom section */}
-                    <div className="p-4">
-                      <h3 className="font-bold text-gray-900 text-sm mb-1">{postContent.split(' ').slice(0, 8).join(' ')}</h3>
-                      <p className="text-xs text-gray-500 line-clamp-2 mb-3">{postContent}</p>
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                          <MockLogo industry={industrySlug} size={24} iconOnly />
+                  </div>
+                  {/* Pinterest nav bar */}
+                  <div className="bg-white px-3 py-2 flex items-center gap-3 border-b border-gray-100">
+                    <i className="fa-brands fa-pinterest text-[#E60023] text-lg" />
+                    <div className="flex-1 bg-gray-100 rounded-full px-3 py-1.5 flex items-center gap-1.5">
+                      <i className="fa-solid fa-magnifying-glass text-gray-400 text-[10px]" />
+                      <span className="text-[10px] text-gray-400">Search for ideas</span>
+                    </div>
+                    <i className="fa-regular fa-bell text-gray-500 text-sm" />
+                    <i className="fa-regular fa-comment text-gray-500 text-sm" />
+                  </div>
+                  {/* Pin content */}
+                  <div className="bg-gray-50 p-3">
+                    <div className="rounded-2xl overflow-hidden bg-white shadow-sm">
+                      {/* Pin image */}
+                      <div className="relative">
+                        <PostVisual postType={postType} text={postContent} aspect="aspect-[3/4]" />
+                        {/* Save button */}
+                        <button className="absolute top-2 right-2 bg-[#E60023] text-white text-[10px] font-bold px-3 py-1.5 rounded-full">
+                          Save
+                        </button>
+                      </div>
+                      {/* Pin info */}
+                      <div className="p-3">
+                        <h3 className="font-bold text-gray-900 text-xs mb-1 line-clamp-2">{postContent.split(' ').slice(0, 8).join(' ')}</h3>
+                        <div className="flex items-center gap-2 mt-2">
+                          <div className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+                            <MockLogo industry={industrySlug} size={18} iconOnly />
+                          </div>
+                          <span className="text-[10px] font-semibold text-gray-700">{handle}</span>
                         </div>
-                        <span className="text-xs font-semibold text-gray-700">{handle}</span>
-                        <button className="ml-auto text-xs font-semibold text-gray-900 bg-gray-100 px-3 py-1 rounded-full">Follow</button>
                       </div>
                     </div>
                   </div>
-                </div>
+                </PhoneFrame>
               )}
 
               {/* ── TWITTER / X ── */}
               {activePlatform === 'twitter' && (
-                <div className="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-                  <div className="px-4 py-3">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                        <MockLogo industry={industrySlug} size={30} iconOnly />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-1 flex-wrap">
-                          <p className="text-sm font-bold text-gray-900">{businessName}</p>
-                          <i className="fa-solid fa-circle-check text-[#1d9bf0] text-xs" />
-                          <p className="text-sm text-gray-500">@{handle}</p>
-                          <span className="text-sm text-gray-400">· 2h</span>
-                        </div>
-                        {/* Tweet text */}
-                        <p className="text-sm text-gray-900 leading-relaxed mt-1">{postContent}</p>
-                        {/* Image if applicable */}
-                        {postType !== 'text' && (
-                          <div className="mt-3 rounded-2xl overflow-hidden">
-                            <PostVisual postType={postType} text={postContent} aspect="aspect-video" />
-                          </div>
-                        )}
-                      </div>
+                <PhoneFrame>
+                  {/* X/Twitter status bar */}
+                  <div className="bg-white px-4 py-1.5 flex items-center justify-between">
+                    <span className="text-gray-900 text-[10px] font-semibold">9:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <i className="fa-solid fa-signal text-gray-900 text-[8px]" />
+                      <i className="fa-solid fa-wifi text-gray-900 text-[8px]" />
+                      <i className="fa-solid fa-battery-full text-gray-900 text-[8px]" />
                     </div>
                   </div>
-                  {/* Action row */}
-                  <div className="px-4 py-2.5 flex justify-around ml-12 border-t border-gray-100">
-                    <span className="flex items-center gap-1.5 text-sm text-gray-500">
-                      <i className="fa-regular fa-comment" /> 12
-                    </span>
-                    <span className="flex items-center gap-1.5 text-sm text-gray-500">
-                      <i className="fa-solid fa-retweet" /> 8
-                    </span>
-                    <span className="flex items-center gap-1.5 text-sm text-gray-500">
-                      <i className="fa-regular fa-heart" /> 47
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      <i className="fa-solid fa-arrow-up-from-bracket" />
-                    </span>
+                  {/* X nav bar */}
+                  <div className="bg-white px-3 py-2 flex items-center justify-between border-b border-gray-100">
+                    <div className="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                      <i className="fa-solid fa-user text-gray-400 text-xs" />
+                    </div>
+                    <i className="fa-brands fa-x-twitter text-gray-900 text-base" />
+                    <i className="fa-solid fa-gear text-gray-400 text-sm" />
                   </div>
-                </div>
+                  {/* Tweet */}
+                  <div className="bg-white">
+                    <div className="px-3 py-2">
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+                          <MockLogo industry={industrySlug} size={26} iconOnly />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-1 flex-wrap">
+                            <p className="text-xs font-bold text-gray-900">{businessName}</p>
+                            <i className="fa-solid fa-circle-check text-[#1d9bf0] text-[10px]" />
+                            <p className="text-[10px] text-gray-500">@{handle} · 2h</p>
+                          </div>
+                          {/* Tweet text */}
+                          <p className="text-xs text-gray-900 leading-relaxed mt-1 line-clamp-3">{postContent}</p>
+                          {/* Image if applicable */}
+                          {postType !== 'text' && (
+                            <div className="mt-2 rounded-xl overflow-hidden">
+                              <PostVisual postType={postType} text={postContent} aspect="aspect-video" />
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    {/* Action row */}
+                    <div className="px-3 py-2 flex justify-around ml-11 border-t border-gray-50">
+                      <span className="flex items-center gap-1 text-[10px] text-gray-500">
+                        <i className="fa-regular fa-comment text-xs" /> 12
+                      </span>
+                      <span className="flex items-center gap-1 text-[10px] text-gray-500">
+                        <i className="fa-solid fa-retweet text-xs" /> 8
+                      </span>
+                      <span className="flex items-center gap-1 text-[10px] text-gray-500">
+                        <i className="fa-regular fa-heart text-xs" /> 47
+                      </span>
+                      <span className="text-[10px] text-gray-500">
+                        <i className="fa-solid fa-arrow-up-from-bracket text-xs" />
+                      </span>
+                    </div>
+                  </div>
+                </PhoneFrame>
               )}
 
               {/* ── YOUTUBE ── */}
               {activePlatform === 'youtube' && (
-                <div className="max-w-lg mx-auto">
-                  {/* Video thumbnail */}
-                  <div className="relative rounded-xl overflow-hidden">
-                    <PostVisual postType={postType} text={postContent} aspect="aspect-video" />
-                    {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-black/70 rounded-2xl flex items-center justify-center">
-                        <i className="fa-solid fa-play text-white text-xl ml-1" />
+                <LaptopFrame>
+                  {/* YouTube top bar */}
+                  <div className="bg-white border-b border-gray-200 px-4 py-2 flex items-center gap-4">
+                    <div className="flex items-center gap-1 shrink-0">
+                      <i className="fa-brands fa-youtube text-[#FF0000] text-xl" />
+                      <span className="text-sm font-bold text-gray-900 tracking-tight">YouTube</span>
+                    </div>
+                    <div className="flex-1 max-w-md mx-auto flex">
+                      <div className="flex-1 bg-gray-50 border border-gray-300 rounded-l-full px-4 py-1.5 flex items-center">
+                        <span className="text-xs text-gray-400">Search</span>
+                      </div>
+                      <div className="bg-gray-100 border border-l-0 border-gray-300 rounded-r-full px-3 flex items-center">
+                        <i className="fa-solid fa-magnifying-glass text-gray-600 text-xs" />
                       </div>
                     </div>
-                    {/* Duration badge */}
-                    <div className="absolute bottom-2 right-2 bg-black/80 text-white text-xs font-medium px-1.5 py-0.5 rounded">
-                      2:34
+                    <div className="flex items-center gap-3 shrink-0">
+                      <i className="fa-solid fa-bell text-gray-600 text-sm" />
+                      <div className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center">
+                        <span className="text-white text-[9px] font-bold">A</span>
+                      </div>
                     </div>
                   </div>
-                  {/* Video info */}
-                  <div className="flex gap-3 mt-3">
-                    <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-                      <MockLogo industry={industrySlug} size={28} iconOnly />
+                  {/* Video content */}
+                  <div className="p-4 bg-white">
+                    {/* Video thumbnail */}
+                    <div className="relative rounded-xl overflow-hidden">
+                      <PostVisual postType={postType} text={postContent} aspect="aspect-video" />
+                      {/* Play button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-14 h-10 bg-black/70 rounded-xl flex items-center justify-center">
+                          <i className="fa-solid fa-play text-white text-lg ml-0.5" />
+                        </div>
+                      </div>
+                      {/* Duration badge */}
+                      <div className="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-medium px-1.5 py-0.5 rounded">
+                        2:34
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-bold text-gray-900 line-clamp-2">
-                        {postContent.split(' ').slice(0, 12).join(' ')}
-                      </p>
-                      <p className="text-xs text-gray-500 mt-0.5">{businessName}</p>
-                      <p className="text-xs text-gray-500">12K views · 3 days ago</p>
+                    {/* Video info */}
+                    <div className="flex gap-3 mt-3">
+                      <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+                        <MockLogo industry={industrySlug} size={28} iconOnly />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-bold text-gray-900 line-clamp-2">
+                          {postContent.split(' ').slice(0, 12).join(' ')}
+                        </p>
+                        <p className="text-xs text-gray-500 mt-0.5">{businessName} · 12K views · 3 days ago</p>
+                      </div>
+                      <button className="self-start bg-[#FF0000] text-white text-xs font-bold px-4 py-2 rounded-full shrink-0">
+                        Subscribe
+                      </button>
                     </div>
-                    <button className="self-start bg-[#FF0000] text-white text-xs font-bold px-4 py-2 rounded-full shrink-0">
-                      Subscribe
-                    </button>
                   </div>
-                </div>
+                </LaptopFrame>
               )}
             </motion.div>
           </AnimatePresence>
