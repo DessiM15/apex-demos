@@ -49,7 +49,7 @@ export default function DemoSelectorPage() {
           </p>
         </motion.div>
 
-        {/* Step 1 — Industry */}
+        {/* Step 1 — Industry (horizontal pills) */}
         <motion.section
           className="mb-12"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
@@ -58,38 +58,28 @@ export default function DemoSelectorPage() {
             <span className="bg-apex-blue text-white font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
             <h2 className="text-2xl font-bold text-brand-text">Choose Your Industry</h2>
           </div>
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
-            variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}
-          >
+          <div className="flex flex-wrap gap-2">
             {industryList.map(slug => {
               const ind = industries[slug]
               const active = selectedIndustry === slug
               return (
-                <motion.button
+                <button
                   key={slug}
-                  variants={fadeInUp}
                   onClick={() => setSelectedIndustry(slug)}
                   className={`
-                    flex flex-col items-center gap-3 p-6 rounded-card border-2 transition-all duration-200 cursor-pointer
+                    inline-flex items-center gap-2 px-4 py-2.5 rounded-pill border-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap
                     ${active
-                      ? 'border-apex-blue bg-apex-blue-light shadow-card-hover scale-105'
-                      : 'border-brand-border bg-white hover:border-apex-blue hover:shadow-card'}
+                      ? 'border-apex-blue bg-apex-blue text-white shadow-card-hover'
+                      : 'border-brand-border bg-white text-brand-text hover:border-apex-blue hover:text-apex-blue'}
                   `}
                 >
-                  <span className="text-3xl text-apex-blue"><i className={ind.faIcon}></i></span>
-                  <span className={`font-semibold text-sm text-center leading-snug ${active ? 'text-apex-blue' : 'text-brand-text'}`}>
-                    {ind.name}
-                  </span>
-                  {active && (
-                    <span className="text-xs bg-apex-blue text-white px-2 py-0.5 rounded-pill font-semibold">
-                      Selected <i className="fa-solid fa-check"></i>
-                    </span>
-                  )}
-                </motion.button>
+                  <i className={`${ind.faIcon} text-xs`}></i>
+                  {ind.name}
+                  {active && <i className="fa-solid fa-check text-xs ml-1"></i>}
+                </button>
               )
             })}
-          </motion.div>
+          </div>
         </motion.section>
 
         {/* Step 2 — Package */}

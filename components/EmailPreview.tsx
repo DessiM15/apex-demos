@@ -13,7 +13,9 @@ interface Props {
 }
 
 export default function EmailPreview({ campaigns, industryName, industrySlug }: Props) {
+  const [active, setActive] = useState(0)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const campaign = campaigns[active]
 
   const closeModal = useCallback(() => setOpenIndex(null), [])
 
@@ -26,7 +28,6 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
     return () => document.removeEventListener('keydown', handleEsc)
   }, [openIndex, closeModal])
 
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (openIndex !== null) {
       document.body.style.overflow = 'hidden'
@@ -36,7 +37,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
     return () => { document.body.style.overflow = '' }
   }, [openIndex])
 
-  const activeCampaign = openIndex !== null ? campaigns[openIndex] : null
+  const modalCampaign = openIndex !== null ? campaigns[openIndex] : null
 
   return (
     <section className="bg-brand-bg py-20 px-4">
@@ -50,46 +51,80 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
             Email Marketing
           </span>
           <h2 className="text-3xl font-bold text-brand-heading mt-4 mb-3">
-            Email Campaigns
+            Automated Email Campaigns
           </h2>
           <p className="text-brand-muted max-w-xl mx-auto">
             Strategic email campaigns sent to your list every month — keeping you top-of-mind with every prospect.
           </p>
         </motion.div>
 
-        {/* Email list */}
         <motion.div
-          className="space-y-3"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start"
           variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          {campaigns.map((c, i) => (
-            <motion.div
-              key={i}
-              variants={fadeInUp}
-              className="flex items-center gap-4 p-5 rounded-card border border-brand-border bg-brand-card hover:bg-brand-surface transition-colors"
-            >
-              <div className="w-10 h-10 rounded-full bg-apex-blue flex items-center justify-center text-white shrink-0">
-                <i className="fa-solid fa-envelope text-sm"></i>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-bold text-brand-text text-sm truncate">{c.subject}</p>
-                <p className="text-brand-muted text-xs truncate">{c.bodyPreview}</p>
-              </div>
+          {/* Campaign selector */}
+          <motion.div variants={fadeInUp} className="md:col-span-1 space-y-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-muted mb-3">
+              Sample Campaigns
+            </p>
+            {campaigns.map((c, i) => (
               <button
-                onClick={() => setOpenIndex(i)}
-                className="text-sm text-apex-blue font-semibold hover:underline whitespace-nowrap cursor-pointer shrink-0"
+                key={i}
+                onClick={() => setActive(i)}
+                className={`w-full text-left p-4 rounded-card border-2 transition-all duration-200 text-sm font-medium
+                  ${active === i
+                    ? 'border-apex-blue bg-apex-blue-light text-apex-blue'
+                    : 'border-brand-border bg-brand-surface text-brand-text hover:border-apex-blue'}`}
               >
-                View Full Email
+                <i className="fa-solid fa-envelope"></i> {c.subject}
               </button>
-            </motion.div>
-          ))}
+            ))}
+            <p className="text-xs text-brand-muted pt-2">
+              + {campaigns.length * 2} more campaigns/month
+            </p>
+          </motion.div>
+
+          {/* Email preview */}
+          <motion.div variants={fadeInUp} className="md:col-span-2">
+            <div className="bg-brand-card rounded-card shadow-card border border-brand-border overflow-hidden">
+              {/* Email header bar */}
+              <div className="bg-brand-surface px-5 py-3 border-b border-brand-border flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+                <span className="text-xs text-brand-muted ml-3">Email Preview</span>
+              </div>
+              {/* Email content */}
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-5 pb-5 border-b border-brand-border">
+                  <div className="w-10 h-10 rounded-full bg-apex-blue flex items-center justify-center text-white font-bold text-sm">
+                    A
+                  </div>
+                  <div>
+                    <p className="font-semibold text-brand-text text-sm">Apex {industryName} Team</p>
+                    <p className="text-brand-muted text-xs">To: Your Clients & Prospects</p>
+                  </div>
+                </div>
+                <p className="font-bold text-brand-text text-base mb-4">{campaign.subject}</p>
+                <p className="text-brand-muted text-sm leading-relaxed">{campaign.bodyPreview}</p>
+                <div className="mt-6">
+                  <button
+                    onClick={() => setOpenIndex(active)}
+                    className="bg-apex-blue text-white text-sm font-semibold px-5 py-2.5 rounded-btn cursor-pointer hover:bg-apex-blue-dark transition-colors"
+                  >
+                    View Full Email →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
       </div>
 
       {/* Modal */}
       <AnimatePresence>
-        {activeCampaign && (
+        {modalCampaign && (
           <motion.div
             className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
@@ -129,7 +164,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
                 <div className="space-y-1 text-sm pr-8">
                   <p><span className="text-gray-500 font-medium">From:</span> <span className="text-gray-800">{industryName} Team &lt;hello@apex-demo.com&gt;</span></p>
                   <p><span className="text-gray-500 font-medium">To:</span> <span className="text-gray-800">Your Clients &amp; Prospects</span></p>
-                  <p><span className="text-gray-500 font-medium">Subject:</span> <span className="text-gray-800 font-semibold">{activeCampaign.subject}</span></p>
+                  <p><span className="text-gray-500 font-medium">Subject:</span> <span className="text-gray-800 font-semibold">{modalCampaign.subject}</span></p>
                 </div>
               </div>
 
@@ -143,14 +178,14 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
                 {/* Hero banner */}
                 <div className="bg-[#243a8f] rounded-card p-8 text-center mb-6">
                   <h3 className="text-white font-bold text-xl leading-snug">
-                    {activeCampaign.subject}
+                    {modalCampaign.subject}
                   </h3>
                 </div>
 
                 {/* Body text */}
                 <div className="text-gray-700 text-sm leading-relaxed space-y-4 mb-8">
                   <p>Hi [First Name],</p>
-                  <p>{activeCampaign.bodyPreview}</p>
+                  <p>{modalCampaign.bodyPreview}</p>
                   <p>We put this together because we genuinely believe it can make a difference for you. Whether you take action today or simply keep this in your back pocket, we want you to have the information you need to make smart decisions.</p>
                   <p>If you have any questions or want to discuss your specific situation, we are here for you. Just hit reply or use the button below to get in touch.</p>
                 </div>
