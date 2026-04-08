@@ -1,6 +1,6 @@
 import { notFound }         from 'next/navigation'
 import { packages, PackageSlug } from '@/data/packages'
-import { industries, IndustrySlug } from '@/data/industries'
+import { industries, IndustrySlug, ThemeConfig } from '@/data/industries'
 import { mockContent }       from '@/data/mockContent'
 import DemoBanner            from '@/components/DemoBanner'
 import DemoNavbar            from '@/components/DemoNavbar'
@@ -40,6 +40,22 @@ interface PageProps {
   params: Promise<{ industry: string; package: string }>
 }
 
+// Default theme config (Group 1 Corporate) used when industry has no themeConfig
+const defaultThemeConfig: ThemeConfig = {
+  heroLayout: 'left',
+  heroOverlayOpacity: 0.82,
+  servicesLayout: 'grid-4',
+  bioLayout: 'photo-left',
+  testimonialsLayout: 'cards-3',
+  sectionOrder: ['hero','services','leadform','bio','testimonials','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer'],
+  accentColor: '#243a8f',
+  headingStyle: 'bold-tight',
+  sectionSpacing: 'normal',
+  navStyle: 'white',
+  darkSections: false,
+  formStyle: 'light',
+}
+
 // CTA link — swap with Trent's real calendar link
 const CTA_LINK = 'https://reachtheapex.net'
 
@@ -52,9 +68,10 @@ export default async function DemoPage({ params }: PageProps) {
   if (!pkg || !industry || !content) notFound()
 
   const sections = pkg.sectionsEnabled
+  const tc = industry.themeColors
+  const theme = industry.themeConfig ?? defaultThemeConfig
 
   // Industry-level theme colors (overrides CSS variables from globals.css)
-  const tc = industry.themeColors
   const themeStyle = tc ? {
     '--accent': tc.accent,
     '--accent-dark': tc.accentDark,
@@ -68,6 +85,133 @@ export default async function DemoPage({ params }: PageProps) {
     ...(tc.brandHeading && { '--brand-heading': tc.brandHeading }),
   } as React.CSSProperties : undefined
 
+  // ── Build section map ───────────────────────────────────────────
+  const sectionMap: Record<string, React.ReactNode> = {
+    hero: (
+      <>
+        <HeroSection
+          headline={industry.heroHeadline[pkg.slug]}
+          subheadline={industry.heroSubheadline[pkg.slug]}
+          heroImage={industry.heroImage}
+          heroVideo={industry.heroVideo}
+          heroOverlay={industry.heroOverlay}
+          heroIntroText={industry.heroIntroText}
+          heroFont={industry.heroFont}
+          ctaLink={CTA_LINK}
+          formCTA={industry.formCTA}
+          theme={{
+            heroLayout: theme.heroLayout,
+            heroOverlayOpacity: theme.heroOverlayOpacity,
+            accentColor: theme.accentColor,
+            headingStyle: theme.headingStyle,
+          }}
+        />
+        <LandingPageBadge
+          count={pkg.landingPageCount}
+          packageName={pkg.name}
+        />
+      </>
+    ),
+    services: (
+      <ServicesGrid
+        services={industry.services}
+        theme={{
+          servicesLayout: theme.servicesLayout,
+          accentColor: theme.accentColor,
+          headingStyle: theme.headingStyle,
+          sectionSpacing: theme.sectionSpacing,
+        }}
+      />
+    ),
+    leadform: (
+      <LeadCaptureForm
+        fields={industry.formFields}
+        cta={industry.formCTA}
+        industryName={industry.name}
+        theme={{
+          formStyle: theme.formStyle,
+          accentColor: theme.accentColor,
+        }}
+      />
+    ),
+    bio: (
+      <AgentBio
+        name={industry.bioName}
+        title={industry.bioTitle}
+        creds={industry.bioCreds}
+        bio={industry.bioText}
+        bioImage={industry.bioImage}
+        industry={industry.slug}
+        theme={{
+          bioLayout: theme.bioLayout,
+          accentColor: theme.accentColor,
+          headingStyle: theme.headingStyle,
+        }}
+      />
+    ),
+    testimonials: (
+      <TestimonialsSection
+        testimonials={industry.testimonials}
+        theme={{
+          testimonialsLayout: theme.testimonialsLayout,
+          accentColor: theme.accentColor,
+          headingStyle: theme.headingStyle,
+        }}
+      />
+    ),
+    blog: (
+      <BlogPreview posts={content.blogPosts} industryName={industry.name} />
+    ),
+    email: (
+      <EmailPreview campaigns={content.emailCampaigns} industryName={industry.name} industrySlug={industry.slug} />
+    ),
+    social: (
+      <SocialPostCarousel
+        posts={content.socialPosts}
+        industryName={industry.name}
+        industrySlug={industry.slug}
+      />
+    ),
+    podcast: (
+      <PodcastPlayer episodes={content.podcastEpisodes} industryName={industry.name} />
+    ),
+    video: (
+      <VideoGallery hooks={content.videoHooks} industryName={industry.name} />
+    ),
+    analytics: (
+      <AnalyticsDashboard
+        stats={content.analyticsStats}
+        packageName={pkg.name}
+        basic={pkg.slug === 'pulsemarket'}
+      />
+    ),
+    conversion: (
+      <ConversionTracking packageName={pkg.name} />
+    ),
+    avatar: (
+      <AIAvatarVideo />
+    ),
+    brandpresence: (
+      <BrandedPresence />
+    ),
+    whiteglove: (
+      <WhiteGloveSupport />
+    ),
+    clicktocall: (
+      <ClickToCall />
+    ),
+    footer: (
+      <DemoFooter industryName={industry.name} industrySlug={industrySlug as IndustrySlug} ctaLink={CTA_LINK} />
+    ),
+  }
+
+  // ── Render sections in themeConfig order ─────────────────────────
+  const orderedSections = theme.sectionOrder
+    .filter(key => sections.includes(key) && sectionMap[key])
+    .map(key => (
+      <div key={key}>{sectionMap[key]}</div>
+    ))
+
   return (
     <div style={themeStyle}>
       {/* Sticky demo banner */}
@@ -79,124 +223,15 @@ export default async function DemoPage({ params }: PageProps) {
       />
 
       {/* Navbar */}
-      <DemoNavbar industry={industry.slug} />
+      <DemoNavbar
+        industry={industry.slug}
+        navStyle={theme.navStyle}
+        accentColor={theme.accentColor}
+      />
 
-      <main>
-        {/* Hero — always shown */}
-        <HeroSection
-          headline={industry.heroHeadline[pkg.slug]}
-          subheadline={industry.heroSubheadline[pkg.slug]}
-          heroImage={industry.heroImage}
-          heroVideo={industry.heroVideo}
-          heroOverlay={industry.heroOverlay}
-          heroIntroText={industry.heroIntroText}
-          heroFont={industry.heroFont}
-          ctaLink={CTA_LINK}
-          formCTA={industry.formCTA}
-        />
-
-        {/* Landing Page Count Badge — always shown */}
-        <LandingPageBadge
-          count={pkg.landingPageCount}
-          packageName={pkg.name}
-        />
-
-        {/* Services */}
-        {sections.includes('services') && (
-          <ServicesGrid services={industry.services} />
-        )}
-
-        {/* Lead Form */}
-        {sections.includes('leadform') && (
-          <LeadCaptureForm
-            fields={industry.formFields}
-            cta={industry.formCTA}
-            industryName={industry.name}
-          />
-        )}
-
-        {/* Agent Bio */}
-        {sections.includes('bio') && (
-          <AgentBio
-            name={industry.bioName}
-            title={industry.bioTitle}
-            creds={industry.bioCreds}
-            bio={industry.bioText}
-            bioImage={industry.bioImage}
-            industry={industry.slug}
-          />
-        )}
-
-        {/* Testimonials */}
-        {sections.includes('testimonials') && (
-          <TestimonialsSection testimonials={industry.testimonials} />
-        )}
-
-        {/* Blog Preview — PulseFlow+ */}
-        {sections.includes('blog') && (
-          <BlogPreview posts={content.blogPosts} industryName={industry.name} />
-        )}
-
-        {/* Email Preview — PulseFlow+ */}
-        {sections.includes('email') && (
-          <EmailPreview campaigns={content.emailCampaigns} industryName={industry.name} industrySlug={industry.slug} />
-        )}
-
-        {/* Social Posts — all tiers */}
-        {sections.includes('social') && (
-          <SocialPostCarousel
-            posts={content.socialPosts}
-            industryName={industry.name}
-            industrySlug={industry.slug}
-          />
-        )}
-
-        {/* Podcast — PulseDrive+ */}
-        {sections.includes('podcast') && (
-          <PodcastPlayer episodes={content.podcastEpisodes} industryName={industry.name} />
-        )}
-
-        {/* Video Gallery — PulseDrive+ */}
-        {sections.includes('video') && (
-          <VideoGallery hooks={content.videoHooks} industryName={industry.name} />
-        )}
-
-        {/* Conversion Tracking — PulseFlow */}
-        {sections.includes('conversion') && (
-          <ConversionTracking packageName={pkg.name} />
-        )}
-
-        {/* AI Avatar Video — PulseCommand */}
-        {sections.includes('avatar') && (
-          <AIAvatarVideo />
-        )}
-
-        {/* Analytics Dashboard — PulseMarket (basic) & PulseCommand (full) */}
-        {sections.includes('analytics') && (
-          <AnalyticsDashboard
-            stats={content.analyticsStats}
-            packageName={pkg.name}
-            basic={pkg.slug === 'pulsemarket'}
-          />
-        )}
-
-        {/* Branded Presence — PulseCommand */}
-        {sections.includes('brandpresence') && (
-          <BrandedPresence />
-        )}
-
-        {/* White-Glove Support — PulseCommand */}
-        {sections.includes('whiteglove') && (
-          <WhiteGloveSupport />
-        )}
-
-        {/* Click-to-Call floating button — all tiers */}
-        {sections.includes('clicktocall') && (
-          <ClickToCall />
-        )}
+      <main className={theme.darkSections ? 'bg-[#1a1a2e]' : ''}>
+        {orderedSections}
       </main>
-
-      <DemoFooter industryName={industry.name} industrySlug={industrySlug as IndustrySlug} ctaLink={CTA_LINK} />
     </div>
   )
 }
