@@ -147,8 +147,7 @@ export default async function DemoPage({ params }: PageProps) {
           <SocialPostCarousel
             posts={content.socialPosts}
             industryName={industry.name}
-            postsPerMonth={pkg.socialPostCount}
-            showAllPlatforms={pkg.slug === 'pulsecommand'}
+            industrySlug={industry.slug}
           />
         )}
 
