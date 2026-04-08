@@ -23,5 +23,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "jay", "dee", "assets", "real-estate-landing-page-template", "law-firm-landing-page-template", "financial-advisor-landing-page-template"]
 }

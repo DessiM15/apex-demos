@@ -103,7 +103,7 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     socialPostCount: '150',
     emailCampaignCount: 12,
     blogArticleCount: 4,
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','podcast','video','avatar','analytics','brandpresence','whiteglove','footer'],
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','podcast','video','avatar','brandpresence','whiteglove','footer'],
     features: [
       { icon: 'fa-solid fa-infinity', title: 'Unlimited AI Landing Pages', desc: 'No limits on your growth' },
       { icon: 'fa-solid fa-share-nodes', title: '150 Social Posts/mo',        desc: 'Full omnichannel domination' },

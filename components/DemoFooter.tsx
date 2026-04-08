@@ -34,19 +34,13 @@ export default function DemoFooter({ industryName, ctaLink }: Props) {
           >
             This demo was built in days. Your personalized version can be live in less than a week — fully branded, fully automated.
           </motion.p>
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div variants={fadeInUp} className="flex justify-center">
             <a
               href={ctaLink}
-              className="bg-white text-apex-blue font-bold px-10 py-4 rounded-btn hover:bg-apex-blue-light transition-colors shadow-card-hover text-base"
+              className="bg-white text-apex-blue font-bold px-10 py-4 rounded-btn hover:bg-apex-blue-light transition-colors shadow-card-hover text-base w-full sm:w-auto text-center"
             >
               Get Started With Apex →
             </a>
-            <Link
-              href="/demo"
-              className="border-2 border-white/40 text-white font-bold px-10 py-4 rounded-btn hover:bg-white/10 transition-colors text-base"
-            >
-              View Other Demos
-            </Link>
           </motion.div>
         </motion.div>
       </section>
@@ -62,7 +56,7 @@ export default function DemoFooter({ industryName, ctaLink }: Props) {
             className="opacity-80"
           />
           <div className="flex gap-6 text-white/40 text-sm">
-            <Link href="/demo" className="hover:text-white/70 transition-colors">All Demos</Link>
+            <Link href="/demo/select" className="hover:text-white/70 transition-colors">All Demos</Link>
             <a href={ctaLink} className="hover:text-white/70 transition-colors">Contact</a>
             <span>reachtheapex.net</span>
           </div>

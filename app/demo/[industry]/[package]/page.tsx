@@ -23,9 +23,13 @@ import BrandedPresence       from '@/components/BrandedPresence'
 import WhiteGloveSupport     from '@/components/WhiteGloveSupport'
 import DemoFooter            from '@/components/DemoFooter'
 
-// ── Pregenerate all 16 routes ──────────────────────────────────────────
+// ── Pregenerate all routes ──────────────────────────────────────────
 export function generateStaticParams() {
-  const industryKeys: IndustrySlug[] = ['insurance', 'lawfirm', 'realestate', 'financial']
+  const industryKeys: IndustrySlug[] = [
+    'insurance', 'lawfirm', 'realestate', 'financial',
+    'hvac', 'roofing', 'salonspa', 'photography',
+    'dental', 'plumbing', 'trainer',
+  ]
   const packageKeys:  PackageSlug[]  = ['pulsemarket', 'pulseflow', 'pulsedrive', 'pulsecommand']
   return industryKeys.flatMap(industry =>
     packageKeys.map(pkg => ({ industry, package: pkg }))
@@ -75,7 +79,7 @@ export default async function DemoPage({ params }: PageProps) {
       />
 
       {/* Navbar */}
-      <DemoNavbar />
+      <DemoNavbar industry={industry.slug} />
 
       <main>
         {/* Hero — always shown */}
@@ -119,6 +123,7 @@ export default async function DemoPage({ params }: PageProps) {
             creds={industry.bioCreds}
             bio={industry.bioText}
             bioImage={industry.bioImage}
+            industry={industry.slug}
           />
         )}
 
@@ -134,7 +139,7 @@ export default async function DemoPage({ params }: PageProps) {
 
         {/* Email Preview — PulseFlow+ */}
         {sections.includes('email') && (
-          <EmailPreview campaigns={content.emailCampaigns} industryName={industry.name} />
+          <EmailPreview campaigns={content.emailCampaigns} industryName={industry.name} industrySlug={industry.slug} />
         )}
 
         {/* Social Posts — all tiers */}
