@@ -19,7 +19,7 @@ export interface ThemeColors {
 }
 
 export interface ThemeConfig {
-  heroLayout: 'left' | 'center' | 'split' | 'portrait' | 'zen'
+  heroLayout: 'left' | 'center' | 'split' | 'portrait' | 'zen' | 'editorial'
   heroOverlayOpacity: number
   servicesLayout: 'grid-4' | 'grid-3' | 'cards-large' | 'list'
   bioLayout: 'photo-left' | 'photo-right' | 'photo-top-center'
@@ -47,8 +47,9 @@ export interface IndustryConfig {
   heroFont?: string      // optional font family for hero intro text
   heroTagline?: string   // small accent-colored tagline above headline (portrait layout)
   industryHook: string   // industry-relevant statistic/hook displayed under hero
-  luxuryFont?: boolean   // true → uses Playfair Display serif for headings
-  zenFont?: boolean      // true → uses Cormorant Garamond + Great Vibes for headings
+  luxuryFont?: boolean      // true → uses Playfair Display serif for headings
+  zenFont?: boolean         // true → uses Cormorant Garamond + Great Vibes for headings
+  editorialFont?: boolean   // true → uses Bodoni Moda serif for headings
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
   services: ServiceItem[]
@@ -143,6 +144,21 @@ const zenTheme: ThemeConfig = {
   navStyle: 'transparent-over-hero',
   darkSections: false,
   formStyle: 'split',
+}
+
+const photographyTheme: ThemeConfig = {
+  heroLayout: 'editorial',
+  heroOverlayOpacity: 0.45,
+  servicesLayout: 'grid-3',
+  bioLayout: 'photo-top-center',
+  testimonialsLayout: 'list-style',
+  sectionOrder: SECTION_ORDER_CREATIVE,
+  accentColor: '#fb5940',
+  headingStyle: 'light-wide',
+  sectionSpacing: 'spacious',
+  navStyle: 'transparent-over-hero',
+  darkSections: true,
+  formStyle: 'dark',
 }
 
 export const industries: Record<IndustrySlug, IndustryConfig> = {
@@ -508,14 +524,21 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     slug: 'photography',
     name: 'Photography Studio',
     faIcon: 'fa-solid fa-camera',
-    heroImage: 'https://images.unsplash.com/photo-1520390138845-fd2d229dd553?w=1200&q=80',
-    accentColor: '#7C3AED',
+    heroImage: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80',
+    accentColor: '#fb5940',
+    editorialFont: true,
     themeColors: {
-      accent: '124 58 237',
-      accentDark: '99 46 190',
-      accentLight: '#EDE9FE',
+      accent: '251 89 64',
+      accentDark: '200 60 40',
+      accentLight: '#2a1a17',
+      brandBg: '#0D0D0D',
+      brandSurface: '#1A1A1A',
+      brandCard: '#1C1C1C',
+      brandText: '#F5F5F5',
+      brandMuted: '#999999',
+      brandBorder: '#2A2A2A',
+      brandHeading: '#fb5940',
     },
-    luxuryFont: true,
     industryHook: '93% of couples say photography is one of the most important investments for their wedding day',
     heroHeadline: {
       pulsemarket:  "Capture Life's Greatest Moments \u2014 Professional Photography",
@@ -547,7 +570,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: 'Best headshots I have ever gotten. Jordan made me feel relaxed and confident in front of the camera. Using them everywhere now.', name: 'Tyler J.', location: 'Katy, TX', rating: 5 },
       { quote: 'We hired Jordan for our company event and the photos were stunning. Professional, creative, and so easy to work with. Highly recommend.', name: 'Rachel S.', location: 'Sugar Land, TX', rating: 5 },
     ],
-    themeConfig: { ...creativeTheme },
+    themeConfig: { ...photographyTheme },
   },
 
   dental: {

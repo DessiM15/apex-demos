@@ -219,7 +219,7 @@ export default async function DemoPage({ params }: PageProps) {
     ))
 
   return (
-    <div style={themeStyle} className={industry.zenFont ? 'zen' : industry.luxuryFont ? 'luxury' : undefined}>
+    <div style={themeStyle} className={industry.zenFont ? 'zen' : industry.editorialFont ? 'editorial' : industry.luxuryFont ? 'luxury' : undefined}>
       {/* Sticky demo banner */}
       <DemoBanner
         packageName={pkg.name}
@@ -234,7 +234,7 @@ export default async function DemoPage({ params }: PageProps) {
         accentColor={theme.accentColor}
       />
 
-      <main className={theme.darkSections ? 'bg-[#1a1a2e]' : ''}>
+      <main className={theme.darkSections ? 'bg-brand-bg' : ''}>
         {orderedSections}
       </main>
 

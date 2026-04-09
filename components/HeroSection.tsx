@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
 interface HeroTheme {
-  heroLayout?: 'left' | 'center' | 'split' | 'portrait' | 'zen'
+  heroLayout?: 'left' | 'center' | 'split' | 'portrait' | 'zen' | 'editorial'
   heroOverlayOpacity?: number
   accentColor?: string
   headingStyle?: 'bold-tight' | 'light-wide' | 'mixed'
@@ -280,6 +280,69 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                     href={ctaLink}
                     className="inline-block rounded-full px-12 py-4 text-sm font-semibold uppercase tracking-widest text-white border border-white/40 hover:bg-white/10 transition-colors"
                     style={{ backgroundColor: accentColor + '66' }}
+                  >
+                    {formCTA}
+                  </a>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+    )
+  }
+
+  /* ── EDITORIAL layout (Photography / Fashion) ── */
+  if (layout === 'editorial') {
+    return (
+      <section className="relative min-h-[700px] flex items-center overflow-hidden">
+        {background}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,${overlayOpacity}), rgba(0,0,0,0.3))`,
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-32 w-full flex flex-col items-center text-center">
+          <AnimatePresence mode="wait">
+            {showIntro && heroIntroText ? introBlock : (
+              <motion.div
+                key="content"
+                className="flex flex-col items-center text-center w-full"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                {/* Thin decorative line */}
+                <motion.div variants={fadeInUp} className="w-12 h-px mb-8" style={{ backgroundColor: accentColor }} />
+                {/* Small label */}
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60 mb-6"
+                >
+                  Editorial Photography
+                </motion.p>
+                {/* Headline in accent color */}
+                <motion.h1
+                  variants={fadeInUp}
+                  className="text-5xl md:text-6xl lg:text-7xl leading-tight tracking-wide"
+                  style={{ color: accentColor }}
+                >
+                  {headline}
+                </motion.h1>
+                {/* Subheadline */}
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-lg text-white/70 mt-6 mb-12 max-w-2xl mx-auto leading-relaxed"
+                >
+                  {subheadline}
+                </motion.p>
+                {/* Pill CTA button */}
+                <motion.div variants={fadeInUp}>
+                  <a
+                    href={ctaLink}
+                    className="inline-block rounded-full px-12 py-4 text-sm font-semibold uppercase tracking-widest text-white hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: accentColor }}
                   >
                     {formCTA}
                   </a>

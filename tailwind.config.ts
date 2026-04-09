@@ -36,6 +36,7 @@ const config: Config = {
         playfair: ['var(--font-playfair)', 'Georgia', 'serif'],
         cormorant:  ['var(--font-cormorant)', 'Georgia', 'serif'],
         greatvibes: ['var(--font-great-vibes)', 'cursive'],
+        bodoni: ['var(--font-bodoni)', 'Georgia', 'serif'],
       },
       boxShadow: {
         card:       '0 2px 12px rgba(36,58,143,0.08)',
