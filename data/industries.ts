@@ -380,7 +380,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     slug: 'roofing',
     name: 'Roofing Contractor',
     faIcon: 'fa-solid fa-hammer',
-    heroImage: 'https://images.unsplash.com/photo-1632823471565-1ecdf5c6da7e?w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80',
     accentColor: '#cf181d',
     themeColors: {
       accent: '207 24 29',

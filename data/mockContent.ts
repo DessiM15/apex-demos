@@ -202,8 +202,8 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
 
   roofing: {
     blogPosts: [
-      { title: 'Hail Damage? Here\'s Exactly What to Do in the First 48 Hours', preview: "Houston gets hit with major hail storms every year. What you do in the first 48 hours determines whether your insurance covers the full repair — or leaves you paying out of pocket...", readTime: '5 min read', image: 'https://images.unsplash.com/photo-1632823471565-1ecdf5c6da7e?w=800&h=400&fit=crop' },
-      { title: 'Asphalt vs Metal Roofing in Texas: Which One Actually Lasts Longer?', preview: "Everyone has an opinion but few have the data. Here's a side-by-side comparison of real performance, cost, and longevity for Houston's climate specifically...", readTime: '4 min read', image: 'https://images.unsplash.com/photo-1625766763788-95ed15956811?w=800&h=400&fit=crop' },
+      { title: 'Hail Damage? Here\'s Exactly What to Do in the First 48 Hours', preview: "Houston gets hit with major hail storms every year. What you do in the first 48 hours determines whether your insurance covers the full repair — or leaves you paying out of pocket...", readTime: '5 min read', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=400&fit=crop' },
+      { title: 'Asphalt vs Metal Roofing in Texas: Which One Actually Lasts Longer?', preview: "Everyone has an opinion but few have the data. Here's a side-by-side comparison of real performance, cost, and longevity for Houston's climate specifically...", readTime: '4 min read', image: 'https://images.unsplash.com/photo-1513880989635-6eb491ce7f5b?w=800&h=400&fit=crop' },
     ],
     emailCampaigns: [
       { subject: 'Storm season is here — is your roof ready?', bodyPreview: "Last year's hail season cost Houston homeowners over $2 billion in damage. A free 15-minute inspection now could save you thousands later. Here's what we check..." },
