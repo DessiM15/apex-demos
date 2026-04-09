@@ -169,10 +169,10 @@ export default function AgentBio({ name, title, creds, bio, bioImage, industry, 
 
         {/* Text */}
         <motion.div variants={fadeInUp}>
-          <h2 className="text-3xl font-light tracking-widest uppercase text-gray-800 mt-4 mb-1">{name}</h2>
+          <h2 className="text-3xl font-light tracking-widest uppercase text-brand-text mt-4 mb-1">{name}</h2>
           <p className="italic text-lg mb-1" style={{ color: accentColor }}>{title}</p>
-          <p className="text-gray-500 text-sm mb-6 pb-6 border-b border-gray-200">{creds}</p>
-          <p className="text-gray-700 leading-relaxed text-lg text-center max-w-lg mx-auto mb-8">{bio}</p>
+          <p className="text-brand-muted text-sm mb-6 pb-6 border-b border-brand-border">{creds}</p>
+          <p className="text-brand-text leading-relaxed text-lg text-center max-w-lg mx-auto mb-8">{bio}</p>
           <div className="flex gap-4 justify-center">
             {['LinkedIn', 'Facebook', 'Instagram'].map(s => (
               <span

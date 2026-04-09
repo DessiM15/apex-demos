@@ -156,14 +156,14 @@ export default function TestimonialsSection({ testimonials, theme }: Props) {
           className="text-center"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          <h2 className="text-3xl font-light tracking-widest uppercase text-gray-800 mb-2">
+          <h2 className="text-3xl font-light tracking-widest uppercase text-brand-text mb-2">
             What Our Clients Say
           </h2>
           <div className="w-16 h-px mx-auto mb-16" style={{ backgroundColor: accentColor }} />
         </motion.div>
 
         <motion.div
-          className="max-w-3xl mx-auto divide-y divide-gray-200"
+          className="max-w-3xl mx-auto divide-y divide-brand-border"
           variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}
         >
           {testimonials.map((t, i) => (
@@ -187,13 +187,13 @@ export default function TestimonialsSection({ testimonials, theme }: Props) {
                   ))}
                 </div>
                 {/* Quote */}
-                <p className="text-gray-700 text-lg leading-relaxed italic mb-4">
+                <p className="text-brand-text text-lg leading-relaxed italic mb-4">
                   {t.quote}
                 </p>
                 {/* Author */}
                 <div className="text-right">
-                  <p className="font-semibold text-gray-800">{t.name}</p>
-                  <p className="italic text-gray-500 text-sm">{t.location}</p>
+                  <p className="font-semibold text-brand-text">{t.name}</p>
+                  <p className="italic text-brand-muted text-sm">{t.location}</p>
                 </div>
               </div>
             </motion.div>
