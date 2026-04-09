@@ -620,7 +620,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     ],
     formFields: ['Name', 'Phone', 'Email', 'Service Needed', 'Insurance Provider'],
     formCTA: 'Talk to a Dentist',
-    bioImage: 'https://images.unsplash.com/photo-1594824476967-48c8b964f137?w=400&h=400&fit=crop&crop=face',
+    bioImage: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face',
     bioName:  'Dr. Angela Park',
     bioTitle: 'General Dentist DDS',
     bioCreds: 'Accepting New Patients \u2014 14 Years Experience \u2014 Houston TX',
