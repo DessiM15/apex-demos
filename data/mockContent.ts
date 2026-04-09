@@ -202,7 +202,7 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
 
   roofing: {
     blogPosts: [
-      { title: 'Hail Damage? Here\'s Exactly What to Do in the First 48 Hours', preview: "Houston gets hit with major hail storms every year. What you do in the first 48 hours determines whether your insurance covers the full repair — or leaves you paying out of pocket...", readTime: '5 min read', image: 'https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?w=800&h=400&fit=crop' },
+      { title: 'Hail Damage? Here\'s Exactly What to Do in the First 48 Hours', preview: "Houston gets hit with major hail storms every year. What you do in the first 48 hours determines whether your insurance covers the full repair — or leaves you paying out of pocket...", readTime: '5 min read', image: 'https://images.unsplash.com/photo-1635424709845-3a85ad5e1f5e?w=800&h=400&fit=crop' },
       { title: 'Asphalt vs Metal Roofing in Texas: Which One Actually Lasts Longer?', preview: "Everyone has an opinion but few have the data. Here's a side-by-side comparison of real performance, cost, and longevity for Houston's climate specifically...", readTime: '4 min read', image: 'https://images.unsplash.com/photo-1513880989635-6eb491ce7f5b?w=800&h=400&fit=crop' },
     ],
     emailCampaigns: [
