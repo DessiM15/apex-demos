@@ -455,6 +455,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Salon / Med Spa',
     faIcon: 'fa-solid fa-spa',
     heroImage: 'https://images.unsplash.com/photo-1560066984-138daaa45d0e?w=1200&q=80',
+    heroVideo: '/spa-hero.mp4',
     accentColor: '#8F7A64',
     zenFont: true,
     themeColors: {
