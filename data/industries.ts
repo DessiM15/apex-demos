@@ -173,7 +173,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Law Firm',
     faIcon: 'fa-solid fa-scale-balanced',
     heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80',
-    heroVideo: '/law-firm-hero.mp4',
+    heroVideo: '/law-firm-hero-2.mp4',
     accentColor: '#722F37',
     themeColors: {
       accent: '114 47 55',
