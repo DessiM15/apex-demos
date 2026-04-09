@@ -19,7 +19,7 @@ export interface ThemeColors {
 }
 
 export interface ThemeConfig {
-  heroLayout: 'left' | 'center' | 'split' | 'portrait' | 'zen' | 'editorial'
+  heroLayout: 'left' | 'center' | 'clean-center' | 'split' | 'portrait' | 'zen' | 'editorial'
   heroOverlayOpacity: number
   servicesLayout: 'grid-4' | 'grid-3' | 'cards-large' | 'list'
   bioLayout: 'photo-left' | 'photo-right' | 'photo-top-center'
@@ -119,6 +119,21 @@ const creativeTheme: ThemeConfig = {
 const healthTheme: ThemeConfig = {
   heroLayout: 'center',
   heroOverlayOpacity: 0.68,
+  servicesLayout: 'grid-3',
+  bioLayout: 'photo-left',
+  testimonialsLayout: 'cards-3',
+  sectionOrder: SECTION_ORDER_HEALTH,
+  accentColor: '#059669',
+  headingStyle: 'bold-tight',
+  sectionSpacing: 'normal',
+  navStyle: 'white',
+  darkSections: false,
+  formStyle: 'light',
+}
+
+const dentalTheme: ThemeConfig = {
+  heroLayout: 'clean-center',
+  heroOverlayOpacity: 0.55,
   servicesLayout: 'grid-3',
   bioLayout: 'photo-left',
   testimonialsLayout: 'cards-3',
@@ -577,7 +592,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     slug: 'dental',
     name: 'Dental Practice',
     faIcon: 'fa-solid fa-tooth',
-    heroImage: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&q=80',
     accentColor: '#059669',
     themeColors: {
       accent: '5 150 105',
@@ -586,16 +601,16 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     industryHook: '1 in 4 adults have untreated cavities \u2014 your next patient is searching for a dentist right now',
     heroHeadline: {
-      pulsemarket:  'A Healthy Smile Starts Here \u2014 Comprehensive Dental Care',
-      pulseflow:    'More Patients. More Appointments. More Growth.',
-      pulsedrive:   'The Dental Practice That Dominates Your Market Online',
-      pulsecommand: 'Your Full-Scale Dental Marketing Empire \u2014 Done For You',
+      pulsemarket:  'Take your dental health __seriously__',
+      pulseflow:    'More Patients. More Appointments. More __Growth__.',
+      pulsedrive:   'The Dental Practice That __Dominates__ Your Market',
+      pulsecommand: 'Your Full-Scale Dental Marketing __Empire__',
     },
     heroSubheadline: {
-      pulsemarket:  'General Dentistry, Cosmetic Dentistry, Orthodontics & Emergency Care \u2014 Accepting new patients. Gentle, modern care.',
-      pulseflow:    'General Dentistry, Cosmetic Dentistry, Orthodontics & Emergency Care \u2014 The dental practice families trust for gentle, modern care.',
-      pulsedrive:   'General Dentistry, Cosmetic Dentistry, Orthodontics & Emergency Care \u2014 The most trusted dentist in your area, accepting new patients now.',
-      pulsecommand: 'General Dentistry, Cosmetic Dentistry, Orthodontics & Emergency Care \u2014 Premium dental care with same-day appointments and concierge service.',
+      pulsemarket:  'We offer a wide range of services for your every dental need.',
+      pulseflow:    'The dental practice families trust for gentle, modern care.',
+      pulsedrive:   'The most trusted dentist in your area, accepting new patients now.',
+      pulsecommand: 'Premium dental care with same-day appointments and concierge service.',
     },
     services: [
       { icon: 'fa-solid fa-tooth', title: 'General Dentistry', desc: 'Cleanings, exams, and preventive care' },
@@ -604,7 +619,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { icon: 'fa-solid fa-kit-medical', title: 'Emergency Dental Care', desc: 'Same-day emergency appointments available' },
     ],
     formFields: ['Name', 'Phone', 'Email', 'Service Needed', 'Insurance Provider'],
-    formCTA: 'Request an Appointment',
+    formCTA: 'Talk to a Dentist',
     bioImage: 'https://images.unsplash.com/photo-1594824476967-48c8b964f137?w=400&h=400&fit=crop&crop=face',
     bioName:  'Dr. Angela Park',
     bioTitle: 'General Dentist DDS',
@@ -615,7 +630,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: 'I was terrified of the dentist for years. Dr. Park changed that completely. She explained everything, was incredibly patient, and my teeth look amazing.', name: 'Michael T.', location: 'Katy, TX', rating: 5 },
       { quote: 'Got my veneers done by Dr. Park and I cannot stop smiling. The results are natural, beautiful, and exactly what I wanted. 10 out of 10.', name: 'Ashley W.', location: 'Sugar Land, TX', rating: 5 },
     ],
-    themeConfig: { ...healthTheme },
+    themeConfig: { ...dentalTheme },
   },
 
   plumbing: {

@@ -1,10 +1,21 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import React from 'react'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
+/** Converts __word__ markers to underlined spans */
+function parseUnderline(text: string): React.ReactNode[] {
+  return text.split(/(__.*?__)/).map((part, i) => {
+    if (part.startsWith('__') && part.endsWith('__')) {
+      return <span key={i} className="underline decoration-2 underline-offset-8">{part.slice(2, -2)}</span>
+    }
+    return part
+  })
+}
+
 interface HeroTheme {
-  heroLayout?: 'left' | 'center' | 'split' | 'portrait' | 'zen' | 'editorial'
+  heroLayout?: 'left' | 'center' | 'clean-center' | 'split' | 'portrait' | 'zen' | 'editorial'
   heroOverlayOpacity?: number
   accentColor?: string
   headingStyle?: 'bold-tight' | 'light-wide' | 'mixed'
@@ -345,6 +356,56 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                     style={{ backgroundColor: accentColor }}
                   >
                     {formCTA}
+                  </a>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+    )
+  }
+
+  /* ── CLEAN-CENTER layout (Dental / Minimal) ── */
+  if (layout === 'clean-center') {
+    return (
+      <section className="relative min-h-[600px] flex items-center overflow-hidden">
+        {background}
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: `rgba(0,0,0,${overlayOpacity})` }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 w-full flex flex-col items-center text-center">
+          <AnimatePresence mode="wait">
+            {showIntro && heroIntroText ? introBlock : (
+              <motion.div
+                key="content"
+                className="flex flex-col items-center text-center w-full"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.h1
+                  variants={fadeInUp}
+                  className="text-5xl md:text-6xl lg:text-7xl text-white leading-tight font-bold tracking-tight text-balance"
+                >
+                  {parseUnderline(headline)}
+                </motion.h1>
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-lg md:text-xl text-white/80 mt-6 mb-14 max-w-2xl mx-auto"
+                >
+                  {subheadline}
+                </motion.p>
+                <motion.div variants={fadeInUp}>
+                  <a
+                    href={ctaLink}
+                    className="inline-flex items-center gap-4 text-white font-semibold uppercase tracking-[0.2em] text-sm hover:opacity-80 transition-opacity"
+                  >
+                    {formCTA}
+                    <span className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-white">
+                      <i className="fa-solid fa-arrow-right text-xs"></i>
+                    </span>
                   </a>
                 </motion.div>
               </motion.div>
