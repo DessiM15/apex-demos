@@ -58,6 +58,7 @@ export interface IndustryConfig {
   bioCreds: string
   bioText:  string
   bioImage?: string
+  heroImages?: string[]  // collage images for portrait hero (replaces single portrait)
   testimonials: Testimonial[]
   themeConfig?: ThemeConfig
 }
@@ -409,6 +410,11 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     formFields: ['Name', 'Phone', 'Email', 'Service Needed', 'Property Address'],
     formCTA: 'Get a Free Roof Inspection',
     bioImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+    heroImages: [
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',   // finished house / curb appeal
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',   // roofer at work on roof
+      'https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?w=600&q=80',   // family / team portrait
+    ],
     bioName:  'Derek Hayes',
     bioTitle: 'Master Roofer',
     bioCreds: 'Licensed and Insured \u2014 20 Years Experience \u2014 Houston TX',

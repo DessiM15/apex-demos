@@ -21,12 +21,13 @@ interface Props {
   heroFont?:      string
   heroPortrait?:  string
   heroTagline?:   string
+  heroImages?:    string[]
   ctaLink:        string
   formCTA:        string
   theme?:         HeroTheme
 }
 
-export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, ctaLink, formCTA, theme }: Props) {
+export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, heroImages, ctaLink, formCTA, theme }: Props) {
   const [showIntro, setShowIntro] = useState(!!heroIntroText)
 
   const layout = theme?.heroLayout ?? 'left'
@@ -352,8 +353,28 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                 </a>
               </motion.div>
             </div>
-            {/* Right column — portrait photo */}
-            {heroPortrait && (
+            {/* Right column — collage or single portrait */}
+            {heroImages && heroImages.length >= 3 ? (
+              <motion.div variants={fadeInUp} className="md:w-2/5">
+                <div className="grid grid-cols-2 gap-3">
+                  <img
+                    src={heroImages[0]}
+                    alt="Completed project"
+                    className={`col-span-2 w-full h-48 object-cover rounded-xl ${dark ? 'shadow-2xl' : 'shadow-lg border border-gray-200'}`}
+                  />
+                  <img
+                    src={heroImages[1]}
+                    alt="Work in progress"
+                    className={`w-full h-36 object-cover rounded-xl ${dark ? 'shadow-2xl' : 'shadow-lg border border-gray-200'}`}
+                  />
+                  <img
+                    src={heroImages[2]}
+                    alt="Our team"
+                    className={`w-full h-36 object-cover rounded-xl ${dark ? 'shadow-2xl' : 'shadow-lg border border-gray-200'}`}
+                  />
+                </div>
+              </motion.div>
+            ) : heroPortrait ? (
               <motion.div variants={fadeInUp} className="md:w-2/5 flex justify-center">
                 <div className="relative">
                   {dark && (
@@ -369,7 +390,7 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                   />
                 </div>
               </motion.div>
-            )}
+            ) : null}
           </motion.div>
         </div>
       </section>
