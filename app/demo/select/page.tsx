@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -18,6 +19,7 @@ export default function DemoSelectorPage() {
   const router = useRouter()
   const [selectedIndustry, setSelectedIndustry] = useState<IndustrySlug | null>(null)
   const [selectedPackage,  setSelectedPackage]  = useState<PackageSlug  | null>(null)
+  const [hoveredPackage,   setHoveredPackage]   = useState<PackageSlug  | null>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   function handleGo() {
@@ -68,11 +70,11 @@ export default function DemoSelectorPage() {
             <h2 className="text-2xl font-bold text-brand-text">Choose Your Industry</h2>
           </div>
 
-          <div className="relative">
+          <div className="relative md:px-12">
             {/* Left arrow */}
             <button
               onClick={() => scrollIndustries('left')}
-              className="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-card border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer hidden md:flex"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-card border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer hidden md:flex"
             >
               <i className="fa-solid fa-chevron-left text-xs"></i>
             </button>
@@ -108,7 +110,7 @@ export default function DemoSelectorPage() {
             {/* Right arrow */}
             <button
               onClick={() => scrollIndustries('right')}
-              className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-card border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer hidden md:flex"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-card border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer hidden md:flex"
             >
               <i className="fa-solid fa-chevron-right text-xs"></i>
             </button>
@@ -133,6 +135,7 @@ export default function DemoSelectorPage() {
               const active = selectedPackage === slug
               const isElite = slug === 'pulsecommand'
               const isDrive = slug === 'pulsedrive'
+              const isHovered = hoveredPackage === slug
 
               // Key deliverables for each tier
               const deliverables = [
@@ -147,6 +150,8 @@ export default function DemoSelectorPage() {
                   key={slug}
                   variants={fadeInUp}
                   onClick={() => setSelectedPackage(slug)}
+                  onMouseEnter={() => setHoveredPackage(slug)}
+                  onMouseLeave={() => setHoveredPackage(null)}
                   className={`
                     relative flex flex-col p-5 rounded-card border-2 text-left transition-all duration-200 cursor-pointer
                     ${active
@@ -190,6 +195,28 @@ export default function DemoSelectorPage() {
                       ))}
                     </div>
                   </div>
+
+                  {/* Hover-expanded features list */}
+                  <AnimatePresence>
+                    {isHovered && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <ul className="mt-4 pt-4 border-t border-brand-border space-y-2">
+                          {pkg.features.map((feature, i) => (
+                            <li key={i} className="flex items-center gap-2 text-sm text-brand-text">
+                              <i className={`fa-solid fa-check text-xs ${isElite ? 'text-apex-red' : 'text-apex-blue'}`}></i>
+                              <span>{feature.title}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.button>
               )
             })}
