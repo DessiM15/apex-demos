@@ -87,7 +87,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                 onClick={() => setActive(i)}
                 className={`w-full text-left p-4 rounded-card border-2 transition-all duration-200 text-sm font-medium
                   ${active === i
-                    ? 'border-accent bg-accent/10 text-accent'
+                    ? 'border-accent bg-accent text-white'
                     : 'border-brand-border bg-brand-surface text-brand-text hover:border-accent/50'}`}
               >
                 <i className={campaignIcon(c.type)}></i> {c.subject}
