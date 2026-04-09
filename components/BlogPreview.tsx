@@ -4,9 +4,14 @@ import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, viewport } from '@/lib/animations'
 import { BlogPost } from '@/data/mockContent'
 
-interface BlogProps { posts: BlogPost[]; industryName: string }
+interface BlogProps {
+  posts: BlogPost[]
+  industryName: string
+  packageName?: string
+  blogArticleCount?: number
+}
 
-export function BlogPreview({ posts, industryName }: BlogProps) {
+export function BlogPreview({ posts, industryName, packageName, blogArticleCount }: BlogProps) {
   return (
     <section className="bg-brand-surface py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -17,12 +22,18 @@ export function BlogPreview({ posts, industryName }: BlogProps) {
           <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-apex-blue-light px-3 py-1 rounded-pill">
             Content Marketing
           </span>
-          <h2 className="text-3xl font-bold text-brand-heading mt-4 mb-3">
+          <h2 className="text-3xl font-bold text-brand-heading mt-4 mb-3 text-balance">
             AI-Generated Blog Articles
           </h2>
-          <p className="text-brand-muted max-w-xl mx-auto">
-            Fresh, SEO-optimized articles published for your {industryName} practice every month — automatically.
-          </p>
+          {packageName && blogArticleCount ? (
+            <p className="text-brand-muted max-w-xl mx-auto">
+              With your <span className="font-semibold text-brand-text">{packageName}</span> package, you get <span className="font-semibold text-brand-text">{blogArticleCount} blog articles per month</span>. Here is a sample:
+            </p>
+          ) : (
+            <p className="text-brand-muted max-w-xl mx-auto">
+              Fresh, SEO-optimized articles published for your {industryName} practice every month — automatically.
+            </p>
+          )}
         </motion.div>
 
         <motion.div
@@ -65,7 +76,7 @@ export function BlogPreview({ posts, industryName }: BlogProps) {
           className="text-center text-brand-muted text-sm mt-8"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          2 new articles published automatically every month — written in your voice, optimized for Google.
+          New articles published automatically every month — written in your voice, optimized for Google.
         </motion.p>
       </div>
     </section>

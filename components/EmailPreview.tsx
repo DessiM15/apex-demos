@@ -10,9 +10,11 @@ interface Props {
   campaigns: EmailCampaign[]
   industryName: string
   industrySlug: IndustrySlug
+  packageName?: string
+  emailCampaignCount?: number
 }
 
-export default function EmailPreview({ campaigns, industryName, industrySlug }: Props) {
+export default function EmailPreview({ campaigns, industryName, industrySlug, packageName, emailCampaignCount }: Props) {
   const [active, setActive] = useState(0)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const campaign = campaigns[active]
@@ -50,12 +52,18 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
           <span className="text-xs font-bold uppercase tracking-widest text-apex-blue bg-apex-blue-light px-3 py-1 rounded-pill">
             Email Marketing
           </span>
-          <h2 className="text-3xl font-bold text-brand-heading mt-4 mb-3">
+          <h2 className="text-3xl font-bold text-brand-heading mt-4 mb-3 text-balance">
             Automated Email Campaigns
           </h2>
-          <p className="text-brand-muted max-w-xl mx-auto">
-            Strategic email campaigns sent to your list every month — keeping you top-of-mind with every prospect.
-          </p>
+          {packageName && emailCampaignCount ? (
+            <p className="text-brand-muted max-w-xl mx-auto">
+              With your <span className="font-semibold text-brand-text">{packageName}</span> package, you get <span className="font-semibold text-brand-text">{emailCampaignCount} email campaigns per month</span>. Here is a sample:
+            </p>
+          ) : (
+            <p className="text-brand-muted max-w-xl mx-auto">
+              Strategic email campaigns sent to your list every month — keeping you top-of-mind with every prospect.
+            </p>
+          )}
         </motion.div>
 
         <motion.div
@@ -101,7 +109,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
                     A
                   </div>
                   <div>
-                    <p className="font-semibold text-brand-text text-sm">Apex {industryName} Team</p>
+                    <p className="font-semibold text-brand-text text-sm">Your {industryName} Team</p>
                     <p className="text-brand-muted text-xs">To: Your Clients & Prospects</p>
                   </div>
                 </div>
@@ -162,7 +170,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
                   <div className="w-3 h-3 rounded-full bg-green-400" />
                 </div>
                 <div className="space-y-1 text-sm pr-8">
-                  <p><span className="text-gray-500 font-medium">From:</span> <span className="text-gray-800">{industryName} Team &lt;hello@apex-demo.com&gt;</span></p>
+                  <p><span className="text-gray-500 font-medium">From:</span> <span className="text-gray-800">{industryName} Team &lt;hello@your-domain.com&gt;</span></p>
                   <p><span className="text-gray-500 font-medium">To:</span> <span className="text-gray-800">Your Clients &amp; Prospects</span></p>
                   <p><span className="text-gray-500 font-medium">Subject:</span> <span className="text-gray-800 font-semibold">{modalCampaign.subject}</span></p>
                 </div>
@@ -203,7 +211,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug }: 
                   <p>
                     <span className="underline cursor-pointer">Unsubscribe</span> · <span className="underline cursor-pointer">Update Preferences</span> · <span className="underline cursor-pointer">View in Browser</span>
                   </p>
-                  <p className="mt-3 text-gray-300">Powered by Apex Affinity Group · reachtheapex.net</p>
+                  <p className="mt-3 text-gray-300">Powered by Pulse Marketing</p>
                 </div>
               </div>
             </motion.div>

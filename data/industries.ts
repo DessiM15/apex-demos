@@ -44,6 +44,7 @@ export interface IndustryConfig {
   heroOverlay?: boolean  // default true — set false to remove tint over hero video
   heroIntroText?: string // optional intro text that scale+fades before the headline
   heroFont?: string      // optional font family for hero intro text
+  industryHook: string   // industry-relevant statistic/hook displayed under hero
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
   services: ServiceItem[]
@@ -132,6 +133,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     heroImage: 'https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&q=80',
     heroVideo: '/insurace-hero.mp4',
     accentColor: '#243a8f',
+    industryHook: '50% of Americans say they don\'t have adequate life insurance coverage',
     heroHeadline: {
       pulsemarket:   'Protect What Matters Most — Get Your Free Quote Today',
       pulseflow:     'More Clients. More Coverage. More Growth.',
@@ -140,9 +142,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:   'Auto, Home, Life & Business Insurance — Tailored to You. Local agent, personalized service, fast quotes.',
-      pulseflow:     'Automated content, email campaigns, and blog articles that keep you top-of-mind every single month.',
-      pulsedrive:    'Podcast, video, and a relentless content engine that makes you the go-to insurance authority in your market.',
-      pulsecommand:  'Unlimited landing pages, AI avatar videos, multichannel podcasting, and white-glove support. Built to scale.',
+      pulseflow:     'Auto, Home, Life & Business Insurance — Comprehensive coverage from a trusted local agent who puts your family first.',
+      pulsedrive:    'Auto, Home, Life & Business Insurance — The full-service agency your neighborhood trusts for every policy and every claim.',
+      pulsecommand:  'Auto, Home, Life & Business Insurance — Premium protection, concierge-level service, and a team dedicated to your peace of mind.',
     },
     services: [
       { icon: 'fa-solid fa-car', title: 'Auto Insurance',      desc: 'Comprehensive coverage, competitive rates' },
@@ -186,6 +188,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroIntroText: 'APEX Attorneys at Law',
     heroFont: "'Times New Roman', 'Georgia', serif",
+    industryHook: '77% of people seeking legal help start with an online search before calling a single attorney',
     heroHeadline: {
       pulsemarket:   'Experienced Legal Representation When It Matters Most',
       pulseflow:     'More Clients. More Cases. More Authority.',
@@ -194,9 +197,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:   'Personal Injury \u00b7 Family Law \u00b7 Criminal Defense \u00b7 Business Law \u2014 Free consultations available.',
-      pulseflow:     'Automated content, email campaigns, and legal blog articles that position you as the authority in your practice area.',
-      pulsedrive:    'Legal podcast, video content, and a full content engine that makes you the go-to attorney in your city.',
-      pulsecommand:  'Unlimited landing pages, AI avatar videos, multichannel podcast distribution, and white-glove setup. Built to dominate.',
+      pulseflow:     'Personal Injury, Family Law, Criminal Defense & Business Law \u2014 Aggressive representation from a firm that fights for results.',
+      pulsedrive:    'Personal Injury, Family Law, Criminal Defense & Business Law \u2014 The legal team your community turns to when the stakes are highest.',
+      pulsecommand:  'Personal Injury, Family Law, Criminal Defense & Business Law \u2014 Elite advocacy, proven results, and a relentless commitment to justice.',
     },
     services: [
       { icon: 'fa-solid fa-scale-balanced', title: 'Personal Injury',    desc: 'Car accidents, slip & fall, workplace injuries' },
@@ -238,6 +241,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       brandBorder: '#2a2a2a',
     },
     heroOverlay: false,
+    industryHook: '88% of home buyers use the internet as their primary research tool during their search',
     heroHeadline: {
       pulsemarket:   'Find Your Dream Home in Houston \u2014 Expert Guidance Every Step',
       pulseflow:     'More Listings. More Buyers. More Closings.',
@@ -246,9 +250,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:   'Buying, Selling, or Investing \u2014 Expert guidance through the Houston market. 200+ homes sold. 5-star service.',
-      pulseflow:     'Automated listing content, email campaigns, and market reports that keep buyers and sellers coming to you first.',
-      pulsedrive:    'Property podcasts, listing videos, and a content engine that makes you the top-of-mind agent in every neighborhood.',
-      pulsecommand:  'Unlimited landing pages, AI avatar videos, weekly market update series, and white-glove support. Built to scale.',
+      pulseflow:     'Buying, Selling, or Investing \u2014 A full-service agent with deep market knowledge and a proven track record of results.',
+      pulsedrive:    'Buying, Selling, or Investing \u2014 The top-producing agent your neighborhood trusts to close deals faster and for more money.',
+      pulsecommand:  'Buying, Selling, or Investing \u2014 Concierge-level real estate service backed by cutting-edge marketing and local expertise.',
     },
     services: [
       { icon: 'fa-solid fa-key', title: 'Buyer Representation', desc: 'From search to closing, expert guidance' },
@@ -285,6 +289,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       brandHeading: '#b49132',
     },
     heroIntroText: 'APEX Wealth Advisors',
+    industryHook: '56% of Americans say they don\'t have enough savings to cover a $1,000 emergency expense',
     heroHeadline: {
       pulsemarket:   'Build Wealth. Retire With Confidence. Protect Your Family.',
       pulseflow:     'More Clients. More Assets. More Impact.',
@@ -293,9 +298,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:   'Personalized financial planning for individuals, families, and business owners. Fiduciary. Independent. Always in your corner.',
-      pulseflow:     'Automated content, email campaigns, and financial articles that position you as the trusted wealth authority in your market.',
-      pulsedrive:    'Financial podcast, market update videos, and a content engine that makes you the go-to advisor for your ideal clients.',
-      pulsecommand:  'Unlimited landing pages, AI avatar videos, weekly market commentary series, and white-glove setup. Built to scale.',
+      pulseflow:     'Personalized financial planning for individuals, families, and business owners \u2014 Building wealth with a plan you can trust.',
+      pulsedrive:    'Personalized financial planning for individuals, families, and business owners \u2014 The advisor your peers recommend by name.',
+      pulsecommand:  'Personalized financial planning for individuals, families, and business owners \u2014 Wealth management with white-glove precision.',
     },
     services: [
       { icon: 'fa-solid fa-piggy-bank', title: 'Retirement Planning',    desc: '401k, IRA, pension optimization' },
@@ -335,6 +340,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       brandMuted: '#9CA3AF',
       brandBorder: '#3a3a55',
     },
+    industryHook: '75% of homeowners pick the first HVAC company that shows up with good reviews online',
     heroHeadline: {
       pulsemarket:  'Stay Cool All Summer, Stay Warm All Winter \u2014 Expert HVAC Service',
       pulseflow:    'More Calls. More Jobs. More Revenue.',
@@ -343,9 +349,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:  'AC Installation, Heating Repair, Duct Cleaning & Emergency Service \u2014 Licensed, insured, and trusted by Houston homeowners.',
-      pulseflow:    'Automated content, email campaigns, and seasonal promotions that keep your phone ringing all year long.',
-      pulsedrive:   'HVAC podcast, video content, and a full content engine that makes you the go-to comfort expert in your service area.',
-      pulsecommand: 'Unlimited landing pages, AI avatar videos, multichannel content, and white-glove setup. Built to scale your HVAC business.',
+      pulseflow:    'AC Installation, Heating Repair, Duct Cleaning & Emergency Service \u2014 The trusted HVAC team that keeps your home comfortable year-round.',
+      pulsedrive:   'AC Installation, Heating Repair, Duct Cleaning & Emergency Service \u2014 The go-to comfort experts homeowners recommend to their neighbors.',
+      pulsecommand: 'AC Installation, Heating Repair, Duct Cleaning & Emergency Service \u2014 Full-service HVAC with 24/7 response and guaranteed satisfaction.',
     },
     services: [
       { icon: 'fa-solid fa-snowflake', title: 'AC Installation', desc: 'Energy-efficient cooling systems installed right' },
@@ -384,6 +390,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       brandMuted: '#9CA3AF',
       brandBorder: '#3a3a55',
     },
+    industryHook: '70% of homeowners don\'t inspect their roof until there\'s already visible damage inside',
     heroHeadline: {
       pulsemarket:  'Protect Your Home From the Top Down \u2014 Expert Roofing Services',
       pulseflow:    'More Leads. More Roofs. More Growth.',
@@ -392,9 +399,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:  'Roof Installation, Storm Damage Repair, Gutter Installation & Inspections \u2014 Licensed, insured, and trusted across Houston.',
-      pulseflow:    'Automated content, email campaigns, and storm season promotions that keep your pipeline full year-round.',
-      pulsedrive:   'Roofing podcast, project showcase videos, and a full content engine that makes you the most trusted roofer in your market.',
-      pulsecommand: 'Unlimited landing pages, AI avatar videos, multichannel content, and white-glove setup. Built to scale your roofing business.',
+      pulseflow:    'Roof Installation, Storm Damage Repair, Gutter Installation & Inspections \u2014 The roofing contractor homeowners trust for honest work.',
+      pulsedrive:   'Roof Installation, Storm Damage Repair, Gutter Installation & Inspections \u2014 The most trusted roofer in your market, bar none.',
+      pulsecommand: 'Roof Installation, Storm Damage Repair, Gutter Installation & Inspections \u2014 Premium roofing with warranty-backed quality and storm-ready response.',
     },
     services: [
       { icon: 'fa-solid fa-house-chimney', title: 'Roof Installation', desc: 'Quality roofing systems built to last' },
@@ -427,6 +434,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       accentDark: '99 46 190',
       accentLight: '#EDE9FE',
     },
+    industryHook: 'The med spa industry has grown 12% year-over-year \u2014 clients are searching online for providers right now',
     heroHeadline: {
       pulsemarket:  'Look Your Best, Feel Your Best \u2014 Premium Aesthetic Services',
       pulseflow:    'More Bookings. More Clients. More Growth.',
@@ -435,9 +443,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:  'Facials, Botox & Fillers, Laser Treatments & Massage Therapy \u2014 Board certified, results-driven, and trusted by Houston clients.',
-      pulseflow:    'Automated content, email campaigns, and seasonal promotions that keep your appointment book full year-round.',
-      pulsedrive:   'Spa podcast, before-and-after showcases, and a full content engine that makes you the go-to aesthetics expert in your market.',
-      pulsecommand: 'Unlimited landing pages, AI avatar videos, multichannel content, and white-glove setup. Built to scale your spa business.',
+      pulseflow:    'Facials, Botox & Fillers, Laser Treatments & Massage Therapy \u2014 The aesthetic studio clients trust for natural, stunning results.',
+      pulsedrive:   'Facials, Botox & Fillers, Laser Treatments & Massage Therapy \u2014 The go-to aesthetics expert your clients recommend to everyone they know.',
+      pulsecommand: 'Facials, Botox & Fillers, Laser Treatments & Massage Therapy \u2014 Luxury aesthetics with concierge service and transformative results.',
     },
     services: [
       { icon: 'fa-solid fa-spa', title: 'Facials', desc: 'Customized treatments for every skin type' },
@@ -470,6 +478,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       accentDark: '99 46 190',
       accentLight: '#EDE9FE',
     },
+    industryHook: '93% of couples say photography is one of the most important investments for their wedding day',
     heroHeadline: {
       pulsemarket:  "Capture Life's Greatest Moments \u2014 Professional Photography",
       pulseflow:    'More Bookings. More Sessions. More Growth.',
@@ -478,9 +487,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:  'Wedding Photography, Portrait Sessions, Commercial Photography & Event Coverage \u2014 500+ sessions and counting.',
-      pulseflow:    'Automated content, email campaigns, and portfolio showcases that keep bookings coming in every season.',
-      pulsedrive:   'Photography podcast, behind-the-scenes content, and a full content engine that makes you the most booked photographer in your city.',
-      pulsecommand: 'Unlimited landing pages, AI avatar videos, multichannel content, and white-glove setup. Built to scale your photography business.',
+      pulseflow:    'Wedding Photography, Portrait Sessions, Commercial Photography & Event Coverage \u2014 The photographer clients book again and again.',
+      pulsedrive:   'Wedding Photography, Portrait Sessions, Commercial Photography & Event Coverage \u2014 The most booked photographer in your city.',
+      pulsecommand: 'Wedding Photography, Portrait Sessions, Commercial Photography & Event Coverage \u2014 Premium photography with a creative eye and flawless execution.',
     },
     services: [
       { icon: 'fa-solid fa-heart', title: 'Wedding Photography', desc: 'Every moment captured beautifully' },
@@ -513,6 +522,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       accentDark: '4 120 84',
       accentLight: '#ECFDF5',
     },
+    industryHook: '1 in 4 adults have untreated cavities \u2014 your next patient is searching for a dentist right now',
     heroHeadline: {
       pulsemarket:  'A Healthy Smile Starts Here \u2014 Comprehensive Dental Care',
       pulseflow:    'More Patients. More Appointments. More Growth.',
@@ -521,9 +531,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:  'General Dentistry, Cosmetic Dentistry, Orthodontics & Emergency Care \u2014 Accepting new patients. Gentle, modern care.',
-      pulseflow:    'Automated content, email campaigns, and patient education articles that keep your schedule full and your patients informed.',
-      pulsedrive:   'Dental podcast, patient testimonial videos, and a full content engine that makes you the most trusted dentist in your area.',
-      pulsecommand: 'Unlimited landing pages, AI avatar videos, multichannel content, and white-glove setup. Built to scale your dental practice.',
+      pulseflow:    'General Dentistry, Cosmetic Dentistry, Orthodontics & Emergency Care \u2014 The dental practice families trust for gentle, modern care.',
+      pulsedrive:   'General Dentistry, Cosmetic Dentistry, Orthodontics & Emergency Care \u2014 The most trusted dentist in your area, accepting new patients now.',
+      pulsecommand: 'General Dentistry, Cosmetic Dentistry, Orthodontics & Emergency Care \u2014 Premium dental care with same-day appointments and concierge service.',
     },
     services: [
       { icon: 'fa-solid fa-tooth', title: 'General Dentistry', desc: 'Cleanings, exams, and preventive care' },
@@ -562,6 +572,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       brandMuted: '#9CA3AF',
       brandBorder: '#3a3a55',
     },
+    industryHook: 'The average water leak wastes 10,000 gallons per year \u2014 homeowners need a plumber they can trust on speed dial',
     heroHeadline: {
       pulsemarket:  'Fast, Reliable Plumbing \u2014 When You Need It Most',
       pulseflow:    'More Calls. More Jobs. More Revenue.',
@@ -570,9 +581,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:  'Drain Cleaning, Pipe Repair, Water Heater Services & Emergency Plumbing \u2014 Licensed master plumber serving Houston.',
-      pulseflow:    'Automated content, email campaigns, and seasonal promotions that keep your phone ringing and your schedule full.',
-      pulsedrive:   'Plumbing podcast, project videos, and a full content engine that makes you the go-to plumber in your service area.',
-      pulsecommand: 'Unlimited landing pages, AI avatar videos, multichannel content, and white-glove setup. Built to scale your plumbing business.',
+      pulseflow:    'Drain Cleaning, Pipe Repair, Water Heater Services & Emergency Plumbing \u2014 The plumber homeowners call first, every time.',
+      pulsedrive:   'Drain Cleaning, Pipe Repair, Water Heater Services & Emergency Plumbing \u2014 The go-to plumber your entire neighborhood recommends.',
+      pulsecommand: 'Drain Cleaning, Pipe Repair, Water Heater Services & Emergency Plumbing \u2014 Master-level plumbing with 24/7 emergency response and lifetime guarantees.',
     },
     services: [
       { icon: 'fa-solid fa-shower', title: 'Drain Cleaning', desc: 'Fast, effective drain and sewer cleaning' },
@@ -605,6 +616,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       accentDark: '99 46 190',
       accentLight: '#EDE9FE',
     },
+    industryHook: '80% of gym members quit within 5 months \u2014 a personal trainer makes clients 6x more likely to stick with it',
     heroHeadline: {
       pulsemarket:  'Transform Your Body, Transform Your Life \u2014 Expert Personal Training',
       pulseflow:    'More Clients. More Transformations. More Growth.',
@@ -613,9 +625,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroSubheadline: {
       pulsemarket:  'Personal Training, Nutrition Coaching, Group Fitness & Online Coaching \u2014 NASM Certified and results-driven.',
-      pulseflow:    'Automated content, email campaigns, and transformation showcases that keep new clients coming to you every month.',
-      pulsedrive:   'Fitness podcast, workout videos, and a full content engine that makes you the go-to trainer in your city.',
-      pulsecommand: 'Unlimited landing pages, AI avatar videos, multichannel content, and white-glove setup. Built to scale your fitness brand.',
+      pulseflow:    'Personal Training, Nutrition Coaching, Group Fitness & Online Coaching \u2014 The trainer who delivers real, lasting transformations.',
+      pulsedrive:   'Personal Training, Nutrition Coaching, Group Fitness & Online Coaching \u2014 The go-to fitness expert your city trusts for results.',
+      pulsecommand: 'Personal Training, Nutrition Coaching, Group Fitness & Online Coaching \u2014 Elite personal training with nutrition coaching and full lifestyle programming.',
     },
     services: [
       { icon: 'fa-solid fa-dumbbell', title: 'Personal Training', desc: 'One-on-one customized workout programs' },

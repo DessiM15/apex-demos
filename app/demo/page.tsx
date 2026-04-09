@@ -28,13 +28,16 @@ export default function DemoLandingPage() {
         />
 
         {/* Headline */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-          See Exactly What Your Business Would Look Like With Apex
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance">
+          See What Your Pulse Marketing Service Looks Like
         </h1>
 
         {/* Subheadline */}
-        <p className="text-white/75 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
-          Explore a live interactive demo built specifically for your industry and package — no signup required
+        <p className="text-white/75 text-lg md:text-xl max-w-2xl mb-6 leading-relaxed">
+          Pulse is a full-service marketing solution from Apex Infinity Group. We build and automate your entire online presence — landing pages, social media, email campaigns, blogs, podcasts, video, and more.
+        </p>
+        <p className="text-white/60 text-base max-w-xl mb-12 leading-relaxed">
+          We are going to take you on a tour of what your Pulse service would look like. Choose your industry and package level, and explore a live, interactive demo — no signup required.
         </p>
 
         {/* CTA Button */}
@@ -42,7 +45,7 @@ export default function DemoLandingPage() {
           href="/demo/select"
           className="inline-block bg-[#cf181d] hover:bg-[#a51216] text-white font-bold text-lg px-12 py-5 rounded-btn transition-all duration-200 shadow-card-hover hover:scale-105"
         >
-          Get The Experience →
+          Get Started →
         </Link>
       </motion.div>
     </div>

@@ -5,9 +5,10 @@ import { staggerContainer, fadeInUp, viewport } from '@/lib/animations'
 interface Props {
   hooks: string[]
   industryName: string
+  packageName?: string
 }
 
-export default function VideoGallery({ hooks, industryName }: Props) {
+export default function VideoGallery({ hooks, industryName, packageName }: Props) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
 
   const platformBadges = ['Reels', 'Shorts', 'TikTok', 'Reels']
@@ -34,12 +35,18 @@ export default function VideoGallery({ hooks, industryName }: Props) {
             className="text-center mb-12"
             variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 text-balance">
               Short-Form Video Content
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
-              Professional Reels, Shorts, and TikToks produced monthly — ready to post across every platform
-            </p>
+            {packageName ? (
+              <p className="text-gray-500 max-w-2xl mx-auto">
+                With your <span className="font-semibold text-gray-700">{packageName}</span> package, you get <span className="font-semibold text-gray-700">professional Reels, Shorts, and TikToks produced monthly</span> — ready to post across every platform. Here is a sample:
+              </p>
+            ) : (
+              <p className="text-gray-500 max-w-2xl mx-auto">
+                Professional Reels, Shorts, and TikToks produced monthly — ready to post across every platform
+              </p>
+            )}
           </motion.div>
 
           {/* 2x2 Grid */}
@@ -108,7 +115,7 @@ export default function VideoGallery({ hooks, industryName }: Props) {
               <span className="inline-block text-white text-xs font-bold bg-[#cf181d] px-4 py-1.5 rounded-full mb-6">
                 Powered by HeyGen
               </span>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 text-balance">
                 AI Avatar Videos
               </h3>
               <p className="text-white/70 text-lg mb-8">

@@ -1,7 +1,7 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { staggerContainer, fadeInUp, viewport } from '@/lib/animations'
 import { packages, PackageSlug } from '@/data/packages'
@@ -18,12 +18,21 @@ export default function DemoSelectorPage() {
   const router = useRouter()
   const [selectedIndustry, setSelectedIndustry] = useState<IndustrySlug | null>(null)
   const [selectedPackage,  setSelectedPackage]  = useState<PackageSlug  | null>(null)
-  const [hoveredPackage,   setHoveredPackage]   = useState<PackageSlug  | null>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   function handleGo() {
     if (selectedIndustry && selectedPackage) {
       router.push(`/demo/${selectedIndustry}/${selectedPackage}`)
     }
+  }
+
+  function scrollIndustries(direction: 'left' | 'right') {
+    if (!scrollRef.current) return
+    const scrollAmount = 300
+    scrollRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    })
   }
 
   return (
@@ -41,15 +50,15 @@ export default function DemoSelectorPage() {
           className="text-center mb-14"
           variants={fadeInUp} initial="hidden" animate="visible"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-apex-blue mb-4 leading-tight">
-            See Exactly What Your Business Would Look Like With Apex
+          <h1 className="text-4xl md:text-5xl font-bold text-apex-blue mb-4 leading-tight text-balance">
+            Choose Your Industry
           </h1>
           <p className="text-brand-muted text-lg max-w-2xl mx-auto">
-            Choose your industry and package below to explore a live, interactive preview built specifically for professionals like you.
+            Select your industry and package below to explore a live, interactive preview built specifically for professionals like you.
           </p>
         </motion.div>
 
-        {/* Step 1 — Industry (horizontal pills) */}
+        {/* Step 1 — Industry (scrollable with arrows) */}
         <motion.section
           className="mb-12"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
@@ -58,31 +67,55 @@ export default function DemoSelectorPage() {
             <span className="bg-apex-blue text-white font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
             <h2 className="text-2xl font-bold text-brand-text">Choose Your Industry</h2>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {industryList.map(slug => {
-              const ind = industries[slug]
-              const active = selectedIndustry === slug
-              return (
-                <button
-                  key={slug}
-                  onClick={() => setSelectedIndustry(slug)}
-                  className={`
-                    inline-flex items-center gap-2 px-4 py-2.5 rounded-pill border-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap
-                    ${active
-                      ? 'border-apex-blue bg-apex-blue text-white shadow-card-hover'
-                      : 'border-brand-border bg-white text-brand-text hover:border-apex-blue hover:text-apex-blue'}
-                  `}
-                >
-                  <i className={`${ind.faIcon} text-xs`}></i>
-                  {ind.name}
-                  {active && <i className="fa-solid fa-check text-xs ml-1"></i>}
-                </button>
-              )
-            })}
+
+          <div className="relative">
+            {/* Left arrow */}
+            <button
+              onClick={() => scrollIndustries('left')}
+              className="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-card border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer hidden md:flex"
+            >
+              <i className="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+
+            {/* Scrollable pills */}
+            <div
+              ref={scrollRef}
+              className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 px-1"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {industryList.map(slug => {
+                const ind = industries[slug]
+                const active = selectedIndustry === slug
+                return (
+                  <button
+                    key={slug}
+                    onClick={() => setSelectedIndustry(slug)}
+                    className={`
+                      inline-flex items-center gap-2 px-4 py-2.5 rounded-pill border-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0
+                      ${active
+                        ? 'border-apex-blue bg-apex-blue text-white shadow-card-hover'
+                        : 'border-brand-border bg-white text-brand-text hover:border-apex-blue hover:text-apex-blue'}
+                    `}
+                  >
+                    <i className={`${ind.faIcon} text-xs`}></i>
+                    {ind.name}
+                    {active && <i className="fa-solid fa-check text-xs ml-1"></i>}
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Right arrow */}
+            <button
+              onClick={() => scrollIndustries('right')}
+              className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-card border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer hidden md:flex"
+            >
+              <i className="fa-solid fa-chevron-right text-xs"></i>
+            </button>
           </div>
         </motion.section>
 
-        {/* Step 2 — Package */}
+        {/* Step 2 — Package with deliverables */}
         <motion.section
           className="mb-12"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
@@ -100,14 +133,20 @@ export default function DemoSelectorPage() {
               const active = selectedPackage === slug
               const isElite = slug === 'pulsecommand'
               const isDrive = slug === 'pulsedrive'
-              const isHovered = hoveredPackage === slug
+
+              // Key deliverables for each tier
+              const deliverables = [
+                { label: 'Landing Pages', value: pkg.landingPageCount },
+                { label: 'Social Posts/mo', value: pkg.socialPostCount },
+                ...(pkg.emailCampaignCount > 0 ? [{ label: 'Emails/mo', value: `${pkg.emailCampaignCount}` }] : []),
+                ...(pkg.blogArticleCount > 0 ? [{ label: 'Blog Articles/mo', value: `${pkg.blogArticleCount}` }] : []),
+              ]
+
               return (
                 <motion.button
                   key={slug}
                   variants={fadeInUp}
                   onClick={() => setSelectedPackage(slug)}
-                  onMouseEnter={() => setHoveredPackage(slug)}
-                  onMouseLeave={() => setHoveredPackage(null)}
                   className={`
                     relative flex flex-col p-5 rounded-card border-2 text-left transition-all duration-200 cursor-pointer
                     ${active
@@ -140,27 +179,17 @@ export default function DemoSelectorPage() {
                     {active && <span className="text-xl mt-0.5 text-apex-blue"><i className="fa-solid fa-check"></i></span>}
                   </div>
 
-                  {/* Hover-expanded features list */}
-                  <AnimatePresence>
-                    {isHovered && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeInOut' }}
-                        className="overflow-hidden"
-                      >
-                        <ul className="mt-4 pt-4 border-t border-brand-border space-y-2">
-                          {pkg.features.map((feature, i) => (
-                            <li key={i} className="flex items-center gap-2 text-sm text-brand-text">
-                              <i className={`fa-solid fa-check text-xs ${isElite ? 'text-apex-red' : 'text-apex-blue'}`}></i>
-                              <span>{feature.title}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Always-visible deliverables */}
+                  <div className="mt-4 pt-3 border-t border-brand-border">
+                    <div className="grid grid-cols-2 gap-2">
+                      {deliverables.map((d, i) => (
+                        <div key={i} className="flex items-center gap-2 text-sm">
+                          <span className={`font-bold ${isElite ? 'text-apex-red' : 'text-apex-blue'}`}>{d.value}</span>
+                          <span className="text-brand-muted text-xs">{d.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </motion.button>
               )
             })}

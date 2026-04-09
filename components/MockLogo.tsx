@@ -11,7 +11,7 @@ const BLUE = '#243a8f'
 
 const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = {
   insurance: {
-    name: 'Mitchell Insurance Group',
+    name: 'Your Logo Here',
     icon: (
       <path
         d="M24 4 L6 12 L6 22 C6 34 14 42 24 46 C34 42 42 34 42 22 L42 12 Z"
@@ -20,7 +20,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   lawfirm: {
-    name: 'Crawford Law Group',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="24" y1="4" x2="24" y2="20" />
@@ -34,7 +34,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   realestate: {
-    name: 'Rivera Realty Group',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round">
         <path d="M24 6 L4 24 L10 24 L10 42 L20 42 L20 32 L28 32 L28 42 L38 42 L38 24 L44 24 Z" />
@@ -42,7 +42,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   financial: {
-    name: 'Kim Financial Partners',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="4,40 16,28 24,34 44,8" />
@@ -52,7 +52,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   hvac: {
-    name: 'Arctic Air Solutions',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
         <line x1="24" y1="4" x2="24" y2="44" />
@@ -74,7 +74,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   roofing: {
-    name: 'Summit Roofing Co',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round">
         <path d="M4 28 L24 8 L44 28" />
@@ -85,7 +85,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   salonspa: {
-    name: 'Luxe Aesthetic Studio',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round">
         <path d="M24 4 L32 16 L44 20 L34 30 L36 44 L24 38 L12 44 L14 30 L4 20 L16 16 Z" />
@@ -93,7 +93,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   photography: {
-    name: 'Capture Studio Co',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
         <circle cx="24" cy="24" r="18" />
@@ -110,7 +110,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   dental: {
-    name: 'Bright Smile Dental',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round">
         <path d="M14 8 C6 8 4 16 6 24 C8 32 12 40 16 44 C18 44 20 36 24 32 C28 36 30 44 32 44 C36 40 40 32 42 24 C44 16 42 8 34 8 C30 8 28 12 24 12 C20 12 18 8 14 8 Z" />
@@ -118,7 +118,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   plumbing: {
-    name: 'FlowPro Plumbing',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 4 L18 14 L10 22 L10 34 C10 40 16 44 24 44 C32 44 38 40 38 34 L38 22 L30 14 L30 4" />
@@ -128,7 +128,7 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
     ),
   },
   trainer: {
-    name: 'Peak Performance Training',
+    name: 'Your Logo Here',
     icon: (
       <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round">
         <path d="M28 4 L16 22 L26 22 L20 44 L36 22 L26 22" />

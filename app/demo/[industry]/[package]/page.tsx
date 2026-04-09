@@ -22,6 +22,7 @@ import AIAvatarVideo         from '@/components/AIAvatarVideo'
 import BrandedPresence       from '@/components/BrandedPresence'
 import WhiteGloveSupport     from '@/components/WhiteGloveSupport'
 import DemoFooter            from '@/components/DemoFooter'
+import ShareBanner           from '@/components/ShareBanner'
 
 // ── Pregenerate all routes ──────────────────────────────────────────
 export function generateStaticParams() {
@@ -107,8 +108,7 @@ export default async function DemoPage({ params }: PageProps) {
           }}
         />
         <LandingPageBadge
-          count={pkg.landingPageCount}
-          packageName={pkg.name}
+          industryHook={industry.industryHook}
         />
       </>
     ),
@@ -160,23 +160,25 @@ export default async function DemoPage({ params }: PageProps) {
       />
     ),
     blog: (
-      <BlogPreview posts={content.blogPosts} industryName={industry.name} />
+      <BlogPreview posts={content.blogPosts} industryName={industry.name} packageName={pkg.name} blogArticleCount={pkg.blogArticleCount} />
     ),
     email: (
-      <EmailPreview campaigns={content.emailCampaigns} industryName={industry.name} industrySlug={industry.slug} />
+      <EmailPreview campaigns={content.emailCampaigns} industryName={industry.name} industrySlug={industry.slug} packageName={pkg.name} emailCampaignCount={pkg.emailCampaignCount} />
     ),
     social: (
       <SocialPostCarousel
         posts={content.socialPosts}
         industryName={industry.name}
         industrySlug={industry.slug}
+        packageName={pkg.name}
+        socialPostCount={pkg.socialPostCount}
       />
     ),
     podcast: (
-      <PodcastPlayer episodes={content.podcastEpisodes} industryName={industry.name} />
+      <PodcastPlayer episodes={content.podcastEpisodes} industryName={industry.name} packageName={pkg.name} />
     ),
     video: (
-      <VideoGallery hooks={content.videoHooks} industryName={industry.name} />
+      <VideoGallery hooks={content.videoHooks} industryName={industry.name} packageName={pkg.name} />
     ),
     analytics: (
       <AnalyticsDashboard
@@ -201,7 +203,7 @@ export default async function DemoPage({ params }: PageProps) {
       <ClickToCall />
     ),
     footer: (
-      <DemoFooter industryName={industry.name} industrySlug={industrySlug as IndustrySlug} ctaLink={CTA_LINK} />
+      <DemoFooter industryName={industry.name} industrySlug={industrySlug as IndustrySlug} />
     ),
   }
 
@@ -219,7 +221,6 @@ export default async function DemoPage({ params }: PageProps) {
         packageName={pkg.name}
         tier={pkg.tier}
         industry={industry.name}
-        ctaLink={CTA_LINK}
       />
 
       {/* Navbar */}
@@ -232,6 +233,8 @@ export default async function DemoPage({ params }: PageProps) {
       <main className={theme.darkSections ? 'bg-[#1a1a2e]' : ''}>
         {orderedSections}
       </main>
+
+      <ShareBanner />
     </div>
   )
 }

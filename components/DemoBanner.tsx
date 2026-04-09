@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { slideDown } from '@/lib/animations'
 
@@ -7,10 +8,9 @@ interface DemoBannerProps {
   packageName: string
   tier:        string
   industry:    string
-  ctaLink:     string
 }
 
-export default function DemoBanner({ packageName, tier, industry, ctaLink }: DemoBannerProps) {
+export default function DemoBanner({ packageName, tier, industry }: DemoBannerProps) {
   const [visible, setVisible] = useState(true)
 
   return (
@@ -38,14 +38,12 @@ export default function DemoBanner({ packageName, tier, industry, ctaLink }: Dem
 
             {/* Right */}
             <div className="flex items-center gap-2 shrink-0">
-              <a
-                href={ctaLink}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/demo/select"
                 className="bg-white text-apex-blue text-xs sm:text-sm font-bold px-4 py-2 rounded-btn hover:bg-apex-blue-light transition-colors whitespace-nowrap"
               >
-                Get This Built For Me →
-              </a>
+                View Other Demos
+              </Link>
               <button
                 onClick={() => setVisible(false)}
                 className="text-white/60 hover:text-white transition-colors text-xl leading-none ml-1"

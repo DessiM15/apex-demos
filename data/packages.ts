@@ -37,7 +37,7 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     socialPostCount: '30',
     emailCampaignCount: 0,
     blogArticleCount: 0,
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','social','clicktocall','analytics','footer'],
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','social','clicktocall','footer'],
     features: [
       { icon: 'fa-solid fa-file-lines', title: '3 AI Landing Pages',     desc: 'Build credibility from day one' },
       { icon: 'fa-solid fa-share-nodes', title: '30 Social Posts/mo',      desc: 'Automate content distribution' },

@@ -4,9 +4,13 @@ import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, viewport } from '@/lib/animations'
 import { PodcastEpisode } from '@/data/mockContent'
 
-interface Props { episodes: PodcastEpisode[]; industryName: string }
+interface Props {
+  episodes: PodcastEpisode[]
+  industryName: string
+  packageName?: string
+}
 
-export default function PodcastPlayer({ episodes, industryName }: Props) {
+export default function PodcastPlayer({ episodes, industryName, packageName }: Props) {
   const [playing, setPlaying] = useState<number | null>(null)
   const [progress] = useState(34)
 
@@ -21,12 +25,18 @@ export default function PodcastPlayer({ episodes, industryName }: Props) {
           <span className="text-xs font-bold uppercase tracking-widest text-white/60 bg-white/10 px-3 py-1 rounded-pill">
             Podcast Marketing
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-3 text-balance">
             Your AI-Powered Podcast
           </h2>
-          <p className="text-white/70 max-w-xl mx-auto">
-            4 professionally produced episodes monthly in your AI-cloned voice — distributed to Spotify, Apple, YouTube, and more.
-          </p>
+          {packageName ? (
+            <p className="text-white/70 max-w-xl mx-auto">
+              With your <span className="font-semibold text-white">{packageName}</span> package, you get <span className="font-semibold text-white">4 professionally produced podcast episodes per month</span> in your AI-cloned voice — distributed to Spotify, Apple, YouTube, and more.
+            </p>
+          ) : (
+            <p className="text-white/70 max-w-xl mx-auto">
+              4 professionally produced episodes monthly in your AI-cloned voice — distributed to Spotify, Apple, YouTube, and more.
+            </p>
+          )}
         </motion.div>
 
         {/* Player Card */}

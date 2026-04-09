@@ -103,7 +103,7 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
               >
                 <motion.h1
                   variants={fadeInUp}
-                  className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
+                  className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6 text-balance"
                 >
                   {headline}
                 </motion.h1>
@@ -181,7 +181,7 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                 <div className="max-w-2xl">
                   <motion.h1
                     variants={fadeInUp}
-                    className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
+                    className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6 text-balance"
                   >
                     {headline}
                   </motion.h1>
