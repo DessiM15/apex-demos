@@ -118,13 +118,13 @@ export default function TestimonialsSection({ testimonials, theme }: Props) {
               >
                 {/* Decorative quote mark */}
                 <span
-                  className="absolute top-4 left-6 text-7xl font-black leading-none select-none pointer-events-none"
-                  style={{ color: accentColor + '33' }}
+                  className="absolute top-3 right-6 text-7xl font-black leading-none select-none pointer-events-none"
+                  style={{ color: accentColor + '1a' }}
                 >
                   {'\u201C'}
                 </span>
                 {/* Stars */}
-                <div className="flex gap-0.5 mb-4">
+                <div className="flex gap-0.5 mb-4 relative z-10">
                   {Array.from({ length: t.rating }).map((_, s) => (
                     <span key={s} className="text-base" style={{ color: accentColor }}><i className="fa-solid fa-star"></i></span>
                   ))}
