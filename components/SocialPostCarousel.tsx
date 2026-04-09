@@ -183,15 +183,15 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
           className="text-center mb-10"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-heading mb-3">
             Social Media Content
           </h2>
           {packageName && socialPostCount ? (
-            <p className="text-gray-500 max-w-2xl mx-auto">
-              With your <span className="font-semibold text-gray-700">{packageName}</span> package, you get <span className="font-semibold text-gray-700">{socialPostCount} social media posts per month</span> across these platforms
+            <p className="text-brand-muted max-w-2xl mx-auto">
+              With your <span className="font-semibold text-brand-text">{packageName}</span> package, you get <span className="font-semibold text-brand-text">{socialPostCount} social media posts per month</span> across these platforms
             </p>
           ) : (
-            <p className="text-gray-500 max-w-2xl mx-auto">
+            <p className="text-brand-muted max-w-2xl mx-auto">
               See how your posts look on every platform — 30 to 150 posts per month depending on your package
             </p>
           )}
@@ -821,13 +821,13 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
               <i className="fa-solid fa-chevron-right text-sm" />
             </button>
           </div>
-          <p className="text-center text-gray-400 text-xs mt-3">
+          <p className="text-center text-brand-muted text-xs mt-3">
             Post {current + 1} of 3
           </p>
         </motion.div>
 
         {/* Bottom note */}
-        <p className="text-center text-gray-400 text-sm mt-10">
+        <p className="text-center text-brand-muted text-sm mt-10">
           Content is created and scheduled automatically — you never have to post manually
         </p>
       </div>
