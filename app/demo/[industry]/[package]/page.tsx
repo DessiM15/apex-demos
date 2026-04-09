@@ -22,7 +22,6 @@ import AIAvatarVideo         from '@/components/AIAvatarVideo'
 import BrandedPresence       from '@/components/BrandedPresence'
 import WhiteGloveSupport     from '@/components/WhiteGloveSupport'
 import DemoFooter            from '@/components/DemoFooter'
-import ShareBanner           from '@/components/ShareBanner'
 
 // ── Pregenerate all routes ──────────────────────────────────────────
 export function generateStaticParams() {
@@ -238,7 +237,6 @@ export default async function DemoPage({ params }: PageProps) {
         {orderedSections}
       </main>
 
-      <ShareBanner />
     </div>
   )
 }

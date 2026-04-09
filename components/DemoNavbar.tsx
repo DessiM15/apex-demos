@@ -84,7 +84,7 @@ export default function DemoNavbar({
   return (
     <nav
       className={[
-        'sticky top-0 z-40 px-4 py-4 transition-all duration-300 -mb-[72px]',
+        'sticky top-0 z-40 px-4 pt-6 pb-4 transition-all duration-300 -mb-[80px]',
         scrolled ? 'bg-white shadow-sm' : 'bg-transparent',
       ].join(' ')}
     >
