@@ -37,6 +37,7 @@ const config: Config = {
         cormorant:  ['var(--font-cormorant)', 'Georgia', 'serif'],
         greatvibes: ['var(--font-great-vibes)', 'cursive'],
         bodoni: ['var(--font-bodoni)', 'Georgia', 'serif'],
+        anton: ['var(--font-anton)', 'Impact', 'sans-serif'],
       },
       boxShadow: {
         card:       '0 2px 12px rgba(36,58,143,0.08)',

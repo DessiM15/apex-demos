@@ -50,6 +50,7 @@ export interface IndustryConfig {
   luxuryFont?: boolean      // true → uses Playfair Display serif for headings
   zenFont?: boolean         // true → uses Cormorant Garamond + Great Vibes for headings
   editorialFont?: boolean   // true → uses Bodoni Moda serif for headings
+  athleticFont?: boolean    // true → uses Anton bold uppercase for headings
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
   services: ServiceItem[]
@@ -689,11 +690,19 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Personal Trainer',
     faIcon: 'fa-solid fa-dumbbell',
     heroImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&q=80',
-    accentColor: '#7C3AED',
+    accentColor: '#0dbd79',
+    athleticFont: true,
     themeColors: {
-      accent: '124 58 237',
-      accentDark: '99 46 190',
-      accentLight: '#EDE9FE',
+      accent: '13 189 121',
+      accentDark: '10 150 96',
+      accentLight: '#E6F9F1',
+      brandBg: '#FFFFFF',
+      brandSurface: '#F0FDF7',
+      brandCard: '#FFFFFF',
+      brandText: '#1A1A1A',
+      brandMuted: '#4B5563',
+      brandBorder: '#D1FAE5',
+      brandHeading: '#1A1A1A',
     },
     industryHook: '80% of gym members quit within 5 months \u2014 a personal trainer makes clients 6x more likely to stick with it',
     heroHeadline: {
