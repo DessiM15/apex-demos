@@ -109,7 +109,7 @@ const creativeTheme: ThemeConfig = {
   bioLayout: 'photo-top-center',
   testimonialsLayout: 'list-style',
   sectionOrder: SECTION_ORDER_CREATIVE,
-  accentColor: '#7C3AED',
+  accentColor: '#0dbd79',
   headingStyle: 'light-wide',
   sectionSpacing: 'spacious',
   navStyle: 'transparent-over-hero',
