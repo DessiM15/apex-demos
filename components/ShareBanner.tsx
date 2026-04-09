@@ -67,7 +67,7 @@ export default function ShareBanner() {
   return (
     <>
       {/* Floating share button */}
-      <div className="fixed bottom-6 right-6 z-40">
+      <div className="fixed bottom-[5.5rem] right-6 z-40">
         <AnimatePresence>
           {open && (
             <motion.div
@@ -104,7 +104,7 @@ export default function ShareBanner() {
 
         <button
           onClick={handleNativeShare}
-          className="w-14 h-14 rounded-full bg-apex-blue text-white shadow-card-hover hover:bg-apex-blue-dark transition-all hover:scale-105 flex items-center justify-center cursor-pointer"
+          className="w-12 h-12 rounded-full bg-gray-800 text-white shadow-card-hover hover:bg-gray-700 transition-all hover:scale-105 flex items-center justify-center cursor-pointer"
           aria-label="Share this demo"
         >
           <i className="fa-solid fa-share-nodes text-lg" />

@@ -200,7 +200,7 @@ export default async function DemoPage({ params }: PageProps) {
       <WhiteGloveSupport />
     ),
     clicktocall: (
-      <ClickToCall />
+      <ClickToCall accentColor={theme.accentColor} />
     ),
     footer: (
       <DemoFooter industryName={industry.name} industrySlug={industrySlug as IndustrySlug} />
