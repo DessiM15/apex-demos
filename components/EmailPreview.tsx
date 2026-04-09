@@ -14,6 +14,12 @@ interface Props {
   emailCampaignCount?: number
 }
 
+function campaignIcon(type?: string) {
+  if (type === 'holiday') return 'fa-solid fa-gift'
+  if (type === 'flyer') return 'fa-solid fa-image'
+  return 'fa-solid fa-envelope'
+}
+
 export default function EmailPreview({ campaigns, industryName, industrySlug, packageName, emailCampaignCount }: Props) {
   const [active, setActive] = useState(0)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -81,10 +87,10 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                 onClick={() => setActive(i)}
                 className={`w-full text-left p-4 rounded-card border-2 transition-all duration-200 text-sm font-medium
                   ${active === i
-                    ? 'border-apex-blue bg-apex-blue-light text-apex-blue'
-                    : 'border-brand-border bg-brand-surface text-brand-text hover:border-apex-blue'}`}
+                    ? 'border-accent bg-accent/10 text-accent'
+                    : 'border-brand-border bg-brand-surface text-brand-text hover:border-accent/50'}`}
               >
-                <i className="fa-solid fa-envelope"></i> {c.subject}
+                <i className={campaignIcon(c.type)}></i> {c.subject}
               </button>
             ))}
             <p className="text-xs text-brand-muted pt-2">
@@ -105,7 +111,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
               {/* Email content */}
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-5 pb-5 border-b border-brand-border">
-                  <div className="w-10 h-10 rounded-full bg-apex-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm">
                     A
                   </div>
                   <div>
@@ -113,12 +119,18 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                     <p className="text-brand-muted text-xs">To: Your Clients & Prospects</p>
                   </div>
                 </div>
+                {/* Show image for holiday/flyer types */}
+                {campaign.image && (campaign.type === 'holiday' || campaign.type === 'flyer') && (
+                  <div className="mb-4 rounded-lg overflow-hidden">
+                    <img src={campaign.image} alt="" className="w-full h-40 object-cover" />
+                  </div>
+                )}
                 <p className="font-bold text-brand-text text-base mb-4">{campaign.subject}</p>
-                <p className="text-brand-muted text-sm leading-relaxed">{campaign.bodyPreview}</p>
+                <p className="text-brand-muted text-sm leading-relaxed line-clamp-3">{campaign.bodyPreview}</p>
                 <div className="mt-6">
                   <button
                     onClick={() => setOpenIndex(active)}
-                    className="bg-apex-blue text-white text-sm font-semibold px-5 py-2.5 rounded-btn cursor-pointer hover:bg-apex-blue-dark transition-colors"
+                    className="bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-btn cursor-pointer hover:bg-accent-dark transition-colors"
                   >
                     View Full Email →
                   </button>
@@ -176,36 +188,87 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                 </div>
               </div>
 
-              {/* Email body */}
+              {/* Email body — layout varies by type */}
               <div className="p-6">
                 {/* Logo area */}
                 <div className="text-center py-6 border-b border-gray-200 mb-6">
                   <MockLogo industry={industrySlug} size={56} />
                 </div>
 
-                {/* Hero banner */}
-                <div className="bg-[#243a8f] rounded-card p-8 text-center mb-6">
-                  <h3 className="text-white font-bold text-xl leading-snug">
-                    {modalCampaign.subject}
-                  </h3>
-                </div>
+                {modalCampaign.type === 'holiday' ? (
+                  <>
+                    {/* HOLIDAY layout: image → accent ribbon → warm body → soft CTA */}
+                    {modalCampaign.image && (
+                      <div className="rounded-lg overflow-hidden mb-4">
+                        <img src={modalCampaign.image} alt="" className="w-full h-56 object-cover" />
+                      </div>
+                    )}
+                    <div className="bg-accent rounded-card px-6 py-4 text-center mb-6">
+                      <p className="text-white/80 text-xs uppercase tracking-widest mb-1">
+                        <i className="fa-solid fa-snowflake mr-1"></i> Season&apos;s Greetings <i className="fa-solid fa-snowflake ml-1"></i>
+                      </p>
+                      <h3 className="text-white font-bold text-xl leading-snug">
+                        {modalCampaign.subject}
+                      </h3>
+                    </div>
+                    <div className="text-gray-700 text-sm leading-relaxed space-y-4 mb-8">
+                      <p>Hi [First Name],</p>
+                      <p>{modalCampaign.bodyPreview}</p>
+                      <p>From all of us, we wish you and your loved ones a wonderful holiday season.</p>
+                    </div>
+                    <div className="text-center mb-8">
+                      <span className="inline-block bg-accent text-white font-bold text-sm px-8 py-3 rounded-btn cursor-pointer">
+                        {modalCampaign.ctaText || 'Learn More'} →
+                      </span>
+                    </div>
+                  </>
+                ) : modalCampaign.type === 'flyer' ? (
+                  <>
+                    {/* FLYER layout: image → bold banner → short body → prominent CTA */}
+                    {modalCampaign.image && (
+                      <div className="rounded-lg overflow-hidden mb-4">
+                        <img src={modalCampaign.image} alt="" className="w-full h-56 object-cover" />
+                      </div>
+                    )}
+                    <div className="bg-accent rounded-card p-8 text-center mb-6">
+                      <p className="text-white/80 text-xs uppercase tracking-widest mb-2">Limited Time Offer</p>
+                      <h3 className="text-white font-bold text-2xl leading-snug">
+                        {modalCampaign.subject}
+                      </h3>
+                    </div>
+                    <div className="text-gray-700 text-sm leading-relaxed space-y-4 mb-8">
+                      <p>Hi [First Name],</p>
+                      <p>{modalCampaign.bodyPreview}</p>
+                    </div>
+                    <div className="text-center mb-8">
+                      <span className="inline-block bg-accent text-white font-bold text-base px-10 py-4 rounded-btn cursor-pointer shadow-lg">
+                        {modalCampaign.ctaText || 'Get Started'} →
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* STANDARD layout: accent banner → body → accent CTA */}
+                    <div className="bg-accent rounded-card p-8 text-center mb-6">
+                      <h3 className="text-white font-bold text-xl leading-snug">
+                        {modalCampaign.subject}
+                      </h3>
+                    </div>
+                    <div className="text-gray-700 text-sm leading-relaxed space-y-4 mb-8">
+                      <p>Hi [First Name],</p>
+                      <p>{modalCampaign.bodyPreview}</p>
+                      <p>We put this together because we genuinely believe it can make a difference for you. Whether you take action today or simply keep this in your back pocket, we want you to have the information you need to make smart decisions.</p>
+                      <p>If you have any questions or want to discuss your specific situation, we are here for you. Just hit reply or use the button below to get in touch.</p>
+                    </div>
+                    <div className="text-center mb-8">
+                      <span className="inline-block bg-accent text-white font-bold text-sm px-8 py-3 rounded-btn cursor-pointer">
+                        {modalCampaign.ctaText || 'Get Started Today'} →
+                      </span>
+                    </div>
+                  </>
+                )}
 
-                {/* Body text */}
-                <div className="text-gray-700 text-sm leading-relaxed space-y-4 mb-8">
-                  <p>Hi [First Name],</p>
-                  <p>{modalCampaign.bodyPreview}</p>
-                  <p>We put this together because we genuinely believe it can make a difference for you. Whether you take action today or simply keep this in your back pocket, we want you to have the information you need to make smart decisions.</p>
-                  <p>If you have any questions or want to discuss your specific situation, we are here for you. Just hit reply or use the button below to get in touch.</p>
-                </div>
-
-                {/* CTA button */}
-                <div className="text-center mb-8">
-                  <span className="inline-block bg-[#cf181d] text-white font-bold text-sm px-8 py-3 rounded-btn cursor-pointer">
-                    Get Started Today →
-                  </span>
-                </div>
-
-                {/* Footer */}
+                {/* Footer — shared across all types */}
                 <div className="border-t border-gray-200 pt-6 text-center text-xs text-gray-400 space-y-2">
                   <p>You are receiving this email because you opted in to updates from our team.</p>
                   <p>
