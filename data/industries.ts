@@ -187,9 +187,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     industryHook: '50% of Americans say they don\'t have adequate life insurance coverage',
     heroHeadline: {
       pulsemarket:   'Protect What Matters Most — Get Your Free Quote Today',
-      pulseflow:     'More Clients. More Coverage. More Growth.',
-      pulsedrive:    'The Insurance Agency That Dominates Online',
-      pulsecommand:  'Your Full-Scale Insurance Marketing Empire — Done For You',
+      pulseflow:     'Coverage You Can Count On — Protection Made Simple',
+      pulsedrive:    'Your Family Deserves the Best Protection',
+      pulsecommand:  'World-Class Insurance — Personally Tailored to Your Life',
     },
     heroSubheadline: {
       pulsemarket:   'Auto, Home, Life & Business Insurance — Tailored to You. Local agent, personalized service, fast quotes.',
@@ -240,10 +240,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     luxuryFont: true,
     industryHook: '77% of people seeking legal help start with an online search before calling a single attorney',
     heroHeadline: {
-      pulsemarket:   'Legal counsel for the modern world',
-      pulseflow:     'Strategic advocacy that drives results',
-      pulsedrive:    'Trusted legal representation, built for growth',
-      pulsecommand:  'Elite legal counsel, white-glove delivered',
+      pulsemarket:   'Legal Counsel for the Modern World',
+      pulseflow:     'Strategic Advocacy When the Stakes Are High',
+      pulsedrive:    'Trusted Representation — Fighting for Your Future',
+      pulsecommand:  'Elite Legal Counsel — Relentless Advocacy, Proven Results',
     },
     heroSubheadline: {
       pulsemarket:   'With decades of experience in personal injury, family law, criminal defense, and business litigation, our attorneys provide the personalized counsel you need to protect what matters most.',
@@ -294,10 +294,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     luxuryFont: true,
     industryHook: '88% of home buyers use the internet as their primary research tool during their search',
     heroHeadline: {
-      pulsemarket:   'Find Your Dream Home in Houston \u2014 Expert Guidance Every Step',
-      pulseflow:     'More Listings. More Buyers. More Closings.',
-      pulsedrive:    'The Real Estate Agent That Owns Their Market Online',
-      pulsecommand:  'Your Full-Scale Real Estate Marketing Empire \u2014 Done For You',
+      pulsemarket:   'Find Your Dream Home — Expert Guidance Every Step',
+      pulseflow:     'From First Showing to Final Closing — We\'re With You',
+      pulsedrive:    'Your Next Chapter Starts Here — Let Us Find Your Perfect Home',
+      pulsecommand:  'Luxury Service, Exceptional Results — Real Estate Redefined',
     },
     heroSubheadline: {
       pulsemarket:   'Buying, Selling, or Investing \u2014 Expert guidance through the Houston market. 200+ homes sold. 5-star service.',
@@ -340,10 +340,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     industryHook: '56% of Americans say they don\'t have enough savings to cover a $1,000 emergency expense',
     heroHeadline: {
-      pulsemarket:   "I'm Robert Kim. At your service.",
-      pulseflow:     "I'm Robert Kim. At your service.",
-      pulsedrive:    "I'm Robert Kim. At your service.",
-      pulsecommand:  "I'm Robert Kim. At your service.",
+      pulsemarket:   'Your Financial Future, Expertly Guided',
+      pulseflow:     'Smart Planning Today for a Confident Tomorrow',
+      pulsedrive:    'Wealth Management Built Around Your Life Goals',
+      pulsecommand:  'Elite Financial Strategy — Your Legacy, Our Mission',
     },
     heroSubheadline: {
       pulsemarket:   'Personalized financial planning for individuals, families, and business owners. Fiduciary. Independent. Always in your corner.',
@@ -391,10 +391,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     industryHook: '75% of homeowners pick the first HVAC company that shows up with good reviews online',
     heroHeadline: {
-      pulsemarket:  'Stay Cool All Summer, Stay Warm All Winter \u2014 Expert HVAC Service',
-      pulseflow:    'More Calls. More Jobs. More Revenue.',
-      pulsedrive:   'The HVAC Company That Dominates Your Market Online',
-      pulsecommand: 'Your Full-Scale HVAC Marketing Empire \u2014 Done For You',
+      pulsemarket:  'Stay Cool All Summer, Stay Warm All Winter',
+      pulseflow:    'Comfort You Can Rely On — 24/7 Heating & Cooling',
+      pulsedrive:   'Your Home\'s Comfort Is Our Priority',
+      pulsecommand: 'Premium Climate Control — Total Comfort, Year-Round',
     },
     heroSubheadline: {
       pulsemarket:  'AC Installation, Heating Repair, Duct Cleaning & Emergency Service \u2014 Licensed, insured, and trusted by Houston homeowners.',
@@ -437,10 +437,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     heroTagline: 'BBB A+ Rated Roofing in Houston',
     industryHook: '70% of homeowners don\'t inspect their roof until there\'s already visible damage inside',
     heroHeadline: {
-      pulsemarket:  'A Roofing Company You Can Believe In',
-      pulseflow:    'More Leads. More Roofs. More Growth.',
-      pulsedrive:   'The Roofing Contractor That Dominates Your Market Online',
-      pulsecommand: 'Your Full-Scale Roofing Marketing Empire',
+      pulsemarket:  'A Roof You Can Trust — Built to Last',
+      pulseflow:    'Quality Craftsmanship, Honest Service — Your Roof, Done Right',
+      pulsedrive:   'Protect Your Biggest Investment With a Roof Built to Last',
+      pulsecommand: 'Premium Roofing — Craftsmanship That Stands the Test of Time',
     },
     heroSubheadline: {
       pulsemarket:  'We are a BBB-accredited roofer in Houston, and family ran, offering top-rated services from leak repairs to full roof replacements with architectural shingles. Licensed, insured, and trusted across Greater Houston.',
@@ -504,9 +504,9 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     industryHook: 'The med spa industry has grown 12% year-over-year \u2014 clients are searching online for providers right now',
     heroHeadline: {
       pulsemarket:  'Radiance Begins Here',
-      pulseflow:    'Elevate Your Beauty. Elevate Your Business.',
+      pulseflow:    'Rejuvenate, Refresh, Reveal Your Best Self',
       pulsedrive:   'Where Wellness Meets Artistry',
-      pulsecommand: 'The Ultimate Aesthetic Experience \u2014 Curated For You',
+      pulsecommand: 'The Ultimate Aesthetic Experience — Curated For You',
     },
     heroSubheadline: {
       pulsemarket:  'Facials, Botox & Fillers, Laser Treatments & Massage Therapy \u2014 Board certified, results-driven, and trusted by Houston clients.',
@@ -556,10 +556,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     industryHook: '93% of couples say photography is one of the most important investments for their wedding day',
     heroHeadline: {
-      pulsemarket:  "Capture Life's Greatest Moments \u2014 Professional Photography",
-      pulseflow:    'More Bookings. More Sessions. More Growth.',
-      pulsedrive:   'The Photography Studio That Dominates Your Market Online',
-      pulsecommand: 'Your Full-Scale Photography Marketing Empire \u2014 Done For You',
+      pulsemarket:  "Capture Life's Greatest Moments",
+      pulseflow:    'Every Moment Deserves to Be Remembered Beautifully',
+      pulsedrive:   'Photography That Tells Your Story',
+      pulsecommand: 'Cinematic Moments, Timeless Elegance',
     },
     heroSubheadline: {
       pulsemarket:  'Wedding Photography, Portrait Sessions, Commercial Photography & Event Coverage \u2014 500+ sessions and counting.',
@@ -601,10 +601,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     industryHook: '1 in 4 adults have untreated cavities \u2014 your next patient is searching for a dentist right now',
     heroHeadline: {
-      pulsemarket:  'Take your dental health __seriously__',
-      pulseflow:    'More Patients. More Appointments. More __Growth__.',
-      pulsedrive:   'The Dental Practice That __Dominates__ Your Market',
-      pulsecommand: 'Your Full-Scale Dental Marketing __Empire__',
+      pulsemarket:  'A Healthy __Smile__ Changes Everything',
+      pulseflow:    'Gentle Care, __Beautiful__ Results',
+      pulsedrive:   'Your Smile Deserves the __Best__ Care',
+      pulsecommand: 'World-Class Dentistry — A __Smile__ You\'ll Be Proud Of',
     },
     heroSubheadline: {
       pulsemarket:  'We offer a wide range of services for your every dental need.',
@@ -652,10 +652,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     industryHook: 'The average water leak wastes 10,000 gallons per year \u2014 homeowners need a plumber they can trust on speed dial',
     heroHeadline: {
-      pulsemarket:  'Fast, Reliable Plumbing \u2014 When You Need It Most',
-      pulseflow:    'More Calls. More Jobs. More Revenue.',
-      pulsedrive:   'The Plumbing Service That Dominates Your Market Online',
-      pulsecommand: 'Your Full-Scale Plumbing Marketing Empire \u2014 Done For You',
+      pulsemarket:  'Fast, Reliable Plumbing — When You Need It Most',
+      pulseflow:    'Leaks, Clogs, Emergencies — We Handle It All',
+      pulsedrive:   'Trusted Plumbing Experts Your Neighbors Count On',
+      pulsecommand: 'Premium Plumbing — Done Right the First Time, Every Time',
     },
     heroSubheadline: {
       pulsemarket:  'Drain Cleaning, Pipe Repair, Water Heater Services & Emergency Plumbing \u2014 Licensed master plumber serving Houston.',
@@ -697,10 +697,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     industryHook: '80% of gym members quit within 5 months \u2014 a personal trainer makes clients 6x more likely to stick with it',
     heroHeadline: {
-      pulsemarket:  'Transform Your Body, Transform Your Life \u2014 Expert Personal Training',
-      pulseflow:    'More Clients. More Transformations. More Growth.',
-      pulsedrive:   'The Personal Trainer That Dominates Your Market Online',
-      pulsecommand: 'Your Full-Scale Fitness Marketing Empire \u2014 Done For You',
+      pulsemarket:  'Transform Your Body, Transform Your Life',
+      pulseflow:    'Personalized Training — Results You Can See and Feel',
+      pulsedrive:   'Unlock Your Full Potential — Expert Coaching, Real Results',
+      pulsecommand: 'Elite Personal Training — Your Strongest Self Starts Here',
     },
     heroSubheadline: {
       pulsemarket:  'Personal Training, Nutrition Coaching, Group Fitness & Online Coaching \u2014 NASM Certified and results-driven.',
