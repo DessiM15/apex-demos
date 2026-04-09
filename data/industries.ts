@@ -19,7 +19,7 @@ export interface ThemeColors {
 }
 
 export interface ThemeConfig {
-  heroLayout: 'left' | 'center' | 'split' | 'portrait'
+  heroLayout: 'left' | 'center' | 'split' | 'portrait' | 'zen'
   heroOverlayOpacity: number
   servicesLayout: 'grid-4' | 'grid-3' | 'cards-large' | 'list'
   bioLayout: 'photo-left' | 'photo-right' | 'photo-top-center'
@@ -48,6 +48,7 @@ export interface IndustryConfig {
   heroTagline?: string   // small accent-colored tagline above headline (portrait layout)
   industryHook: string   // industry-relevant statistic/hook displayed under hero
   luxuryFont?: boolean   // true → uses Playfair Display serif for headings
+  zenFont?: boolean      // true → uses Cormorant Garamond + Great Vibes for headings
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
   services: ServiceItem[]
@@ -127,6 +128,21 @@ const healthTheme: ThemeConfig = {
   navStyle: 'white',
   darkSections: false,
   formStyle: 'light',
+}
+
+const zenTheme: ThemeConfig = {
+  heroLayout: 'zen',
+  heroOverlayOpacity: 0.40,
+  servicesLayout: 'grid-3',
+  bioLayout: 'photo-top-center',
+  testimonialsLayout: 'list-style',
+  sectionOrder: SECTION_ORDER_CREATIVE,
+  accentColor: '#8F7A64',
+  headingStyle: 'light-wide',
+  sectionSpacing: 'spacious',
+  navStyle: 'transparent-over-hero',
+  darkSections: false,
+  formStyle: 'split',
 }
 
 export const industries: Record<IndustrySlug, IndustryConfig> = {
@@ -439,18 +455,26 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Salon / Med Spa',
     faIcon: 'fa-solid fa-spa',
     heroImage: 'https://images.unsplash.com/photo-1560066984-138daaa45d0e?w=1200&q=80',
-    accentColor: '#7C3AED',
+    accentColor: '#8F7A64',
+    zenFont: true,
     themeColors: {
-      accent: '124 58 237',
-      accentDark: '99 46 190',
-      accentLight: '#EDE9FE',
+      accent: '143 122 100',
+      accentDark: '115 97 80',
+      accentLight: '#F5F0EB',
+      brandBg: '#FAF8F5',
+      brandSurface: '#F3EDE6',
+      brandCard: '#FFFFFF',
+      brandText: '#3D3428',
+      brandMuted: '#8A7E72',
+      brandBorder: '#E2DAD0',
+      brandHeading: '#3D3428',
     },
     industryHook: 'The med spa industry has grown 12% year-over-year \u2014 clients are searching online for providers right now',
     heroHeadline: {
-      pulsemarket:  'Look Your Best, Feel Your Best \u2014 Premium Aesthetic Services',
-      pulseflow:    'More Bookings. More Clients. More Growth.',
-      pulsedrive:   'The Med Spa That Dominates Your Market Online',
-      pulsecommand: 'Your Full-Scale Spa Marketing Empire \u2014 Done For You',
+      pulsemarket:  'Radiance Begins Here',
+      pulseflow:    'Elevate Your Beauty. Elevate Your Business.',
+      pulsedrive:   'Where Wellness Meets Artistry',
+      pulsecommand: 'The Ultimate Aesthetic Experience \u2014 Curated For You',
     },
     heroSubheadline: {
       pulsemarket:  'Facials, Botox & Fillers, Laser Treatments & Massage Therapy \u2014 Board certified, results-driven, and trusted by Houston clients.',
@@ -476,7 +500,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: 'Best Botox experience I have ever had. Natural results, no bruising, and Camille made me feel completely comfortable the entire time.', name: 'Stephanie R.', location: 'Sugar Land, TX', rating: 5 },
       { quote: 'I drive 45 minutes to see Camille because nobody else compares. She truly cares about her clients and the results are always flawless.', name: 'Nicole D.', location: 'The Woodlands, TX', rating: 5 },
     ],
-    themeConfig: { ...creativeTheme },
+    themeConfig: { ...zenTheme },
   },
 
   photography: {

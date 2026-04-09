@@ -138,7 +138,7 @@ export default function AgentBio({ name, title, creds, bio, bioImage, industry, 
 
   /* ── photo-top-center (Creative) ── */
   return (
-    <section id="bio" className="bg-white py-24 px-4">
+    <section id="bio" className="bg-brand-bg py-24 px-4">
       <motion.div
         className="max-w-2xl mx-auto text-center"
         variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}

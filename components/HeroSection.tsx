@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
 interface HeroTheme {
-  heroLayout?: 'left' | 'center' | 'split' | 'portrait'
+  heroLayout?: 'left' | 'center' | 'split' | 'portrait' | 'zen'
   heroOverlayOpacity?: number
   accentColor?: string
   headingStyle?: 'bold-tight' | 'light-wide' | 'mixed'
@@ -222,6 +222,68 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                     </span>
                   </motion.div>
                 </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+    )
+  }
+
+  /* ── ZEN layout (Wellness / Spa) ── */
+  if (layout === 'zen') {
+    return (
+      <section className="relative min-h-[650px] flex items-center overflow-hidden">
+        {background}
+        {/* Warm brown gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to bottom, rgba(61,52,40,${overlayOpacity + 0.15}), rgba(61,52,40,${overlayOpacity}), rgba(61,52,40,${overlayOpacity + 0.1}))`,
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-28 w-full flex flex-col items-center text-center">
+          <AnimatePresence mode="wait">
+            {showIntro && heroIntroText ? introBlock : (
+              <motion.div
+                key="content"
+                className="flex flex-col items-center text-center w-full"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                {/* Decorative spa icon */}
+                <motion.div variants={fadeInUp} className="mb-6">
+                  <i className="fa-solid fa-spa text-3xl text-white/60"></i>
+                </motion.div>
+                {/* Thin vertical line */}
+                <motion.div variants={fadeInUp} className="w-px h-12 bg-white/40 mb-8" />
+                {/* Headline (Cormorant via .zen class) */}
+                <motion.h1
+                  variants={fadeInUp}
+                  className="text-5xl md:text-6xl lg:text-7xl text-white leading-tight tracking-wide"
+                >
+                  {headline}
+                </motion.h1>
+                {/* Cursive subheadline */}
+                <motion.p
+                  variants={fadeInUp}
+                  className="zen-script text-2xl md:text-3xl text-white/80 mt-6 mb-8"
+                >
+                  {subheadline}
+                </motion.p>
+                {/* Thin horizontal line */}
+                <motion.div variants={fadeInUp} className="w-24 h-px bg-white/40 mb-10" />
+                {/* CTA button */}
+                <motion.div variants={fadeInUp}>
+                  <a
+                    href={ctaLink}
+                    className="inline-block rounded-full px-12 py-4 text-sm font-semibold uppercase tracking-widest text-white border border-white/40 hover:bg-white/10 transition-colors"
+                    style={{ backgroundColor: accentColor + '66' }}
+                  >
+                    {formCTA}
+                  </a>
+                </motion.div>
               </motion.div>
             )}
           </AnimatePresence>

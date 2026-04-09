@@ -34,6 +34,8 @@ const config: Config = {
         sans:     ['Inter', 'system-ui', 'sans-serif'],
         display:  ['Inter', 'system-ui', 'sans-serif'],
         playfair: ['var(--font-playfair)', 'Georgia', 'serif'],
+        cormorant:  ['var(--font-cormorant)', 'Georgia', 'serif'],
+        greatvibes: ['var(--font-great-vibes)', 'cursive'],
       },
       boxShadow: {
         card:       '0 2px 12px rgba(36,58,143,0.08)',

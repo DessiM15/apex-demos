@@ -41,3 +41,17 @@ body {
 .luxury h3 {
   font-weight: 500;
 }
+
+/* Zen theme — elegant thin serif headings for wellness/spa industries */
+.zen h1, .zen h2, .zen h3 {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+.zen h1 { font-weight: 300; letter-spacing: 0.08em; }
+.zen h2 { font-weight: 400; letter-spacing: 0.05em; }
+.zen h3 { font-weight: 400; letter-spacing: 0.03em; }
+
+/* Cursive accent text for zen theme */
+.zen-script {
+  font-family: var(--font-great-vibes), cursive;
+  font-weight: 400;
+}

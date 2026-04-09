@@ -149,7 +149,7 @@ export default function TestimonialsSection({ testimonials, theme }: Props) {
 
   /* ── LAYOUT: list-style (Creative) ── */
   return (
-    <section className="bg-white py-24 px-4">
+    <section className="bg-brand-bg py-24 px-4">
       <div className="max-w-3xl mx-auto">
 
         <motion.div

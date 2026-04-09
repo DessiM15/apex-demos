@@ -78,7 +78,7 @@ export default function ServicesGrid({ services, theme }: Props) {
     const spacingClass = sectionSpacing === 'compact' ? 'py-14' : sectionSpacing === 'spacious' ? 'py-24' : 'py-20'
 
     return (
-      <section className={`bg-[#F9FAFB] ${spacingClass} px-4`}>
+      <section className={`bg-brand-surface ${spacingClass} px-4`}>
         <div className="max-w-6xl mx-auto">
 
           <motion.div
