@@ -99,6 +99,7 @@ export default async function DemoPage({ params }: PageProps) {
           heroIntroText={industry.heroIntroText}
           heroFont={industry.heroFont}
           heroPortrait={industry.bioImage}
+          heroTagline={industry.heroTagline}
           ctaLink={CTA_LINK}
           formCTA={industry.formCTA}
           theme={{
@@ -106,6 +107,7 @@ export default async function DemoPage({ params }: PageProps) {
             heroOverlayOpacity: theme.heroOverlayOpacity,
             accentColor: theme.accentColor,
             headingStyle: theme.headingStyle,
+            heroDark: theme.heroDark,
           }}
         />
         <LandingPageBadge

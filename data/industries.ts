@@ -26,6 +26,7 @@ export interface ThemeConfig {
   testimonialsLayout: 'cards-3' | 'cards-2-large' | 'list-style'
   sectionOrder: string[]
   accentColor: string
+  heroDark?: boolean
   headingStyle: 'bold-tight' | 'light-wide' | 'mixed'
   sectionSpacing: 'compact' | 'normal' | 'spacious'
   navStyle: 'white' | 'dark' | 'transparent-over-hero'
@@ -44,6 +45,7 @@ export interface IndustryConfig {
   heroOverlay?: boolean  // default true — set false to remove tint over hero video
   heroIntroText?: string // optional intro text that scale+fades before the headline
   heroFont?: string      // optional font family for hero intro text
+  heroTagline?: string   // small accent-colored tagline above headline (portrait layout)
   industryHook: string   // industry-relevant statistic/hook displayed under hero
   luxuryFont?: boolean   // true → uses Playfair Display serif for headings
   heroHeadline:    Record<PackageSlug, string>
@@ -383,22 +385,17 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       accent: '207 24 29',
       accentDark: '180 20 25',
       accentLight: '#FDE8E8',
-      brandBg: '#1a1a2e',
-      brandSurface: '#22223b',
-      brandCard: '#2a2a44',
-      brandText: '#F5F5F5',
-      brandMuted: '#9CA3AF',
-      brandBorder: '#3a3a55',
     },
+    heroTagline: 'BBB A+ Rated Roofing in Houston',
     industryHook: '70% of homeowners don\'t inspect their roof until there\'s already visible damage inside',
     heroHeadline: {
-      pulsemarket:  'Protect Your Home From the Top Down \u2014 Expert Roofing Services',
+      pulsemarket:  'A Roofing Company You Can Believe In',
       pulseflow:    'More Leads. More Roofs. More Growth.',
       pulsedrive:   'The Roofing Contractor That Dominates Your Market Online',
-      pulsecommand: 'Your Full-Scale Roofing Marketing Empire \u2014 Done For You',
+      pulsecommand: 'Your Full-Scale Roofing Marketing Empire',
     },
     heroSubheadline: {
-      pulsemarket:  'Roof Installation, Storm Damage Repair, Gutter Installation & Inspections \u2014 Licensed, insured, and trusted across Houston.',
+      pulsemarket:  'We are a BBB-accredited roofer in Houston, and family ran, offering top-rated services from leak repairs to full roof replacements with architectural shingles. Licensed, insured, and trusted across Greater Houston.',
       pulseflow:    'Roof Installation, Storm Damage Repair, Gutter Installation & Inspections \u2014 The roofing contractor homeowners trust for honest work.',
       pulsedrive:   'Roof Installation, Storm Damage Repair, Gutter Installation & Inspections \u2014 The most trusted roofer in your market, bar none.',
       pulsecommand: 'Roof Installation, Storm Damage Repair, Gutter Installation & Inspections \u2014 Premium roofing with warranty-backed quality and storm-ready response.',
@@ -421,7 +418,14 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: 'Got 3 quotes for a new roof. Derek was the most thorough and transparent. No pressure, fair pricing, and the quality speaks for itself.', name: 'Brandon W.', location: 'The Woodlands, TX', rating: 5 },
       { quote: 'Fast, professional, and honest. Derek found issues the other companies missed. Fixed everything right the first time. Highly recommend.', name: 'Lisa M.', location: 'Katy, TX', rating: 5 },
     ],
-    themeConfig: { ...tradeTheme },
+    themeConfig: {
+      ...corporateTheme,
+      accentColor: '#cf181d',
+      heroLayout: 'portrait' as const,
+      heroDark: false,
+      bioLayout: 'photo-right' as const,
+      sectionOrder: SECTION_ORDER_TRADE,
+    },
   },
 
   salonspa: {

@@ -8,6 +8,7 @@ interface HeroTheme {
   heroOverlayOpacity?: number
   accentColor?: string
   headingStyle?: 'bold-tight' | 'light-wide' | 'mixed'
+  heroDark?: boolean
 }
 
 interface Props {
@@ -19,12 +20,13 @@ interface Props {
   heroIntroText?: string
   heroFont?:      string
   heroPortrait?:  string
+  heroTagline?:   string
   ctaLink:        string
   formCTA:        string
   theme?:         HeroTheme
 }
 
-export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, ctaLink, formCTA, theme }: Props) {
+export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, ctaLink, formCTA, theme }: Props) {
   const [showIntro, setShowIntro] = useState(!!heroIntroText)
 
   const layout = theme?.heroLayout ?? 'left'
@@ -300,8 +302,10 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
 
   /* ── PORTRAIT layout (Personal / Advisor) ── */
   if (layout === 'portrait') {
+    const dark = theme?.heroDark !== false
+
     return (
-      <section className="relative min-h-[560px] flex items-center overflow-hidden bg-[#1a1a2e]">
+      <section className={`relative min-h-[560px] flex items-center overflow-hidden ${dark ? 'bg-[#1a1a2e]' : 'bg-white'}`}>
         <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 w-full">
           <motion.div
             className="flex flex-col md:flex-row items-center gap-12 w-full"
@@ -311,15 +315,24 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
           >
             {/* Left column — text */}
             <div className="md:w-3/5">
+              {heroTagline && (
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-sm font-bold uppercase tracking-widest mb-4"
+                  style={{ color: accentColor }}
+                >
+                  {heroTagline}
+                </motion.p>
+              )}
               <motion.h1
                 variants={fadeInUp}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance"
+                className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance ${dark ? 'text-white' : 'text-gray-900'}`}
               >
                 {headline}
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="text-white/75 text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
+                className={`text-lg md:text-xl leading-relaxed mb-10 max-w-xl ${dark ? 'text-white/75' : 'text-gray-600'}`}
               >
                 {subheadline}
               </motion.p>
@@ -333,7 +346,7 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                 </a>
                 <a
                   href="#bio"
-                  className="border-2 border-white/30 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/10 transition-colors text-base"
+                  className={`border-2 font-bold px-8 py-4 rounded-btn transition-colors text-base ${dark ? 'border-white/30 text-white hover:bg-white/10' : 'border-gray-300 text-gray-700 hover:bg-gray-100'}`}
                 >
                   Learn More
                 </a>
@@ -343,14 +356,16 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
             {heroPortrait && (
               <motion.div variants={fadeInUp} className="md:w-2/5 flex justify-center">
                 <div className="relative">
-                  <div
-                    className="absolute -inset-1 rounded-2xl opacity-30 blur-xl"
-                    style={{ backgroundColor: accentColor }}
-                  />
+                  {dark && (
+                    <div
+                      className="absolute -inset-1 rounded-2xl opacity-30 blur-xl"
+                      style={{ backgroundColor: accentColor }}
+                    />
+                  )}
                   <img
                     src={heroPortrait}
                     alt="Professional portrait"
-                    className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl shadow-2xl"
+                    className={`relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl ${dark ? 'shadow-2xl' : 'shadow-xl border border-gray-200'}`}
                   />
                 </div>
               </motion.div>
