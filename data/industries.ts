@@ -178,7 +178,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     themeColors: {
       accent: '114 47 55',
       accentDark: '92 37 47',
-      accentLight: '#1a0c0e',
+      accentLight: '#F2E7E9',
       brandBg: '#0a0a0a',
       brandSurface: '#111111',
       brandCard: '#1a1a1a',
@@ -187,7 +187,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       brandBorder: '#2a2a2a',
       brandHeading: '#F5F5F5',
     },
-    heroIntroText: 'APEX Attorneys at Law',
+    heroIntroText: 'Your Name, Attorney at Law',
     heroFont: "'Times New Roman', 'Georgia', serif",
     industryHook: '77% of people seeking legal help start with an online search before calling a single attorney',
     heroHeadline: {
@@ -233,7 +233,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     themeColors: {
       accent: '184 134 11',
       accentDark: '150 112 10',
-      accentLight: '#1c1608',
+      accentLight: '#FBF3E0',
       brandBg: '#0a0a0a',
       brandSurface: '#111111',
       brandCard: '#1a1a1a',

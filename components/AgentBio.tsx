@@ -27,7 +27,7 @@ export default function AgentBio({ name, title, creds, bio, bioImage, industry, 
   /* ── photo-left (Corporate & Health — default) ── */
   if (bioLayout === 'photo-left') {
     return (
-      <section id="bio" className="bg-white py-20 px-4">
+      <section id="bio" className="bg-brand-bg py-20 px-4">
         <div className="max-w-5xl mx-auto">
           <motion.div
             className="flex flex-col md:flex-row items-center gap-10"
@@ -55,7 +55,7 @@ export default function AgentBio({ name, title, creds, bio, bioImage, industry, 
             {/* Text */}
             <motion.div variants={fadeInUp} className="flex-1">
               <div className="mb-4">
-                <MockLogo industry={industry} size={40} />
+                <MockLogo industry={industry} size={40} color={accentColor} />
               </div>
               <h2 className="text-3xl font-bold text-brand-heading mb-1">{name}</h2>
               <p className="font-semibold text-base mb-1" style={{ color: accentColor }}>{title}</p>
