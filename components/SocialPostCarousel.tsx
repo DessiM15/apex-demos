@@ -6,7 +6,7 @@ import { IndustrySlug } from '@/data/industries'
 import MockLogo from './MockLogo'
 
 type Platform = 'instagram' | 'facebook' | 'linkedin' | 'google' | 'tiktok' | 'pinterest' | 'twitter' | 'youtube'
-type PostType = 'image' | 'text' | 'flyer'
+type PostStyle = 'image' | 'quote' | 'flyer'
 
 interface Props {
   posts: string[]
@@ -27,11 +27,7 @@ const platformList: { key: Platform; label: string; icon: string; color: string 
   { key: 'youtube', label: 'YouTube', icon: 'fa-brands fa-youtube', color: '#FF0000' },
 ]
 
-const postTypes: { key: PostType; label: string }[] = [
-  { key: 'image', label: 'Image Post' },
-  { key: 'text', label: 'Text Post' },
-  { key: 'flyer', label: 'Flyer' },
-]
+const postStyleOrder: PostStyle[] = ['image', 'quote', 'flyer']
 
 /* ── Realistic iPhone 15 Pro Frame ───────────────────────────────── */
 function PhoneFrame({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
@@ -94,28 +90,84 @@ function PhoneFrame({ children, dark = false }: { children: React.ReactNode; dar
   )
 }
 
-/* ── Post visual area ────────────────────────────────────────────── */
-function PostVisual({ postType, text, aspect = 'aspect-square' }: { postType: PostType; text: string; aspect?: string }) {
-  if (postType === 'image') {
+/* ── Post visual area — 3 distinct styles ───────────────────────── */
+function PostVisual({ style, text, aspect = 'aspect-square', businessName }: {
+  style: PostStyle
+  text: string
+  aspect?: string
+  businessName?: string
+}) {
+  /* Image post — accent gradient with bold overlay text */
+  if (style === 'image') {
     return (
-      <div className={`${aspect} bg-gradient-to-br from-[#243a8f] to-[#1a1a4e] flex items-center justify-center p-6`}>
-        <p className="text-white font-bold text-center text-sm leading-relaxed">{text.split(' ').slice(0, 12).join(' ')}...</p>
+      <div
+        className={`${aspect} relative flex items-center justify-center p-6 overflow-hidden`}
+        style={{ background: 'linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-dark)))' }}
+      >
+        <div className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
+          <i className="fa-solid fa-bullhorn text-white/60 text-xs" />
+        </div>
+        <p className="relative text-white font-bold text-center text-sm leading-relaxed max-w-[90%]">
+          {text.split(' ').slice(0, 12).join(' ')}...
+        </p>
+        <div className="absolute bottom-4 right-4 text-white/30 text-[9px] font-semibold tracking-wider uppercase">
+          {businessName}
+        </div>
       </div>
     )
   }
-  if (postType === 'text') {
+
+  /* Quote / stat card — white bg, accent top bar, styled typography */
+  if (style === 'quote') {
     return (
-      <div className={`${aspect} bg-white flex items-center justify-center p-6`}>
-        <p className="text-gray-900 font-bold text-center text-lg leading-relaxed">{text.split(' ').slice(0, 10).join(' ')}...</p>
+      <div className={`${aspect} bg-white flex flex-col items-center justify-center p-6 relative overflow-hidden`}>
+        <div className="absolute top-0 left-0 right-0 h-1.5" style={{ background: 'rgb(var(--accent))' }} />
+        <i className="fa-solid fa-quote-left text-3xl mb-3" style={{ color: 'rgb(var(--accent) / 0.15)' }} />
+        <p className="text-gray-900 font-bold text-center text-[15px] leading-relaxed px-2">
+          {text.split(' ').slice(0, 14).join(' ')}
+        </p>
+        <div className="w-10 h-0.5 mt-4 mb-2" style={{ background: 'rgb(var(--accent))' }} />
+        {businessName && (
+          <p className="text-gray-400 text-[10px] font-semibold tracking-widest uppercase">{businessName}</p>
+        )}
       </div>
     )
   }
+
+  /* Flyer — real marketing flyer layout with headline, CTA, contact info */
   return (
-    <div className={`${aspect} bg-[#243a8f] flex items-center justify-center p-6`}>
-      <div className="text-center">
-        <p className="text-white font-black text-xl leading-tight mb-2">{text.split(' ').slice(0, 6).join(' ')}</p>
-        <div className="w-12 h-0.5 bg-[#cf181d] mx-auto mb-2" />
-        <p className="text-white/80 text-xs">YOUR BRAND</p>
+    <div
+      className={`${aspect} flex flex-col relative overflow-hidden`}
+      style={{ background: 'rgb(var(--accent))' }}
+    >
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.12) 100%)' }} />
+      {/* Header */}
+      <div className="relative px-5 pt-5 pb-1">
+        <p className="text-white/50 text-[10px] font-bold tracking-[0.2em] uppercase">
+          {businessName || 'Your Business'}
+        </p>
+      </div>
+      {/* Main content */}
+      <div className="relative flex-1 flex flex-col items-center justify-center px-5 text-center">
+        <p className="text-white font-black text-xl leading-tight mb-3">
+          {text.split(' ').slice(0, 8).join(' ')}
+        </p>
+        <div className="w-12 h-[2px] bg-white/40 mb-3" />
+        <p className="text-white/75 text-xs leading-relaxed mb-5 max-w-[85%]">
+          {text.split(' ').slice(8, 22).join(' ')}
+        </p>
+        <div className="bg-white rounded-full px-6 py-2.5 shadow-lg">
+          <span className="font-bold text-xs tracking-wide" style={{ color: 'rgb(var(--accent))' }}>
+            Call Today
+          </span>
+        </div>
+      </div>
+      {/* Footer */}
+      <div className="relative px-5 pb-4 flex items-center justify-between">
+        <p className="text-white/35 text-[9px]">yourwebsite.com</p>
+        <p className="text-white/35 text-[9px]">
+          <i className="fa-solid fa-phone text-[8px] mr-1" />(555) 123-4567
+        </p>
       </div>
     </div>
   )
@@ -127,7 +179,7 @@ function ColoredText({ text }: { text: string }) {
     <span>
       {text.split(/(\s+)/).map((word, i) =>
         word.startsWith('#') ? (
-          <span key={i} className="text-[#243a8f]">{word}</span>
+          <span key={i} style={{ color: 'rgb(var(--accent))' }}>{word}</span>
         ) : (
           <span key={i}>{word}</span>
         )
@@ -164,7 +216,6 @@ function ProfileAvatar({ industrySlug, size = 32, ring, ringColor }: {
 export default function SocialPostCarousel({ posts, industryName, industrySlug, packageName, socialPostCount }: Props) {
   const [current, setCurrent] = useState(0)
   const [activePlatform, setActivePlatform] = useState<Platform>('instagram')
-  const [postType, setPostType] = useState<PostType>('image')
 
   const totalPosts = 3
   function prev() { setCurrent(i => (i - 1 + totalPosts) % totalPosts) }
@@ -173,6 +224,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
   const handle = `your_${industryName.toLowerCase().replace(/[\s/]+/g, '_')}`
   const businessName = `Your ${industryName}`
   const postContent = posts[current % posts.length]
+  const currentStyle = postStyleOrder[current % postStyleOrder.length]
   const activePlatformData = platformList.find(p => p.key === activePlatform)!
 
   return (
@@ -222,22 +274,6 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
             ))}
           </div>
 
-          {/* Post type pills */}
-          <div className="flex justify-center gap-2 mt-4">
-            {postTypes.map(t => (
-              <button
-                key={t.key}
-                onClick={() => setPostType(t.key)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                  postType === t.key
-                    ? 'bg-gray-900 text-white'
-                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                }`}
-              >
-                {t.label}
-              </button>
-            ))}
-          </div>
         </motion.div>
 
         {/* Phone — centered hero */}
@@ -246,7 +282,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
         >
           <AnimatePresence mode="wait">
             <motion.div
-              key={`${activePlatform}-${current}-${postType}`}
+              key={`${activePlatform}-${current}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -267,7 +303,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
                     <i className="fa-solid fa-ellipsis text-gray-500 text-sm" />
                   </div>
                   {/* Post image */}
-                  <PostVisual postType={postType} text={postContent} aspect="aspect-square" />
+                  <PostVisual style={currentStyle} text={postContent} businessName={businessName} aspect="aspect-square" />
                   {/* Action bar */}
                   <div className="px-3 py-2.5 flex items-center justify-between bg-white">
                     <div className="flex gap-4">
@@ -336,7 +372,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
                     <div className="px-3 pb-2">
                       <p className="text-[12px] text-gray-900 leading-relaxed line-clamp-3">{postContent}</p>
                     </div>
-                    <PostVisual postType={postType} text={postContent} aspect="aspect-[4/3]" />
+                    <PostVisual style={currentStyle} text={postContent} businessName={businessName} aspect="aspect-[4/3]" />
                     {/* Reactions */}
                     <div className="px-3 py-2 flex items-center justify-between border-b border-gray-100">
                       <div className="flex items-center gap-1">
@@ -415,7 +451,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
                     <div className="px-3 pb-2">
                       <p className="text-[12px] text-gray-900 leading-relaxed line-clamp-3">{postContent}</p>
                     </div>
-                    <PostVisual postType={postType} text={postContent} aspect="aspect-[4/3]" />
+                    <PostVisual style={currentStyle} text={postContent} businessName={businessName} aspect="aspect-[4/3]" />
                     {/* Reactions — FA icons only */}
                     <div className="px-3 py-2 flex items-center gap-1 border-b border-gray-100">
                       <div className="flex -space-x-0.5">
@@ -500,7 +536,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
                     </div>
                     <div className="px-3 pb-3">
                       <div className="rounded-lg overflow-hidden">
-                        <PostVisual postType={postType} text={postContent} aspect="aspect-[4/3]" />
+                        <PostVisual style={currentStyle} text={postContent} businessName={businessName} aspect="aspect-[4/3]" />
                       </div>
                     </div>
                     <div className="px-3 pb-2">
@@ -591,7 +627,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
                   <div className="bg-[#F5F5F5] p-3">
                     <div className="rounded-2xl overflow-hidden bg-white shadow-sm">
                       <div className="relative">
-                        <PostVisual postType={postType} text={postContent} aspect="aspect-[3/4]" />
+                        <PostVisual style={currentStyle} text={postContent} businessName={businessName} aspect="aspect-[3/4]" />
                         <button className="absolute top-2.5 right-2.5 bg-[#E60023] text-white text-[11px] font-bold px-4 py-2 rounded-full shadow-sm">
                           Save
                         </button>
@@ -652,11 +688,9 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
                             <p className="text-[11px] text-gray-500">@{handle} · 2h</p>
                           </div>
                           <p className="text-[12px] text-gray-900 leading-relaxed mt-1.5">{postContent}</p>
-                          {postType !== 'text' && (
-                            <div className="mt-2.5 rounded-xl overflow-hidden border border-gray-200">
-                              <PostVisual postType={postType} text={postContent} aspect="aspect-video" />
-                            </div>
-                          )}
+                          <div className="mt-2.5 rounded-xl overflow-hidden border border-gray-200">
+                            <PostVisual style={currentStyle} text={postContent} businessName={businessName} aspect="aspect-video" />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -711,7 +745,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
                   </div>
                   {/* Video player */}
                   <div className="relative bg-black">
-                    <PostVisual postType={postType} text={postContent} aspect="aspect-video" />
+                    <PostVisual style={currentStyle} text={postContent} businessName={businessName} aspect="aspect-video" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-14 h-10 bg-black/70 rounded-xl flex items-center justify-center">
                         <i className="fa-solid fa-play text-white text-lg ml-0.5" />
@@ -822,7 +856,7 @@ export default function SocialPostCarousel({ posts, industryName, industrySlug, 
             </button>
           </div>
           <p className="text-center text-brand-muted text-xs mt-3">
-            Post {current + 1} of 3
+            {currentStyle === 'image' ? 'Image Post' : currentStyle === 'quote' ? 'Quote Card' : 'Flyer'} — {current + 1} of 3
           </p>
         </motion.div>
 
