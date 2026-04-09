@@ -31,8 +31,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
+        sans:     ['Inter', 'system-ui', 'sans-serif'],
+        display:  ['Inter', 'system-ui', 'sans-serif'],
+        playfair: ['var(--font-playfair)', 'Georgia', 'serif'],
       },
       boxShadow: {
         card:       '0 2px 12px rgba(36,58,143,0.08)',

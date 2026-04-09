@@ -59,13 +59,13 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     socialPostCount: '60',
     emailCampaignCount: 4,
     blogArticleCount: 2,
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','conversion','footer'],
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','footer'],
     features: [
       { icon: 'fa-solid fa-file-lines', title: '5 AI Landing Pages',      desc: 'Optimized conversion-ready pages' },
       { icon: 'fa-solid fa-share-nodes', title: '60 Social Posts/mo',       desc: 'Consistent brand presence' },
       { icon: 'fa-solid fa-envelope-open-text', title: '4 Email Campaigns/mo',     desc: 'Strategic email marketing' },
       { icon: 'fa-solid fa-pen-nib', title: '2 AI Blog Articles/mo',    desc: 'Thought leadership content' },
-      { icon: 'fa-solid fa-chart-column', title: 'Conversion Tracking',      desc: 'Know exactly what\'s working' },
+      { icon: 'fa-solid fa-chart-column', title: 'Performance Analytics',      desc: 'Track engagement and growth metrics' },
     ],
   },
   pulsedrive: {

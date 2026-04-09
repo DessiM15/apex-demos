@@ -215,7 +215,7 @@ export default async function DemoPage({ params }: PageProps) {
     ))
 
   return (
-    <div style={themeStyle}>
+    <div style={themeStyle} className={industry.luxuryFont ? 'luxury' : undefined}>
       {/* Sticky demo banner */}
       <DemoBanner
         packageName={pkg.name}

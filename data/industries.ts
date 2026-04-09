@@ -45,6 +45,7 @@ export interface IndustryConfig {
   heroIntroText?: string // optional intro text that scale+fades before the headline
   heroFont?: string      // optional font family for hero intro text
   industryHook: string   // industry-relevant statistic/hook displayed under hero
+  luxuryFont?: boolean   // true → uses Playfair Display serif for headings
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
   services: ServiceItem[]
@@ -241,6 +242,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       brandBorder: '#2a2a2a',
     },
     heroOverlay: false,
+    luxuryFont: true,
     industryHook: '88% of home buyers use the internet as their primary research tool during their search',
     heroHeadline: {
       pulsemarket:   'Find Your Dream Home in Houston \u2014 Expert Guidance Every Step',
@@ -361,6 +363,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     ],
     formFields: ['Name', 'Phone', 'Email', 'Service Needed', 'Preferred Date'],
     formCTA: 'Get a Free Estimate',
+    bioImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face',
     bioName:  'Mike Torres',
     bioTitle: 'HVAC Specialist',
     bioCreds: '15 Years Experience \u2014 Licensed and Insured \u2014 Houston TX',
@@ -411,6 +414,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     ],
     formFields: ['Name', 'Phone', 'Email', 'Service Needed', 'Property Address'],
     formCTA: 'Get a Free Roof Inspection',
+    bioImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
     bioName:  'Derek Hayes',
     bioTitle: 'Master Roofer',
     bioCreds: 'Licensed and Insured \u2014 20 Years Experience \u2014 Houston TX',
@@ -455,6 +459,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     ],
     formFields: ['Name', 'Phone', 'Email', 'Service Interest', 'Preferred Date'],
     formCTA: 'Book My Consultation',
+    bioImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
     bioName:  'Camille Rose',
     bioTitle: 'Licensed Aesthetician',
     bioCreds: '10 Years Experience \u2014 Board Certified \u2014 Houston TX',
@@ -478,6 +483,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       accentDark: '99 46 190',
       accentLight: '#EDE9FE',
     },
+    luxuryFont: true,
     industryHook: '93% of couples say photography is one of the most important investments for their wedding day',
     heroHeadline: {
       pulsemarket:  "Capture Life's Greatest Moments \u2014 Professional Photography",
@@ -499,6 +505,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     ],
     formFields: ['Name', 'Phone', 'Email', 'Event Type', 'Preferred Date'],
     formCTA: 'Check My Availability',
+    bioImage: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=face',
     bioName:  'Jordan Blake',
     bioTitle: 'Professional Photographer',
     bioCreds: '8 Years Experience \u2014 500+ Sessions \u2014 Houston TX',
@@ -543,6 +550,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     ],
     formFields: ['Name', 'Phone', 'Email', 'Service Needed', 'Insurance Provider'],
     formCTA: 'Request an Appointment',
+    bioImage: 'https://images.unsplash.com/photo-1594824476967-48c8b964f137?w=400&h=400&fit=crop&crop=face',
     bioName:  'Dr. Angela Park',
     bioTitle: 'General Dentist DDS',
     bioCreds: 'Accepting New Patients \u2014 14 Years Experience \u2014 Houston TX',
@@ -593,6 +601,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     ],
     formFields: ['Name', 'Phone', 'Email', 'Issue Description', 'Property Address'],
     formCTA: 'Get a Free Quote',
+    bioImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
     bioName:  'Carlos Mendez',
     bioTitle: 'Master Plumber',
     bioCreds: 'Licensed Master Plumber \u2014 18 Years Experience \u2014 Houston TX',
@@ -637,6 +646,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     ],
     formFields: ['Name', 'Phone', 'Email', 'Fitness Goal', 'Experience Level'],
     formCTA: 'Book a Free Consultation',
+    bioImage: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop&crop=face',
     bioName:  'Marcus Johnson',
     bioTitle: 'Certified Personal Trainer',
     bioCreds: 'NASM Certified \u2014 12 Years Experience \u2014 Houston TX',

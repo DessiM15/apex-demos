@@ -20,3 +20,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Luxury theme — elegant serif headings for premium industries */
+.luxury h1,
+.luxury h2,
+.luxury h3 {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.luxury h1 {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.luxury h2 {
+  font-weight: 600;
+}
+
+.luxury h3 {
+  font-weight: 500;
+}

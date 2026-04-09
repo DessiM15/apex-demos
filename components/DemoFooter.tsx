@@ -38,19 +38,13 @@ export default function DemoFooter({ industryName, industrySlug }: Props) {
           >
             This demo was built in days. Your personalized version can be live in less than a week — fully branded, fully automated.
           </motion.p>
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4">
+          <motion.div variants={fadeInUp} className="flex justify-center">
             <button
               onClick={() => setShowModal(true)}
-              className="bg-white text-apex-blue font-bold px-10 py-4 rounded-btn hover:bg-apex-blue-light transition-colors shadow-card-hover text-base w-full sm:w-auto text-center cursor-pointer"
+              className="bg-white text-apex-blue font-bold px-10 py-4 rounded-btn hover:bg-apex-blue-light transition-colors shadow-card-hover text-base cursor-pointer"
             >
               Get Started with {industryName} →
             </button>
-            <Link
-              href="/demo/select"
-              className="border-2 border-white/40 text-white font-bold px-10 py-4 rounded-btn hover:bg-white/10 transition-colors text-base w-full sm:w-auto text-center"
-            >
-              View Other Demos
-            </Link>
           </motion.div>
         </motion.div>
       </section>
