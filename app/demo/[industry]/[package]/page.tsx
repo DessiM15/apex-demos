@@ -98,6 +98,7 @@ export default async function DemoPage({ params }: PageProps) {
           heroOverlay={industry.heroOverlay}
           heroIntroText={industry.heroIntroText}
           heroFont={industry.heroFont}
+          heroPortrait={industry.bioImage}
           ctaLink={CTA_LINK}
           formCTA={industry.formCTA}
           theme={{

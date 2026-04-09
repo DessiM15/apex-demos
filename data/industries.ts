@@ -19,7 +19,7 @@ export interface ThemeColors {
 }
 
 export interface ThemeConfig {
-  heroLayout: 'left' | 'center' | 'split'
+  heroLayout: 'left' | 'center' | 'split' | 'portrait'
   heroOverlayOpacity: number
   servicesLayout: 'grid-4' | 'grid-3' | 'cards-large' | 'list'
   bioLayout: 'photo-left' | 'photo-right' | 'photo-top-center'
@@ -281,7 +281,6 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Financial Advisor',
     faIcon: 'fa-solid fa-chart-line',
     heroImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80',
-    heroVideo: '/financial-advisor-hero.mp4',
     accentColor: '#0F766E',
     themeColors: {
       accent: '15 118 110',
@@ -289,13 +288,12 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       accentLight: '#ECFDF5',
       brandHeading: '#b49132',
     },
-    heroIntroText: 'APEX Wealth Advisors',
     industryHook: '56% of Americans say they don\'t have enough savings to cover a $1,000 emergency expense',
     heroHeadline: {
-      pulsemarket:   'Build Wealth. Retire With Confidence. Protect Your Family.',
-      pulseflow:     'More Clients. More Assets. More Impact.',
-      pulsedrive:    'The Financial Advisor That Dominates Their Market Online',
-      pulsecommand:  'Your Full-Scale Financial Marketing Empire \u2014 Done For You',
+      pulsemarket:   "I'm Robert Kim. At your service.",
+      pulseflow:     "I'm Robert Kim. At your service.",
+      pulsedrive:    "I'm Robert Kim. At your service.",
+      pulsecommand:  "I'm Robert Kim. At your service.",
     },
     heroSubheadline: {
       pulsemarket:   'Personalized financial planning for individuals, families, and business owners. Fiduciary. Independent. Always in your corner.',
@@ -321,7 +319,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: "As a small business owner I had no real plan. Robert set up my SEP IRA, succession plan, and key person insurance. Finally feel protected.", name: 'Carlos V.', location: 'Sugar Land, TX', rating: 5 },
       { quote: "Best financial decision I ever made was calling Robert. Clear, honest, and genuinely invested in my future.", name: 'Patricia H.', location: 'Katy, TX', rating: 5 },
     ],
-    themeConfig: { ...corporateTheme, accentColor: '#0F766E' },
+    themeConfig: { ...corporateTheme, accentColor: '#0F766E', heroLayout: 'portrait' },
   },
 
   hvac: {

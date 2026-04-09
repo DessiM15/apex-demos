@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
 interface HeroTheme {
-  heroLayout?: 'left' | 'center' | 'split'
+  heroLayout?: 'left' | 'center' | 'split' | 'portrait'
   heroOverlayOpacity?: number
   accentColor?: string
   headingStyle?: 'bold-tight' | 'light-wide' | 'mixed'
@@ -18,12 +18,13 @@ interface Props {
   heroOverlay?:   boolean
   heroIntroText?: string
   heroFont?:      string
+  heroPortrait?:  string
   ctaLink:        string
   formCTA:        string
   theme?:         HeroTheme
 }
 
-export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, ctaLink, formCTA, theme }: Props) {
+export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, ctaLink, formCTA, theme }: Props) {
   const [showIntro, setShowIntro] = useState(!!heroIntroText)
 
   const layout = theme?.heroLayout ?? 'left'
@@ -292,6 +293,69 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+      </section>
+    )
+  }
+
+  /* ── PORTRAIT layout (Personal / Advisor) ── */
+  if (layout === 'portrait') {
+    return (
+      <section className="relative min-h-[560px] flex items-center overflow-hidden bg-[#1a1a2e]">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 w-full">
+          <motion.div
+            className="flex flex-col md:flex-row items-center gap-12 w-full"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* Left column — text */}
+            <div className="md:w-3/5">
+              <motion.h1
+                variants={fadeInUp}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance"
+              >
+                {headline}
+              </motion.h1>
+              <motion.p
+                variants={fadeInUp}
+                className="text-white/75 text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
+              >
+                {subheadline}
+              </motion.p>
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
+                <a
+                  href={ctaLink}
+                  className="text-white font-bold px-10 py-4 rounded-btn hover:opacity-90 transition-opacity text-base shadow-lg"
+                  style={{ backgroundColor: accentColor }}
+                >
+                  {formCTA}
+                </a>
+                <a
+                  href="#bio"
+                  className="border-2 border-white/30 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/10 transition-colors text-base"
+                >
+                  Learn More
+                </a>
+              </motion.div>
+            </div>
+            {/* Right column — portrait photo */}
+            {heroPortrait && (
+              <motion.div variants={fadeInUp} className="md:w-2/5 flex justify-center">
+                <div className="relative">
+                  <div
+                    className="absolute -inset-1 rounded-2xl opacity-30 blur-xl"
+                    style={{ backgroundColor: accentColor }}
+                  />
+                  <img
+                    src={heroPortrait}
+                    alt="Professional portrait"
+                    className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+            )}
+          </motion.div>
         </div>
       </section>
     )
