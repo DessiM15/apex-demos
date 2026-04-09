@@ -413,7 +413,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     heroImages: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',   // finished house / curb appeal
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',   // roofer at work on roof
-      'https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?w=600&q=80',   // family / team portrait
+      'https://images.unsplash.com/photo-1606567595334-d39972c85dbe?w=600&q=80',   // family portrait
     ],
     bioName:  'Derek Hayes',
     bioTitle: 'Master Roofer',
