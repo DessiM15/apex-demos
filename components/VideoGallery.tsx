@@ -187,33 +187,37 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
               </ul>
             </div>
 
-            {/* Right — Avatar mockup card */}
+            {/* Right — Avatar video card */}
             <div className="flex justify-center">
-              <div className="relative w-full max-w-[280px]">
+              <div
+                className="relative w-full max-w-[480px] cursor-pointer group"
+                onClick={() => setModalVideo('/heygen-avatar.mp4')}
+              >
                 <div className="rounded-2xl border border-white/10 overflow-hidden shadow-2xl bg-[#111127]">
-                  <div className="aspect-[9/16] bg-gradient-to-br from-[#243a8f] to-[#cf181d] relative">
-                    {/* HeyGen badge */}
-                    <div className="absolute top-3 left-0 right-0 flex justify-center">
-                      <span className="text-[10px] font-bold text-white bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full">
-                        HeyGen Powered
-                      </span>
-                    </div>
-                    {/* Avatar silhouette + text */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <div className="w-24 h-24 rounded-full bg-white/15 flex items-center justify-center mb-4">
-                        <i className="fa-solid fa-user text-white/60 text-4xl" />
-                      </div>
-                      <p className="text-white font-bold text-lg">AI Avatar</p>
-                    </div>
+                  <div className="aspect-video relative">
+                    <img
+                      src="/thumbnails/heygen-avatar-thumb.jpg"
+                      alt="AI Avatar Video Preview"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                     {/* Play button */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-white/15 flex items-center justify-center mt-40">
+                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform">
                         <i className="fa-solid fa-play text-white text-xl ml-1" />
                       </div>
                     </div>
-                    {/* Bottom text */}
-                    <div className="absolute bottom-4 left-0 right-0 text-center">
-                      <p className="text-white/60 text-xs">Your personalized avatar — coming with setup</p>
+                    {/* HeyGen badge */}
+                    <div className="absolute top-3 left-3">
+                      <span className="text-[10px] font-bold text-white bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                        HeyGen Powered
+                      </span>
+                    </div>
+                    {/* Duration badge */}
+                    <div className="absolute bottom-3 right-3">
+                      <span className="text-xs font-medium text-white bg-black/70 px-2 py-0.5 rounded">
+                        0:47
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -257,7 +261,9 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
 
             {/* Modal content */}
             <motion.div
-              className="relative z-10 w-full max-w-[360px] mx-4"
+              className={`relative z-10 w-full mx-4 ${
+                modalVideo.includes('heygen') ? 'max-w-[720px]' : 'max-w-[360px]'
+              }`}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -271,9 +277,9 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
                 <i className="fa-solid fa-xmark text-white text-lg" />
               </button>
 
-              {/* Phone-style frame */}
+              {/* Video frame */}
               <div className="rounded-3xl overflow-hidden shadow-2xl bg-black border-2 border-white/10">
-                <div className="aspect-[9/16] relative">
+                <div className={modalVideo.includes('heygen') ? 'aspect-video' : 'aspect-[9/16]'}>
                   <video
                     ref={videoRef}
                     src={modalVideo}
