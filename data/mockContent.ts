@@ -137,6 +137,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I\'m going to show you what a $450,000 home in Houston actually looks like in 3 different neighborhoods — the difference will surprise you." [Property tour reel]',
       '"Most sellers leave $15,000–$40,000 on the table by not doing THIS before they list. I\'ll show you exactly what it is in 60 seconds." [Educational reel]',
     ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/realestate-sf-1.jpg', src: '/realestate-sf-1.mp4' },
+      { thumbnail: '/thumbnails/realestate-sf-2.jpg' },
+      { thumbnail: '/thumbnails/realestate-sf-3.jpg' },
+      { thumbnail: '/thumbnails/realestate-sf-4.jpg' },
+    ],
     analyticsStats: [
       { label: 'Home Valuation Requests', value: '43',    change: '+11 this month',    positive: true },
       { label: 'Property Page Views',     value: '8,204', change: '+1,200 this week',  positive: true },
