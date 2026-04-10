@@ -95,10 +95,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"Texas statute of limitations explained in 60 seconds — miss this deadline and you lose your right to sue forever." [60 sec educational]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/lawfirm-sf-1.jpg', src: '/law-firm-short-form.mp4' },
-      { thumbnail: '/thumbnails/lawfirm-sf-2.jpg' },
-      { thumbnail: '/thumbnails/lawfirm-sf-3.jpg' },
-      { thumbnail: '/thumbnails/lawfirm-sf-4.jpg' },
+      { thumbnail: '/thumbnails/lawfirm-sf-1.jpg', src: '/lawfirm-sf-1.mp4' },
+      { thumbnail: '/thumbnails/lawfirm-sf-2.jpg', src: '/lawfirm-sf-2.mp4' },
+      { thumbnail: '/thumbnails/lawfirm-sf-3.jpg', src: '/lawfirm-sf-3.mp4' },
+      { thumbnail: '/thumbnails/lawfirm-sf-4.jpg', src: '/lawfirm-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Consultation Requests', value: '67',    change: '+14 this month',   positive: true },
