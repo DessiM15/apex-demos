@@ -1,15 +1,20 @@
 'use client'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { staggerContainer, fadeInUp, viewport } from '@/lib/animations'
+import { ShortFormVideo } from '@/data/mockContent'
+
 interface Props {
   hooks: string[]
   industryName: string
   packageName?: string
+  shortFormVideos?: ShortFormVideo[]
 }
 
-export default function VideoGallery({ hooks, industryName, packageName }: Props) {
+export default function VideoGallery({ hooks, industryName, packageName, shortFormVideos }: Props) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
+  const [modalVideo, setModalVideo] = useState<string | null>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const platformBadges = ['Reels', 'Shorts', 'TikTok', 'Reels']
   const durations = ['0:30', '0:45', '0:15', '0:60']
@@ -23,6 +28,30 @@ export default function VideoGallery({ hooks, industryName, packageName }: Props
 
   function stripBrackets(text: string) {
     return text.replace(/\[.*?\]/g, '').replace(/"/g, '').trim()
+  }
+
+  // Close modal on Escape key
+  useEffect(() => {
+    if (!modalVideo) return
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setModalVideo(null)
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [modalVideo])
+
+  // Auto-play video when modal opens
+  useEffect(() => {
+    if (modalVideo && videoRef.current) {
+      videoRef.current.play()
+    }
+  }, [modalVideo])
+
+  function handleCardClick(i: number) {
+    const sf = shortFormVideos?.[i]
+    if (sf?.src) {
+      setModalVideo(sf.src)
+    }
   }
 
   return (
@@ -54,51 +83,74 @@ export default function VideoGallery({ hooks, industryName, packageName }: Props
             className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto"
             variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}
           >
-            {videos.map((v, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="group cursor-pointer"
-                onMouseEnter={() => setHoveredIdx(i)}
-                onMouseLeave={() => setHoveredIdx(null)}
-              >
+            {videos.map((v, i) => {
+              const sf = shortFormVideos?.[i]
+              const hasVideo = !!sf?.src
+              return (
                 <motion.div
-                  className="relative rounded-2xl overflow-hidden shadow-lg"
-                  animate={hoveredIdx === i ? { scale: 1.03 } : { scale: 1 }}
-                  transition={{ duration: 0.2 }}
+                  key={i}
+                  variants={fadeInUp}
+                  className={`group ${hasVideo ? 'cursor-pointer' : 'cursor-default'}`}
+                  onMouseEnter={() => setHoveredIdx(i)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  onClick={() => handleCardClick(i)}
                 >
-                  {/* Thumbnail */}
-                  <div className="aspect-[9/16] bg-gradient-to-b from-[#243a8f] to-[#1a1a2e] relative">
-                    {/* Centered play button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div
-                        className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30"
-                        animate={hoveredIdx === i ? { scale: 1.15 } : { scale: 1 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <i className="fa-solid fa-play text-white text-xl ml-1" />
-                      </motion.div>
+                  <motion.div
+                    className="relative rounded-2xl overflow-hidden shadow-lg"
+                    animate={hoveredIdx === i ? { scale: 1.03 } : { scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {/* Thumbnail */}
+                    <div className="aspect-[9/16] relative">
+                      {sf?.thumbnail ? (
+                        <>
+                          <img
+                            src={sf.thumbnail}
+                            alt={stripBrackets(v.hook)}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                          {/* Subtle dark overlay for text legibility */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+                        </>
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-b from-[#243a8f] to-[#1a1a2e]" />
+                      )}
+
+                      {/* Centered play button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <motion.div
+                          className={`w-14 h-14 rounded-full backdrop-blur-sm flex items-center justify-center border border-white/30 ${
+                            hasVideo ? 'bg-white/25' : 'bg-white/20'
+                          }`}
+                          animate={hoveredIdx === i ? { scale: 1.15 } : { scale: 1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <i className="fa-solid fa-play text-white text-xl ml-1" />
+                        </motion.div>
+                      </div>
+
+                      {/* Platform badge top left */}
+                      <div className="absolute top-3 left-3">
+                        <span className="text-[10px] font-bold text-white bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                          {v.badge}
+                        </span>
+                      </div>
+
+                      {/* Duration badge bottom right */}
+                      <div className="absolute bottom-3 right-3">
+                        <span className="text-xs font-medium text-white bg-black/70 px-2 py-0.5 rounded">
+                          {v.duration}
+                        </span>
+                      </div>
                     </div>
-                    {/* Platform badge top left */}
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[10px] font-bold text-white bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                        {v.badge}
-                      </span>
-                    </div>
-                    {/* Duration badge bottom right */}
-                    <div className="absolute bottom-3 right-3">
-                      <span className="text-xs font-medium text-white bg-black/70 px-2 py-0.5 rounded">
-                        {v.duration}
-                      </span>
-                    </div>
-                  </div>
+                  </motion.div>
+                  {/* Video title */}
+                  <p className="text-gray-900 font-semibold text-sm text-center mt-3 px-2 line-clamp-2">
+                    {stripBrackets(v.hook)}
+                  </p>
                 </motion.div>
-                {/* Video title */}
-                <p className="text-gray-900 font-semibold text-sm text-center mt-3 px-2 line-clamp-2">
-                  {stripBrackets(v.hook)}
-                </p>
-              </motion.div>
-            ))}
+              )
+            })}
           </motion.div>
         </div>
       </section>
@@ -186,6 +238,56 @@ export default function VideoGallery({ hooks, industryName, packageName }: Props
           </div>
         </div>
       </section>
+
+      {/* ── Video Lightbox Modal ── */}
+      <AnimatePresence>
+        {modalVideo && (
+          <motion.div
+            className="fixed inset-0 z-[9999] flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {/* Backdrop */}
+            <div
+              className="absolute inset-0 bg-black/85 backdrop-blur-sm"
+              onClick={() => setModalVideo(null)}
+            />
+
+            {/* Modal content */}
+            <motion.div
+              className="relative z-10 w-full max-w-[360px] mx-4"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setModalVideo(null)}
+                className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              >
+                <i className="fa-solid fa-xmark text-white text-lg" />
+              </button>
+
+              {/* Phone-style frame */}
+              <div className="rounded-3xl overflow-hidden shadow-2xl bg-black border-2 border-white/10">
+                <div className="aspect-[9/16] relative">
+                  <video
+                    ref={videoRef}
+                    src={modalVideo}
+                    className="w-full h-full object-cover"
+                    controls
+                    playsInline
+                    autoPlay
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

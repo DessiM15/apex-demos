@@ -11,6 +11,8 @@ export interface EmailCampaign  {
 export interface PodcastEpisode { title: string; duration: string; description: string }
 export interface AnalyticsStat  { label: string; value: string; change: string; positive: boolean }
 
+export interface ShortFormVideo { thumbnail: string; src?: string }
+
 export interface MockContent {
   blogPosts:       BlogPost[]
   emailCampaigns:  EmailCampaign[]
@@ -18,6 +20,7 @@ export interface MockContent {
   podcastEpisodes: PodcastEpisode[]
   videoHooks:      string[]
   analyticsStats:  AnalyticsStat[]
+  shortFormVideos?: ShortFormVideo[]
 }
 
 export const mockContent: Record<IndustrySlug, MockContent> = {
@@ -47,6 +50,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
     videoHooks: [
       '"Do you know the #1 reason insurance claims get denied? It has nothing to do with your policy — it\'s this one thing most people overlook..." [15 sec reel]',
       '"I just saved a client $1,200 on their annual premium — here\'s exactly how we did it in 3 steps" [30 sec reel]',
+    ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/insurance-sf-1.jpg', src: '/insurance-short-form.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-2.jpg' },
+      { thumbnail: '/thumbnails/insurance-sf-3.jpg' },
+      { thumbnail: '/thumbnails/insurance-sf-4.jpg' },
     ],
     analyticsStats: [
       { label: 'Landing Page Visits',   value: '1,247', change: '+18% this month',  positive: true },

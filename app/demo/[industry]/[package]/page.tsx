@@ -181,7 +181,7 @@ export default async function DemoPage({ params }: PageProps) {
       <PodcastPlayer episodes={content.podcastEpisodes} industryName={industry.name} packageName={pkg.name} />
     ),
     video: (
-      <VideoGallery hooks={content.videoHooks} industryName={industry.name} packageName={pkg.name} />
+      <VideoGallery hooks={content.videoHooks} industryName={industry.name} packageName={pkg.name} shortFormVideos={content.shortFormVideos} />
     ),
     analytics: (
       <AnalyticsDashboard
