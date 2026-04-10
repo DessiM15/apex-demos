@@ -44,6 +44,10 @@ export const metadata: Metadata = {
   title: 'Apex Demo Platform | See Your Business Powered by Apex',
   description:
     'Explore 16 interactive demo landing pages built for insurance, law, real estate, and financial professionals. Choose your industry and package to preview.',
+  icons: {
+    icon: '/apex-logo.png',
+    apple: '/apex-logo.png',
+  },
 }
 
 export default function RootLayout({
