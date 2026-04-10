@@ -52,7 +52,7 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I just saved a client $1,200 on their annual premium — here\'s exactly how we did it in 3 steps" [30 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/insurance-sf-1.jpg', src: '/insurance-short-form.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-1.jpg', src: '/insurance-short-form-2.mp4' },
       { thumbnail: '/thumbnails/insurance-sf-2.jpg' },
       { thumbnail: '/thumbnails/insurance-sf-3.jpg' },
       { thumbnail: '/thumbnails/insurance-sf-4.jpg' },
@@ -93,6 +93,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
     videoHooks: [
       '"I\'m going to show you exactly what happens when you negotiate with an insurance adjuster alone vs. with an attorney. The difference will shock you." [30 sec]',
       '"Texas statute of limitations explained in 60 seconds — miss this deadline and you lose your right to sue forever." [60 sec educational]',
+    ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/lawfirm-sf-1.jpg', src: '/law-firm-short-form.mp4' },
+      { thumbnail: '/thumbnails/lawfirm-sf-2.jpg' },
+      { thumbnail: '/thumbnails/lawfirm-sf-3.jpg' },
+      { thumbnail: '/thumbnails/lawfirm-sf-4.jpg' },
     ],
     analyticsStats: [
       { label: 'Consultation Requests', value: '67',    change: '+14 this month',   positive: true },
@@ -205,6 +211,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"Your AC filter looks like THIS after just 30 days? Here\'s what that means for your system — and your family\'s health." [15 sec reel]',
       '"I just saved a homeowner $2,800 by catching this one issue during a routine tune-up. Here\'s what to check before summer." [30 sec reel]',
     ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/hvac-sf-1.jpg', src: '/hvac-short-form.mp4' },
+      { thumbnail: '/thumbnails/hvac-sf-2.jpg' },
+      { thumbnail: '/thumbnails/hvac-sf-3.jpg' },
+      { thumbnail: '/thumbnails/hvac-sf-4.jpg' },
+    ],
     analyticsStats: [
       { label: 'Service Requests',     value: '94',     change: '+22 this month',    positive: true },
       { label: 'Landing Page Visits',  value: '1,832',  change: '+28% this month',   positive: true },
@@ -241,6 +253,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
     videoHooks: [
       '"This is what hail damage ACTUALLY looks like up close. Most homeowners can\'t see it from the ground — but your insurance will pay for it." [15 sec reel]',
       '"We just replaced this roof for $0 out of pocket. Here\'s exactly how the insurance process works in 60 seconds." [60 sec educational]',
+    ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/roofing-sf-1.jpg', src: '/roofing-short-form.mp4' },
+      { thumbnail: '/thumbnails/roofing-sf-2.jpg' },
+      { thumbnail: '/thumbnails/roofing-sf-3.jpg' },
+      { thumbnail: '/thumbnails/roofing-sf-4.jpg' },
     ],
     analyticsStats: [
       { label: 'Inspection Requests',  value: '78',     change: '+18 this month',    positive: true },
