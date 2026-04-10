@@ -245,7 +245,7 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
 
   salonspa: {
     blogPosts: [
-      { title: 'Botox vs. Fillers: Which One Is Right for You? A Licensed Aesthetician Explains', preview: "They're not the same thing — and choosing wrong can give you results you don't want. Here's the honest breakdown of what each does, how long they last, and which one matches your goals...", readTime: '4 min read', image: 'https://images.unsplash.com/photo-1560066984-138daaa45d0e?w=800&h=400&fit=crop' },
+      { title: 'Botox vs. Fillers: Which One Is Right for You? A Licensed Aesthetician Explains', preview: "They're not the same thing — and choosing wrong can give you results you don't want. Here's the honest breakdown of what each does, how long they last, and which one matches your goals...", readTime: '4 min read', image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=400&fit=crop' },
       { title: 'The 5 Biggest Skincare Mistakes You\'re Making (According to a Pro)', preview: "Most of my clients come in making at least 3 of these mistakes. The good news? They're easy to fix — and the results are dramatic. Here's what to stop doing today...", readTime: '3 min read', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=400&fit=crop' },
     ],
     emailCampaigns: [
