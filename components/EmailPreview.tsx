@@ -87,8 +87,8 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                 onClick={() => setActive(i)}
                 className={`w-full text-left p-4 rounded-card border-2 transition-all duration-200 text-sm font-medium
                   ${active === i
-                    ? 'border-accent bg-accent text-white'
-                    : 'border-brand-border bg-brand-surface text-brand-text hover:border-accent/50'}`}
+                    ? 'border-apex-blue bg-apex-blue text-white'
+                    : 'border-brand-border bg-brand-surface text-brand-text hover:border-apex-blue/50'}`}
               >
                 <i className={campaignIcon(c.type)}></i> {c.subject}
               </button>
@@ -111,7 +111,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
               {/* Email content */}
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-5 pb-5 border-b border-brand-border">
-                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-apex-blue flex items-center justify-center text-white font-bold text-sm">
                     A
                   </div>
                   <div>
@@ -130,7 +130,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                 <div className="mt-6">
                   <button
                     onClick={() => setOpenIndex(active)}
-                    className="bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-btn cursor-pointer hover:bg-accent-dark transition-colors"
+                    className="bg-apex-blue text-white text-sm font-semibold px-5 py-2.5 rounded-btn cursor-pointer hover:bg-apex-blue-dark transition-colors"
                   >
                     View Full Email →
                   </button>
@@ -203,7 +203,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                         <img src={modalCampaign.image} alt="" className="w-full h-56 object-cover" />
                       </div>
                     )}
-                    <div className="bg-accent rounded-card px-6 py-4 text-center mb-6">
+                    <div className="bg-apex-blue rounded-card px-6 py-4 text-center mb-6">
                       <p className="text-white/80 text-xs uppercase tracking-widest mb-1">
                         <i className="fa-solid fa-snowflake mr-1"></i> Season&apos;s Greetings <i className="fa-solid fa-snowflake ml-1"></i>
                       </p>
@@ -217,7 +217,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                       <p>From all of us, we wish you and your loved ones a wonderful holiday season.</p>
                     </div>
                     <div className="text-center mb-8">
-                      <span className="inline-block bg-accent text-white font-bold text-sm px-8 py-3 rounded-btn cursor-pointer">
+                      <span className="inline-block bg-apex-blue text-white font-bold text-sm px-8 py-3 rounded-btn cursor-pointer">
                         {modalCampaign.ctaText || 'Learn More'} →
                       </span>
                     </div>
@@ -230,7 +230,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                         <img src={modalCampaign.image} alt="" className="w-full h-56 object-cover" />
                       </div>
                     )}
-                    <div className="bg-accent rounded-card p-8 text-center mb-6">
+                    <div className="bg-apex-blue rounded-card p-8 text-center mb-6">
                       <p className="text-white/80 text-xs uppercase tracking-widest mb-2">Limited Time Offer</p>
                       <h3 className="text-white font-bold text-2xl leading-snug">
                         {modalCampaign.subject}
@@ -241,7 +241,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                       <p>{modalCampaign.bodyPreview}</p>
                     </div>
                     <div className="text-center mb-8">
-                      <span className="inline-block bg-accent text-white font-bold text-base px-10 py-4 rounded-btn cursor-pointer shadow-lg">
+                      <span className="inline-block bg-apex-blue text-white font-bold text-base px-10 py-4 rounded-btn cursor-pointer shadow-lg">
                         {modalCampaign.ctaText || 'Get Started'} →
                       </span>
                     </div>
@@ -249,7 +249,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                 ) : (
                   <>
                     {/* STANDARD layout: accent banner → body → accent CTA */}
-                    <div className="bg-accent rounded-card p-8 text-center mb-6">
+                    <div className="bg-apex-blue rounded-card p-8 text-center mb-6">
                       <h3 className="text-white font-bold text-xl leading-snug">
                         {modalCampaign.subject}
                       </h3>
@@ -261,7 +261,7 @@ export default function EmailPreview({ campaigns, industryName, industrySlug, pa
                       <p>If you have any questions or want to discuss your specific situation, we are here for you. Just hit reply or use the button below to get in touch.</p>
                     </div>
                     <div className="text-center mb-8">
-                      <span className="inline-block bg-accent text-white font-bold text-sm px-8 py-3 rounded-btn cursor-pointer">
+                      <span className="inline-block bg-apex-blue text-white font-bold text-sm px-8 py-3 rounded-btn cursor-pointer">
                         {modalCampaign.ctaText || 'Get Started Today'} →
                       </span>
                     </div>
