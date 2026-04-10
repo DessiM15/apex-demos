@@ -52,10 +52,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I just saved a client $1,200 on their annual premium — here\'s exactly how we did it in 3 steps" [30 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/insurance-sf-1.jpg', src: '/insurance-short-form-2.mp4' },
-      { thumbnail: '/thumbnails/insurance-sf-2.jpg' },
-      { thumbnail: '/thumbnails/insurance-sf-3.jpg' },
-      { thumbnail: '/thumbnails/insurance-sf-4.jpg' },
+      { thumbnail: '/thumbnails/insurance-sf-1.jpg', src: '/insurance-sf-1.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-2.jpg', src: '/insurance-sf-2.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-3.jpg', src: '/insurance-sf-3.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-4.jpg', src: '/insurance-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Landing Page Visits',   value: '1,247', change: '+18% this month',  positive: true },
