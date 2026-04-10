@@ -1,7 +1,8 @@
 // ── BlogPreview.tsx ───────────────────────────────────────────────────
 'use client'
-import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, viewport } from '@/lib/animations'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { staggerContainer, fadeInUp, expandContent, viewport } from '@/lib/animations'
 import { BlogPost } from '@/data/mockContent'
 
 interface BlogProps {
@@ -12,6 +13,12 @@ interface BlogProps {
 }
 
 export function BlogPreview({ posts, industryName, packageName, blogArticleCount }: BlogProps) {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+
+  const toggleExpand = (index: number) => {
+    setExpandedIndex(prev => (prev === index ? null : index))
+  }
+
   return (
     <section className="bg-brand-surface py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -40,36 +47,63 @@ export function BlogPreview({ posts, industryName, packageName, blogArticleCount
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
           variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}
         >
-          {posts.map((post, i) => (
-            <motion.div
-              key={i}
-              variants={fadeInUp}
-              className="bg-brand-card rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 overflow-hidden"
-            >
-              {/* Blog image */}
-              <div className="h-44 bg-apex-blue-light overflow-hidden">
-                {post.image ? (
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-5xl">
-                    <i className="fa-solid fa-pen-to-square text-apex-blue"></i>
-                  </div>
-                )}
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-semibold text-apex-blue bg-apex-blue-light px-2 py-0.5 rounded-pill">
-                  {post.readTime}
-                </span>
-                <h3 className="font-bold text-brand-text text-lg mt-3 mb-3 leading-snug hover:text-apex-blue transition-colors cursor-pointer">
-                  {post.title}
-                </h3>
-                <p className="text-brand-muted text-sm leading-relaxed mb-5">{post.preview}</p>
-                <span className="text-apex-blue text-sm font-semibold cursor-pointer hover:underline">
-                  Read More →
-                </span>
-              </div>
-            </motion.div>
-          ))}
+          {posts.map((post, i) => {
+            const isExpanded = expandedIndex === i
+            return (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="bg-brand-card rounded-card shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 overflow-hidden"
+              >
+                {/* Blog image */}
+                <div className="h-44 bg-apex-blue-light overflow-hidden">
+                  {post.image ? (
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-5xl">
+                      <i className="fa-solid fa-pen-to-square text-apex-blue"></i>
+                    </div>
+                  )}
+                </div>
+                <div className="p-6">
+                  <span className="text-xs font-semibold text-apex-blue bg-apex-blue-light px-2 py-0.5 rounded-pill">
+                    {post.readTime}
+                  </span>
+                  <h3 className="font-bold text-brand-text text-lg mt-3 mb-3 leading-snug hover:text-apex-blue transition-colors cursor-pointer">
+                    {post.title}
+                  </h3>
+                  <p className="text-brand-muted text-sm leading-relaxed mb-5">{post.preview}</p>
+
+                  <AnimatePresence initial={false}>
+                    {isExpanded && post.fullContent && (
+                      <motion.div
+                        variants={expandContent}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        className="overflow-hidden"
+                      >
+                        <div className="border-t border-brand-border pt-4 mb-5 space-y-3">
+                          {post.fullContent.split('\n\n').map((paragraph, j) => (
+                            <p key={j} className="text-brand-muted text-sm leading-relaxed">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <button
+                    onClick={() => toggleExpand(i)}
+                    className="text-apex-blue text-sm font-semibold cursor-pointer hover:underline"
+                  >
+                    {isExpanded ? 'Read Less \u2191' : 'Read More \u2192'}
+                  </button>
+                </div>
+              </motion.div>
+            )
+          })}
         </motion.div>
 
         <motion.p

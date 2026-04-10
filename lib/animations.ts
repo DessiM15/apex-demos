@@ -28,5 +28,10 @@ export const staggerFast = {
   visible: { opacity: 1, transition: { staggerChildren: 0.06, delayChildren: 0.05 } },
 }
 
+export const expandContent = {
+  hidden:  { height: 0, opacity: 0 },
+  visible: { height: 'auto', opacity: 1, transition: { duration: 0.4, ease: 'easeInOut' } },
+}
+
 // viewport config — reuse everywhere
 export const viewport = { once: true, margin: '-80px' }
