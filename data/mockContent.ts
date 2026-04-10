@@ -139,9 +139,9 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
     ],
     shortFormVideos: [
       { thumbnail: '/thumbnails/realestate-sf-1.jpg', src: '/realestate-sf-1.mp4' },
-      { thumbnail: '/thumbnails/realestate-sf-2.jpg' },
-      { thumbnail: '/thumbnails/realestate-sf-3.jpg' },
-      { thumbnail: '/thumbnails/realestate-sf-4.jpg' },
+      { thumbnail: '/thumbnails/realestate-sf-2.jpg', src: '/realestate-sf-2.mp4' },
+      { thumbnail: '/thumbnails/realestate-sf-3.jpg', src: '/realestate-sf-3.mp4' },
+      { thumbnail: '/thumbnails/realestate-sf-4.jpg', src: '/realestate-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Home Valuation Requests', value: '43',    change: '+11 this month',    positive: true },
