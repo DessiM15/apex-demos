@@ -174,6 +174,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I\'m going to show you what $1,000/month invested at 25 vs 35 vs 45 actually looks like at retirement. The gap will change how you think about time." [Educational reel]',
       '"Most people think they need a million dollars to retire comfortably. Here\'s the actual number — and the 3-step strategy to get there." [30 sec reel]',
     ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/finance-sf-1.jpg', src: '/finance-sf-1a.mp4' },
+      { thumbnail: '/thumbnails/finance-sf-2.jpg', src: '/finance-sf-1b.mp4' },
+      { thumbnail: '/thumbnails/finance-sf-3.jpg', src: '/finance-sf-2.mp4' },
+      { thumbnail: '/thumbnails/finance-sf-4.jpg', src: '/finance-sf-3.mp4' },
+    ],
     analyticsStats: [
       { label: 'Free Review Requests',  value: '31',    change: '+9 this month',     positive: true },
       { label: 'Landing Page Visits',   value: '1,876', change: '+22% growth',       positive: true },
@@ -296,6 +302,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
     videoHooks: [
       '"Watch this lip filler transformation from start to finish. Natural, balanced, and done in under 30 minutes." [30 sec reel]',
       '"I\'m going to show you the 3 products that changed my clients\' skin more than any procedure. Under $50 total." [15 sec reel]',
+    ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/spa-sf-1.jpg', src: '/spa-sf-1a.mp4' },
+      { thumbnail: '/thumbnails/spa-sf-2.jpg', src: '/spa-sf-1b.mp4' },
+      { thumbnail: '/thumbnails/spa-sf-3.jpg', src: '/spa-sf-2.mp4' },
+      { thumbnail: '/thumbnails/spa-sf-4.jpg', src: '/spa-sf-3.mp4' },
     ],
     analyticsStats: [
       { label: 'Booking Requests',     value: '67',     change: '+15 this month',    positive: true },
