@@ -155,78 +155,6 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
         </div>
       </section>
 
-      {/* ── HeyGen Section ── */}
-      <section className="bg-[#1a1a2e] py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="grid md:grid-cols-2 gap-12 items-center"
-            variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
-          >
-            {/* Left content */}
-            <div>
-              <span className="inline-block text-white text-xs font-bold bg-[#cf181d] px-4 py-1.5 rounded-full mb-6">
-                Powered by HeyGen
-              </span>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 text-balance">
-                AI Avatar Videos
-              </h3>
-              <p className="text-white/70 text-lg mb-8">
-                Your AI-cloned avatar delivers personalized video messages to every prospect — automatically
-              </p>
-              <ul className="space-y-4">
-                {[
-                  'Looks and sounds exactly like you',
-                  'Generated at scale — one video or one thousand',
-                  'Included with your package setup',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <i className="fa-solid fa-check text-[#cf181d] mt-0.5" />
-                    <span className="text-white/80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Right — Avatar video card */}
-            <div className="flex justify-center">
-              <div
-                className="relative w-full max-w-[480px] cursor-pointer group"
-                onClick={() => setModalVideo('/heygen-avatar.mp4')}
-              >
-                <div className="rounded-2xl border border-white/10 overflow-hidden shadow-2xl bg-[#111127]">
-                  <div className="aspect-video relative">
-                    <img
-                      src="/thumbnails/heygen-avatar-thumb.jpg"
-                      alt="AI Avatar Video Preview"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                    {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform">
-                        <i className="fa-solid fa-play text-white text-xl ml-1" />
-                      </div>
-                    </div>
-                    {/* HeyGen badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[10px] font-bold text-white bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                        HeyGen Powered
-                      </span>
-                    </div>
-                    {/* Duration badge */}
-                    <div className="absolute bottom-3 right-3">
-                      <span className="text-xs font-medium text-white bg-black/70 px-2 py-0.5 rounded">
-                        0:47
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── Platform Distribution Row ── */}
       <section className="bg-white py-12 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -261,9 +189,7 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
 
             {/* Modal content */}
             <motion.div
-              className={`relative z-10 w-full mx-4 ${
-                modalVideo.includes('heygen') ? 'max-w-[720px]' : 'max-w-[360px]'
-              }`}
+              className="relative z-10 w-full max-w-[360px] mx-4"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -279,7 +205,7 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
 
               {/* Video frame */}
               <div className="rounded-3xl overflow-hidden shadow-2xl bg-black border-2 border-white/10">
-                <div className={modalVideo.includes('heygen') ? 'aspect-video' : 'aspect-[9/16]'}>
+                <div className="aspect-[9/16]">
                   <video
                     ref={videoRef}
                     src={modalVideo}
