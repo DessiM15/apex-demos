@@ -438,6 +438,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"This is what 30 years of buildup looks like inside a drain pipe. No wonder the water wasn\'t draining. Here\'s the fix." [15 sec reel]',
       '"A homeowner called us after 3 other plumbers couldn\'t find the leak. We found it in 10 minutes using this tool." [30 sec reel]',
     ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/plum-sf-1.jpg', src: '/plum-sf-1.mp4' },
+      { thumbnail: '/thumbnails/plum-sf-2.jpg', src: '/plum-sf-2.mp4' },
+      { thumbnail: '/thumbnails/plum-sf-3.jpg', src: '/plum-sf-3.mp4' },
+      { thumbnail: '/thumbnails/plum-sf-4.jpg', src: '/plum-sf-4.mp4' },
+    ],
     analyticsStats: [
       { label: 'Service Requests',     value: '71',     change: '+16 this month',    positive: true },
       { label: 'Landing Page Visits',  value: '1,640',  change: '+24% this month',   positive: true },
