@@ -481,6 +481,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I\'m going to show you the 3 exercises that burn the most calories in the least time. Number 1 isn\'t what you think." [15 sec reel]',
       '"This client lost 45 pounds in 6 months. Here\'s the exact approach we used — no crash diets, no 2-hour workouts." [30 sec reel]',
     ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/training-sf-1.jpg', src: '/training-sf-1.mp4' },
+      { thumbnail: '/thumbnails/training-sf-2.jpg', src: '/training-sf-2.mp4' },
+      { thumbnail: '/thumbnails/training-sf-3.jpg', src: '/training-sf-3.mp4' },
+      { thumbnail: '/thumbnails/training-sf-4.jpg', src: '/training-sf-4.mp4' },
+    ],
     analyticsStats: [
       { label: 'Consultation Requests', value: '48',     change: '+11 this month',    positive: true },
       { label: 'Landing Page Visits',   value: '2,340',  change: '+32% this month',   positive: true },
