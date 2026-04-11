@@ -268,9 +268,9 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
     ],
     shortFormVideos: [
       { thumbnail: '/thumbnails/roofing-sf-1.jpg', src: '/roofing-short-form.mp4' },
-      { thumbnail: '/thumbnails/roofing-sf-2.jpg' },
-      { thumbnail: '/thumbnails/roofing-sf-3.jpg' },
-      { thumbnail: '/thumbnails/roofing-sf-4.jpg' },
+      { thumbnail: '/thumbnails/roofing-sf-2.jpg', src: '/roofing-sf-2.mp4' },
+      { thumbnail: '/thumbnails/roofing-sf-3.jpg', src: '/roofing-sf-3.mp4' },
+      { thumbnail: '/thumbnails/roofing-sf-4.jpg', src: '/roofing-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Inspection Requests',  value: '78',     change: '+18 this month',    positive: true },
