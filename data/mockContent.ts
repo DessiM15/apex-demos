@@ -352,6 +352,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"Watch this engagement session come together from first shot to final edit. The difference between a snapshot and a professional photo is everything." [30 sec reel]',
       '"I photographed 200 weddings and THIS is the one tip I give every couple. It changes everything about your photos." [15 sec reel]',
     ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/photo-sf-1.jpg', src: '/photo-sf-1.mp4' },
+      { thumbnail: '/thumbnails/photo-sf-2.jpg', src: '/photo-sf-2.mp4' },
+      { thumbnail: '/thumbnails/photo-sf-3.jpg', src: '/photo-sf-3.mp4' },
+      { thumbnail: '/thumbnails/photo-sf-4.jpg', src: '/photo-sf-4.mp4' },
+    ],
     analyticsStats: [
       { label: 'Booking Inquiries',    value: '52',     change: '+13 this month',    positive: true },
       { label: 'Portfolio Page Views',  value: '4,210',  change: '+38% this month',   positive: true },
