@@ -177,6 +177,21 @@ const photographyTheme: ThemeConfig = {
   formStyle: 'dark',
 }
 
+const plumbingTheme: ThemeConfig = {
+  heroLayout: 'left',
+  heroOverlayOpacity: 0.78,
+  servicesLayout: 'grid-4',
+  bioLayout: 'photo-left',
+  testimonialsLayout: 'cards-3',
+  sectionOrder: SECTION_ORDER_TRADE,
+  accentColor: '#2C5F8A',
+  headingStyle: 'bold-tight',
+  sectionSpacing: 'normal',
+  navStyle: 'white',
+  darkSections: false,
+  formStyle: 'light',
+}
+
 export const industries: Record<IndustrySlug, IndustryConfig> = {
   insurance: {
     slug: 'insurance',
@@ -639,17 +654,18 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Plumbing Service',
     faIcon: 'fa-solid fa-faucet-drip',
     heroImage: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=1200&q=80',
-    accentColor: '#cf181d',
+    accentColor: '#2C5F8A',
     themeColors: {
-      accent: '207 24 29',
-      accentDark: '180 20 25',
-      accentLight: '#FDE8E8',
-      brandBg: '#1a1a2e',
-      brandSurface: '#22223b',
-      brandCard: '#2a2a44',
-      brandText: '#F5F5F5',
-      brandMuted: '#9CA3AF',
-      brandBorder: '#3a3a55',
+      accent: '44 95 138',
+      accentDark: '35 76 110',
+      accentLight: '#EDF4FA',
+      brandBg: '#FFFFFF',
+      brandSurface: '#F7F9FC',
+      brandCard: '#FFFFFF',
+      brandText: '#1F2937',
+      brandMuted: '#6B7280',
+      brandBorder: '#E2E8F0',
+      brandHeading: '#B8860B',
     },
     industryHook: 'The average water leak wastes 10,000 gallons per year \u2014 homeowners need a plumber they can trust on speed dial',
     heroHeadline: {
@@ -682,7 +698,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: 'We had 3 plumbers look at our issue before Carlos. He diagnosed it in 10 minutes and fixed it for half what the others quoted. The best.', name: 'Diana P.', location: 'Katy, TX', rating: 5 },
       { quote: 'Honest, professional, and truly skilled. Carlos replaced our water heater and the whole experience was seamless. Highly recommend.', name: 'Frank & Maria G.', location: 'Sugar Land, TX', rating: 5 },
     ],
-    themeConfig: { ...tradeTheme },
+    themeConfig: { ...plumbingTheme },
   },
 
   trainer: {
