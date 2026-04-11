@@ -389,6 +389,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"Watch this smile transformation from start to finish — 6 porcelain veneers in just 2 visits. The confidence boost is always my favorite part." [30 sec reel]',
       '"I\'m a dentist and HERE are the 3 things I never do to my own teeth. Number 2 will surprise you." [15 sec reel]',
     ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/dental-sf-1.jpg', src: '/dental-sf-1.mp4' },
+      { thumbnail: '/thumbnails/dental-sf-2.jpg', src: '/dental-sf-2.mp4' },
+      { thumbnail: '/thumbnails/dental-sf-3.jpg', src: '/dental-sf-3.mp4' },
+      { thumbnail: '/thumbnails/dental-sf-4.jpg', src: '/dental-sf-4.mp4' },
+    ],
     analyticsStats: [
       { label: 'Appointment Requests',  value: '83',     change: '+19 this month',    positive: true },
       { label: 'Landing Page Visits',   value: '3,120',  change: '+26% this month',   positive: true },
