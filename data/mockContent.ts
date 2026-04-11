@@ -224,10 +224,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I just saved a homeowner $2,800 by catching this one issue during a routine tune-up. Here\'s what to check before summer." [30 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/hvac-sf-1.jpg', src: '/hvac-short-form.mp4' },
-      { thumbnail: '/thumbnails/hvac-sf-2.jpg' },
-      { thumbnail: '/thumbnails/hvac-sf-3.jpg' },
-      { thumbnail: '/thumbnails/hvac-sf-4.jpg' },
+      { thumbnail: '/thumbnails/hvac-sf-1.jpg', src: '/hvac-sf-1.mp4' },
+      { thumbnail: '/thumbnails/hvac-sf-2.jpg', src: '/hvac-sf-2.mp4' },
+      { thumbnail: '/thumbnails/hvac-sf-3.jpg', src: '/hvac-sf-3.mp4' },
+      { thumbnail: '/thumbnails/hvac-sf-4.jpg', src: '/hvac-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Service Requests',     value: '94',     change: '+22 this month',    positive: true },
