@@ -57,11 +57,11 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
   return (
     <>
       {/* ── Video Grid Section ── */}
-      <section className="bg-white py-20 px-4">
+      <section className="bg-white py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-8"
             variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 text-balance">
@@ -80,7 +80,7 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
 
           {/* 2x2 Grid */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto"
             variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}
           >
             {videos.map((v, i) => {
@@ -145,7 +145,7 @@ export default function VideoGallery({ hooks, industryName, packageName, shortFo
                     </div>
                   </motion.div>
                   {/* Video title */}
-                  <p className="text-gray-900 font-semibold text-sm text-center mt-3 px-2 line-clamp-2">
+                  <p className="text-gray-900 font-semibold text-sm text-center mt-2 px-2 line-clamp-2">
                     {stripBrackets(v.hook)}
                   </p>
                 </motion.div>
