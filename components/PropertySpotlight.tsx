@@ -45,16 +45,16 @@ export default function PropertySpotlight({ spotlightProperty, accentColor }: Pr
             />
           </motion.div>
 
-          {/* Floor plan + details */}
+          {/* Interior preview + details */}
           <motion.div variants={fadeInUp} className="flex flex-col gap-6">
             <div className="overflow-hidden rounded-2xl bg-brand-card border border-brand-border">
               <img
-                src={p.floorPlanImage}
-                alt="Floor plan"
+                src={p.interiorImage}
+                alt="Interior preview"
                 className="w-full h-64 object-cover"
               />
               <div className="px-4 py-2 text-center">
-                <p className="text-brand-muted text-xs uppercase tracking-wider">Floor Plan</p>
+                <p className="text-brand-muted text-xs uppercase tracking-wider">Interior Preview</p>
               </div>
             </div>
 
