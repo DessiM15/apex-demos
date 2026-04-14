@@ -52,7 +52,7 @@ export default function LeadCaptureForm({ fields, cta, industryName, theme }: Pr
   // ── LIGHT STYLE ──────────────────────────────────────────────────────
   if (formStyle === 'light') {
     return (
-      <section className="bg-[#EBF0FC] py-20 px-4">
+      <section id="leadform" className="bg-[#EBF0FC] py-20 px-4">
         <div className="max-w-2xl mx-auto">
           <motion.div
             className="text-center mb-10"
@@ -99,7 +99,7 @@ export default function LeadCaptureForm({ fields, cta, industryName, theme }: Pr
   // ── DARK STYLE ───────────────────────────────────────────────────────
   if (formStyle === 'dark') {
     return (
-      <section className="py-16 px-4" style={{ backgroundColor: accentColor }}>
+      <section id="leadform" className="py-16 px-4" style={{ backgroundColor: accentColor }}>
         <div className="max-w-2xl mx-auto">
           <motion.div
             className="mb-2"
@@ -136,7 +136,7 @@ export default function LeadCaptureForm({ fields, cta, industryName, theme }: Pr
 
   // ── SPLIT STYLE ──────────────────────────────────────────────────────
   return (
-    <section className="py-20 px-4">
+    <section id="leadform" className="py-20 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-lg"

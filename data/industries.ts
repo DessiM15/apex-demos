@@ -62,6 +62,7 @@ export interface IndustryConfig {
   bioText:  string
   bioImage?: string
   heroImages?: string[]  // collage images for portrait hero (replaces single portrait)
+  heroCTAs?: { label: string; href: string }[]
   testimonials: Testimonial[]
   themeConfig?: ThemeConfig
 }
@@ -71,6 +72,7 @@ const SECTION_ORDER_CORPORATE = ['hero','services','leadform','bio','testimonial
 const SECTION_ORDER_TRADE = ['hero','services','bio','leadform','testimonials','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer']
 const SECTION_ORDER_CREATIVE = ['hero','bio','services','testimonials','leadform','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer']
 const SECTION_ORDER_HEALTH = ['hero','testimonials','services','leadform','bio','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer']
+const SECTION_ORDER_REALESTATE = ['hero','propertyspotlight','featuredlistings','testimonials','services','leadform','bio','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer']
 
 const corporateTheme: ThemeConfig = {
   heroLayout: 'left',
@@ -308,6 +310,10 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     },
     heroOverlay: false,
     luxuryFont: true,
+    heroCTAs: [
+      { label: 'List Your Home', href: '#leadform' },
+      { label: 'Buy a Home', href: '#featuredlistings' },
+    ],
     industryHook: '88% of home buyers use the internet as their primary research tool during their search',
     heroHeadline: {
       pulsemarket:   'Find Your Dream Home — Expert Guidance Every Step',
@@ -339,7 +345,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: "As a first-time buyer I was terrified. Monica held my hand through every step. Found my perfect home in 3 weeks!", name: 'Keisha M.', location: 'Houston, TX', rating: 5 },
       { quote: "Best real estate agent in Houston. She knows every neighborhood and fought hard to get us the best deal.", name: 'Robert & Lisa T.', location: 'The Woodlands, TX', rating: 5 },
     ],
-    themeConfig: { ...healthTheme, accentColor: '#b8860b' },
+    themeConfig: { ...healthTheme, accentColor: '#b8860b', sectionOrder: SECTION_ORDER_REALESTATE },
   },
 
   financial: {

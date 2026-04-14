@@ -13,6 +13,21 @@ export interface AnalyticsStat  { label: string; value: string; change: string; 
 
 export interface ShortFormVideo { thumbnail: string; src?: string }
 
+export interface PropertyListing {
+  address: string
+  neighborhood: string
+  price: string
+  beds: number
+  baths: number
+  sqft: string
+  image: string
+  description: string
+}
+
+export interface SpotlightProperty extends PropertyListing {
+  floorPlanImage: string
+}
+
 export interface MockContent {
   blogPosts:       BlogPost[]
   emailCampaigns:  EmailCampaign[]
@@ -21,6 +36,8 @@ export interface MockContent {
   videoHooks:      string[]
   analyticsStats:  AnalyticsStat[]
   shortFormVideos?: ShortFormVideo[]
+  spotlightProperty?: SpotlightProperty
+  featuredListings?: PropertyListing[]
 }
 
 export const mockContent: Record<IndustrySlug, MockContent> = {
@@ -142,6 +159,49 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       { thumbnail: '/thumbnails/realestate-sf-2.jpg', src: '/realestate-sf-2.mp4' },
       { thumbnail: '/thumbnails/realestate-sf-3.jpg', src: '/realestate-sf-3.mp4' },
       { thumbnail: '/thumbnails/realestate-sf-4.jpg', src: '/realestate-sf-4.mp4' },
+    ],
+    spotlightProperty: {
+      address: '4815 River Oaks Blvd',
+      neighborhood: 'River Oaks',
+      price: '$2,450,000',
+      beds: 5,
+      baths: 4,
+      sqft: '4,800',
+      image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&h=600&fit=crop',
+      description: 'Stunning River Oaks estate featuring grand living spaces, a chef\'s kitchen, resort-style pool, and meticulously landscaped grounds on a private half-acre lot.',
+      floorPlanImage: 'https://images.unsplash.com/photo-1536483328005-8423b2f05b72?w=800&h=600&fit=crop',
+    },
+    featuredListings: [
+      {
+        address: '2301 Memorial Park Dr',
+        neighborhood: 'Memorial',
+        price: '$875,000',
+        beds: 4,
+        baths: 3,
+        sqft: '3,200',
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=500&fit=crop',
+        description: 'Beautifully renovated Memorial home with open floor plan, updated kitchen, and a backyard oasis perfect for entertaining.',
+      },
+      {
+        address: '9742 Katy Freeway Estates',
+        neighborhood: 'Katy',
+        price: '$485,000',
+        beds: 4,
+        baths: 2,
+        sqft: '2,650',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=500&fit=crop',
+        description: 'Move-in ready family home in top-rated Katy ISD. Open concept living, granite counters, and a spacious backyard.',
+      },
+      {
+        address: '1120 Heights Blvd',
+        neighborhood: 'The Heights',
+        price: '$625,000',
+        beds: 3,
+        baths: 2,
+        sqft: '2,100',
+        image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&h=500&fit=crop',
+        description: 'Charming Heights bungalow with modern updates, original hardwoods, a wraparound porch, and walkable neighborhood access.',
+      },
     ],
     analyticsStats: [
       { label: 'Home Valuation Requests', value: '43',    change: '+11 this month',    positive: true },

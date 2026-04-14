@@ -22,6 +22,8 @@ import AIAvatarVideo         from '@/components/AIAvatarVideo'
 import BrandedPresence       from '@/components/BrandedPresence'
 import WhiteGloveSupport     from '@/components/WhiteGloveSupport'
 import DemoFooter            from '@/components/DemoFooter'
+import PropertySpotlight     from '@/components/PropertySpotlight'
+import FeaturedListings      from '@/components/FeaturedListings'
 
 // ── Pregenerate all routes ──────────────────────────────────────────
 export function generateStaticParams() {
@@ -100,6 +102,7 @@ export default async function DemoPage({ params }: PageProps) {
           heroPortrait={industry.bioImage}
           heroTagline={industry.heroTagline}
           heroImages={industry.heroImages}
+          heroCTAs={industry.heroCTAs}
           ctaLink={CTA_LINK}
           formCTA={industry.formCTA}
           theme={{
@@ -205,6 +208,22 @@ export default async function DemoPage({ params }: PageProps) {
     clicktocall: (
       <ClickToCall accentColor={theme.accentColor} />
     ),
+    ...(content.spotlightProperty && {
+      propertyspotlight: (
+        <PropertySpotlight
+          spotlightProperty={content.spotlightProperty}
+          accentColor={theme.accentColor}
+        />
+      ),
+    }),
+    ...(content.featuredListings && {
+      featuredlistings: (
+        <FeaturedListings
+          listings={content.featuredListings}
+          accentColor={theme.accentColor}
+        />
+      ),
+    }),
     footer: (
       <DemoFooter industryName={industry.name} industrySlug={industrySlug as IndustrySlug} />
     ),

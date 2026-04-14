@@ -33,12 +33,13 @@ interface Props {
   heroPortrait?:  string
   heroTagline?:   string
   heroImages?:    string[]
+  heroCTAs?:      { label: string; href: string }[]
   ctaLink:        string
   formCTA:        string
   theme?:         HeroTheme
 }
 
-export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, heroImages, ctaLink, formCTA, theme }: Props) {
+export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, heroImages, heroCTAs, ctaLink, formCTA, theme }: Props) {
   const [showIntro, setShowIntro] = useState(!!heroIntroText)
 
   const layout = theme?.heroLayout ?? 'left'
@@ -454,14 +455,34 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                   {subheadline}
                 </motion.p>
                 <motion.div variants={fadeInUp} className="w-16 h-px bg-white mx-auto mb-10" />
-                <motion.div variants={fadeInUp}>
-                  <a
-                    href={ctaLink}
-                    className="text-white font-bold px-12 py-4 rounded-btn hover:opacity-90 transition-opacity text-base inline-block"
-                    style={{ backgroundColor: accentColor }}
-                  >
-                    {formCTA}
-                  </a>
+                <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
+                  {heroCTAs && heroCTAs.length > 0 ? (
+                    <>
+                      <a
+                        href={heroCTAs[0].href}
+                        className="text-white font-bold px-10 py-4 rounded-btn hover:opacity-90 transition-opacity text-base inline-block"
+                        style={{ backgroundColor: accentColor }}
+                      >
+                        {heroCTAs[0].label}
+                      </a>
+                      {heroCTAs[1] && (
+                        <a
+                          href={heroCTAs[1].href}
+                          className="border-2 border-white text-white font-bold px-10 py-4 rounded-btn hover:bg-white/10 transition-colors text-base inline-block"
+                        >
+                          {heroCTAs[1].label}
+                        </a>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={ctaLink}
+                      className="text-white font-bold px-12 py-4 rounded-btn hover:opacity-90 transition-opacity text-base inline-block"
+                      style={{ backgroundColor: accentColor }}
+                    >
+                      {formCTA}
+                    </a>
+                  )}
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-center justify-center gap-8 mt-10">
                   <div className="text-center">
