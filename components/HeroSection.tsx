@@ -62,6 +62,8 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
         muted
         loop
         playsInline
+        preload="auto"
+        poster={heroImage}
         className="w-full h-full object-cover scale-105"
       >
         <source src={heroVideo} type="video/mp4" />

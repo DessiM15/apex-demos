@@ -169,7 +169,7 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       sqft: '4,800',
       image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&h=600&fit=crop',
       description: 'Stunning River Oaks estate featuring grand living spaces, a chef\'s kitchen, resort-style pool, and meticulously landscaped grounds on a private half-acre lot.',
-      floorPlanImage: 'https://images.unsplash.com/photo-1536483328005-8423b2f05b72?w=800&h=600&fit=crop',
+      floorPlanImage: 'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800&h=600&fit=crop',
     },
     featuredListings: [
       {

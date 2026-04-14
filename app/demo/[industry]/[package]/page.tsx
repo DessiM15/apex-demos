@@ -238,6 +238,12 @@ export default async function DemoPage({ params }: PageProps) {
 
   return (
     <div style={themeStyle} className={industry.zenFont ? 'zen' : industry.editorialFont ? 'editorial' : industry.athleticFont ? 'athletic' : industry.luxuryFont ? 'luxury' : undefined}>
+      {/* Preload hero media so it renders immediately */}
+      {industry.heroVideo ? (
+        <link rel="preload" href={industry.heroVideo} as="video" type="video/mp4" />
+      ) : (
+        <link rel="preload" href={industry.heroImage} as="image" />
+      )}
       {/* Sticky demo banner */}
       <DemoBanner
         packageName={pkg.name}
