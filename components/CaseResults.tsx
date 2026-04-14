@@ -20,7 +20,7 @@ export default function CaseResults({ caseResults }: Props) {
         >
           <motion.p
             variants={fadeInUp}
-            className="text-sm font-bold uppercase tracking-widest text-accent mb-3"
+            className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3"
           >
             Proven Track Record
           </motion.p>
@@ -45,10 +45,10 @@ export default function CaseResults({ caseResults }: Props) {
               variants={fadeInUp}
               className="bg-brand-card border border-brand-border rounded-xl p-8 hover:border-accent/40 transition-colors"
             >
-              <div className="text-4xl md:text-5xl font-black text-accent mb-3">
+              <div className="text-4xl md:text-5xl font-black text-white mb-3">
                 {result.amount}
               </div>
-              <div className="w-12 h-0.5 bg-accent/40 mb-4" />
+              <div className="w-12 h-0.5 bg-[#D4AF37]/60 mb-4" />
               <h3 className="text-lg font-bold text-brand-heading mb-2">
                 {result.caseType}
               </h3>

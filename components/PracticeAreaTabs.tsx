@@ -24,7 +24,7 @@ export default function PracticeAreaTabs({ practiceAreas }: Props) {
         >
           <motion.p
             variants={fadeInUp}
-            className="text-sm font-bold uppercase tracking-widest text-accent mb-3"
+            className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3"
           >
             Areas of Expertise
           </motion.p>
@@ -74,7 +74,7 @@ export default function PracticeAreaTabs({ practiceAreas }: Props) {
               {/* Left: description + CTA */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <i className={`${active.icon} text-accent text-xl`} />
+                  <i className={`${active.icon} text-[#D4AF37] text-xl`} />
                   <h3 className="text-2xl font-bold text-brand-heading">
                     {active.name}
                   </h3>
@@ -93,7 +93,7 @@ export default function PracticeAreaTabs({ practiceAreas }: Props) {
               {/* Right: stat + case types */}
               <div>
                 <div className="bg-brand-bg rounded-xl p-6 border border-brand-border mb-6">
-                  <div className="text-4xl font-black text-accent mb-1">
+                  <div className="text-4xl font-black text-white mb-1">
                     {active.statValue}
                   </div>
                   <div className="text-brand-muted text-sm font-semibold uppercase tracking-wide">
@@ -106,7 +106,7 @@ export default function PracticeAreaTabs({ practiceAreas }: Props) {
                 <ul className="space-y-2">
                   {active.caseTypes.map((ct, j) => (
                     <li key={j} className="flex items-center gap-2 text-brand-muted text-sm">
-                      <i className="fa-solid fa-check text-accent text-xs" />
+                      <i className="fa-solid fa-check text-[#D4AF37] text-xs" />
                       {ct}
                     </li>
                   ))}

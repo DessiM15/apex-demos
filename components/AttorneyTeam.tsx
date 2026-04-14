@@ -20,7 +20,7 @@ export default function AttorneyTeam({ attorneys }: Props) {
         >
           <motion.p
             variants={fadeInUp}
-            className="text-sm font-bold uppercase tracking-widest text-accent mb-3"
+            className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3"
           >
             Your Legal Team
           </motion.p>
@@ -55,7 +55,7 @@ export default function AttorneyTeam({ attorneys }: Props) {
               <h3 className="font-bold text-brand-heading text-sm leading-tight">
                 {attorney.name}
               </h3>
-              <p className="text-accent text-xs font-semibold mt-1">
+              <p className="text-[#D4AF37] text-xs font-semibold mt-1">
                 {attorney.title}
               </p>
               <p className="text-brand-muted text-xs mt-1">
