@@ -34,12 +34,13 @@ interface Props {
   heroTagline?:   string
   heroImages?:    string[]
   heroCTAs?:      { label: string; href: string }[]
+  heroCredentials?: string[]
   ctaLink:        string
   formCTA:        string
   theme?:         HeroTheme
 }
 
-export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, heroImages, heroCTAs, ctaLink, formCTA, theme }: Props) {
+export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, heroImages, heroCTAs, heroCredentials, ctaLink, formCTA, theme }: Props) {
   const [showIntro, setShowIntro] = useState(!!heroIntroText)
 
   const layout = theme?.heroLayout ?? 'left'
@@ -210,30 +211,62 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
                     {subheadline}
                   </motion.p>
                   <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-                    <a
-                      href={ctaLink}
-                      className="text-white font-bold px-8 py-4 rounded-btn hover:opacity-90 transition-opacity text-base"
-                      style={{ backgroundColor: accentColor }}
-                    >
-                      {formCTA}
-                    </a>
-                    <a
-                      href="#bio"
-                      className="border-2 border-white text-white font-bold px-8 py-4 rounded-btn hover:bg-white hover:text-gray-900 transition-colors text-base"
-                    >
-                      Meet Our Team
-                    </a>
+                    {heroCTAs && heroCTAs.length > 0 ? (
+                      <>
+                        <a
+                          href={heroCTAs[0].href}
+                          className="text-white font-bold px-8 py-4 rounded-btn hover:opacity-90 transition-opacity text-base"
+                          style={{ backgroundColor: accentColor }}
+                        >
+                          {heroCTAs[0].label}
+                        </a>
+                        {heroCTAs[1] && (
+                          <a
+                            href={heroCTAs[1].href}
+                            className="border-2 border-white text-white font-bold px-8 py-4 rounded-btn hover:bg-white hover:text-gray-900 transition-colors text-base"
+                          >
+                            {heroCTAs[1].label}
+                          </a>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        <a
+                          href={ctaLink}
+                          className="text-white font-bold px-8 py-4 rounded-btn hover:opacity-90 transition-opacity text-base"
+                          style={{ backgroundColor: accentColor }}
+                        >
+                          {formCTA}
+                        </a>
+                        <a
+                          href="#bio"
+                          className="border-2 border-white text-white font-bold px-8 py-4 rounded-btn hover:bg-white hover:text-gray-900 transition-colors text-base"
+                        >
+                          Meet Our Team
+                        </a>
+                      </>
+                    )}
                   </motion.div>
                   <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 mt-8">
-                    <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-                      Licensed &amp; Insured
-                    </span>
-                    <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-                      12+ Years Experience
-                    </span>
-                    <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-                      5 Star Rated
-                    </span>
+                    {heroCredentials && heroCredentials.length > 0 ? (
+                      heroCredentials.map((cred, i) => (
+                        <span key={i} className="bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                          {cred}
+                        </span>
+                      ))
+                    ) : (
+                      <>
+                        <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                          Licensed &amp; Insured
+                        </span>
+                        <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                          12+ Years Experience
+                        </span>
+                        <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                          5 Star Rated
+                        </span>
+                      </>
+                    )}
                   </motion.div>
                 </div>
               </motion.div>

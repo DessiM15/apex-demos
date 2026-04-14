@@ -28,6 +28,28 @@ export interface SpotlightProperty extends PropertyListing {
   interiorImage: string
 }
 
+export interface AttorneyProfile {
+  name: string
+  title: string
+  credentials: string
+  image: string
+}
+
+export interface CaseResult {
+  amount: string
+  caseType: string
+  description: string
+}
+
+export interface PracticeAreaDetail {
+  name: string
+  icon: string
+  description: string
+  statValue: string
+  statLabel: string
+  caseTypes: string[]
+}
+
 export interface MockContent {
   blogPosts:       BlogPost[]
   emailCampaigns:  EmailCampaign[]
@@ -38,6 +60,9 @@ export interface MockContent {
   shortFormVideos?: ShortFormVideo[]
   spotlightProperty?: SpotlightProperty
   featuredListings?:  PropertyListing[]
+  attorneys?: AttorneyProfile[]
+  caseResults?: CaseResult[]
+  practiceAreas?: PracticeAreaDetail[]
 }
 
 export const mockContent: Record<IndustrySlug, MockContent> = {
@@ -124,6 +149,27 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       { label: 'Email Open Rate',       value: '41.3%', change: 'Industry avg 24%', positive: true },
       { label: 'Top Post Reach',        value: '5,841', change: 'Adjuster secrets post', positive: true },
       { label: 'Podcast Downloads',     value: '891',   change: '+203 new listeners', positive: true },
+    ],
+    attorneys: [
+      { name: 'James A. Crawford, Esq.', title: 'Managing Partner', credentials: 'Board Certified, Personal Injury Trial Law', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face' },
+      { name: 'Maria Santos, Esq.', title: 'Senior Associate', credentials: 'Family Law Specialist', image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=500&fit=crop&crop=face' },
+      { name: 'David Chen, Esq.', title: 'Criminal Defense Attorney', credentials: 'Former Prosecutor', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face' },
+      { name: 'Olivia Turner, Esq.', title: 'Business Litigation', credentials: 'Contract & Commercial Disputes', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face' },
+      { name: 'Marcus Reed, Esq.', title: 'Trial Attorney', credentials: 'Personal Injury & Wrongful Death', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face' },
+    ],
+    caseResults: [
+      { amount: '$2.4M', caseType: 'Truck Accident', description: 'Commercial vehicle collision resulting in spinal injuries. Settlement reached after 14 months of litigation.' },
+      { amount: '$1.8M', caseType: 'Medical Malpractice', description: 'Surgical error resulting in permanent nerve damage. Jury verdict in favor of our client.' },
+      { amount: '$950K', caseType: 'Workplace Injury', description: 'Construction site accident. Employer negligence proven through OSHA violation records.' },
+      { amount: '$1.2M', caseType: 'Wrongful Death', description: 'Drunk driving fatality. Punitive damages awarded against the at-fault driver.' },
+      { amount: '$675K', caseType: 'Slip & Fall', description: 'Commercial property negligence. Property owner failed to maintain safe conditions.' },
+      { amount: '$480K', caseType: 'Auto Accident', description: 'Multi-vehicle highway collision. Insurance company initially offered $45K.' },
+    ],
+    practiceAreas: [
+      { name: 'Personal Injury', icon: 'fa-solid fa-scale-balanced', description: 'When negligence causes harm, we fight to make it right. Our personal injury team has recovered millions for clients injured in car accidents, truck collisions, workplace incidents, and premises liability cases. We handle every aspect of your claim so you can focus on healing.', statValue: '$50M+', statLabel: 'Recovered for Clients', caseTypes: ['Car Accidents', 'Truck Collisions', 'Motorcycle Accidents', 'Slip & Fall', 'Wrongful Death', 'Workplace Injuries'] },
+      { name: 'Family Law', icon: 'fa-solid fa-people-roof', description: 'Family matters deserve compassion and strength in equal measure. From contested divorces to complex custody arrangements, our family law attorneys protect your interests while minimizing emotional strain. We pursue fair outcomes through negotiation when possible and aggressive litigation when necessary.', statValue: '200+', statLabel: 'Families Represented', caseTypes: ['Divorce & Separation', 'Child Custody', 'Child Support', 'Adoption', 'Prenuptial Agreements', 'Protective Orders'] },
+      { name: 'Criminal Defense', icon: 'fa-solid fa-lock', description: 'A criminal charge is not a conviction. Our defense attorneys bring former-prosecutor insight to every case, building strategies that challenge evidence, protect your rights, and pursue the best possible outcome. From misdemeanors to serious felonies, we fight for your freedom.', statValue: '95%', statLabel: 'Case Success Rate', caseTypes: ['DWI / DUI Defense', 'Drug Offenses', 'Assault & Battery', 'White Collar Crimes', 'Federal Charges', 'Probation Violations'] },
+      { name: 'Business Litigation', icon: 'fa-solid fa-briefcase', description: 'Business disputes can threaten everything you have built. Our litigation team handles breach of contract, partnership disputes, employment claims, and commercial litigation with precision and tenacity. We resolve disputes efficiently while protecting your bottom line.', statValue: '150+', statLabel: 'Business Cases Won', caseTypes: ['Breach of Contract', 'Partnership Disputes', 'Employment Claims', 'Intellectual Property', 'Commercial Litigation', 'Business Formation'] },
     ],
   },
 

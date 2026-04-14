@@ -63,6 +63,7 @@ export interface IndustryConfig {
   bioImage?: string
   heroImages?: string[]  // collage images for portrait hero (replaces single portrait)
   heroCTAs?: { label: string; href: string }[]
+  heroCredentials?: string[]
   testimonials: Testimonial[]
   themeConfig?: ThemeConfig
 }
@@ -73,6 +74,7 @@ const SECTION_ORDER_TRADE = ['hero','services','bio','leadform','testimonials','
 const SECTION_ORDER_CREATIVE = ['hero','bio','services','testimonials','leadform','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer']
 const SECTION_ORDER_HEALTH = ['hero','testimonials','services','leadform','bio','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer']
 const SECTION_ORDER_REALESTATE = ['hero','propertyspotlight','featuredlistings','testimonials','services','leadform','bio','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer']
+const SECTION_ORDER_LAWFIRM = ['hero','caseresults','practiceareas','attorneyteam','testimonials','services','leadform','bio','blog','email','social','podcast','video','analytics','conversion','avatar','brandpresence','whiteglove','clicktocall','footer']
 
 const corporateTheme: ThemeConfig = {
   heroLayout: 'left',
@@ -256,6 +258,11 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       brandHeading: '#F5F5F5',
     },
     luxuryFont: true,
+    heroCTAs: [
+      { label: 'Free Consultation', href: '#leadform' },
+      { label: 'View Our Results', href: '#caseresults' },
+    ],
+    heroCredentials: ['500+ Cases Won', 'Board Certified', 'No Fee Unless We Win', 'Free Consultations'],
     industryHook: '77% of people seeking legal help start with an online search before calling a single attorney',
     heroHeadline: {
       pulsemarket:   'Legal Counsel for the Modern World',
@@ -287,7 +294,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: "I was terrified going through my divorce. His team made me feel supported and fought hard for my kids. Forever grateful.", name: 'Anonymous', location: 'Houston, TX', rating: 5 },
       { quote: "Best attorney in Houston. Filed my claim fast, communicated clearly, and delivered results. Highly recommend.", name: 'Marcus W.', location: 'Houston, TX', rating: 5 },
     ],
-    themeConfig: { ...corporateTheme, accentColor: '#722F37' },
+    themeConfig: { ...corporateTheme, accentColor: '#722F37', sectionOrder: SECTION_ORDER_LAWFIRM },
   },
 
   realestate: {

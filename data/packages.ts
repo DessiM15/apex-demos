@@ -37,7 +37,7 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     socialPostCount: '30',
     emailCampaignCount: 0,
     blogArticleCount: 0,
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','social','clicktocall','featuredlistings','footer'],
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','social','clicktocall','featuredlistings','caseresults','practiceareas','attorneyteam','footer'],
     features: [
       { icon: 'fa-solid fa-file-lines', title: '3 AI Landing Pages',     desc: 'Build credibility from day one' },
       { icon: 'fa-solid fa-share-nodes', title: '30 Social Posts/mo',      desc: 'Automate content distribution' },
@@ -59,7 +59,7 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     socialPostCount: '60',
     emailCampaignCount: 4,
     blogArticleCount: 2,
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','propertyspotlight','featuredlistings','footer'],
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','propertyspotlight','featuredlistings','caseresults','practiceareas','attorneyteam','footer'],
     features: [
       { icon: 'fa-solid fa-file-lines', title: '5 AI Landing Pages',      desc: 'Optimized conversion-ready pages' },
       { icon: 'fa-solid fa-share-nodes', title: '60 Social Posts/mo',       desc: 'Consistent brand presence' },
@@ -81,7 +81,7 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     socialPostCount: '100+',
     emailCampaignCount: 8,
     blogArticleCount: 4,
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','podcast','video','propertyspotlight','featuredlistings','footer'],
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','podcast','video','propertyspotlight','featuredlistings','caseresults','practiceareas','attorneyteam','footer'],
     features: [
       { icon: 'fa-solid fa-file-lines', title: '10 Landing Pages',        desc: 'Full conversion funnel' },
       { icon: 'fa-solid fa-share-nodes', title: '100+ Social Posts/mo',    desc: 'Dominate every platform' },
@@ -103,7 +103,7 @@ export const packages: Record<PackageSlug, PackageConfig> = {
     socialPostCount: '150',
     emailCampaignCount: 12,
     blogArticleCount: 4,
-    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','podcast','video','avatar','brandpresence','whiteglove','propertyspotlight','featuredlistings','footer'],
+    sectionsEnabled: ['hero','services','leadform','bio','testimonials','blog','email','social','clicktocall','podcast','video','avatar','brandpresence','whiteglove','propertyspotlight','featuredlistings','caseresults','practiceareas','attorneyteam','footer'],
     features: [
       { icon: 'fa-solid fa-infinity', title: 'Unlimited AI Landing Pages', desc: 'No limits on your growth' },
       { icon: 'fa-solid fa-share-nodes', title: '150 Social Posts/mo',        desc: 'Full omnichannel domination' },

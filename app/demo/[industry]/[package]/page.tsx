@@ -24,6 +24,9 @@ import WhiteGloveSupport     from '@/components/WhiteGloveSupport'
 import DemoFooter            from '@/components/DemoFooter'
 import PropertySpotlight     from '@/components/PropertySpotlight'
 import FeaturedListings      from '@/components/FeaturedListings'
+import CaseResults           from '@/components/CaseResults'
+import PracticeAreaTabs      from '@/components/PracticeAreaTabs'
+import AttorneyTeam          from '@/components/AttorneyTeam'
 
 // ── Pregenerate all routes ──────────────────────────────────────────
 export function generateStaticParams() {
@@ -103,6 +106,7 @@ export default async function DemoPage({ params }: PageProps) {
           heroTagline={industry.heroTagline}
           heroImages={industry.heroImages}
           heroCTAs={industry.heroCTAs}
+          heroCredentials={industry.heroCredentials}
           ctaLink={CTA_LINK}
           formCTA={industry.formCTA}
           theme={{
@@ -222,6 +226,21 @@ export default async function DemoPage({ params }: PageProps) {
           listings={content.featuredListings}
           accentColor={theme.accentColor}
         />
+      ),
+    }),
+    ...(content.caseResults && {
+      caseresults: (
+        <CaseResults caseResults={content.caseResults} />
+      ),
+    }),
+    ...(content.practiceAreas && {
+      practiceareas: (
+        <PracticeAreaTabs practiceAreas={content.practiceAreas} />
+      ),
+    }),
+    ...(content.attorneys && {
+      attorneyteam: (
+        <AttorneyTeam attorneys={content.attorneys} />
       ),
     }),
     footer: (
