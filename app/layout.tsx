@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display, Cormorant_Garamond, Great_Vibes, Bodoni_Moda, Anton } from 'next/font/google'
+import { Inter, Playfair_Display, Cormorant_Garamond, Great_Vibes, Bodoni_Moda, Anton, Josefin_Sans, DM_Sans } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -40,6 +40,18 @@ const anton = Anton({
   weight: ['400'],
 })
 
+const josefinSans = Josefin_Sans({
+  subsets: ['latin'],
+  variable: '--font-josefin',
+  weight: ['300', '400', '600'],
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  weight: ['400', '500', '600', '700'],
+})
+
 export const metadata: Metadata = {
   title: 'Apex Demo Platform | See Your Business Powered by Apex',
   description:
@@ -60,7 +72,7 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${greatVibes.variable} ${bodoniModa.variable} ${anton.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${greatVibes.variable} ${bodoniModa.variable} ${anton.variable} ${josefinSans.variable} ${dmSans.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

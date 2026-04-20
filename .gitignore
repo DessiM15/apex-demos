@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+Thumbs.db
+Desktop.ini
 
 # debug
 npm-debug.log*
@@ -39,3 +41,37 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editor / IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Loose asset folders (raw source files, not part of the Next.js app)
+/assets/
+/dee/
+/jay/
+/dental shortform/
+/hvac shortform/
+/photo shortform/
+/plumbing shortform/
+/roofing shortform/
+/training shortform/
+/financial-advisor-landing-page-template/
+/law-firm-landing-page-template/
+/real-estate-landing-page-template/
+
+# Loose media files in repo root (should be in public/ instead)
+/*.mp4
+/*.mov
+/*.mp3
+/*.png
+/*.jpg
+/*.docx

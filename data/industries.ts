@@ -1,6 +1,6 @@
 import { PackageSlug } from './packages'
 
-export type IndustrySlug = 'insurance' | 'lawfirm' | 'realestate' | 'financial' | 'hvac' | 'roofing' | 'salonspa' | 'photography' | 'dental' | 'plumbing' | 'trainer'
+export type IndustrySlug = 'insurance' | 'lawfirm' | 'realestate' | 'financial' | 'hvac' | 'roofing' | 'salonspa' | 'photography' | 'dental' | 'plumbing' | 'trainer' | 'pilates'
 
 export interface ServiceItem  { icon: string; title: string; desc: string }
 export interface Testimonial  { quote: string; name: string; location: string; rating: number }
@@ -51,6 +51,7 @@ export interface IndustryConfig {
   zenFont?: boolean         // true → uses Cormorant Garamond + Great Vibes for headings
   editorialFont?: boolean   // true → uses Bodoni Moda serif for headings
   athleticFont?: boolean    // true → uses Anton bold uppercase for headings
+  pinkFont?: boolean         // true → uses Josefin Sans display + DM Sans body for headings
   heroHeadline:    Record<PackageSlug, string>
   heroSubheadline: Record<PackageSlug, string>
   services: ServiceItem[]
@@ -179,6 +180,21 @@ const photographyTheme: ThemeConfig = {
   navStyle: 'transparent-over-hero',
   darkSections: true,
   formStyle: 'dark',
+}
+
+const pilatesTheme: ThemeConfig = {
+  heroLayout: 'center',
+  heroOverlayOpacity: 0.45,
+  servicesLayout: 'grid-3',
+  bioLayout: 'photo-top-center',
+  testimonialsLayout: 'list-style',
+  sectionOrder: SECTION_ORDER_CREATIVE,
+  accentColor: '#E8005A',
+  headingStyle: 'light-wide',
+  sectionSpacing: 'spacious',
+  navStyle: 'transparent-over-hero',
+  darkSections: false,
+  formStyle: 'split',
 }
 
 const plumbingTheme: ThemeConfig = {
@@ -765,5 +781,62 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: 'Best trainer in Houston. Marcus pushes you just the right amount and the nutrition coaching makes all the difference. Down 30 lbs and counting.', name: 'Angela M.', location: 'Sugar Land, TX', rating: 5 },
     ],
     themeConfig: { ...creativeTheme },
+  },
+
+  pilates: {
+    slug: 'pilates',
+    name: 'Pilates Studio',
+    faIcon: 'fa-solid fa-person-walking',
+    heroImage: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=80',
+    heroVideo: '/pilates-hero.mp4',
+    accentColor: '#E8005A',
+    heroOverlay: false,
+    pinkFont: true,
+    themeColors: {
+      accent: '232 0 90',
+      accentDark: '212 83 126',
+      accentLight: '#FBEAF0',
+      brandBg: '#FFFFFF',
+      brandSurface: '#FBEAF0',
+      brandCard: '#FFFFFF',
+      brandText: '#1A1A1A',
+      brandMuted: '#888888',
+      brandBorder: '#F4C0D1',
+      brandHeading: '#1A1A1A',
+    },
+    industryHook: 'Boutique fitness studios see 3x higher client retention than big-box gyms \u2014 pilates leads the category',
+    heroHeadline: {
+      pulsemarket:  'Move with Intention',
+      pulseflow:    'Find Your Practice \u2014 Strengthen Your Core, Transform Your Body',
+      pulsedrive:   'Where Strength Meets Community \u2014 Boutique Pilates, Real Results',
+      pulsecommand: 'The Ultimate Pilates Experience \u2014 Curated for Every Body',
+    },
+    heroSubheadline: {
+      pulsemarket:  'Mat, Reformer, Barre & Private Sessions \u2014 Boutique pilates in the heart of Houston. Classes for every body, every level.',
+      pulseflow:    'Mat, Reformer, Barre & Private Sessions \u2014 The studio Houston trusts for personalized, results-driven pilates.',
+      pulsedrive:   'Mat, Reformer, Barre & Private Sessions \u2014 The go-to boutique studio your clients recommend to everyone they know.',
+      pulsecommand: 'Mat, Reformer, Barre & Private Sessions \u2014 Luxury boutique pilates with concierge booking and transformative programming.',
+    },
+    services: [
+      { icon: 'fa-solid fa-child', title: 'Mat Pilates', desc: 'Build core strength, flexibility, and body awareness on the mat' },
+      { icon: 'fa-solid fa-sliders', title: 'Reformer', desc: 'Spring-loaded resistance meets precision movement' },
+      { icon: 'fa-solid fa-music', title: 'Barre Fusion', desc: 'Pilates meets ballet meets burn \u2014 set to energizing music' },
+      { icon: 'fa-solid fa-heart', title: 'Prenatal Pilates', desc: 'Safe, empowering movement for expecting mamas' },
+      { icon: 'fa-solid fa-bolt', title: 'Power Pilates', desc: 'High-intensity, low-impact \u2014 leave feeling powerful' },
+      { icon: 'fa-solid fa-user', title: 'Private Sessions', desc: 'One-on-one attention tailored to your goals' },
+    ],
+    formFields: ['Name', 'Phone', 'Email', 'Class Interest', 'Experience Level'],
+    formCTA: 'Book a Class',
+    bioImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
+    bioName:  'Sarah Mitchell',
+    bioTitle: 'Studio Owner & Lead Instructor',
+    bioCreds: 'NCPT Certified \u2014 12 Years Experience \u2014 Houston TX',
+    bioText:  "I'm Sarah \u2014 a nationally certified pilates instructor and the founder of PinkCore Pilates Studio. After 12 years of teaching, I still believe every body deserves to feel strong. Whether you're a first-timer or a seasoned practitioner, I'll meet you exactly where you are and help you move with intention.",
+    testimonials: [
+      { quote: 'I have tried every boutique studio in Houston and this is the one I keep coming back to. Sarah and her team genuinely care about your progress. The reformer classes are incredible.', name: 'Jessica T.', location: 'Houston, TX', rating: 5 },
+      { quote: 'I started pilates 6 months ago with zero experience. Sarah made me feel welcome from day one. I am stronger, more flexible, and honestly happier. This studio changed my life.', name: 'Priya M.', location: 'Montrose, TX', rating: 5 },
+      { quote: 'The prenatal classes got me through my pregnancy feeling strong and confident. Jessica is an absolute angel. I am already signed up for postnatal classes. Cannot recommend enough.', name: 'Lauren K.', location: 'Sugar Land, TX', rating: 5 },
+    ],
+    themeConfig: { ...pilatesTheme },
   },
 }

@@ -33,7 +33,7 @@ export function generateStaticParams() {
   const industryKeys: IndustrySlug[] = [
     'insurance', 'lawfirm', 'realestate', 'financial',
     'hvac', 'roofing', 'salonspa', 'photography',
-    'dental', 'plumbing', 'trainer',
+    'dental', 'plumbing', 'trainer', 'pilates',
   ]
   const packageKeys:  PackageSlug[]  = ['pulsemarket', 'pulseflow', 'pulsedrive', 'pulsecommand']
   return industryKeys.flatMap(industry =>
@@ -256,7 +256,7 @@ export default async function DemoPage({ params }: PageProps) {
     ))
 
   return (
-    <div style={themeStyle} className={industry.zenFont ? 'zen' : industry.editorialFont ? 'editorial' : industry.athleticFont ? 'athletic' : industry.luxuryFont ? 'luxury' : undefined}>
+    <div style={themeStyle} className={industry.zenFont ? 'zen' : industry.pinkFont ? 'pink' : industry.editorialFont ? 'editorial' : industry.athleticFont ? 'athletic' : industry.luxuryFont ? 'luxury' : undefined}>
       {/* Preload hero media so it renders immediately */}
       {industry.heroVideo ? (
         <link rel="preload" href={industry.heroVideo} as="video" type="video/mp4" />
