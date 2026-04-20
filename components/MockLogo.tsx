@@ -135,6 +135,22 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
       </g>
     ),
   },
+  pilates: {
+    name: 'Your Logo Here',
+    icon: (
+      <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="24" r="10" />
+        <path d="M24 4 C24 14 24 14 24 14" />
+        <path d="M24 34 C24 44 24 44 24 44" />
+        <path d="M14 24 C4 24 4 24 4 24" />
+        <path d="M34 24 C44 24 44 24 44 24" />
+        <path d="M16 16 C10 10 10 10 10 10" />
+        <path d="M32 32 C38 38 38 38 38 38" />
+        <path d="M32 16 C38 10 38 10 38 10" />
+        <path d="M16 32 C10 38 10 38 10 38" />
+      </g>
+    ),
+  },
 }
 
 export default function MockLogo({ industry, size = 48, iconOnly = false, color }: Props) {
