@@ -33,7 +33,7 @@ export function generateStaticParams() {
   const industryKeys: IndustrySlug[] = [
     'insurance', 'lawfirm', 'realestate', 'financial',
     'hvac', 'roofing', 'salonspa', 'photography',
-    'dental', 'plumbing', 'trainer', 'pilates',
+    'dental', 'plumbing', 'trainer', 'pilates', 'lawncare',
   ]
   const packageKeys:  PackageSlug[]  = ['pulsemarket', 'pulseflow', 'pulsedrive', 'pulsecommand']
   return industryKeys.flatMap(industry =>

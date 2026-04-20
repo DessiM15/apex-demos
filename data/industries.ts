@@ -1,6 +1,6 @@
 import { PackageSlug } from './packages'
 
-export type IndustrySlug = 'insurance' | 'lawfirm' | 'realestate' | 'financial' | 'hvac' | 'roofing' | 'salonspa' | 'photography' | 'dental' | 'plumbing' | 'trainer' | 'pilates'
+export type IndustrySlug = 'insurance' | 'lawfirm' | 'realestate' | 'financial' | 'hvac' | 'roofing' | 'salonspa' | 'photography' | 'dental' | 'plumbing' | 'trainer' | 'pilates' | 'lawncare'
 
 export interface ServiceItem  { icon: string; title: string; desc: string }
 export interface Testimonial  { quote: string; name: string; location: string; rating: number }
@@ -191,6 +191,21 @@ const pilatesTheme: ThemeConfig = {
   sectionOrder: SECTION_ORDER_CREATIVE,
   accentColor: '#E8005A',
   headingStyle: 'light-wide',
+  sectionSpacing: 'spacious',
+  navStyle: 'transparent-over-hero',
+  darkSections: false,
+  formStyle: 'split',
+}
+
+const lawnCareTheme: ThemeConfig = {
+  heroLayout: 'clean-center',
+  heroOverlayOpacity: 0.55,
+  servicesLayout: 'grid-3',
+  bioLayout: 'photo-top-center',
+  testimonialsLayout: 'list-style',
+  sectionOrder: SECTION_ORDER_TRADE,
+  accentColor: '#2D6A4F',
+  headingStyle: 'bold-tight',
   sectionSpacing: 'spacious',
   navStyle: 'transparent-over-hero',
   darkSections: false,
@@ -838,5 +853,57 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
       { quote: 'The prenatal classes got me through my pregnancy feeling strong and confident. Jessica is an absolute angel. I am already signed up for postnatal classes. Cannot recommend enough.', name: 'Lauren K.', location: 'Sugar Land, TX', rating: 5 },
     ],
     themeConfig: { ...pilatesTheme },
+  },
+
+  lawncare: {
+    slug: 'lawncare',
+    name: 'Lawn Care Service',
+    faIcon: 'fa-solid fa-leaf',
+    heroImage: 'https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=1200&q=80',
+    accentColor: '#2D6A4F',
+    themeColors: {
+      accent: '45 106 79',
+      accentDark: '36 85 63',
+      accentLight: '#E9F5EF',
+      brandBg: '#FFFFFF',
+      brandSurface: '#F7FAF8',
+      brandCard: '#FFFFFF',
+      brandText: '#1A1A1A',
+      brandMuted: '#6B7280',
+      brandBorder: '#D1E7D9',
+      brandHeading: '#1A1A1A',
+    },
+    industryHook: '90% of homeowners say a well-maintained lawn increases their home\'s value — yet most don\'t have a regular service',
+    heroHeadline: {
+      pulsemarket:  'A __Beautiful__ Lawn Starts Here',
+      pulseflow:    'Expert Lawn Care — __Guaranteed__ Results, Every Season',
+      pulsedrive:   'The Lawn Your __Neighbors__ Will Envy',
+      pulsecommand: 'Premium Lawn & Landscape — __Crafted__ With Care',
+    },
+    heroSubheadline: {
+      pulsemarket:  'Lawn Care & Mowing, Landscaping Design, Seasonal Cleanup & Irrigation — Licensed, insured, and trusted by Houston homeowners.',
+      pulseflow:    'Lawn Care & Mowing, Landscaping Design, Seasonal Cleanup & Irrigation — The lawn care team homeowners trust for reliable, beautiful results.',
+      pulsedrive:   'Lawn Care & Mowing, Landscaping Design, Seasonal Cleanup & Irrigation — The go-to lawn care provider your entire neighborhood recommends.',
+      pulsecommand: 'Lawn Care & Mowing, Landscaping Design, Seasonal Cleanup & Irrigation — Full-service lawn and landscape with concierge scheduling and guaranteed satisfaction.',
+    },
+    services: [
+      { icon: 'fa-solid fa-leaf', title: 'Lawn Care & Mowing', desc: 'Weekly mowing, edging, and trimming for a pristine yard' },
+      { icon: 'fa-solid fa-tree', title: 'Landscaping Design', desc: 'Custom landscape plans that transform your outdoor space' },
+      { icon: 'fa-solid fa-broom', title: 'Seasonal Cleanup', desc: 'Spring and fall cleanup to keep your yard healthy year-round' },
+      { icon: 'fa-solid fa-droplet', title: 'Irrigation & Fertilization', desc: 'Smart watering systems and feeding programs for lush growth' },
+    ],
+    formFields: ['Name', 'Phone', 'Email', 'Service Needed', 'Property Address'],
+    formCTA: 'Get a Free Estimate',
+    bioImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face',
+    bioName:  'Daniel Reeves',
+    bioTitle: 'Owner & Lead Landscaper',
+    bioCreds: '14 Years Experience \u2014 Licensed & Insured \u2014 Houston TX',
+    bioText:  "I'm Daniel \u2014 a licensed landscaper with 14 years of experience keeping Houston lawns healthy and beautiful. From weekly mowing to full landscape overhauls, I treat every yard like my own. Reliable service, honest pricing, and results you can see.",
+    testimonials: [
+      { quote: 'Daniel transformed our backyard from a patchy mess into a neighborhood showpiece. His team shows up every week like clockwork and the attention to detail is unmatched.', name: 'Kevin M.', location: 'Houston, TX', rating: 5 },
+      { quote: 'We tried three lawn services before finding Daniel. He is the only one who actually listened to what we wanted and delivered. Our lawn has never looked better.', name: 'Sarah & Tom P.', location: 'Katy, TX', rating: 5 },
+      { quote: 'Honest, reliable, and truly skilled. Daniel designed our entire front landscape and installed an irrigation system that cut our water bill in half. Highly recommend.', name: 'Patricia L.', location: 'Sugar Land, TX', rating: 5 },
+    ],
+    themeConfig: { ...lawnCareTheme },
   },
 }

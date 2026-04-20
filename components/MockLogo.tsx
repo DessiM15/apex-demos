@@ -151,6 +151,16 @@ const logoData: Record<IndustrySlug, { name: string; icon: React.ReactNode }> = 
       </g>
     ),
   },
+  lawncare: {
+    name: 'Your Logo Here',
+    icon: (
+      <g fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M24 44 L24 20" />
+        <path d="M24 30 C18 28 10 20 10 12 C18 12 26 18 28 24" />
+        <path d="M24 22 C30 20 38 12 38 4 C30 4 22 10 20 16" />
+      </g>
+    ),
+  },
 }
 
 export default function MockLogo({ industry, size = 48, iconOnly = false, color }: Props) {
