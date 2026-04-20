@@ -11,7 +11,7 @@ import { industries, IndustrySlug } from '@/data/industries'
 const industryList: IndustrySlug[] = [
   'insurance', 'lawfirm', 'realestate', 'financial',
   'hvac', 'roofing', 'salonspa', 'photography',
-  'dental', 'plumbing', 'trainer', 'pilates',
+  'dental', 'plumbing', 'trainer', 'pilates', 'lawncare',
 ]
 const packageList:  PackageSlug[]  = ['pulsemarket', 'pulseflow', 'pulsedrive', 'pulsecommand']
 
