@@ -60,6 +60,12 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
   /* ── Background (shared across all layouts) ── */
   const background = heroVideo ? (
     <div className="absolute inset-0">
+      {/* Static hero image shown instantly while video loads */}
+      <div
+        className="absolute inset-0 bg-cover bg-center scale-105"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      />
+      {/* Video fades in on top once playing */}
       <video
         ref={videoRef}
         autoPlay
@@ -68,7 +74,7 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
         playsInline
         preload="auto"
         onPlaying={() => setVideoReady(true)}
-        className="w-full h-full object-cover scale-105 transition-opacity duration-700"
+        className="relative w-full h-full object-cover scale-105 transition-opacity duration-700"
         style={{ opacity: videoReady ? 1 : 0 }}
       >
         <source src={heroVideo} type="video/mp4" />
