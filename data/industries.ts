@@ -391,6 +391,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Financial Advisor',
     faIcon: 'fa-solid fa-chart-line',
     heroImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80',
+    heroVideo: '/financial-advisor-hero.mp4',
     accentColor: '#0F766E',
     themeColors: {
       accent: '15 118 110',
