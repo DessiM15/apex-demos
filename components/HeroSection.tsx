@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import React from 'react'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
@@ -42,6 +42,8 @@ interface Props {
 
 export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, heroImages, heroCTAs, heroCredentials, ctaLink, formCTA, theme }: Props) {
   const [showIntro, setShowIntro] = useState(!!heroIntroText)
+  const [videoReady, setVideoReady] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const layout = theme?.heroLayout ?? 'left'
   const overlayOpacity = theme?.heroOverlayOpacity ?? 0.82
@@ -59,13 +61,15 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
   const background = heroVideo ? (
     <div className="absolute inset-0">
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster={heroImage}
-        className="w-full h-full object-cover scale-105"
+        onPlaying={() => setVideoReady(true)}
+        className="w-full h-full object-cover scale-105 transition-opacity duration-700"
+        style={{ opacity: videoReady ? 1 : 0 }}
       >
         <source src={heroVideo} type="video/mp4" />
       </video>
