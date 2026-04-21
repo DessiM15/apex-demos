@@ -130,7 +130,7 @@ export default function AIAvatarVideo() {
                 <div className="aspect-video">
                   <video
                     ref={videoRef}
-                    src="/heygen-avatar.mp4"
+                    src="https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/heygen-avatar.mp4"
                     className="w-full h-full object-cover"
                     controls
                     playsInline

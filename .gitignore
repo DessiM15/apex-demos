@@ -75,3 +75,7 @@ ehthumbs.db
 /*.png
 /*.jpg
 /*.docx
+.env*.local
+
+# Blob upload tooling
+/scripts/blob-url-mapping.json

@@ -94,10 +94,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I just saved a client $1,200 on their annual premium — here\'s exactly how we did it in 3 steps" [30 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/insurance-sf-1.jpg', src: '/insurance-sf-1.mp4' },
-      { thumbnail: '/thumbnails/insurance-sf-2.jpg', src: '/insurance-sf-2.mp4' },
-      { thumbnail: '/thumbnails/insurance-sf-3.jpg', src: '/insurance-sf-3.mp4' },
-      { thumbnail: '/thumbnails/insurance-sf-4.jpg', src: '/insurance-sf-4.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/insurance-sf-1.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/insurance-sf-2.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/insurance-sf-3.mp4' },
+      { thumbnail: '/thumbnails/insurance-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/insurance-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Landing Page Visits',   value: '1,247', change: '+18% this month',  positive: true },
@@ -137,10 +137,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"Texas statute of limitations explained in 60 seconds — miss this deadline and you lose your right to sue forever." [60 sec educational]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/lawfirm-sf-1.jpg', src: '/lawfirm-sf-1.mp4' },
-      { thumbnail: '/thumbnails/lawfirm-sf-2.jpg', src: '/lawfirm-sf-2.mp4' },
-      { thumbnail: '/thumbnails/lawfirm-sf-3.jpg', src: '/lawfirm-sf-3.mp4' },
-      { thumbnail: '/thumbnails/lawfirm-sf-4.jpg', src: '/lawfirm-sf-4.mp4' },
+      { thumbnail: '/thumbnails/lawfirm-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawfirm-sf-1.mp4' },
+      { thumbnail: '/thumbnails/lawfirm-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawfirm-sf-2.mp4' },
+      { thumbnail: '/thumbnails/lawfirm-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawfirm-sf-3.mp4' },
+      { thumbnail: '/thumbnails/lawfirm-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawfirm-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Consultation Requests', value: '67',    change: '+14 this month',   positive: true },
@@ -201,10 +201,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"Most sellers leave $15,000–$40,000 on the table by not doing THIS before they list. I\'ll show you exactly what it is in 60 seconds." [Educational reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/realestate-sf-1.jpg', src: '/realestate-sf-1.mp4' },
-      { thumbnail: '/thumbnails/realestate-sf-2.jpg', src: '/realestate-sf-2.mp4' },
-      { thumbnail: '/thumbnails/realestate-sf-3.jpg', src: '/realestate-sf-3.mp4' },
-      { thumbnail: '/thumbnails/realestate-sf-4.jpg', src: '/realestate-sf-4.mp4' },
+      { thumbnail: '/thumbnails/realestate-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/realestate-sf-1.mp4' },
+      { thumbnail: '/thumbnails/realestate-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/realestate-sf-2.mp4' },
+      { thumbnail: '/thumbnails/realestate-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/realestate-sf-3.mp4' },
+      { thumbnail: '/thumbnails/realestate-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/realestate-sf-4.mp4' },
     ],
     spotlightProperty: {
       address: '4815 River Oaks Blvd',
@@ -287,10 +287,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"Most people think they need a million dollars to retire comfortably. Here\'s the actual number — and the 3-step strategy to get there." [30 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/finance-sf-1.jpg', src: '/finance-sf-1a.mp4' },
-      { thumbnail: '/thumbnails/finance-sf-2.jpg', src: '/finance-sf-1b.mp4' },
-      { thumbnail: '/thumbnails/finance-sf-3.jpg', src: '/finance-sf-2.mp4' },
-      { thumbnail: '/thumbnails/finance-sf-4.jpg', src: '/finance-sf-3.mp4' },
+      { thumbnail: '/thumbnails/finance-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/finance-sf-1a.mp4' },
+      { thumbnail: '/thumbnails/finance-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/finance-sf-1b.mp4' },
+      { thumbnail: '/thumbnails/finance-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/finance-sf-2.mp4' },
+      { thumbnail: '/thumbnails/finance-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/finance-sf-3.mp4' },
     ],
     analyticsStats: [
       { label: 'Free Review Requests',  value: '31',    change: '+9 this month',     positive: true },
@@ -330,10 +330,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I just saved a homeowner $2,800 by catching this one issue during a routine tune-up. Here\'s what to check before summer." [30 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/hvac-sf-1.jpg', src: '/hvac-sf-1.mp4' },
-      { thumbnail: '/thumbnails/hvac-sf-2.jpg', src: '/hvac-sf-2.mp4' },
-      { thumbnail: '/thumbnails/hvac-sf-3.jpg', src: '/hvac-sf-3.mp4' },
-      { thumbnail: '/thumbnails/hvac-sf-4.jpg', src: '/hvac-sf-4.mp4' },
+      { thumbnail: '/thumbnails/hvac-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/hvac-sf-1.mp4' },
+      { thumbnail: '/thumbnails/hvac-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/hvac-sf-2.mp4' },
+      { thumbnail: '/thumbnails/hvac-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/hvac-sf-3.mp4' },
+      { thumbnail: '/thumbnails/hvac-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/hvac-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Service Requests',     value: '94',     change: '+22 this month',    positive: true },
@@ -373,10 +373,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"We just replaced this roof for $0 out of pocket. Here\'s exactly how the insurance process works in 60 seconds." [60 sec educational]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/roofing-sf-1.jpg', src: '/roofing-short-form.mp4' },
-      { thumbnail: '/thumbnails/roofing-sf-2.jpg', src: '/roofing-sf-2.mp4' },
-      { thumbnail: '/thumbnails/roofing-sf-3.jpg', src: '/roofing-sf-3.mp4' },
-      { thumbnail: '/thumbnails/roofing-sf-4.jpg', src: '/roofing-sf-4.mp4' },
+      { thumbnail: '/thumbnails/roofing-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/roofing-short-form.mp4' },
+      { thumbnail: '/thumbnails/roofing-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/roofing-sf-2.mp4' },
+      { thumbnail: '/thumbnails/roofing-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/roofing-sf-3.mp4' },
+      { thumbnail: '/thumbnails/roofing-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/roofing-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Inspection Requests',  value: '78',     change: '+18 this month',    positive: true },
@@ -416,10 +416,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I\'m going to show you the 3 products that changed my clients\' skin more than any procedure. Under $50 total." [15 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/spa-sf-1.jpg', src: '/spa-sf-1a.mp4' },
-      { thumbnail: '/thumbnails/spa-sf-2.jpg', src: '/spa-sf-1b.mp4' },
-      { thumbnail: '/thumbnails/spa-sf-3.jpg', src: '/spa-sf-2.mp4' },
-      { thumbnail: '/thumbnails/spa-sf-4.jpg', src: '/spa-sf-3.mp4' },
+      { thumbnail: '/thumbnails/spa-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/spa-sf-1a.mp4' },
+      { thumbnail: '/thumbnails/spa-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/spa-sf-1b.mp4' },
+      { thumbnail: '/thumbnails/spa-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/spa-sf-2.mp4' },
+      { thumbnail: '/thumbnails/spa-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/spa-sf-3.mp4' },
     ],
     analyticsStats: [
       { label: 'Booking Requests',     value: '67',     change: '+15 this month',    positive: true },
@@ -459,10 +459,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I photographed 200 weddings and THIS is the one tip I give every couple. It changes everything about your photos." [15 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/photo-sf-1.jpg', src: '/photo-sf-1.mp4' },
-      { thumbnail: '/thumbnails/photo-sf-2.jpg', src: '/photo-sf-2.mp4' },
-      { thumbnail: '/thumbnails/photo-sf-3.jpg', src: '/photo-sf-3.mp4' },
-      { thumbnail: '/thumbnails/photo-sf-4.jpg', src: '/photo-sf-4.mp4' },
+      { thumbnail: '/thumbnails/photo-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/photo-sf-1.mp4' },
+      { thumbnail: '/thumbnails/photo-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/photo-sf-2.mp4' },
+      { thumbnail: '/thumbnails/photo-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/photo-sf-3.mp4' },
+      { thumbnail: '/thumbnails/photo-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/photo-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Booking Inquiries',    value: '52',     change: '+13 this month',    positive: true },
@@ -502,10 +502,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"I\'m a dentist and HERE are the 3 things I never do to my own teeth. Number 2 will surprise you." [15 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/dental-sf-1.jpg', src: '/dental-sf-1.mp4' },
-      { thumbnail: '/thumbnails/dental-sf-2.jpg', src: '/dental-sf-2.mp4' },
-      { thumbnail: '/thumbnails/dental-sf-3.jpg', src: '/dental-sf-3.mp4' },
-      { thumbnail: '/thumbnails/dental-sf-4.jpg', src: '/dental-sf-4.mp4' },
+      { thumbnail: '/thumbnails/dental-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/dental-sf-1.mp4' },
+      { thumbnail: '/thumbnails/dental-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/dental-sf-2.mp4' },
+      { thumbnail: '/thumbnails/dental-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/dental-sf-3.mp4' },
+      { thumbnail: '/thumbnails/dental-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/dental-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Appointment Requests',  value: '83',     change: '+19 this month',    positive: true },
@@ -545,10 +545,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"A homeowner called us after 3 other plumbers couldn\'t find the leak. We found it in 10 minutes using this tool." [30 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/plum-sf-1.jpg', src: '/plum-sf-1.mp4' },
-      { thumbnail: '/thumbnails/plum-sf-2.jpg', src: '/plum-sf-2.mp4' },
-      { thumbnail: '/thumbnails/plum-sf-3.jpg', src: '/plum-sf-3.mp4' },
-      { thumbnail: '/thumbnails/plum-sf-4.jpg', src: '/plum-sf-4.mp4' },
+      { thumbnail: '/thumbnails/plum-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/plum-sf-1.mp4' },
+      { thumbnail: '/thumbnails/plum-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/plum-sf-2.mp4' },
+      { thumbnail: '/thumbnails/plum-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/plum-sf-3.mp4' },
+      { thumbnail: '/thumbnails/plum-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/plum-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Service Requests',     value: '71',     change: '+16 this month',    positive: true },
@@ -588,10 +588,10 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"This client lost 45 pounds in 6 months. Here\'s the exact approach we used — no crash diets, no 2-hour workouts." [30 sec reel]',
     ],
     shortFormVideos: [
-      { thumbnail: '/thumbnails/training-sf-1.jpg', src: '/training-sf-1.mp4' },
-      { thumbnail: '/thumbnails/training-sf-2.jpg', src: '/training-sf-2.mp4' },
-      { thumbnail: '/thumbnails/training-sf-3.jpg', src: '/training-sf-3.mp4' },
-      { thumbnail: '/thumbnails/training-sf-4.jpg', src: '/training-sf-4.mp4' },
+      { thumbnail: '/thumbnails/training-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/training-sf-1.mp4' },
+      { thumbnail: '/thumbnails/training-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/training-sf-2.mp4' },
+      { thumbnail: '/thumbnails/training-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/training-sf-3.mp4' },
+      { thumbnail: '/thumbnails/training-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/training-sf-4.mp4' },
     ],
     analyticsStats: [
       { label: 'Consultation Requests', value: '48',     change: '+11 this month',    positive: true },
