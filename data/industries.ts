@@ -40,6 +40,7 @@ export interface IndustryConfig {
   faIcon: string
   heroImage: string
   heroVideo?: string
+  heroPoster?: string   // first-frame poster for seamless video load
   accentColor: string
   themeColors?: ThemeColors
   heroOverlay?: boolean  // default true — set false to remove tint over hero video
@@ -234,6 +235,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     faIcon: 'fa-solid fa-shield-halved',
     heroImage: 'https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&q=80',
     heroVideo: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/insurace-hero.mp4',
+    heroPoster: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/posters/insurace-hero-poster.jpg',
     accentColor: '#243a8f',
     industryHook: '50% of Americans say they don\'t have adequate life insurance coverage',
     heroHeadline: {
@@ -275,6 +277,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     faIcon: 'fa-solid fa-scale-balanced',
     heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80',
     heroVideo: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/law-firm-hero-2.mp4',
+    heroPoster: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/posters/law-firm-hero-2-poster.jpg',
     accentColor: '#722F37',
     themeColors: {
       accent: '114 47 55',
@@ -334,6 +337,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     faIcon: 'fa-solid fa-house',
     heroImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80',
     heroVideo: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/real-estate-hero.mp4',
+    heroPoster: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/posters/real-estate-hero-poster.jpg',
     accentColor: '#b8860b',
     themeColors: {
       accent: '184 134 11',
@@ -392,6 +396,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     faIcon: 'fa-solid fa-chart-line',
     heroImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80',
     heroVideo: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/financial-advisor-hero.mp4',
+    heroPoster: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/posters/financial-advisor-hero-poster.jpg',
     accentColor: '#0F766E',
     themeColors: {
       accent: '15 118 110',
@@ -548,6 +553,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     faIcon: 'fa-solid fa-spa',
     heroImage: 'https://images.unsplash.com/photo-1560066984-138daaa45d0e?w=1200&q=80',
     heroVideo: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/spa-hero.mp4',
+    heroPoster: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/posters/spa-hero-poster.jpg',
     accentColor: '#8F7A64',
     zenFont: true,
     themeColors: {
@@ -805,6 +811,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     faIcon: 'fa-solid fa-person-walking',
     heroImage: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=80',
     heroVideo: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/pilates-hero.mp4',
+    heroPoster: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/posters/pilates-hero-poster.jpg',
     accentColor: '#E8005A',
     heroOverlay: false,
     pinkFont: true,
@@ -862,6 +869,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     faIcon: 'fa-solid fa-leaf',
     heroImage: 'https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=1200&q=80',
     heroVideo: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawn-care-hero.mp4',
+    heroPoster: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/posters/lawn-care-hero-poster.jpg',
     accentColor: '#2D6A4F',
     themeColors: {
       accent: '45 106 79',

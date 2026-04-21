@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import React from 'react'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
@@ -27,6 +27,7 @@ interface Props {
   subheadline:    string
   heroImage:      string
   heroVideo?:     string
+  heroPoster?:    string
   heroOverlay?:   boolean
   heroIntroText?: string
   heroFont?:      string
@@ -40,10 +41,8 @@ interface Props {
   theme?:         HeroTheme
 }
 
-export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, heroImages, heroCTAs, heroCredentials, ctaLink, formCTA, theme }: Props) {
+export default function HeroSection({ headline, subheadline, heroImage, heroVideo, heroPoster, heroOverlay, heroIntroText, heroFont, heroPortrait, heroTagline, heroImages, heroCTAs, heroCredentials, ctaLink, formCTA, theme }: Props) {
   const [showIntro, setShowIntro] = useState(!!heroIntroText)
-  const [videoReady, setVideoReady] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   const layout = theme?.heroLayout ?? 'left'
   const overlayOpacity = theme?.heroOverlayOpacity ?? 0.82
@@ -57,28 +56,17 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
     }
   }, [heroIntroText])
 
-  // If the video is already cached/ready when the component mounts, show it immediately
-  useEffect(() => {
-    const vid = videoRef.current
-    if (vid && vid.readyState >= 3) {
-      setVideoReady(true)
-    }
-  }, [heroVideo])
-
   /* ── Background (shared across all layouts) ── */
   const background = heroVideo ? (
-    <div className="absolute inset-0 bg-black">
+    <div className="absolute inset-0">
       <video
-        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        onPlaying={() => setVideoReady(true)}
-        onCanPlay={() => setVideoReady(true)}
-        className="w-full h-full object-cover scale-105 transition-opacity duration-500"
-        style={{ opacity: videoReady ? 1 : 0 }}
+        poster={heroPoster}
+        className="w-full h-full object-cover scale-105"
       >
         <source src={heroVideo} type="video/mp4" />
       </video>

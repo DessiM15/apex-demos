@@ -99,6 +99,7 @@ export default async function DemoPage({ params }: PageProps) {
           subheadline={industry.heroSubheadline[pkg.slug]}
           heroImage={industry.heroImage}
           heroVideo={industry.heroVideo}
+          heroPoster={industry.heroPoster}
           heroOverlay={industry.heroOverlay}
           heroIntroText={industry.heroIntroText}
           heroFont={industry.heroFont}
