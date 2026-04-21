@@ -861,6 +861,7 @@ export const industries: Record<IndustrySlug, IndustryConfig> = {
     name: 'Lawn Care Service',
     faIcon: 'fa-solid fa-leaf',
     heroImage: 'https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=1200&q=80',
+    heroVideo: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawn-care-hero.mp4',
     accentColor: '#2D6A4F',
     themeColors: {
       accent: '45 106 79',
