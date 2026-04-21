@@ -57,6 +57,14 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
     }
   }, [heroIntroText])
 
+  // If the video is already cached/ready when the component mounts, show it immediately
+  useEffect(() => {
+    const vid = videoRef.current
+    if (vid && vid.readyState >= 3) {
+      setVideoReady(true)
+    }
+  }, [heroVideo])
+
   /* ── Background (shared across all layouts) ── */
   const background = heroVideo ? (
     <div className="absolute inset-0">
@@ -74,6 +82,7 @@ export default function HeroSection({ headline, subheadline, heroImage, heroVide
         playsInline
         preload="auto"
         onPlaying={() => setVideoReady(true)}
+        onCanPlay={() => setVideoReady(true)}
         className="relative w-full h-full object-cover scale-105 transition-opacity duration-700"
         style={{ opacity: videoReady ? 1 : 0 }}
       >
