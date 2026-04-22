@@ -673,6 +673,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"We just transformed this lawn in one day — watch the full before and after. The homeowner could not believe it was the same yard." [30 sec reel]',
       '"Stop making this mistake when you mow your lawn. It is the #1 reason Houston lawns die every summer." [15 sec reel]',
     ],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/lawncare-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawncare-sf-1.mp4' },
+      { thumbnail: '/thumbnails/lawncare-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawncare-sf-2.mp4' },
+      { thumbnail: '/thumbnails/lawncare-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawncare-sf-3.mp4' },
+      { thumbnail: '/thumbnails/lawncare-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/lawncare-sf-4.mp4' },
+    ],
     analyticsStats: [
       { label: 'Estimate Requests',       value: '84',     change: '+18 this month',    positive: true },
       { label: 'Landing Page Visits',     value: '3,620',  change: '+31% this month',   positive: true },
