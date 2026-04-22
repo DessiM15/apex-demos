@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
@@ -8,10 +8,11 @@ import { staggerContainer, fadeInUp, viewport } from '@/lib/animations'
 import { packages, PackageSlug } from '@/data/packages'
 import { industries, IndustrySlug } from '@/data/industries'
 
-const industryList: IndustrySlug[] = [
-  'insurance', 'lawfirm', 'realestate', 'financial',
-  'hvac', 'roofing', 'salonspa', 'photography',
-  'dental', 'plumbing', 'trainer', 'pilates', 'lawncare',
+const industryCategories: { label: string; slugs: IndustrySlug[] }[] = [
+  { label: 'Professional Services', slugs: ['insurance', 'lawfirm', 'realestate', 'financial'] },
+  { label: 'Home Services',        slugs: ['hvac', 'roofing', 'plumbing', 'lawncare'] },
+  { label: 'Health & Wellness',    slugs: ['salonspa', 'dental', 'trainer', 'pilates'] },
+  { label: 'Creative',             slugs: ['photography'] },
 ]
 const packageList:  PackageSlug[]  = ['pulsemarket', 'pulseflow', 'pulsedrive', 'pulsecommand']
 
@@ -20,21 +21,11 @@ export default function DemoSelectorPage() {
   const [selectedIndustry, setSelectedIndustry] = useState<IndustrySlug | null>(null)
   const [selectedPackage,  setSelectedPackage]  = useState<PackageSlug  | null>(null)
   const [hoveredPackage,   setHoveredPackage]   = useState<PackageSlug  | null>(null)
-  const scrollRef = useRef<HTMLDivElement>(null)
 
   function handleGo() {
     if (selectedIndustry && selectedPackage) {
       router.push(`/demo/${selectedIndustry}/${selectedPackage}`)
     }
-  }
-
-  function scrollIndustries(direction: 'left' | 'right') {
-    if (!scrollRef.current) return
-    const scrollAmount = 300
-    scrollRef.current.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth',
-    })
   }
 
   return (
@@ -60,7 +51,7 @@ export default function DemoSelectorPage() {
           </p>
         </motion.div>
 
-        {/* Step 1 — Industry (scrollable with arrows) */}
+        {/* Step 1 — Industry */}
         <motion.section
           className="mb-12"
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={viewport}
@@ -70,50 +61,34 @@ export default function DemoSelectorPage() {
             <h2 className="text-2xl font-bold text-brand-text">Choose Your Industry</h2>
           </div>
 
-          <div className="relative md:px-12">
-            {/* Left arrow */}
-            <button
-              onClick={() => scrollIndustries('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-card border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer hidden md:flex"
-            >
-              <i className="fa-solid fa-chevron-left text-xs"></i>
-            </button>
-
-            {/* Scrollable pills */}
-            <div
-              ref={scrollRef}
-              className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 px-1"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              {industryList.map(slug => {
-                const ind = industries[slug]
-                const active = selectedIndustry === slug
-                return (
-                  <button
-                    key={slug}
-                    onClick={() => setSelectedIndustry(slug)}
-                    className={`
-                      inline-flex items-center gap-2 px-4 py-2.5 rounded-pill border-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0
-                      ${active
-                        ? 'border-apex-blue bg-apex-blue text-white shadow-card-hover'
-                        : 'border-brand-border bg-white text-brand-text hover:border-apex-blue hover:text-apex-blue'}
-                    `}
-                  >
-                    <i className={`${ind.faIcon} text-xs`}></i>
-                    {ind.name}
-                    {active && <i className="fa-solid fa-check text-xs ml-1"></i>}
-                  </button>
-                )
-              })}
-            </div>
-
-            {/* Right arrow */}
-            <button
-              onClick={() => scrollIndustries('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-card border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer hidden md:flex"
-            >
-              <i className="fa-solid fa-chevron-right text-xs"></i>
-            </button>
+          <div className="space-y-5">
+            {industryCategories.map(category => (
+              <div key={category.label}>
+                <p className="text-xs uppercase tracking-wider text-brand-muted mb-2">{category.label}</p>
+                <div className="flex flex-wrap gap-2">
+                  {category.slugs.map(slug => {
+                    const ind = industries[slug]
+                    const active = selectedIndustry === slug
+                    return (
+                      <button
+                        key={slug}
+                        onClick={() => setSelectedIndustry(slug)}
+                        className={`
+                          inline-flex items-center gap-2 px-4 py-2.5 rounded-pill border-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap
+                          ${active
+                            ? 'border-apex-blue bg-apex-blue text-white shadow-card-hover'
+                            : 'border-brand-border bg-white text-brand-text hover:border-apex-blue hover:text-apex-blue'}
+                        `}
+                      >
+                        <i className={`${ind.faIcon} text-xs`}></i>
+                        {ind.name}
+                        {active && <i className="fa-solid fa-check text-xs ml-1"></i>}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </motion.section>
 
