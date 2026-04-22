@@ -630,7 +630,12 @@ export const mockContent: Record<IndustrySlug, MockContent> = {
       '"Watch this 30-day pilates transformation \u2014 better posture, stronger core, and she says her back pain is completely gone. This is why I teach." [30 sec reel]',
       '"I am a pilates instructor and HERE are the 3 exercises I do every single morning. Number 3 takes 30 seconds and changes your entire day." [15 sec reel]',
     ],
-    shortFormVideos: [],
+    shortFormVideos: [
+      { thumbnail: '/thumbnails/pilates-sf-1.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/pilates-sf-1.mp4' },
+      { thumbnail: '/thumbnails/pilates-sf-2.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/pilates-sf-2.mp4' },
+      { thumbnail: '/thumbnails/pilates-sf-3.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/pilates-sf-3.mp4' },
+      { thumbnail: '/thumbnails/pilates-sf-4.jpg', src: 'https://tzbit9weynbew4ub.public.blob.vercel-storage.com/videos/pilates-sf-4.mp4' },
+    ],
     analyticsStats: [
       { label: 'Class Bookings',          value: '156',    change: '+34 this month',    positive: true },
       { label: 'Landing Page Visits',     value: '4,280',  change: '+28% this month',   positive: true },
