@@ -21,6 +21,11 @@ export default function DemoSelectorPage() {
   const [selectedIndustry, setSelectedIndustry] = useState<IndustrySlug | null>(null)
   const [selectedPackage,  setSelectedPackage]  = useState<PackageSlug  | null>(null)
   const [hoveredPackage,   setHoveredPackage]   = useState<PackageSlug  | null>(null)
+  const [activeCategory,   setActiveCategory]   = useState<string | null>(null)
+
+  const visibleSlugs = activeCategory
+    ? industryCategories.find(c => c.label === activeCategory)!.slugs
+    : industryCategories.flatMap(c => c.slugs)
 
   function handleGo() {
     if (selectedIndustry && selectedPackage) {
@@ -61,34 +66,48 @@ export default function DemoSelectorPage() {
             <h2 className="text-2xl font-bold text-brand-text">Choose Your Industry</h2>
           </div>
 
-          <div className="space-y-5">
-            {industryCategories.map(category => (
-              <div key={category.label}>
-                <p className="text-xs uppercase tracking-wider text-brand-muted mb-2">{category.label}</p>
-                <div className="flex flex-wrap gap-2">
-                  {category.slugs.map(slug => {
-                    const ind = industries[slug]
-                    const active = selectedIndustry === slug
-                    return (
-                      <button
-                        key={slug}
-                        onClick={() => setSelectedIndustry(slug)}
-                        className={`
-                          inline-flex items-center gap-2 px-4 py-2.5 rounded-pill border-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap
-                          ${active
-                            ? 'border-apex-blue bg-apex-blue text-white shadow-card-hover'
-                            : 'border-brand-border bg-white text-brand-text hover:border-apex-blue hover:text-apex-blue'}
-                        `}
-                      >
-                        <i className={`${ind.faIcon} text-xs`}></i>
-                        {ind.name}
-                        {active && <i className="fa-solid fa-check text-xs ml-1"></i>}
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            ))}
+          {/* Category filter tabs */}
+          <div className="flex flex-wrap gap-x-4 gap-y-2 mb-5 border-b border-brand-border pb-3">
+            {[{ label: 'All', value: null }, ...industryCategories.map(c => ({ label: c.label, value: c.label }))].map(tab => {
+              const isActive = activeCategory === tab.value
+              return (
+                <button
+                  key={tab.label}
+                  onClick={() => setActiveCategory(tab.value)}
+                  className={`text-sm font-medium pb-1 border-b-2 transition-colors cursor-pointer ${
+                    isActive
+                      ? 'text-apex-blue border-apex-blue'
+                      : 'text-brand-muted border-transparent hover:text-brand-text'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Industry pills */}
+          <div className="flex flex-wrap gap-2">
+            {visibleSlugs.map(slug => {
+              const ind = industries[slug]
+              const active = selectedIndustry === slug
+              return (
+                <button
+                  key={slug}
+                  onClick={() => setSelectedIndustry(slug)}
+                  className={`
+                    inline-flex items-center gap-2 px-4 py-2.5 rounded-pill border-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap
+                    ${active
+                      ? 'border-apex-blue bg-apex-blue text-white shadow-card-hover'
+                      : 'border-brand-border bg-white text-brand-text hover:border-apex-blue hover:text-apex-blue'}
+                  `}
+                >
+                  <i className={`${ind.faIcon} text-xs`}></i>
+                  {ind.name}
+                  {active && <i className="fa-solid fa-check text-xs ml-1"></i>}
+                </button>
+              )
+            })}
           </div>
         </motion.section>
 
