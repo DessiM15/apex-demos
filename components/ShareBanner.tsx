@@ -11,7 +11,7 @@ export default function ShareBanner() {
   }
 
   function shareText() {
-    return 'Check out this demo from Apex Infinity Group!'
+    return 'Check out this demo from Apex Affinity Group!'
   }
 
   async function handleNativeShare() {

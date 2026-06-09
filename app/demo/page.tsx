@@ -34,7 +34,7 @@ export default function DemoLandingPage() {
 
         {/* Subheadline */}
         <p className="text-white/75 text-lg md:text-xl max-w-2xl mb-6 leading-relaxed">
-          Pulse is a full-service marketing solution from Apex Infinity Group. We build and automate your entire online presence — landing pages, social media, email campaigns, blogs, podcasts, video, and more.
+          Pulse is a full-service marketing solution from Apex Affinity Group. We build and automate your entire online presence, landing pages, social media, email campaigns, blogs, podcasts, video, and more.
         </p>
         <p className="text-white/60 text-base max-w-xl mb-12 leading-relaxed">
           We are going to take you on a tour of what your Pulse service would look like. Choose your industry and package level, and explore a live, interactive demo — no signup required.

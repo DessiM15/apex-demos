@@ -41,7 +41,7 @@ export default function DemoBanner({ packageName, tier, industry }: DemoBannerPr
   const [visible, setVisible] = useState(true)
   const [shareOpen, setShareOpen] = useState(false)
 
-  const shareText = 'Check out this demo from Apex Infinity Group!'
+  const shareText = 'Check out this demo from Apex Affinity Group!'
 
   function getUrl() {
     return typeof window !== 'undefined' ? window.location.href : ''

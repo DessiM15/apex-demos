@@ -79,3 +79,4 @@ ehthumbs.db
 
 # Blob upload tooling
 /scripts/blob-url-mapping.json
+screenshots/
